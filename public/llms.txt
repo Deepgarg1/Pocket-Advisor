@@ -1,0 +1,37 @@
+# Pocket Advisor
+
+> Pocket Advisor is an offline-first personal spending and budget application for Android and a free web budget & calculator suite. Features automated on-device bank & UPI SMS transaction tracking under Google Play financial rules, 2-stage greedy debt minimization bill splitting, interactive wealth planners, and 100% private SQLCipher encrypted local storage.
+
+## Web Budget & Calculator Tools
+
+- [Quick Bill Splitter](https://www.pocketadvisor.in/split): Free web bill splitter using a 2-stage greedy bipartite debt minimization algorithm. Collapses tangled group expenses into minimum bilateral payments with 1-tap WhatsApp summary export and zero login required.
+- [Flatmates Rent & Utility Splitter](https://www.pocketadvisor.in/flatmates-rent-splitter): Split roommate rent, maid, WiFi, and electricity with 1-tap UPI deep links.
+- [Home Loan Prepayment vs SIP Calculator](https://www.pocketadvisor.in/home-loan-prepayment-vs-sip): Compare home loan interest saved against compounding equity SIP wealth.
+- [SIP Wealth Planner](https://www.pocketadvisor.in/sip-calculator): Compounding investment calculator supporting annual step-up contributions and real purchasing power discounting based on historical inflation rates.
+- [Loan EMI Calculator](https://www.pocketadvisor.in/emi-calculator): Reducing-balance loan installment and amortization schedule planner for home, car, and personal loans in India.
+- [All Calculators](https://www.pocketadvisor.in/calculators): Interactive suite of financial decision calculators.
+
+## Mobile Application (Android)
+
+- [Download Pocket Advisor](https://www.pocketadvisor.in/download): Official Android app on Google Play. 100% offline-first tracking for UPI and banking expenses.
+- [Features & Architecture](https://www.pocketadvisor.in/features): Technical overview of on-device bank & UPI SMS transaction detection (HDFC, SBI, ICICI, Axis, Bandhan, etc.), SQLCipher encrypted local database, and interactive widgets.
+- [Frequently Asked Questions](https://www.pocketadvisor.in/faq): Common queries on security, privacy, bank auto-detection, debt algorithms, and the fair freemium monetization model.
+
+## Legal & Compliance
+
+- [Privacy Policy](https://www.pocketadvisor.in/privacy): Complete transparency on data collection. 100% on-device data processing guarantee with zero server tracking of SMS, OTPs, or notifications.
+- [Terms & Conditions](https://www.pocketadvisor.in/terms): Application usage terms and service policies.
+- [Cancellation & Refund Policy](https://www.pocketadvisor.in/refund): Policy on Google Play Billing subscriptions and cancellation terms.
+- [Account & Data Deletion](https://www.pocketadvisor.in/delete-account): Self-service compliance portal to purge cloud backup data.
+- [Contact & Customer Support](https://www.pocketadvisor.in/contact): Direct email support, bug reporting, feature suggestions, and developer inquiries.
+
+## Engineering Blog & Guides
+
+- [Engineering Blog](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.
+- [Financial Guides Knowledge Base](https://www.pocketadvisor.in/guides): Problem-solving personal finance guides.
+- [How to Split Rent Fairly with Unequal Rooms](https://www.pocketadvisor.in/how-to-split-rent-unequal-rooms): Mathematical 50/50 square-footage rent split framework.
+- [Home Loan Prepayment vs Mutual Funds Guide](https://www.pocketadvisor.in/home-loan-prepayment-vs-mutual-funds): 50:50 hybrid strategy, Section 24b tax analysis, and compounding math.
+- [How to Track UPI Payments Automatically](https://www.pocketadvisor.in/how-to-track-upi-payments-automatically): On-device SMS parsing vs cloud trackers.
+- [Diwali 2026: Track UPI Spending and Stay Within Budget](https://www.pocketadvisor.in/news/diwali-2026-how-to-track-upi-spending): Practical guide to festive spending, micro-payment leaks, and group celebration expense planning.
+- [Welcome to Pocket Advisor: Product Announcement](https://www.pocketadvisor.in/news/welcome-to-pocket-advisor): Native Android app launch, privacy-first on-device SMS parsing, and wealth compounding tools.
+

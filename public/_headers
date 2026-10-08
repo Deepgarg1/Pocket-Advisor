@@ -1,0 +1,41 @@
+# Cache static immutable build assets for 1 full year
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+  X-Content-Type-Options: nosniff
+
+# Cache images and icons for 1 full year with far-future Expires
+/*.png
+  Cache-Control: public, max-age=31536000, stale-while-revalidate=86400
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+/*.webp
+  Cache-Control: public, max-age=31536000, stale-while-revalidate=86400
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+/*.ico
+  Cache-Control: public, max-age=31536000, stale-while-revalidate=86400
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+/*.svg
+  Cache-Control: public, max-age=31536000, stale-while-revalidate=86400
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+
+# Cache manifest and SEO descriptors
+/manifest.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+  Expires: Thu, 31 Dec 2037 23:59:59 GMT
+/robots.txt
+  Cache-Control: public, max-age=86400
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+/llms.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
+
+# HTML documents & pages: must revalidate to ensure immediate updates upon redeployment
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

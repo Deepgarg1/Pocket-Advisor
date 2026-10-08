@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pocket Advisor: Spending Tracker &amp; Monthly Budget App</title>
+    <meta name="description" content="Pocket Advisor is the smart spending &amp; monthly budget app for Android. Automatically track UPI expenses, split group bills with zero debt, and grow wealth." />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0e1a" />
+    <link rel="canonical" href="https://www.pocketadvisor.in/" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon.png" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="alternate icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="/logo-round.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Open Graph / Facebook / WhatsApp Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pocket Advisor" />
+    <meta property="og:url" content="https://www.pocketadvisor.in/" />
+    <meta property="og:title" content="Pocket Advisor: Spending Tracker &amp; Monthly Budget App" />
+    <meta property="og:description" content="Pocket Advisor is the smart spending &amp; monthly budget app for Android. Automatically track UPI expenses, split group bills with zero debt, and grow wealth." />
+    <meta property="og:image" content="https://www.pocketadvisor.in/logo.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pocket Advisor: Spending Tracker &amp; Monthly Budget App" />
+    <meta name="twitter:description" content="Pocket Advisor is the smart spending &amp; monthly budget app for Android. Automatically track UPI expenses, split group bills with zero debt, and grow wealth." />
+    <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload Critical Above-The-Fold Assets for LCP -->
+    <link rel="preload" href="/logo.webp" as="image" type="image/webp" fetchpriority="high" />
+
+    <!-- Non-render-blocking font stylesheet loading for Core Web Vitals (FCP/LCP) -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" />
+    </noscript>
+
+    <!-- Critical Inline Styles for Sub-500ms First Contentful Paint (FCP) -->
+    <style>
+      :root {
+        --bg-app: #090d16;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --primary: #818cf8;
+        --primary-btn: #4f46e5;
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #090d16;
+        color: #f8fafc;
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      .shell-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        height: 70px;
+        background: rgba(17, 24, 39, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 clamp(16px, 4vw, 24px);
+        max-width: 1440px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .shell-hero {
+        padding: clamp(36px, 6vw, 50px) 24px 60px;
+        max-width: 1440px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .shell-title {
+        font-size: clamp(1.8rem, 5vw, 3.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin: 0 0 18px 0;
+        color: #f8fafc;
+      }
+      .shell-gradient-text {
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .shell-desc {
+        color: #cbd5e1;
+        font-size: clamp(1rem, 2.2vw, 1.25rem);
+        max-width: 720px;
+        margin: 0 0 36px 0;
+        line-height: 1.6;
+      }
+      .shell-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 20px;
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 14px;
+        border: 1.5px solid #334155;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+    </style>
+
+    <!-- STRUCTURED_DATA_START -->
+    <!-- Schema.org JSON-LD Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Pocket Advisor",
+      "url": "https://www.pocketadvisor.in/",
+      "description": "Pocket Advisor is the smart spending & monthly budget app for Android. Automatically track UPI expenses, split group bills with zero debt, and grow wealth."
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD Structured Data: SoftwareApplication (Android Mobile App) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Pocket Advisor",
+      "operatingSystem": "Android",
+      "applicationCategory": "FinanceApplication",
+      "image": "https://www.pocketadvisor.in/logo.png",
+      "screenshot": "https://www.pocketadvisor.in/logo.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Pocket Advisor",
+        "url": "https://www.pocketadvisor.in"
+      },
+      "description": "Pocket Advisor is an offline-first personal spending and budget app for Android featuring automatic bank and UPI SMS transaction tracking, 2-stage greedy debt minimization bill splitting, home screen widgets, and interactive wealth planners."
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pocket Advisor",
+      "url": "https://www.pocketadvisor.in",
+      "logo": "https://www.pocketadvisor.in/logo.png"
+    }
+    </script>
+
+    <!-- Schema.org JSON-LD Structured Data: FAQPage (Google Rich Snippets) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Pocket Advisor track bank and UPI expenses automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 2-stage greedy debt minimization bill splitter work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Instead of tangled peer-to-peer transfers where everyone owes each other, Pocket Advisor's mathematical engine models all group debts as a bipartite graph and greedily resolves net balances, cutting up to 30 entangled transactions down to the absolute minimum payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the Quick Bill Splitter without downloading the app or creating an account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Pocket Advisor provides a 100% free interactive Web Bill Splitter with zero login required. You can split dinner, travel, or rent bills, calculate taxes and tips, and export clean itemized receipts directly to WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Pocket Advisor free and safe to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data."
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- STRUCTURED_DATA_END -->
+  </head>
+  <body>
+    <div id="root">
+      <!-- SHELL_ROOT_START -->
+      <!-- Instant App Shell: Paints in <300ms on mobile before React JS bundle executes -->
+      <header class="shell-header">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <img src="/logo.webp" alt="Pocket Advisor Logo" width="40" height="40" style="border-radius: 10px; display: block;" />
+          <span style="font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; color: #f8fafc;">Pocket Advisor</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 0.8rem; font-weight: 700; padding: 6px 12px; border-radius: 9999px; background: rgba(99, 102, 241, 0.15); color: #818cf8;">Android App</span>
+        </div>
+      </header>
+
+      <main style="flex: 1;">
+        <section class="shell-hero">
+          <!-- Logo with glowing backdrop -->
+          <div style="width: 84px; height: 84px; margin-bottom: 20px; position: relative; display: flex; align-items: center; justify-content: center;">
+            <img src="/logo.webp" alt="Pocket Advisor" width="84" height="84" fetchpriority="high" style="border-radius: 22px; width: 84px; height: 84px; object-fit: contain; box-shadow: 0 12px 36px rgba(0,0,0,0.4);" />
+          </div>
+
+          <!-- Pill Badge -->
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(99, 102, 241, 0.14); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+            <span>Official Android App • AI Spending Intelligence</span>
+          </div>
+
+          <!-- Primary Headline -->
+          <h1 class="shell-title">
+            Pocket Advisor: Spending &amp; Monthly Budget App for Android<br />
+            <span class="shell-gradient-text">Track Expenses, Split Bills &amp; Grow Wealth</span>
+          </h1>
+
+          <!-- Value Proposition Description -->
+          <p class="shell-desc">
+            Pocket Advisor is the offline-first spending and monthly budget app for Android. Automatically track UPI and bank alerts, split group debts, and project wealth with zero cloud tracking.
+          </p>
+
+          <!-- Action Button Shell -->
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px;">
+            <a href="/split" class="shell-btn">
+              <span>Try Bill Splitter</span>
+            </a>
+            <a href="/calculators" class="shell-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);">
+              <span>Financial Calculators</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Visible FAQ Shell matching FAQPage Structured Data -->
+        <section style="max-width: 860px; margin: 0 auto 60px; padding: 0 24px; width: 100%;">
+          <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 20px; text-align: center; color: #f8fafc;">Frequently Asked Questions</h2>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does Pocket Advisor track bank and UPI expenses automatically?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does the 2-stage greedy debt minimization bill splitter work?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Instead of tangled peer-to-peer transfers where everyone owes each other, Pocket Advisor's mathematical engine models all group debts as a bipartite graph and greedily resolves net balances, cutting up to 30 entangled transactions down to the absolute minimum payments.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">Can I use the Quick Bill Splitter without downloading the app or creating an account?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Yes! Pocket Advisor provides a 100% free interactive Web Bill Splitter with zero login required. You can split dinner, travel, or rent bills, calculate taxes and tips, and export clean itemized receipts directly to WhatsApp.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">Is Pocket Advisor free and safe to use?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- SHELL_ROOT_END -->
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

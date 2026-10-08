@@ -1,0 +1,437 @@
+/* ==============================================================================
+   POCKET ADVISOR: MINIMAL LUXE DESIGN SYSTEM & TOKENS
+   ============================================================================== */
+
+:root {
+  /* Color Palette - Dark Luxe (Default) */
+  --bg-app: #090d16;
+  --bg-canvas: #090d16;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #1a2234;
+  --bg-surface-glass: rgba(17, 24, 39, 0.72);
+  --bg-card: rgba(22, 30, 46, 0.75);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(99, 102, 241, 0.5);
+  --border-glass: rgba(255, 255, 255, 0.12);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-on-accent: #ffffff;
+
+  /* Accent Gradients & Brand Highlights */
+  --primary: #818cf8;
+  --primary-hover: #a5b4fc;
+  --primary-btn: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --primary-glow: rgba(99, 102, 241, 0.25);
+  --primary-surface: rgba(99, 102, 241, 0.14);
+
+  /* Status Colors */
+  --income: #34d399;
+  --income-surface: rgba(16, 185, 129, 0.14);
+  --expense: #fb7185;
+  --expense-btn: #e11d48;
+  --expense-surface: rgba(244, 63, 94, 0.14);
+  --warning: #fbbf24;
+  --warning-surface: rgba(245, 158, 11, 0.14);
+  --info: #38bdf8;
+  --info-surface: rgba(56, 189, 248, 0.14);
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Geometry & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 30px var(--primary-glow);
+
+  --backdrop-blur: blur(16px);
+  --transition-smooth: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] {
+  --bg-app: #f8fafc;
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-surface-glass: rgba(255, 255, 255, 0.82);
+  --bg-card: #ffffff;
+
+  --border-subtle: #e2e8f0;
+  --border-focus: rgba(79, 70, 229, 0.5);
+  --border-glass: rgba(226, 232, 240, 0.8);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-btn: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --primary-glow: rgba(79, 70, 229, 0.15);
+  --primary-surface: rgba(79, 70, 229, 0.1);
+
+  --income: #047857;
+  --income-surface: rgba(4, 120, 87, 0.1);
+  --expense: #be123c;
+  --expense-btn: #be123c;
+  --expense-surface: rgba(190, 18, 60, 0.1);
+  --warning: #b45309;
+  --warning-surface: rgba(180, 83, 9, 0.1);
+  --info: #0369a1;
+  --info-surface: rgba(3, 105, 161, 0.1);
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 30px rgba(79, 70, 229, 0.15);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Hide Number Input Spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px; /* Scales down all rem-based typography and spacing for better mobile density */
+  }
+}
+
+/* Tabular figures for money numbers */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Glassmorphism Surface Container */
+.glass-panel {
+  background: var(--bg-surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  -webkit-backdrop-filter: var(--backdrop-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.2); }
+  50% { box-shadow: 0 0 35px rgba(99, 102, 241, 0.45); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-glow {
+  animation: pulseGlow 3s infinite;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.hoverable-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.hoverable-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-focus);
+}
+
+/* Button Interactive States */
+.btn-primary:hover:not(:disabled),
+.btn-danger:hover:not(:disabled) {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-outline:hover:not(:disabled) {
+  filter: brightness(1.2);
+  transform: translateY(-1px);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.97) !important;
+}
+
+/* ==============================================================================
+   RESPONSIVE MOBILE STYLES & OVERFLOW PREVENTION
+   ============================================================================== */
+
+/* Navigation */
+.desktop-nav {
+  display: none !important;
+}
+.mobile-menu-btn {
+  display: flex !important;
+}
+.nav-cta-btn {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  .nav-cta-btn {
+    display: inline-flex !important;
+  }
+}
+
+/* Mobile Hero Buttons & Elements */
+@media (max-width: 640px) {
+  .hero-cta-group {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+  .hero-cta-group > a,
+  .hero-cta-group > button {
+    width: 100% !important;
+    max-width: 340px !important;
+    justify-content: center !important;
+  }
+
+  .nav-android-badge {
+    display: none !important;
+  }
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  display: flex !important;
+}
+
+.content-with-bottom-nav {
+  padding-bottom: 84px !important;
+}
+
+@media (min-width: 768px) {
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+  .content-with-bottom-nav {
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Screen Selector Tabs Scrollbar Hide */
+.screen-selector-tabs::-webkit-scrollbar {
+  display: none;
+}
+.screen-selector-tabs {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ==============================================================================
+   CORE WEB VITALS & HARDWARE ACCELERATION UTILITIES
+   ============================================================================== */
+
+/* Defer offscreen rendering for below-the-fold content blocks */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* ==============================================================================
+   NAVIGATION DROPDOWN MENU
+   ============================================================================== */
+@keyframes navDropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-dropdown-menu {
+  animation: navDropdownFade 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.nav-dropdown-item:hover {
+  background-color: var(--primary-surface);
+  transform: translateX(3px);
+}
+
+.nav-dropdown-item:hover .item-title {
+  color: var(--primary) !important;
+}
+
+.nav-dropdown-item:hover .item-icon-box {
+  transform: scale(1.08);
+}
+
+/* ==============================================================================
+   PREMIUM RESPONSIVE FOOTER ARCHITECTURE
+   ============================================================================== */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 48px;
+}
+
+.footer-col-title {
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.footer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  transition: all 0.18s ease;
+  display: inline-block;
+}
+
+.footer-nav-link:hover {
+  color: var(--text-primary);
+  transform: translateX(2px);
+}
+
+@media (max-width: 1120px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px 24px;
+  }
+  .footer-brand-col {
+    grid-column: 1 / -1;
+    max-width: 600px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 20px;
+  }
+  .footer-brand-col {
+    grid-column: 1 / -1;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+
+

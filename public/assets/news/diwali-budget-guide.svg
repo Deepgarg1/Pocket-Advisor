@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#311042"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f43f5e"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Glowing Orbs (Festive Diya ambient glow) -->
+  <circle cx="1000" cy="150" r="180" fill="#f59e0b" opacity="0.18" filter="url(#glow)"/>
+  <circle cx="200" cy="500" r="220" fill="#6366f1" opacity="0.2" filter="url(#glow)"/>
+  <circle cx="600" cy="315" r="140" fill="#ec4899" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Grid lines -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="105" x2="1200" y2="105"/>
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="525" x2="1200" y2="525"/>
+    <line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <!-- Content Container -->
+  <g transform="translate(100, 100)">
+    <!-- Category Badge -->
+    <rect x="0" y="0" width="230" height="38" rx="19" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="24" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#fbbf24" letter-spacing="1">FESTIVE BUDGETING GUIDE</text>
+
+    <!-- Main Title -->
+    <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">
+      Diwali 2026: Track UPI Spending
+    </text>
+    <text x="0" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="52" font-weight="800" fill="url(#gold)" letter-spacing="-1">
+      &amp; Stay Within Your Budget
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+      A practical blueprint to prevent micro-spend leaks, split group celebrations,
+    </text>
+    <text x="0" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="400" fill="#94a3b8">
+      and track festive expenses automatically without cloud risk.
+    </text>
+
+    <!-- Floating Cards on the Right -->
+    <g transform="translate(680, 10)">
+      <!-- Card 1: Budget Health -->
+      <rect x="0" y="0" width="320" height="130" rx="16" fill="url(#cardBg)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <circle cx="40" cy="45" r="18" fill="rgba(245, 158, 11, 0.2)"/>
+      <text x="32" y="52" font-family="sans-serif" font-size="20" fill="#f59e0b">₹</text>
+      <text x="75" y="40" font-family="sans-serif" font-size="13" font-weight="600" fill="#94a3b8">DIWALI BUDGET CAP</text>
+      <text x="75" y="70" font-family="sans-serif" font-size="26" font-weight="800" fill="#ffffff">₹20,000</text>
+      <!-- Progress Bar -->
+      <rect x="30" y="95" width="260" height="8" rx="4" fill="rgba(255,255,255,0.1)"/>
+      <rect x="30" y="95" width="180" height="8" rx="4" fill="url(#gold)"/>
+
+      <!-- Card 2: Micro Spends -->
+      <rect x="0" y="155" width="320" height="130" rx="16" fill="url(#cardBg)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+      <circle cx="40" cy="200" r="18" fill="rgba(99, 102, 241, 0.2)"/>
+      <text x="31" y="207" font-family="sans-serif" font-size="16" fill="#818cf8">⚡</text>
+      <text x="75" y="195" font-family="sans-serif" font-size="13" font-weight="600" fill="#94a3b8">UNTRACKED MICRO-SPENDS</text>
+      <text x="75" y="225" font-family="sans-serif" font-size="26" font-weight="800" fill="#f87171">₹1,965 / wk</text>
+      <text x="75" y="255" font-family="sans-serif" font-size="13" font-weight="500" fill="#64748b">Detected via On-Device SMS</text>
+    </g>
+
+    <!-- Footer Tagline -->
+    <g transform="translate(0, 360)">
+      <circle cx="16" cy="16" r="16" fill="#6366f1"/>
+      <path d="M11 16l3 3 7-7" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <text x="44" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#e2e8f0">
+        Pocket Advisor • 100% On-Device Expense Tracking
+      </text>
+    </g>
+  </g>
+</svg>

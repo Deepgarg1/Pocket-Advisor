@@ -1,0 +1,577 @@
+[
+  {
+    "id": "diwali-2026-how-to-track-upi-spending",
+    "slug": "diwali-2026-how-to-track-upi-spending",
+    "title": "Diwali 2026: How to Track UPI Spending and Stay Within Your Budget",
+    "subtitle": "A practical, zero-stress guide to managing festive spending, micro-payment leaks, and group celebration expenses.",
+    "excerpt": "Stop letting festive UPI transactions slip through the cracks. Learn how to allocate category limits, detect untracked micro-spends, and manage group expenses without sacrificing celebration.",
+    "coverImage": "/assets/news/diwali-budget-guide.png",
+    "coverImageAlt": "Diwali 2026 UPI Spending and Budgeting Guide Cover",
+    "publishedAt": "2026-10-05",
+    "updatedAt": "2026-10-08",
+    "category": "Budgeting",
+    "readTime": "6 min read",
+    "tags": [
+      "Diwali 2026",
+      "UPI Expense Tracking",
+      "Festive Budgeting",
+      "Personal Finance India",
+      "Bill Splitting"
+    ],
+    "fontStyle": "sans",
+    "author": {
+      "name": "Pocket Advisor Editorial",
+      "role": "Financial Engineering Team"
+    },
+    "faqs": [
+      {
+        "question": "How does Pocket Advisor track Diwali UPI payments automatically?",
+        "answer": "Pocket Advisor securely reads bank and UPI transaction SMS notifications generated natively on your Android device. It uses on-device regular expression pattern matching to extract the merchant, amount, and account without transmitting any SMS text or banking data to external servers."
+      },
+      {
+        "question": "Does Pocket Advisor require netbanking passwords or bank account logins?",
+        "answer": "No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local SMS alert records on your device."
+      },
+      {
+        "question": "How do I split group festival dinners and gift contributions with friends?",
+        "answer": "You can use Pocket Advisor's built-in 2-stage greedy debt minimization engine (accessible in the app or on the free web Bill Splitter). Add contributors, input custom item amounts, and share simplified settlement summaries directly to WhatsApp with UPI payment links."
+      },
+      {
+        "question": "Can I set separate budget caps for festive categories like Sweets, Gifts, and Decor?",
+        "answer": "Yes. In the Pocket Advisor Android app, you can create custom spending buckets and track real-time progress bars to ensure individual festive categories do not exceed your predetermined cap."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Diwali is a season of joy, family gatherings, gifts, and celebration. But between quick QR code scans at sweet shops, online festival sales, decorative light purchases, and delivery tips, it is also the easiest time of the year for personal finances to spin out of control."
+      },
+      {
+        "type": "paragraph",
+        "text": "A few ₹500 to ₹1,000 UPI payments rarely feel significant in isolation. However, when combined across shopping, dining, commuting, and gifts, festive spending often exceeds planned limits by 30% to 50%. The solution is not to stop celebrating—it is to eliminate blind spots with proactive budgeting."
+      },
+      {
+        "type": "metrics",
+        "items": [
+          {
+            "label": "Festive Micro-Leak",
+            "value": "₹1,965 / wk",
+            "description": "Average untracked ₹100–₹400 festive payments",
+            "change": "+38% vs regular week",
+            "isPositive": false
+          },
+          {
+            "label": "Predefined Cap",
+            "value": "₹20,000",
+            "description": "Recommended baseline festive allocation",
+            "change": "Target ceiling",
+            "isPositive": true
+          },
+          {
+            "label": "On-Device Security",
+            "value": "100%",
+            "description": "Local SMS parsing with zero cloud transmission",
+            "change": "Zero bank logins",
+            "isPositive": true
+          },
+          {
+            "label": "Group Debt Reduction",
+            "value": "67%",
+            "description": "Fewer settlement transfers using 2-stage debt math",
+            "change": "Simplified payouts",
+            "isPositive": true
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Why UPI Spending Escapes Notice During Festivals",
+        "id": "why-upi-escapes-notice"
+      },
+      {
+        "type": "paragraph",
+        "text": "UPI has transformed commerce across India. Instead of withdrawing physical cash from an ATM and visually watching notes leave your wallet, digital payments happen in seconds with a phone scan. This frictionless payment experience removes natural psychological barriers to spending."
+      },
+      {
+        "type": "callout",
+        "variant": "warning",
+        "title": "The \"Frictionless Payment\" Illusion",
+        "content": "When paying with cash, parting with five ₹500 notes triggers immediate cognitive awareness. With UPI, tapping your PIN produces the exact same physical feedback whether you pay ₹50 for chai or ₹5,000 for sweets."
+      },
+      {
+        "type": "paragraph",
+        "text": "Consider how quickly small, seemingly innocent festive transactions accumulate during a single Diwali week:"
+      },
+      {
+        "type": "table",
+        "caption": "Table 1: The Cumulative Reality of Festive Micro-Payments",
+        "headers": [
+          "Festive Occasion",
+          "Single Transaction",
+          "Weekly Frequency",
+          "Category Impact"
+        ],
+        "rows": [
+          [
+            "Quick Chai & Evening Snacks",
+            "₹180",
+            "4 times",
+            {
+              "text": "₹720",
+              "highlight": true,
+              "badge": "Food & Dining",
+              "badgeColor": "amber"
+            }
+          ],
+          [
+            "Instant Delivery / Grocery Top-Up",
+            "₹240",
+            "3 times",
+            {
+              "text": "₹720",
+              "highlight": true,
+              "badge": "Groceries",
+              "badgeColor": "blue"
+            }
+          ],
+          [
+            "Extra Sweets for Visiting Guests",
+            "₹350",
+            "3 times",
+            {
+              "text": "₹1,050",
+              "highlight": true,
+              "badge": "Festive Food",
+              "badgeColor": "amber"
+            }
+          ],
+          [
+            "Courier & Delivery Tips",
+            "₹190",
+            "4 times",
+            {
+              "text": "₹760",
+              "highlight": true,
+              "badge": "Logistics",
+              "badgeColor": "purple"
+            }
+          ],
+          [
+            "Extra Diyas & Decorative Lights",
+            "₹420",
+            "2 times",
+            {
+              "text": "₹840",
+              "highlight": true,
+              "badge": "Home Decor",
+              "badgeColor": "purple"
+            }
+          ],
+          [
+            "Pooja Supplies & Fresh Flowers",
+            "₹275",
+            "3 times",
+            {
+              "text": "₹825",
+              "highlight": true,
+              "badge": "Pooja Items",
+              "badgeColor": "purple"
+            }
+          ],
+          [
+            "Festival Auto & Cab Surge Fare",
+            "₹310",
+            "3 times",
+            {
+              "text": "₹930",
+              "highlight": true,
+              "badge": "Travel",
+              "badgeColor": "blue"
+            }
+          ],
+          [
+            {
+              "text": "Total Micro-Payments Leak",
+              "highlight": true
+            },
+            {
+              "text": "—",
+              "align": "center"
+            },
+            {
+              "text": "—",
+              "align": "center"
+            },
+            {
+              "text": "₹5,845",
+              "highlight": true,
+              "badge": "Exceeded Baseline",
+              "badgeColor": "red"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "None of these transactions felt alarming on its own. Yet collectively, over ₹5,800 disappeared without a single high-ticket purchase."
+      },
+      {
+        "type": "heading2",
+        "text": "The 5-Rule Framework for Stress-Free Festive Budgeting",
+        "id": "5-rule-budgeting-framework"
+      },
+      {
+        "type": "steps",
+        "title": "How to Protect Your Savings During Diwali",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Set Predefined Category Allocations Before Shopping",
+            "description": "Establish clear sub-budget envelopes before festive sales begin. Decide how much belongs to gifts, clothing, home decor, and festive dining rather than pulling from one ambiguous lump sum."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Protect Your Core Monthly Obligations First",
+            "description": "Rent, EMIs, SIP investments, utilities, and emergency funds do not pause for Diwali. Funnel money in this order: Income → Fixed Bills → Investments → Festive Pool → Discretionary Treats."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Track Transactions in Real Time with On-Device Automation",
+            "description": "Manual budgeting fails when you are busy celebrating. Use an automated tracker that reads your bank SMS alerts locally and categorizes spends without exposing passwords."
+          },
+          {
+            "stepNumber": 4,
+            "title": "Conduct a 3-Day Periodic Spending Check",
+            "description": "Review your actual versus planned category balance every 72 hours. If your gifts category reaches 80% by day four, you know to calibrate before the holiday ends."
+          },
+          {
+            "stepNumber": 5,
+            "title": "Settle Group Celebrations Promptly Using Debt Simplification",
+            "description": "Avoid tangled spreadsheets after family dinners or group firecracker buys. Use greedy debt simplification to resolve balances in 1–2 net payments."
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "Recommended Diwali Budget Allocation Matrix",
+        "id": "budget-allocation-matrix"
+      },
+      {
+        "type": "paragraph",
+        "text": "Below is a battle-tested distribution model for a typical ₹20,000 festive pool:"
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/diwali-body-infographic.png",
+        "alt": "Diwali Festive Budgeting Infographic",
+        "caption": "Figure 1: Visual breakdown of balanced festive spending envelopes and micro-payment guardrails."
+      },
+      {
+        "type": "table",
+        "caption": "Table 2: Pragmatic Category Allocation for a ₹20,000 Festive Fund",
+        "headers": [
+          "Category",
+          "Recommended Cap",
+          "Share (%)",
+          "Common Pitfall & Preventive Rule"
+        ],
+        "rows": [
+          [
+            "Clothing & Apparel",
+            "₹6,500",
+            "32.5%",
+            "Impulse online sale flash deals. Stick to a predetermined shopping list."
+          ],
+          [
+            "Family & Colleague Gifts",
+            "₹4,500",
+            "22.5%",
+            "Last-minute premium packaging surcharges. Buy curated hampers early."
+          ],
+          [
+            "Sweets, Dry Fruits & Food",
+            "₹3,500",
+            "17.5%",
+            "Perishable food overbuying. Calculate actual visiting headcounts."
+          ],
+          [
+            "Home Decor, Diyas & Lights",
+            "₹2,500",
+            "12.5%",
+            "Duplicate LED strings. Test last year's lights before buying."
+          ],
+          [
+            "Festive Travel & Local Transit",
+            "₹1,500",
+            "7.5%",
+            "Peak-hour ride surges. Schedule airport/station transit early."
+          ],
+          [
+            "Emergency Buffer Reserve",
+            "₹1,500",
+            "7.5%",
+            "Unexpected neighborhood sweets or delivery tips. Keep untouched until Diwali."
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "title": "Pro-Tip: The 48-Hour Wishlist Cool-off",
+        "content": "Before checking out festive flash-sale carts after 10 PM, pause for 48 hours. If the item still solves a genuine festive need two days later, purchase it within your pre-allocated apparel envelope."
+      },
+      {
+        "type": "heading2",
+        "text": "Group Splitting Without the Post-Festival Headaches",
+        "id": "group-splitting"
+      },
+      {
+        "type": "paragraph",
+        "text": "If you are celebrating Diwali with flatmates, organizing an office potluck, or coordinating family celebrations, multiple people inevitably pay for different items: one person covers the catering, another pays for sweets, and a third covers decorative lamps."
+      },
+      {
+        "type": "paragraph",
+        "text": "Instead of calculating seven separate cross-transfers where everyone owes everyone else, Pocket Advisor employs a 2-stage greedy debt minimization algorithm. It balances net debits and credits so that a 6-person group settles all debts in just 2 or 3 single UPI transfers."
+      },
+      {
+        "type": "cta",
+        "badge": "Zero Math Required",
+        "title": "Calculate Your Group Splits in 30 Seconds",
+        "description": "Try our free online Bill Splitter tool. Enter names, items, and tax to export an itemized WhatsApp receipt with direct UPI links—no login required.",
+        "buttonText": "Open Free Bill Splitter",
+        "buttonLink": "/split"
+      },
+      {
+        "type": "heading2",
+        "text": "Automate Your Festive Tracking with Pocket Advisor",
+        "id": "automate-with-pocket-advisor"
+      },
+      {
+        "type": "paragraph",
+        "text": "The best budget is the one you actually stick to. By letting Pocket Advisor parse your transaction alerts locally on Android, you get clear category insights without logging in every single ₹100 payment manually."
+      },
+      {
+        "type": "callout",
+        "variant": "takeaway",
+        "title": "Summary Checklist for Diwali 2026",
+        "content": "1. Set an overall festival cap before sales begin.\n2. Fund essential bills and SIP investments before funding gifts.\n3. Keep on-device SMS expense tracking enabled.\n4. Do a quick 3-day health check on category progress bars.\n5. Enjoy your celebrations with full peace of mind!"
+      }
+    ]
+  },
+  {
+    "id": "welcome-to-pocket-advisor",
+    "slug": "welcome-to-pocket-advisor",
+    "title": "Welcome to Pocket Advisor: Intelligent, Private Wealth Tracking",
+    "subtitle": "Why we built an Android-native financial companion designed around privacy, zero manual entry, and debt simplification.",
+    "excerpt": "Stop manually typing every expense. Discover how Pocket Advisor pairs on-device bank SMS intelligence with 2-stage greedy bill splitting and advanced compounding wealth projections.",
+    "coverImage": "/assets/news/welcome-pocket-advisor.png",
+    "coverImageAlt": "Welcome to Pocket Advisor Product Announcement Cover",
+    "publishedAt": "2026-09-12",
+    "updatedAt": "2026-10-08",
+    "category": "Product Updates",
+    "readTime": "4 min read",
+    "tags": [
+      "Product Launch",
+      "Privacy First",
+      "On-Device AI",
+      "Android",
+      "Bill Splitter",
+      "Wealth Planning"
+    ],
+    "fontStyle": "sans",
+    "author": {
+      "name": "Pocket Advisor Team",
+      "role": "Core Engineering"
+    },
+    "faqs": [
+      {
+        "question": "What makes Pocket Advisor different from traditional expense tracker apps?",
+        "answer": "Most expense trackers either demand tedious manual data entry for every transaction or require linking your bank credentials and passwords to third-party cloud servers. Pocket Advisor eliminates both compromises: it reads your SMS notifications completely on your Android device with zero cloud tracking, zero account logins, and zero ad profiling."
+      },
+      {
+        "question": "Is my financial data stored on your servers?",
+        "answer": "No. All transaction parsing, category allocation, and spending analytics execute locally on your smartphone. We do not maintain a central transaction database, ensuring your spending history stays strictly between you and your bank."
+      },
+      {
+        "question": "Can I use the group bill splitter without downloading the mobile app?",
+        "answer": "Yes! Our interactive web bill splitter is available at pocketadvisor.in/split with full 2-stage greedy debt minimization and WhatsApp export capabilities directly from your desktop or mobile browser."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "Managing personal finances shouldn’t feel like a part-time data entry job. For years, users have had to choose between two frustrating extremes: apps that require manually typing in every single coffee and grocery run, or corporate aggregators that demand bank credentials and monetize user transaction data for targeted credit card ads."
+      },
+      {
+        "type": "paragraph",
+        "text": "We created Pocket Advisor to deliver a third, better path: an intelligent, native Android companion that automates tracking while maintaining 100% cryptographic privacy on your local device."
+      },
+      {
+        "type": "metrics",
+        "items": [
+          {
+            "label": "Data Storage",
+            "value": "100% Local",
+            "description": "Encrypted SQLite on your smartphone",
+            "change": "Zero Cloud Storage",
+            "isPositive": true
+          },
+          {
+            "label": "Bank Credentials",
+            "value": "0 Required",
+            "description": "No netbanking passwords or OTP access",
+            "change": "Completely Isolated",
+            "isPositive": true
+          },
+          {
+            "label": "Debt Simplification",
+            "value": "2-Stage",
+            "description": "Greedy transaction minimization engine",
+            "change": "Minimizes transfers",
+            "isPositive": true
+          },
+          {
+            "label": "Ad Tracking",
+            "value": "Zero Ads",
+            "description": "No third-party ad SDKs or trackers",
+            "change": "Clean Experience",
+            "isPositive": true
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "How Pocket Advisor Compares to Traditional Options",
+        "id": "comparison-matrix"
+      },
+      {
+        "type": "table",
+        "caption": "Table 1: Architectural Comparison of Modern Personal Finance Solutions",
+        "headers": [
+          "Feature / Dimension",
+          "Manual Spreadsheet Apps",
+          "Cloud Bank Aggregators",
+          "Pocket Advisor"
+        ],
+        "rows": [
+          [
+            "Data Entry Method",
+            "Manual typing for every purchase",
+            "Cloud bank scraping / screen scraping",
+            {
+              "text": "Automated on-device SMS parsing",
+              "highlight": true,
+              "badge": "Automatic",
+              "badgeColor": "green"
+            }
+          ],
+          [
+            "Privacy & Data Ownership",
+            "Stored in third-party cloud DB",
+            "Sold or analyzed for financial ads",
+            {
+              "text": "100% On-device, zero telemetry",
+              "highlight": true,
+              "badge": "Private",
+              "badgeColor": "green"
+            }
+          ],
+          [
+            "Bank Credentials Required",
+            "None",
+            {
+              "text": "Yes (Passwords, Netbanking)",
+              "badge": "Security Risk",
+              "badgeColor": "red"
+            },
+            {
+              "text": "None (Zero login access)",
+              "highlight": true,
+              "badge": "Zero Risk",
+              "badgeColor": "green"
+            }
+          ],
+          [
+            "Group Bill Splitting",
+            "Separate app required",
+            "Rudimentary or absent",
+            {
+              "text": "Built-in 2-stage greedy debt solver",
+              "highlight": true,
+              "badge": "Included",
+              "badgeColor": "purple"
+            }
+          ],
+          [
+            "Wealth Calculators",
+            "None",
+            "Generic interest calculators",
+            {
+              "text": "EMI vs SIP with tax & step-up math",
+              "highlight": true,
+              "badge": "Advanced",
+              "badgeColor": "blue"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The Three Core Pillars of Pocket Advisor",
+        "id": "three-core-pillars"
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Pillar 1: Automated On-Device SMS Intelligence",
+        "content": "Pocket Advisor monitors transaction notifications from Indian banks and UPI applications (Google Pay, PhonePe, Paytm, CRED). Using intelligent regex parsing directly within the Android sandbox, it instantly categorizes debits and credits without sending single bytes over the internet."
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "title": "Pillar 2: Mathematical Debt Minimization",
+        "content": "Trips and dinner splits often result in a tangled web of obligations. Pocket Advisor models group debts as a directed graph and solves for minimum transaction edges using a two-stage greedy algorithm. If Person A owes Person B, and Person B owes Person C, Person A settles directly with Person C."
+      },
+      {
+        "type": "callout",
+        "variant": "takeaway",
+        "title": "Pillar 3: Long-Term Wealth Engineering",
+        "content": "Beyond daily tracking, Pocket Advisor helps you make major financial decisions. Should you prepay your 8.5% home loan or invest surplus funds into an equity SIP? Our interactive models compare Sec 24b tax reality with compounding returns to help you choose the highest net worth path."
+      },
+      {
+        "type": "heading2",
+        "text": "Getting Started in 3 Simple Steps",
+        "id": "getting-started"
+      },
+      {
+        "type": "steps",
+        "title": "Start Tracking Privately in Under 60 Seconds",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Download the Pocket Advisor App",
+            "description": "Install the lightweight APK directly from Google Play Store or download from our website."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Grant Local Notification Permission",
+            "description": "Authorize the Android notification listener so the app can recognize your incoming transaction SMS alerts."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Set Monthly Category Envelopes",
+            "description": "Assign sensible spending caps for dining, shopping, and fuel, and let Pocket Advisor automatically maintain your budget."
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "badge": "Android Native",
+        "title": "Ready to Take Full Control of Your Spending?",
+        "description": "Download Pocket Advisor today and experience private, automatic expense tracking and group splits.",
+        "buttonText": "Download for Android",
+        "buttonLink": "/download"
+      }
+    ]
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Pocket Advisor",
+    "identifier": "https://www.pocketadvisor.in",
+    "documentationUrl": "https://www.pocketadvisor.in/llms.txt",
+    "logoUrl": "https://www.pocketadvisor.in/logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:pocketadvisor.in:tools:quick-bill-splitter",
+      "displayName": "Quick Bill Splitter",
+      "type": "application/agent-card+json",
+      "url": "https://www.pocketadvisor.in/split",
+      "description": "Free web bill splitter using 2-stage greedy debt minimization to collapse complex shared expenses into minimum bilateral payments with WhatsApp export.",
+      "tags": [
+        "bill-splitter",
+        "debt-minimization",
+        "group-expenses",
+        "spending-and-budgeting"
+      ],
+      "capabilities": [
+        "SplitExpenses",
+        "MinimizeDebts",
+        "GenerateSettlementPlan"
+      ],
+      "representativeQueries": [
+        "split bill with friends and minimize transfers",
+        "who owes whom in group trip expense"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:tools:sip-calculator",
+      "displayName": "SIP Wealth Planner",
+      "type": "application/agent-card+json",
+      "url": "https://www.pocketadvisor.in/sip-calculator",
+      "description": "Interactive compounding investment simulator with step-up contributions and inflation-adjusted purchasing power calculations.",
+      "tags": [
+        "sip-calculator",
+        "compound-interest",
+        "wealth-projection",
+        "investing"
+      ],
+      "capabilities": [
+        "CalculateSIPReturns",
+        "AdjustForInflation",
+        "StepUpProjection"
+      ],
+      "representativeQueries": [
+        "calculate sip returns with annual step up",
+        "how much wealth after 15 years mutual fund sip"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:tools:emi-calculator",
+      "displayName": "Loan EMI & Amortization Calculator",
+      "type": "application/agent-card+json",
+      "url": "https://www.pocketadvisor.in/emi-calculator",
+      "description": "Reducing-balance loan installment calculator generating monthly amortization schedules, principal breakdowns, and prepayment interest savings.",
+      "tags": [
+        "loan-emi",
+        "mortgage-calculator",
+        "interest-amortization",
+        "prepayment"
+      ],
+      "capabilities": [
+        "CalculateMonthlyEMI",
+        "GenerateAmortizationSchedule",
+        "CalculatePrepaymentSavings"
+      ],
+      "representativeQueries": [
+        "calculate home loan emi reducing balance",
+        "how much interest saved with prepayments"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:docs:llms-txt",
+      "displayName": "Pocket Advisor AI Context Document",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://www.pocketadvisor.in/llms.txt",
+      "description": "Structured Markdown knowledge base and navigation map for autonomous LLM agents and web assistants.",
+      "tags": [
+        "llms-txt",
+        "documentation",
+        "ai-readiness"
+      ],
+      "capabilities": [
+        "ContextRetrieval",
+        "SiteNavigation"
+      ],
+      "representativeQueries": [
+        "pocket advisor features and architecture",
+        "pocket advisor documentation for ai"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-26T00:00:00Z"
+    }
+  ]
+}

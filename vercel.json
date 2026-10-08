@@ -1,0 +1,236 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "functions": {
+    "api/**/*.js": {
+      "regions": ["bom1"],
+      "maxDuration": 15
+    }
+  },
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        },
+        {
+          "key": "Expires",
+          "value": "Thu, 31 Dec 2037 23:59:59 GMT"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:ico|png|svg|webp|jpg|jpeg|woff2))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, stale-while-revalidate=86400"
+        },
+        {
+          "key": "Expires",
+          "value": "Thu, 31 Dec 2037 23:59:59 GMT"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=3600"
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.(?:json|xml|txt))",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=3600"
+        },
+        {
+          "key": "Expires",
+          "value": "Thu, 31 Dec 2037 23:59:59 GMT"
+        }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Pragma",
+          "value": "no-cache"
+        },
+        {
+          "key": "Expires",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co; frame-ancestors 'none';"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/docs/delete-account.html",
+      "destination": "/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/docs/delete-account",
+      "destination": "/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/docs/privacy-policy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/docs/terms-and-conditions.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/docs/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/docs",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/delete-account.html",
+      "destination": "/delete-account",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy.html",
+      "destination": "/refund",
+      "permanent": true
+    },
+    {
+      "source": "/refund.html",
+      "destination": "/refund",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/refund",
+      "permanent": true
+    },
+    {
+      "source": "/cancellation-policy",
+      "destination": "/refund",
+      "permanent": true
+    },
+    {
+      "source": "/cancellation-and-refund",
+      "destination": "/refund",
+      "permanent": true
+    },
+    {
+      "source": "/bill-splitter",
+      "destination": "/split",
+      "permanent": true
+    },
+    {
+      "source": "/prepayment-vs-sip",
+      "destination": "/home-loan-prepayment-vs-sip",
+      "permanent": true
+    },
+    {
+      "source": "/rent-splitter",
+      "destination": "/flatmates-rent-splitter",
+      "permanent": true
+    },
+    {
+      "source": "/sip-step-up-calculator",
+      "destination": "/sip-calculator",
+      "permanent": true
+    },
+    {
+      "source": "/split-rent-unequal-rooms",
+      "destination": "/how-to-split-rent-unequal-rooms",
+      "permanent": true
+    },
+    {
+      "source": "/prepay-home-loan-or-invest-mutual-funds",
+      "destination": "/home-loan-prepayment-vs-mutual-funds",
+      "permanent": true
+    },
+    {
+      "source": "/track-upi-payments-android-privacy",
+      "destination": "/how-to-track-upi-payments-automatically",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

@@ -608,26 +608,26 @@ const routes = [
   },
   {
     slug: 'news/diwali-2026-how-to-track-upi-spending',
-    title: 'Diwali 2026: How to Track UPI Spending and Stay Within Your Budget | Pocket Advisor',
-    description: 'Stop letting festive UPI transactions slip through the cracks. Learn how to allocate category limits, detect untracked micro-spends, and manage group expenses without sacrificing celebration.',
+    title: 'Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending | Pocket Advisor',
+    description: 'Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.',
     canonical: `${BASE_URL}/news/diwali-2026-how-to-track-upi-spending`,
     badgeCategory: 'Festive Budgeting Guide',
-    pillText: 'Diwali 2026 • Festive Expense Planning',
-    h1: 'Diwali 2026: Track UPI Spending',
-    h1Gradient: '&amp; Stay Within Your Budget',
-    heroDesc: 'A practical, zero-stress guide to managing festive spending, micro-payment leaks, and group celebration expenses.',
+    pillText: 'Diwali 2026 • NPCI Data & UPI Budgeting Hub',
+    h1: 'Diwali 2026 Budget: Track UPI Spending',
+    h1Gradient: '&amp; Avoid Overspending',
+    heroDesc: 'A data-backed, zero-stress guide to controlling festive UPI micro-transactions, setting category limits, and splitting celebration costs automatically.',
     ctaText: 'Open Bill Splitter',
     ctaHref: '/split',
     schemas: [
       {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: 'Diwali 2026: How to Track UPI Spending and Stay Within Your Budget',
-        description: 'Stop letting festive UPI transactions slip through the cracks. Learn how to allocate category limits, detect untracked micro-spends, and manage group expenses without sacrificing celebration.',
+        headline: 'Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending',
+        description: 'Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.',
         image: `${BASE_URL}/assets/news/diwali-budget-guide.png`,
         datePublished: '2026-10-05T00:00:00+05:30',
         dateModified: '2026-10-08T00:00:00+05:30',
-        author: { '@type': 'Organization', name: 'Pocket Advisor Editorial', url: BASE_URL },
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Personal Finance Desk', url: BASE_URL },
         publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
         mainEntityOfPage: `${BASE_URL}/news/diwali-2026-how-to-track-upi-spending`
       },
@@ -646,18 +646,34 @@ const routes = [
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'How does Pocket Advisor track Diwali UPI payments automatically?',
+            name: 'How can I track my Diwali expenses across Google Pay, PhonePe, and Paytm in one place?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Pocket Advisor securely reads bank and UPI transaction SMS notifications generated natively on your Android device. It uses on-device pattern matching to extract merchant and amount without transmitting any data to external servers.'
+              text: 'Every time you scan a QR code with Google Pay, PhonePe, or Paytm, your bank sends you a transaction SMS alert. Pocket Advisor monitors these SMS alerts locally on your Android device, extracting the merchant name, amount, and account into a unified festive dashboard in real time.'
             }
           },
           {
             '@type': 'Question',
-            name: 'Does Pocket Advisor require netbanking passwords or bank logins?',
+            name: 'Does Pocket Advisor require netbanking passwords, bank logins, or OTPs?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local SMS records on your device.'
+              text: 'No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local transaction SMS records stored natively on your phone without uploading any data to external servers.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How much of my monthly income should I budget for Diwali?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Financial planners recommend capping total festive spending between 15% and 20% of your net monthly take-home income (or your earmarked festive bonus). Never compromise your emergency fund or ongoing mutual fund SIP investments for temporary festival shopping.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is there any extra fee or MDR charge on UPI transactions this Diwali?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. The National Payments Corporation of India (NPCI) and the Ministry of Finance have confirmed that UPI payments remain 100% free for consumers.'
             }
           }
         ]

@@ -690,68 +690,54 @@ export function getRouteBodyContent(slug) {
         <article style="${contentStyle}">
           <div style="margin-bottom: 24px;">
             <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 14px; border-radius: 9999px; background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3);">Budgeting Guide</span>
-            <span style="margin-left: 12px; font-size: 0.85rem; color: #94a3b8;">6 min read • Published October 5, 2026</span>
+            <span style="margin-left: 12px; font-size: 0.85rem; color: #94a3b8;">8 min read • Written by Deepesh Garg • Updated October 8, 2026</span>
           </div>
 
           <h1 style="font-size: 2.2rem; font-weight: 900; color: #f8fafc; line-height: 1.25; margin-bottom: 12px;">
-            Diwali 2026: How to Track UPI Spending and Stay Within Your Budget
+            Diwali 2026 Budget: How to Track UPI Spending &amp; Avoid Overspending
           </h1>
           <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.6; margin-bottom: 28px;">
-            A practical, zero-stress guide to managing festive spending, micro-payment leaks, and group celebration expenses.
+            A data-backed, zero-stress guide to controlling festive UPI micro-transactions, setting category limits, and splitting celebration costs automatically.
           </p>
 
           <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <img src="/assets/news/diwali-budget-guide.png" alt="Diwali 2026 UPI Spending and Budgeting Guide" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/news/diwali-budget-guide.png" alt="Diwali 2026 Budget and UPI Expense Tracking Guide" style="width: 100%; height: auto; display: block;" />
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0;">
             <div style="${cardStyle} text-align: center;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Festive Micro-Leak</div>
-              <div style="font-size: 1.8rem; font-weight: 800; color: #f87171; margin: 6px 0;">₹1,965 / wk</div>
-              <div style="font-size: 0.8rem; color: #94a3b8;">Untracked small UPI payments</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Festive UPI Surge</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #818cf8; margin: 6px 0;">800M+ / day</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Peak daily volume (NPCI 2026)</div>
             </div>
             <div style="${cardStyle} text-align: center;">
-              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Predefined Cap</div>
-              <div style="font-size: 1.8rem; font-weight: 800; color: #34d399; margin: 6px 0;">₹20,000</div>
-              <div style="font-size: 0.8rem; color: #94a3b8;">Recommended budget ceiling</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Micro-Payment Share</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #f87171; margin: 6px 0;">85%+</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Transactions under ₹500</div>
+            </div>
+            <div style="${cardStyle} text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Recommended Cap</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #34d399; margin: 6px 0;">15–20%</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Of net monthly take-home salary</div>
             </div>
             <div style="${cardStyle} text-align: center;">
               <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">On-Device Security</div>
-              <div style="font-size: 1.8rem; font-weight: 800; color: #818cf8; margin: 6px 0;">100%</div>
-              <div style="font-size: 0.8rem; color: #94a3b8;">Zero banking passwords required</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #c084fc; margin: 6px 0;">100%</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Local SMS regex parsing</div>
             </div>
           </div>
 
           <h2 style="${headingStyle}">Why UPI Spending Escapes Notice During Festivals</h2>
           <p>
-            UPI has transformed commerce across India. Instead of withdrawing physical cash from an ATM and visually watching notes leave your wallet, digital payments happen in seconds with a phone scan. This frictionless payment experience removes natural psychological barriers to spending.
+            When paying with physical cash, parting with five crisp ₹500 notes triggers immediate cognitive awareness. You physically feel the weight leaving your wallet. With UPI on Google Pay, PhonePe, or Paytm, scanning a QR code produces the exact same instantaneous screen animation whether you spend ₹40 on chai or ₹4,000 on dry fruits.
           </p>
 
-          <h2 style="${headingStyle}">Table 1: The Cumulative Reality of Festive Micro-Payments</h2>
-          <div style="overflow-x: auto; margin: 24px 0;">
-            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
-              <thead>
-                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
-                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Festive Occasion</th>
-                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Single Transaction</th>
-                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Weekly Frequency</th>
-                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Category Impact</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Quick Chai &amp; Evening Snacks</td><td style="padding: 12px 16px;">₹180</td><td style="padding: 12px 16px;">4 times</td><td style="padding: 12px 16px; color: #fbbf24; font-weight: 700;">₹720 (Food)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Instant Delivery / Grocery Top-Up</td><td style="padding: 12px 16px;">₹240</td><td style="padding: 12px 16px;">3 times</td><td style="padding: 12px 16px; color: #60a5fa; font-weight: 700;">₹720 (Groceries)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Extra Sweets for Visiting Guests</td><td style="padding: 12px 16px;">₹350</td><td style="padding: 12px 16px;">3 times</td><td style="padding: 12px 16px; color: #fbbf24; font-weight: 700;">₹1,050 (Festive Food)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Courier &amp; Delivery Tips</td><td style="padding: 12px 16px;">₹190</td><td style="padding: 12px 16px;">4 times</td><td style="padding: 12px 16px; color: #c084fc; font-weight: 700;">₹760 (Tips)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Extra Diyas &amp; Decorative Lights</td><td style="padding: 12px 16px;">₹420</td><td style="padding: 12px 16px;">2 times</td><td style="padding: 12px 16px; color: #c084fc; font-weight: 700;">₹840 (Decor)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Pooja Supplies &amp; Fresh Flowers</td><td style="padding: 12px 16px;">₹275</td><td style="padding: 12px 16px;">3 times</td><td style="padding: 12px 16px; color: #c084fc; font-weight: 700;">₹825 (Pooja)</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px;">Festival Auto &amp; Cab Surge Fare</td><td style="padding: 12px 16px;">₹310</td><td style="padding: 12px 16px;">3 times</td><td style="padding: 12px 16px; color: #60a5fa; font-weight: 700;">₹930 (Travel)</td></tr>
-                <tr style="font-weight: 700; background: rgba(239, 68, 68, 0.1);"><td style="padding: 12px 16px; color: #f87171;">Total Micro-Payments Leak</td><td style="padding: 12px 16px;">—</td><td style="padding: 12px 16px;">—</td><td style="padding: 12px 16px; color: #f87171;">₹5,845 Cumulative</td></tr>
-              </tbody>
-            </table>
-          </div>
+          <h2 style="${headingStyle}">The 15–20% Income Rule for Diwali Budgeting</h2>
+          <p>
+            Before visiting festive bazaars or browsing e-commerce sales, establish a non-negotiable financial ceiling. Certified financial planners recommend the 15% to 20% Rule: your total discretionary festive outlays across clothes, gifts, sweets, and celebrations should never exceed 15% to 20% of your take-home monthly salary.
+          </p>
 
-          <h2 style="${headingStyle}">Table 2: Pragmatic Category Allocation for a ₹20,000 Festive Fund</h2>
+          <h2 style="${headingStyle}">Recommended Diwali Budget Allocation (₹20,000 Model)</h2>
           <div style="overflow-x: auto; margin: 24px 0;">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
               <thead>
@@ -759,19 +745,24 @@ export function getRouteBodyContent(slug) {
                   <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Category</th>
                   <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Recommended Cap</th>
                   <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Share (%)</th>
-                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Common Pitfall &amp; Preventive Rule</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Coverage</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Clothing &amp; Apparel</td><td style="padding: 12px 16px;">₹6,500</td><td style="padding: 12px 16px;">32.5%</td><td style="padding: 12px 16px;">Impulse online sale flash deals. Stick to a predetermined shopping list.</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Family &amp; Colleague Gifts</td><td style="padding: 12px 16px;">₹4,500</td><td style="padding: 12px 16px;">22.5%</td><td style="padding: 12px 16px;">Last-minute premium packaging surcharges. Buy curated hampers early.</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Sweets, Dry Fruits &amp; Food</td><td style="padding: 12px 16px;">₹3,500</td><td style="padding: 12px 16px;">17.5%</td><td style="padding: 12px 16px;">Perishable food overbuying. Calculate actual visiting headcounts.</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Home Decor, Diyas &amp; Lights</td><td style="padding: 12px 16px;">₹2,500</td><td style="padding: 12px 16px;">12.5%</td><td style="padding: 12px 16px;">Duplicate LED strings. Test last year's lights before buying.</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Festive Travel &amp; Local Transit</td><td style="padding: 12px 16px;">₹1,500</td><td style="padding: 12px 16px;">7.5%</td><td style="padding: 12px 16px;">Peak-hour ride surges. Schedule airport/station transit early.</td></tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Emergency Buffer Reserve</td><td style="padding: 12px 16px;">₹1,500</td><td style="padding: 12px 16px;">7.5%</td><td style="padding: 12px 16px;">Unexpected neighborhood sweets or delivery tips. Keep untouched until Diwali.</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Shopping &amp; Apparel</td><td style="padding: 12px 16px;">₹6,500</td><td style="padding: 12px 16px;">32.5%</td><td style="padding: 12px 16px;">Festive clothes, footwear, personal accessories</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Gifts &amp; Envelopes</td><td style="padding: 12px 16px;">₹4,500</td><td style="padding: 12px 16px;">22.5%</td><td style="padding: 12px 16px;">Family gifts, dry fruit hampers, corporate tokens, shagun</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Food, Sweets &amp; Feasts</td><td style="padding: 12px 16px;">₹3,500</td><td style="padding: 12px 16px;">17.5%</td><td style="padding: 12px 16px;">Mithai boxes, family dinners, dry fruits, party snacks</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Diyas, Lights &amp; Decor</td><td style="padding: 12px 16px;">₹2,500</td><td style="padding: 12px 16px;">12.5%</td><td style="padding: 12px 16px;">Clay diyas, LED string lights, torans, rangoli, puja essentials</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Festive Travel &amp; Local Transit</td><td style="padding: 12px 16px;">₹1,500</td><td style="padding: 12px 16px;">7.5%</td><td style="padding: 12px 16px;">Cabs to relatives' homes, metro cards, airport transit</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Emergency Buffer Reserve</td><td style="padding: 12px 16px;">₹1,500</td><td style="padding: 12px 16px;">7.5%</td><td style="padding: 12px 16px;">Last-minute visitors, impromptu sweets, delivery tips</td></tr>
               </tbody>
             </table>
           </div>
+
+          <h2 style="${headingStyle}">How Automatic Bank SMS Expense Tracking Works</h2>
+          <p>
+            Pocket Advisor monitors official bank transaction SMS alerts locally on your Android device. It uses native regular expressions to detect the merchant ('ABC SWEETS'), amount ('₹450'), and account without transmitting any SMS text or banking data to external cloud servers.
+          </p>
 
           <div style="${cardStyle} text-align: center; margin: 36px 0;">
             <h3 style="font-size: 1.3rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Split Festive Group Meals Without Tangled Debts</h3>

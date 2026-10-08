@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import fs from 'fs';
+import { exec } from 'child_process';
 
 // Local development middleware plugin to handle /api/notion-feed and /api/notion-page on localhost
 const notionDevPlugin = (env: Record<string, string>) => ({
@@ -359,6 +360,52 @@ const articleStudioDevPlugin = () => ({
             fs.writeFileSync(articlesPath, JSON.stringify(filtered, null, 2), 'utf8');
             console.log(`[Studio Dev] Deleted article: slug=${slug}, id=${id}`);
             return res.end(JSON.stringify({ success: true }));
+          } catch (err: any) {
+            res.statusCode = 500;
+            return res.end(JSON.stringify({ error: err.message }));
+          }
+        });
+        return;
+      }
+
+      // 4. POST /api/publish-live - Commit articles.json and push to GitHub (triggers Vercel auto-publish)
+      if (req.url === '/api/publish-live' && req.method === 'POST') {
+        res.setHeader('Content-Type', 'application/json');
+        let body = '';
+        req.on('data', (chunk: any) => { body += chunk; });
+        req.on('end', () => {
+          try {
+            let commitMsg = 'Publish article updates';
+            try {
+              const parsed = JSON.parse(body || '{}');
+              if (parsed.message) commitMsg = parsed.message;
+            } catch (_) {}
+
+            const sanitizedMsg = commitMsg.replace(/["\r\n]/g, ' ').trim();
+            const cmd = `git add src/data/articles.json && git commit -m "Publish: ${sanitizedMsg}" && git push origin main`;
+
+            console.log(`[Studio Dev] Running Git deploy: ${cmd}`);
+            exec(cmd, { cwd: __dirname }, (error, stdout, stderr) => {
+              if (error) {
+                const combined = (stdout || '') + ' ' + (stderr || '');
+                if (combined.includes('nothing to commit') || combined.includes('working tree clean')) {
+                  return res.end(JSON.stringify({
+                    success: true,
+                    message: 'Articles are already up to date on GitHub and Vercel!',
+                    details: combined.trim(),
+                  }));
+                }
+                console.error('[Studio Dev] Git deploy failed:', error, stderr);
+                res.statusCode = 500;
+                return res.end(JSON.stringify({ error: error.message, details: stderr }));
+              }
+              console.log('[Studio Dev] Git deploy successful:\n', stdout);
+              return res.end(JSON.stringify({
+                success: true,
+                message: 'Pushed to GitHub! Vercel is auto-deploying to pocketadvisor.in now (~25s).',
+                details: stdout.trim(),
+              }));
+            });
           } catch (err: any) {
             res.statusCode = 500;
             return res.end(JSON.stringify({ error: err.message }));

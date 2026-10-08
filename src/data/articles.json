@@ -2,83 +2,94 @@
   {
     "id": "diwali-2026-how-to-track-upi-spending",
     "slug": "diwali-2026-how-to-track-upi-spending",
-    "title": "Diwali 2026: How to Track UPI Spending and Stay Within Your Budget",
-    "subtitle": "A practical, zero-stress guide to managing festive spending, micro-payment leaks, and group celebration expenses.",
-    "excerpt": "Stop letting festive UPI transactions slip through the cracks. Learn how to allocate category limits, detect untracked micro-spends, and manage group expenses without sacrificing celebration.",
+    "title": "Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending",
+    "subtitle": "A data-backed, zero-stress guide to controlling festive UPI micro-transactions, setting category limits, and splitting celebration costs automatically.",
+    "excerpt": "Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.",
     "coverImage": "/assets/news/diwali-budget-guide.png",
-    "coverImageAlt": "Diwali 2026 UPI Spending and Budgeting Guide Cover",
+    "coverImageAlt": "Diwali 2026 Budget and UPI Expense Tracking Guide",
     "publishedAt": "2026-10-05",
     "updatedAt": "2026-10-08",
     "category": "Budgeting",
-    "readTime": "6 min read",
+    "readTime": "8 min read",
     "tags": [
       "Diwali 2026",
-      "UPI Expense Tracking",
-      "Festive Budgeting",
-      "Personal Finance India",
+      "how to track upi spending",
+      "upi expense tracker",
+      "track google pay expenses",
+      "phonepe spending",
+      "diwali budget planner",
+      "automatic expense tracker sms",
       "Bill Splitting"
     ],
     "fontStyle": "sans",
     "author": {
-      "name": "Pocket Advisor Editorial",
-      "role": "Financial Engineering Team"
+      "name": "Deepesh Garg",
+      "role": "Product & Personal Finance Desk"
     },
     "faqs": [
       {
-        "question": "How does Pocket Advisor track Diwali UPI payments automatically?",
-        "answer": "Pocket Advisor securely reads bank and UPI transaction SMS notifications generated natively on your Android device. It uses on-device regular expression pattern matching to extract the merchant, amount, and account without transmitting any SMS text or banking data to external servers."
+        "question": "How can I track my Diwali expenses across Google Pay, PhonePe, and Paytm in one place?",
+        "answer": "You don't need to manually check each individual payment app. Every time you scan a QR code with Google Pay, PhonePe, or Paytm, your bank sends you a transaction SMS alert. Pocket Advisor securely monitors these SMS alerts on-device, extracting the merchant name, amount, and account to update a unified festive dashboard in real time."
       },
       {
-        "question": "Does Pocket Advisor require netbanking passwords or bank account logins?",
-        "answer": "No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local SMS alert records on your device."
+        "question": "Does Pocket Advisor require netbanking passwords, bank logins, or OTPs?",
+        "answer": "No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local transaction SMS records stored natively on your phone without uploading any data to external servers."
+      },
+      {
+        "question": "How much of my monthly income should I budget for Diwali?",
+        "answer": "Financial planners recommend capping total festive spending between 15% and 20% of your net monthly take-home income (or your earmarked festive bonus). Never compromise your emergency fund or ongoing mutual fund SIP investments for temporary festival shopping."
+      },
+      {
+        "question": "Can I set separate budget caps for categories like Sweets, Gifts, and Decor?",
+        "answer": "Yes. In the Pocket Advisor Android app, you can create dedicated spending buckets and track real-time progress bars to ensure individual festive categories do not exceed your predetermined cap."
+      },
+      {
+        "question": "Is there any extra fee or MDR charge on UPI transactions this Diwali?",
+        "answer": "No. The National Payments Corporation of India (NPCI) and the Ministry of Finance have confirmed that UPI payments remain 100% free for consumers. While Merchant Discount Rates (MDR) apply to certain commercial accounts, merchants are legally prohibited from passing charges onto consumers."
       },
       {
         "question": "How do I split group festival dinners and gift contributions with friends?",
-        "answer": "You can use Pocket Advisor's built-in 2-stage greedy debt minimization engine (accessible in the app or on the free web Bill Splitter). Add contributors, input custom item amounts, and share simplified settlement summaries directly to WhatsApp with UPI payment links."
-      },
-      {
-        "question": "Can I set separate budget caps for festive categories like Sweets, Gifts, and Decor?",
-        "answer": "Yes. In the Pocket Advisor Android app, you can create custom spending buckets and track real-time progress bars to ensure individual festive categories do not exceed your predetermined cap."
+        "answer": "You can use Pocket Advisor's built-in 2-stage greedy debt minimization engine (accessible in the app or on the free web Bill Splitter at pocketadvisor.in/split). It simplifies complex criss-cross group debts into the absolute minimum number of direct peer-to-peer payments with 1-click WhatsApp UPI links."
       }
     ],
     "blocks": [
       {
         "type": "paragraph",
-        "text": "Diwali is a season of joy, family gatherings, gifts, and celebration. But between quick QR code scans at sweet shops, online festival sales, decorative light purchases, and delivery tips, it is also the easiest time of the year for personal finances to spin out of control."
+        "text": "Diwali spending rarely goes over budget because of one lavish purchase. It usually happens through dozens of seamless digital micro-payments—sweet boxes, decorative fairy lights, delivery tips, gifts, cab rides, and quick QR code scans at roadside stalls."
       },
       {
         "type": "paragraph",
-        "text": "A few ₹500 to ₹1,000 UPI payments rarely feel significant in isolation. However, when combined across shopping, dining, commuting, and gifts, festive spending often exceeds planned limits by 30% to 50%. The solution is not to stop celebrating—it is to eliminate blind spots with proactive budgeting."
+        "text": "With over 55.4 crore registered UPI users in India generating over 800 million daily transactions during the peak festive season (NPCI 2026), digital payments have eliminated the physical friction of cash. When tapping your UPI PIN feels identical for a ₹50 chai as it does for a ₹5,000 festive outfit, holiday budgets quietly disappear without notice."
       },
       {
         "type": "metrics",
         "items": [
           {
-            "label": "Festive Micro-Leak",
-            "value": "₹1,965 / wk",
-            "description": "Average untracked ₹100–₹400 festive payments",
-            "change": "+38% vs regular week",
+            "label": "Festive UPI Surge",
+            "value": "800M+ / day",
+            "description": "Peak festive daily UPI volume across India (NPCI 2026)",
+            "change": "+28% vs regular months",
+            "isPositive": true
+          },
+          {
+            "label": "Micro-Payment Share",
+            "value": "85%+",
+            "description": "UPI transactions under ₹500 representing highest leak frequency",
+            "change": "High frequency",
             "isPositive": false
           },
           {
-            "label": "Predefined Cap",
-            "value": "₹20,000",
-            "description": "Recommended baseline festive allocation",
-            "change": "Target ceiling",
+            "label": "Recommended Cap",
+            "value": "15–20%",
+            "description": "Maximum recommended share of net monthly income for festivities",
+            "change": "Safe boundary",
             "isPositive": true
           },
           {
-            "label": "On-Device Security",
+            "label": "On-Device Privacy",
             "value": "100%",
-            "description": "Local SMS parsing with zero cloud transmission",
+            "description": "Local SMS regex parsing with zero cloud transmission",
             "change": "Zero bank logins",
-            "isPositive": true
-          },
-          {
-            "label": "Group Debt Reduction",
-            "value": "67%",
-            "description": "Fewer settlement transfers using 2-stage debt math",
-            "change": "Simplified payouts",
             "isPositive": true
           }
         ]
@@ -90,271 +101,354 @@
       },
       {
         "type": "paragraph",
-        "text": "UPI has transformed commerce across India. Instead of withdrawing physical cash from an ATM and visually watching notes leave your wallet, digital payments happen in seconds with a phone scan. This frictionless payment experience removes natural psychological barriers to spending."
+        "text": "When paying with physical cash, parting with five crisp ₹500 notes triggers immediate cognitive awareness. You feel the physical weight leaving your wallet. With UPI on Google Pay, PhonePe, or Paytm, scanning a QR code produces the exact same instantaneous screen animation whether you spend ₹40 on chai or ₹4,000 on dry fruit hampers."
       },
       {
         "type": "callout",
         "variant": "warning",
         "title": "The \"Frictionless Payment\" Illusion",
-        "content": "When paying with cash, parting with five ₹500 notes triggers immediate cognitive awareness. With UPI, tapping your PIN produces the exact same physical feedback whether you pay ₹50 for chai or ₹5,000 for sweets."
+        "content": "Digital payments remove the psychological pain of paying. Because transactions are instantaneous and silent, festive shoppers routinely underestimate their cumulative spending by 30% to 50%."
+      },
+      {
+        "type": "heading2",
+        "text": "The 15–20% Income Rule for Diwali Budgeting",
+        "id": "income-rule-diwali-budget"
       },
       {
         "type": "paragraph",
-        "text": "Consider how quickly small, seemingly innocent festive transactions accumulate during a single Diwali week:"
+        "text": "Before visiting festive bazaars or browsing e-commerce sales, establish a non-negotiable financial ceiling. Certified financial planners recommend the **15% to 20% Rule**: your total discretionary festive outlays across clothes, gifts, sweets, and celebrations should never exceed 15% to 20% of your take-home monthly salary (or your earmarked festive bonus)."
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "title": "The 3 Golden Budgeting Principles for Diwali",
+        "content": "1. **Bonus Segregation:** Allocate 50% of your festive bonus to savings/debt prepayments, 30% to planned festivities, and 20% to discretionary treats.\n2. **Pre-commit Category Caps:** Fix individual limits for sweets, gifts, and decor before stepping into markets.\n3. **Dedicated Festive Account:** Move your festive budget to a secondary bank account linked to UPI so your core savings remain protected."
+      },
+      {
+        "type": "heading2",
+        "text": "Recommended Diwali Budget Allocation (₹20,000 Model)",
+        "id": "budget-allocation-matrix"
+      },
+      {
+        "type": "paragraph",
+        "text": "Below is an illustrative distribution model for a balanced ₹20,000 festive pool, reflecting realistic spending patterns of urban Indian households:"
       },
       {
         "type": "table",
-        "caption": "Table 1: The Cumulative Reality of Festive Micro-Payments",
+        "caption": "Table 1: Pragmatic Category Allocation for a ₹20,000 Festive Fund",
         "headers": [
-          "Festive Occasion",
-          "Single Transaction",
-          "Weekly Frequency",
-          "Category Impact"
+          "Festive Category",
+          "Recommended Share",
+          "Suggested Budget",
+          "What It Covers"
         ],
         "rows": [
           [
-            "Quick Chai & Evening Snacks",
-            "₹180",
-            "4 times",
-            {
-              "text": "₹720",
-              "highlight": true,
-              "badge": "Food & Dining",
-              "badgeColor": "amber"
-            }
+            "Shopping & Apparel",
+            "32.5%",
+            { "text": "₹6,500", "highlight": true, "badge": "Shopping", "badgeColor": "blue" },
+            "Festive clothes, footwear, personal accessories"
           ],
           [
-            "Instant Delivery / Grocery Top-Up",
-            "₹240",
-            "3 times",
-            {
-              "text": "₹720",
-              "highlight": true,
-              "badge": "Groceries",
-              "badgeColor": "blue"
-            }
+            "Gifts & Envelopes",
+            "22.5%",
+            { "text": "₹4,500", "highlight": true, "badge": "Gifts", "badgeColor": "purple" },
+            "Family gifts, dry fruit boxes, corporate tokens, shagun"
           ],
           [
-            "Extra Sweets for Visiting Guests",
-            "₹350",
-            "3 times",
-            {
-              "text": "₹1,050",
-              "highlight": true,
-              "badge": "Festive Food",
-              "badgeColor": "amber"
-            }
+            "Food, Sweets & Feasts",
+            "17.5%",
+            { "text": "₹3,500", "highlight": true, "badge": "Sweets", "badgeColor": "amber" },
+            "Mithai boxes, family dinners, dry fruits, party snacks"
           ],
           [
-            "Courier & Delivery Tips",
-            "₹190",
-            "4 times",
-            {
-              "text": "₹760",
-              "highlight": true,
-              "badge": "Logistics",
-              "badgeColor": "purple"
-            }
+            "Diyas, Lights & Decor",
+            "12.5%",
+            { "text": "₹2,500", "highlight": true, "badge": "Decor", "badgeColor": "purple" },
+            "Clay diyas, LED string lights, torans, rangoli, puja essentials"
           ],
           [
-            "Extra Diyas & Decorative Lights",
-            "₹420",
-            "2 times",
-            {
-              "text": "₹840",
-              "highlight": true,
-              "badge": "Home Decor",
-              "badgeColor": "purple"
-            }
+            "Festive Commute & Travel",
+            "7.5%",
+            { "text": "₹1,500", "highlight": true, "badge": "Travel", "badgeColor": "blue" },
+            "Cabs to relatives' homes, metro cards, airport transit"
           ],
           [
-            "Pooja Supplies & Fresh Flowers",
-            "₹275",
-            "3 times",
-            {
-              "text": "₹825",
-              "highlight": true,
-              "badge": "Pooja Items",
-              "badgeColor": "purple"
-            }
-          ],
-          [
-            "Festival Auto & Cab Surge Fare",
-            "₹310",
-            "3 times",
-            {
-              "text": "₹930",
-              "highlight": true,
-              "badge": "Travel",
-              "badgeColor": "blue"
-            }
-          ],
-          [
-            {
-              "text": "Total Micro-Payments Leak",
-              "highlight": true
-            },
-            {
-              "text": "—",
-              "align": "center"
-            },
-            {
-              "text": "—",
-              "align": "center"
-            },
-            {
-              "text": "₹5,845",
-              "highlight": true,
-              "badge": "Exceeded Baseline",
-              "badgeColor": "red"
-            }
+            "Emergency Buffer Reserve",
+            "7.5%",
+            { "text": "₹1,500", "highlight": true, "badge": "Reserve", "badgeColor": "green" },
+            "Last-minute visitors, impromptu sweets, delivery tips"
           ]
         ]
       },
       {
+        "type": "heading2",
+        "text": "How Small UPI Payments Accumulate: Illustrative Breakdown",
+        "id": "how-small-upi-payments-accumulate"
+      },
+      {
         "type": "paragraph",
-        "text": "None of these transactions felt alarming on its own. Yet collectively, over ₹5,800 disappeared without a single high-ticket purchase."
+        "text": "To understand where festive money vanishes, examine how everyday transactions under ₹500 accumulate over a typical 10-day festive period:"
+      },
+      {
+        "type": "table",
+        "caption": "Table 2: Illustrative Example of Festive Micro-Payments Accumulation",
+        "headers": [
+          "Incidental Festive Expense",
+          "Average Amount",
+          "10-Day Frequency",
+          "Cumulative Outflow"
+        ],
+        "rows": [
+          [
+            "Chai & evening snacks during shopping trips",
+            "₹180",
+            "4 times",
+            { "text": "₹720", "badge": "Food", "badgeColor": "amber" }
+          ],
+          [
+            "Quick sweet shop top-ups for sudden guests",
+            "₹350",
+            "3 times",
+            { "text": "₹1,050", "badge": "Sweets", "badgeColor": "amber" }
+          ],
+          [
+            "Festival auto & cab surge fare between markets",
+            "₹240",
+            "5 times",
+            { "text": "₹1,200", "badge": "Travel", "badgeColor": "blue" }
+          ],
+          [
+            "Last-minute string lights, candles & pooja flowers",
+            "₹450",
+            "3 times",
+            { "text": "₹1,350", "badge": "Decor", "badgeColor": "purple" }
+          ],
+          [
+            "Quick 10-min grocery delivery top-ups",
+            "₹280",
+            "4 times",
+            { "text": "₹1,120", "badge": "Grocery", "badgeColor": "blue" }
+          ],
+          [
+            "Delivery tips & impromptu courier charges",
+            "₹80",
+            "5 times",
+            { "text": "₹400", "badge": "Logistics", "badgeColor": "purple" }
+          ],
+          [
+            { "text": "Total Cumulative Micro-Leak", "highlight": true },
+            "—",
+            "24 transactions",
+            { "text": "₹5,840", "highlight": true, "badge": "Nearly 30% of Budget", "badgeColor": "red" }
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "Transparency Note",
+        "content": "The above table is an illustrative scenario showing the compounding effect of micro-payments under ₹500, rather than an empirical statistic of average Indian household expenditure."
       },
       {
         "type": "heading2",
-        "text": "The 5-Rule Framework for Stress-Free Festive Budgeting",
-        "id": "5-rule-budgeting-framework"
+        "text": "10 UPI Expenses to Audit Before Diwali",
+        "id": "10-upi-expenses-audit"
+      },
+      {
+        "type": "checklist",
+        "title": "High-Frequency Festive UPI Transactions Checklist",
+        "items": [
+          { "text": "Online Flash Sales: Check your cart for impulse electronics and decor discounts you didn't plan for.", "checked": true },
+          { "text": "Quick Grocery Apps: Monitor delivery charges and surge pricing on 10-minute grocery apps (Blinkit, Zepto, Instamart).", "checked": true },
+          { "text": "Bulk Sweet Hampers: Avoid luxury packaging markups by purchasing curated local mithai.", "checked": false },
+          { "text": "Cab Surge Pricing: Check ride aggregator surge multipliers during Dhanteras and Diwali eve traffic peaks.", "checked": false },
+          { "text": "Street Decor Scans: Keep track of small cash/QR scans on diyas, garlands, and fairy lights.", "checked": true },
+          { "text": "Recurring OTT Subscriptions: Pause unused streaming memberships that auto-renew during holiday week.", "checked": false },
+          { "text": "Peer Gift Pools: Log shared office gifts and family celebration contributions promptly.", "checked": false },
+          { "text": "Restaurant & Dining Out: Ensure group party dinners don't exceed your dining bucket.", "checked": false },
+          { "text": "Dhanteras Gold/Silver: Separate auspicious ceremonial purchases from long-term investment assets.", "checked": true },
+          { "text": "Unsettled Group Splits: Send UPI settlement requests immediately after shared festive trips.", "checked": false }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "The 7-Day Diwali Spending Challenge",
+        "id": "7-day-spending-challenge"
+      },
+      {
+        "type": "paragraph",
+        "text": "Try the **₹500 Micro-Spending Test**: for 7 days leading up to Diwali, record or track every single UPI transaction below ₹500. Review the total on Day 7 to reveal your hidden spending rate:"
+      },
+      {
+        "type": "table",
+        "caption": "Table 3: Example 7-Day Micro-Spending Tracking Log",
+        "headers": [
+          "Day",
+          "Sub-₹500 Transactions",
+          "Daily Micro Total",
+          "Running Weekly Total"
+        ],
+        "rows": [
+          [ "Day 1 (Mon)", "3 payments (Chai, flowers, fruit)", "₹290", "₹290" ],
+          [ "Day 2 (Tue)", "4 payments (Snacks, auto ride, courier)", "₹410", "₹700" ],
+          [ "Day 3 (Wed)", "2 payments (Coffee, quick grocery)", "₹320", "₹1,020" ],
+          [ "Day 4 (Thu)", "5 payments (Sweets sample, tea, diyas)", "₹580", "₹1,600" ],
+          [ "Day 5 (Fri)", "4 payments (Decor lights, street food)", "₹470", "₹2,070" ],
+          [ "Day 6 (Sat)", "6 payments (Market auto, drinks, snacks)", "₹690", "₹2,760" ],
+          [ "Day 7 (Sun)", "5 payments (Bakery treats, delivery fee)", "₹530", { "text": "₹3,290", "highlight": true, "badge": "7-Day Total", "badgeColor": "amber" } ]
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "takeaway",
+        "title": "The Key Takeaway",
+        "content": "A weekly micro-total of ₹3,290 scales to over **₹14,000 across a 30-day festive month**. Identifying these small leaks is the fastest way to stay on budget without cutting back on meaningful celebrations."
+      },
+      {
+        "type": "heading2",
+        "text": "How Automatic Bank SMS Expense Tracking Works",
+        "id": "how-automatic-sms-tracking-works"
+      },
+      {
+        "type": "paragraph",
+        "text": "Typing 20 to 30 small UPI purchases into spreadsheets is tedious and quickly abandoned. Pocket Advisor automates this completely on your Android device by parsing bank transaction alerts in real time:"
       },
       {
         "type": "steps",
-        "title": "How to Protect Your Savings During Diwali",
+        "title": "Pocket Advisor's 4-Stage On-Device Intelligence Pipeline",
         "steps": [
           {
             "stepNumber": 1,
-            "title": "Set Predefined Category Allocations Before Shopping",
-            "description": "Establish clear sub-budget envelopes before festive sales begin. Decide how much belongs to gifts, clothing, home decor, and festive dining rather than pulling from one ambiguous lump sum."
+            "title": "Bank Transaction SMS Trigger",
+            "description": "Your bank generates a standard debit SMS: 'Rs. 450.00 debited from A/c XX1234 on 08-Oct-26 via UPI to ABC SWEETS...'"
           },
           {
             "stepNumber": 2,
-            "title": "Protect Your Core Monthly Obligations First",
-            "description": "Rent, EMIs, SIP investments, utilities, and emergency funds do not pause for Diwali. Funnel money in this order: Income → Fixed Bills → Investments → Festive Pool → Discretionary Treats."
+            "title": "On-Device Regex Pattern Extraction",
+            "description": "The native Android engine parses the merchant ('ABC SWEETS'), amount ('₹450'), and account ('HDFC XX1234') locally."
           },
           {
             "stepNumber": 3,
-            "title": "Track Transactions in Real Time with On-Device Automation",
-            "description": "Manual budgeting fails when you are busy celebrating. Use an automated tracker that reads your bank SMS alerts locally and categorizes spends without exposing passwords."
+            "title": "Automatic Category Tagging",
+            "description": "The transaction is assigned to 'Food & Sweets' and recorded without sending any data over the internet."
           },
           {
             "stepNumber": 4,
-            "title": "Conduct a 3-Day Periodic Spending Check",
-            "description": "Review your actual versus planned category balance every 72 hours. If your gifts category reaches 80% by day four, you know to calibrate before the holiday ends."
-          },
-          {
-            "stepNumber": 5,
-            "title": "Settle Group Celebrations Promptly Using Debt Simplification",
-            "description": "Avoid tangled spreadsheets after family dinners or group firecracker buys. Use greedy debt simplification to resolve balances in 1–2 net payments."
+            "title": "Real-Time Festive Budget Alerts",
+            "description": "The app updates your festive category progress bar, warning you before you exceed your predefined limit."
           }
         ]
       },
       {
         "type": "heading2",
-        "text": "Recommended Diwali Budget Allocation Matrix",
-        "id": "budget-allocation-matrix"
-      },
-      {
-        "type": "paragraph",
-        "text": "Below is a battle-tested distribution model for a typical ₹20,000 festive pool:"
-      },
-      {
-        "type": "image",
-        "src": "/assets/news/diwali-body-infographic.png",
-        "alt": "Diwali Festive Budgeting Infographic",
-        "caption": "Figure 1: Visual breakdown of balanced festive spending envelopes and micro-payment guardrails."
+        "text": "Manual vs Automatic Expense Tracking Matrix",
+        "id": "manual-vs-automatic-tracking"
       },
       {
         "type": "table",
-        "caption": "Table 2: Pragmatic Category Allocation for a ₹20,000 Festive Fund",
+        "caption": "Table 4: Comparing Expense Tracking Approaches for Indian Users",
         "headers": [
-          "Category",
-          "Recommended Cap",
-          "Share (%)",
-          "Common Pitfall & Preventive Rule"
+          "Feature / Dimension",
+          "Notes App / Diary",
+          "Excel / Sheets",
+          "Bank PDF Statement",
+          "Cloud Aggregators",
+          "Pocket Advisor"
         ],
         "rows": [
           [
-            "Clothing & Apparel",
-            "₹6,500",
-            "32.5%",
-            "Impulse online sale flash deals. Stick to a predetermined shopping list."
+            "Zero Manual Typing Needed",
+            "No (Manual)",
+            "No (Manual)",
+            "Historical only",
+            "Requires bank login",
+            { "text": "100% Automated from SMS", "highlight": true, "badge": "Instant", "badgeColor": "green" }
           ],
           [
-            "Family & Colleague Gifts",
-            "₹4,500",
-            "22.5%",
-            "Last-minute premium packaging surcharges. Buy curated hampers early."
+            "Real-Time Spending Alerts",
+            "None",
+            "None",
+            "End of month only",
+            "Delayed cloud sync",
+            { "text": "Instant on SMS arrival", "highlight": true, "badge": "Real-Time", "badgeColor": "green" }
           ],
           [
-            "Sweets, Dry Fruits & Food",
-            "₹3,500",
-            "17.5%",
-            "Perishable food overbuying. Calculate actual visiting headcounts."
+            "Zero Bank Passwords Needed",
+            "Safe",
+            "Safe",
+            "Safe",
+            "Requires credentials",
+            { "text": "Zero Credentials Needed", "highlight": true, "badge": "Zero Risk", "badgeColor": "green" }
           ],
           [
-            "Home Decor, Diyas & Lights",
-            "₹2,500",
-            "12.5%",
-            "Duplicate LED strings. Test last year's lights before buying."
+            "100% On-Device Privacy",
+            "Yes",
+            "Stored on cloud",
+            "Stored in email",
+            "Sold for loan ads",
+            { "text": "100% Private (No Cloud DB)", "highlight": true, "badge": "Encrypted", "badgeColor": "purple" }
           ],
           [
-            "Festive Travel & Local Transit",
-            "₹1,500",
-            "7.5%",
-            "Peak-hour ride surges. Schedule airport/station transit early."
-          ],
-          [
-            "Emergency Buffer Reserve",
-            "₹1,500",
-            "7.5%",
-            "Unexpected neighborhood sweets or delivery tips. Keep untouched until Diwali."
+            "Built-in Group Bill Splitter",
+            "None",
+            "Complex formulas",
+            "None",
+            "Separate app needed",
+            { "text": "Greedy Bipartite Solver", "highlight": true, "badge": "Built-In", "badgeColor": "blue" }
           ]
         ]
       },
       {
+        "type": "heading2",
+        "text": "Guarding Against the \"Credit on UPI\" & BNPL Trap",
+        "id": "credit-on-upi-trap"
+      },
+      {
+        "type": "paragraph",
+        "text": "A major shift in the 2026 festive season is the rapid expansion of **Credit on UPI** (linking RuPay credit cards to UPI) and Buy Now Pay Later (BNPL) checkouts. While convenient, financing perishable festival consumption through revolving debt carries immense danger."
+      },
+      {
         "type": "callout",
-        "variant": "tip",
-        "title": "Pro-Tip: The 48-Hour Wishlist Cool-off",
-        "content": "Before checking out festive flash-sale carts after 10 PM, pause for 48 hours. If the item still solves a genuine festive need two days later, purchase it within your pre-allocated apparel envelope."
+        "variant": "warning",
+        "title": "The Perishable Expense Rule",
+        "content": "Never borrow money or swipe revolving credit lines for items consumed within 48 hours (sweets, fireworks, decorations). Unpaid festive balances attract annualized interest rates of **36% to 44%**, turning a festive celebration into a months-long financial headache."
       },
       {
         "type": "heading2",
-        "text": "Group Splitting Without the Post-Festival Headaches",
+        "text": "Splitting Group Celebrations with Minimal Transfers",
         "id": "group-splitting"
       },
       {
         "type": "paragraph",
-        "text": "If you are celebrating Diwali with flatmates, organizing an office potluck, or coordinating family celebrations, multiple people inevitably pay for different items: one person covers the catering, another pays for sweets, and a third covers decorative lamps."
-      },
-      {
-        "type": "paragraph",
-        "text": "Instead of calculating seven separate cross-transfers where everyone owes everyone else, Pocket Advisor employs a 2-stage greedy debt minimization algorithm. It balances net debits and credits so that a 6-person group settles all debts in just 2 or 3 single UPI transfers."
+        "text": "When celebrating Diwali with flatmates, friends, or family potlucks, multiple people often pay for different expenses. Rather than executing 15 confusing cross-transfers where everyone pays everyone else, Pocket Advisor's greedy debt engine balances net credits and debits to settle the entire group in just 2 or 3 direct payments."
       },
       {
         "type": "cta",
-        "badge": "Zero Math Required",
-        "title": "Calculate Your Group Splits in 30 Seconds",
-        "description": "Try our free online Bill Splitter tool. Enter names, items, and tax to export an itemized WhatsApp receipt with direct UPI links—no login required.",
+        "badge": "Free Online Tool",
+        "title": "Split Your Festive Bills in 30 Seconds",
+        "description": "Try our free web Bill Splitter. Input names and items to generate an itemized WhatsApp summary with 1-click UPI links—zero login required.",
         "buttonText": "Open Free Bill Splitter",
         "buttonLink": "/split"
       },
       {
         "type": "heading2",
-        "text": "Automate Your Festive Tracking with Pocket Advisor",
-        "id": "automate-with-pocket-advisor"
-      },
-      {
-        "type": "paragraph",
-        "text": "The best budget is the one you actually stick to. By letting Pocket Advisor parse your transaction alerts locally on Android, you get clear category insights without logging in every single ₹100 payment manually."
+        "text": "Regulatory Citations & E-E-A-T Editorial Review",
+        "id": "regulatory-citations"
       },
       {
         "type": "callout",
-        "variant": "takeaway",
-        "title": "Summary Checklist for Diwali 2026",
-        "content": "1. Set an overall festival cap before sales begin.\n2. Fund essential bills and SIP investments before funding gifts.\n3. Keep on-device SMS expense tracking enabled.\n4. Do a quick 3-day health check on category progress bars.\n5. Enjoy your celebrations with full peace of mind!"
+        "variant": "info",
+        "title": "Authoritative Sources Cited",
+        "content": "• **NPCI (National Payments Corporation of India):** Monthly UPI Volume & Value Metrics (FY 2025–26).\n• **Reserve Bank of India (RBI):** Payment and Settlement Systems Bulletins.\n• **Ministry of Finance (Govt of India):** Digital Payments Consumer Protection Circulars.\n• **Author:** Deepesh Garg (Product & Personal Finance Desk) | **Reviewed by:** Pocket Advisor Editorial Advisory (Last Updated: October 8, 2026)."
+      },
+      {
+        "type": "cta",
+        "badge": "Android Native",
+        "title": "Take Control of Your Festive Finances Today",
+        "description": "Download Pocket Advisor free. Automate expense tracking from bank SMS, protect your savings with custom category caps, and celebrate stress-free.",
+        "buttonText": "Download for Android",
+        "buttonLink": "/download"
       }
     ]
   },

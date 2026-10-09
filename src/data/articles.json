@@ -3,12 +3,12 @@
     "id": "diwali-2026-how-to-track-upi-spending",
     "slug": "diwali-2026-how-to-track-upi-spending",
     "title": "Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending",
-    "subtitle": "A data-backed, zero-stress guide to controlling festive UPI micro-transactions, setting category limits, and splitting celebration costs automatically.",
-    "excerpt": "Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.",
+    "subtitle": "A practical guide to planning festive spending, setting category limits, and reviewing UPI transactions during Diwali.",
+    "excerpt": "Stop letting festive UPI transactions drain your savings. Learn how to review eligible bank SMS alerts, organize festive expenses, and build a Diwali budget with illustrative examples.",
     "coverImage": "/assets/news/diwali-budget-guide.webp",
     "coverImageAlt": "Diwali 2026 Budget and UPI Expense Tracking Guide",
     "publishedAt": "2026-10-05",
-    "updatedAt": "2026-10-08",
+    "updatedAt": "2026-10-10",
     "category": "Budgeting",
     "readTime": "8 min read",
     "tags": [
@@ -29,15 +29,15 @@
     "faqs": [
       {
         "question": "How can I track my Diwali expenses across Google Pay, PhonePe, and Paytm in one place?",
-        "answer": "You don't need to manually check each individual payment app. Every time you scan a QR code with Google Pay, PhonePe, or Paytm, your bank sends you a transaction SMS alert. Pocket Advisor securely monitors these SMS alerts on-device, extracting the merchant name, amount, and account to update a unified festive dashboard in real time."
+        "answer": "You don't need to manually check each individual payment app. Some banks send transaction SMS alerts for eligible payments, but availability and timing can vary by bank, account, and payment type. When a supported alert reaches your device, Pocket Advisor may extract available details such as amount and merchant. Reconcile your ledger with your bank statement because not every payment is guaranteed to generate a parseable SMS."
       },
       {
         "question": "Does Pocket Advisor require netbanking passwords, bank logins, or OTPs?",
-        "answer": "No. Pocket Advisor never asks for bank account numbers, passwords, OTPs, or UPI PINs. All spending analysis happens strictly from local transaction SMS records stored natively on your phone without uploading any data to external servers."
+        "answer": "Pocket Advisor does not need your netbanking password or UPI PIN to parse an SMS alert. SMS parsing is designed to run on-device; optional cloud backup may sync selected app data if you enable it. Check the current Privacy Policy for details."
       },
       {
         "question": "How much of my monthly income should I budget for Diwali?",
-        "answer": "Financial planners recommend capping total festive spending between 15% and 20% of your net monthly take-home income (or your earmarked festive bonus). Never compromise your emergency fund or ongoing mutual fund SIP investments for temporary festival shopping."
+        "answer": "There is no universal percentage that suits every household. Set a festive limit after accounting for essential bills, debt repayments, savings goals, and your available discretionary money."
       },
       {
         "question": "Can I set separate budget caps for categories like Sweets, Gifts, and Decor?",
@@ -45,11 +45,11 @@
       },
       {
         "question": "Is there any extra fee or MDR charge on UPI transactions this Diwali?",
-        "answer": "No. The National Payments Corporation of India (NPCI) and the Ministry of Finance have confirmed that UPI payments remain 100% free for consumers. While Merchant Discount Rates (MDR) apply to certain commercial accounts, merchants are legally prohibited from passing charges onto consumers."
+        "answer": "Charges depend on the payment instrument, transaction type, and applicable rules. Check current official NPCI, bank, and payment-provider guidance for your specific transaction rather than assuming every UPI-linked payment is free of every possible fee."
       },
       {
         "question": "How do I split group festival dinners and gift contributions with friends?",
-        "answer": "You can use Pocket Advisor's built-in 2-stage greedy debt minimization engine (accessible in the app or on the free web Bill Splitter at pocketadvisor.in/split). It simplifies complex criss-cross group debts into the absolute minimum number of direct peer-to-peer payments with 1-click WhatsApp UPI links."
+        "answer": "You can use Pocket Advisor's built-in 2-stage greedy debt minimization engine (accessible in the app or on the free web Bill Splitter at pocketadvisor.in/split). It calculates a simplified set of settlements for group expenses and can help you share the result with friends."
       }
     ],
     "blocks": [
@@ -59,37 +59,37 @@
       },
       {
         "type": "paragraph",
-        "text": "With over 55.4 crore registered UPI users in India generating over 800 million daily transactions during the peak festive season (NPCI 2026), digital payments have eliminated the physical friction of cash. When tapping your UPI PIN feels identical for a ₹50 chai as it does for a ₹5,000 festive outfit, holiday budgets quietly disappear without notice."
+        "text": "UPI makes everyday payments convenient, but small purchases can be harder to remember than cash spending. This article uses examples to show how frequent payments can add up; consult NPCI's official publications for current transaction statistics. When tapping your UPI PIN feels identical for a ₹50 chai as it does for a ₹5,000 festive outfit, holiday budgets quietly disappear without notice."
       },
       {
         "type": "metrics",
         "items": [
           {
-            "label": "Festive UPI Surge",
-            "value": "800M+ / day",
-            "description": "Peak festive daily UPI volume across India (NPCI 2026)",
-            "change": "+28% vs regular months",
+            "label": "Festive Budget",
+            "value": "₹20,000",
+            "description": "Illustrative budget used in this article, not a national average",
+            "change": "Example only",
             "isPositive": true
           },
           {
-            "label": "Micro-Payment Share",
-            "value": "85%+",
-            "description": "UPI transactions under ₹500 representing highest leak frequency",
-            "change": "High frequency",
-            "isPositive": false
-          },
-          {
-            "label": "Recommended Cap",
-            "value": "15–20%",
-            "description": "Maximum recommended share of net monthly income for festivities",
-            "change": "Safe boundary",
+            "label": "Small Purchases",
+            "value": "₹50–₹500",
+            "description": "Illustrative transaction range for the examples below",
+            "change": "Track regularly",
             "isPositive": true
           },
           {
-            "label": "On-Device Privacy",
-            "value": "100%",
-            "description": "Local SMS regex parsing with zero cloud transmission",
-            "change": "Zero bank logins",
+            "label": "Budget Review",
+            "value": "Weekly",
+            "description": "A suggested review cadence; adjust to your needs",
+            "change": "Personal choice",
+            "isPositive": true
+          },
+          {
+            "label": "SMS Tracking",
+            "value": "Varies",
+            "description": "Coverage depends on bank alerts and supported message formats",
+            "change": "Reconcile records",
             "isPositive": true
           }
         ]
@@ -107,16 +107,16 @@
         "type": "callout",
         "variant": "warning",
         "title": "The \"Frictionless Payment\" Illusion",
-        "content": "Digital payments remove the psychological pain of paying. Because transactions are instantaneous and silent, festive shoppers routinely underestimate their cumulative spending by 30% to 50%."
+        "content": "Digital payments can make spending feel less tangible. Some people may underestimate cumulative purchases when they do not review them regularly; the effect varies by person and situation."
       },
       {
         "type": "heading2",
-        "text": "The 15–20% Income Rule for Diwali Budgeting",
+        "text": "How to Set a Diwali Budget That Fits Your Finances",
         "id": "income-rule-diwali-budget"
       },
       {
         "type": "paragraph",
-        "text": "Before visiting festive bazaars or browsing e-commerce sales, establish a non-negotiable financial ceiling. Certified financial planners recommend the **15% to 20% Rule**: your total discretionary festive outlays across clothes, gifts, sweets, and celebrations should never exceed 15% to 20% of your take-home monthly salary (or your earmarked festive bonus)."
+        "text": "Before visiting festive bazaars or browsing e-commerce sales, establish a non-negotiable financial ceiling. A useful starting point is to decide on a limit that fits your own cash flow. Prioritize rent, bills, debt repayments, emergency savings, and existing goals before setting a discretionary festive budget."
       },
       {
         "type": "callout",
@@ -131,7 +131,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Below is an illustrative distribution model for a balanced ₹20,000 festive pool, reflecting realistic spending patterns of urban Indian households:"
+        "text": "Below is an illustrative allocation for a ₹20,000 festive budget. It is an example, not a survey result or a recommended allocation for every household:"
       },
       {
         "type": "table",
@@ -444,7 +444,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Typing 20 to 30 small UPI purchases into spreadsheets is tedious and quickly abandoned. Pocket Advisor automates this completely on your Android device by parsing bank transaction alerts in real time:"
+        "text": "Typing 20 to 30 small UPI purchases into spreadsheets is tedious and quickly abandoned. Pocket Advisor can reduce manual entry by parsing supported bank transaction alerts that reach your Android device. SMS availability and parser coverage vary, so review the ledger for missing or misclassified transactions:"
       },
       {
         "type": "steps",
@@ -479,7 +479,7 @@
       },
       {
         "type": "table",
-        "caption": "Table 4: Comparing Expense Tracking Approaches for Indian Users",
+        "caption": "Table 4: General Comparison of Expense-Tracking Approaches",
         "headers": [
           "Feature / Dimension",
           "Notes App / Diary",
@@ -493,8 +493,8 @@
             "Zero Manual Typing Needed",
             "No (Manual)",
             "No (Manual)",
-            "Historical only",
-            "Requires bank login",
+            "Depends on app",
+            "Depends on app",
             {
               "text": "100% Automated from SMS",
               "highlight": true,
@@ -533,7 +533,7 @@
             "Yes",
             "Stored on cloud",
             "Stored in email",
-            "Sold for loan ads",
+            "Monetization varies",
             {
               "text": "100% Private (No Cloud DB)",
               "highlight": true,
@@ -596,7 +596,7 @@
       {
         "type": "callout",
         "variant": "info",
-        "title": "Authoritative Sources Cited",
+        "title": "Official resources and editorial note",
         "content": "• **NPCI (National Payments Corporation of India):** Monthly UPI Volume & Value Metrics (FY 2025–26).\n• **Reserve Bank of India (RBI):** Payment and Settlement Systems Bulletins.\n• **Ministry of Finance (Govt of India):** Digital Payments Consumer Protection Circulars.\n• **Author:** Deepesh Garg (Product & Personal Finance Desk) | **Reviewed by:** Pocket Advisor Editorial Advisory (Last Updated: October 8, 2026)."
       },
       {
@@ -834,7 +834,7 @@
     "coverImage": "/assets/news/track-upi-expenses-automatically.svg",
     "coverImageAlt": "How to Track UPI Expenses Automatically in India Step-by-Step Guide",
     "publishedAt": "2026-10-09",
-    "updatedAt": "2026-10-09",
+    "updatedAt": "2026-10-10",
     "category": "Guides",
     "readTime": "10 min read",
     "tags": [
@@ -856,7 +856,7 @@
     "faqs": [
       {
         "question": "How does Pocket Advisor detect my UPI transactions automatically?",
-        "answer": "Every time you scan a QR code with Google Pay, PhonePe, Paytm, or CRED, your bank sends an instant confirmation SMS alert. Pocket Advisor processes this SMS in under 15ms directly on your Android phone using a deterministic regex grammar engine, without sending any data over the internet."
+        "answer": "Some banks send transaction SMS alerts for eligible payments, but coverage and delivery timing vary by bank, account, and payment type. When a supported alert reaches your device, Pocket Advisor attempts to parse its transaction details on-device. Actual processing time and coverage can vary; optional cloud backup may sync selected app data if you enable it."
       },
       {
         "question": "What permissions are required to track UPI payments automatically?",
@@ -868,7 +868,7 @@
       },
       {
         "question": "What happens if my bank doesn't send an SMS for small UPI payments below ₹100?",
-        "answer": "In 2024–2026, several Indian banks waived SMS alerts for micro-transactions under ₹100. Pocket Advisor solves this through its 1-tap Home Screen Quick-Add Widget and bank balance delta reconciliation: when the next SMS arrives with your updated balance, Pocket Advisor alerts you to reconcile the difference."
+        "answer": "Some payments may not produce an SMS alert, and alert practices vary. If a transaction is missing, add it manually and compare your records with your bank statement. Use a quick-add feature if it is available in your app version."
       },
       {
         "question": "Can I back up my spending data to the cloud?",
@@ -886,37 +886,37 @@
       },
       {
         "type": "paragraph",
-        "text": "Trying to track these micro-transactions by manually typing amounts into a spreadsheet or traditional budgeting app fails for over 95% of people within two weeks. The sheer volume makes manual bookkeeping unsustainable. In this comprehensive guide, we demonstrate how to track your UPI spending automatically on Android—using zero manual entry, 100% on-device deterministic regex parsing, and military-grade SQLCipher encryption."
+        "text": "Manual tracking can become tedious when transactions are frequent, although the experience varies by person. This guide explains ways to reduce repetitive entry and review your records. The sheer volume makes manual bookkeeping unsustainable. In this comprehensive guide, we demonstrate how to track your UPI spending automatically on Android—using supported SMS parsing, review of imported transactions, and the app's available local-storage and backup settings."
       },
       {
         "type": "metrics",
         "items": [
           {
-            "label": "Monthly UPI Volume",
-            "value": "15B+",
-            "description": "Total monthly UPI transactions across India (NPCI 2026)",
-            "change": "+34% YoY",
+            "label": "SMS Coverage",
+            "value": "Varies",
+            "description": "Depends on the bank, payment type, and message format",
+            "change": "Check records",
             "isPositive": true
           },
           {
-            "label": "Detection Latency",
-            "value": "<15ms",
-            "description": "On-device regex parse time per incoming transaction SMS",
-            "change": "Real-time",
+            "label": "Parser Speed",
+            "value": "Device-dependent",
+            "description": "No universal processing-time guarantee is stated",
+            "change": "Implementation varies",
             "isPositive": true
           },
           {
-            "label": "Local Vault Encryption",
-            "value": "AES-256",
-            "description": "SQLCipher cryptographic storage in phone hardware sandbox",
-            "change": "Zero cloud leaks",
+            "label": "Storage & Backup",
+            "value": "Settings-based",
+            "description": "Review local storage and optional cloud-backup disclosures",
+            "change": "Read privacy policy",
             "isPositive": true
           },
           {
-            "label": "Telemarketing Calls",
-            "value": "0 Calls",
-            "description": "Strict policy: zero loan cross-selling or NBFC underwriting",
-            "change": "Guaranteed",
+            "label": "Data Sharing",
+            "value": "See policy",
+            "description": "Review current privacy and advertising disclosures",
+            "change": "Verify current terms",
             "isPositive": true
           }
         ]
@@ -928,11 +928,11 @@
       },
       {
         "type": "paragraph",
-        "text": "Whenever you complete a payment using Google Pay, PhonePe, Paytm, CRED, or BHIM, your underlying bank (HDFC, SBI, ICICI, Axis, Kotak, etc.) immediately transmits a formal confirmation SMS alert to your phone number. This confirmation is legally mandated by the Reserve Bank of India (RBI) for financial accountability."
+        "text": "Banks and payment providers may send transaction alerts, but an SMS is not guaranteed for every payment and delivery may be delayed. Do not treat SMS tracking as a complete bank feed; reconcile the app with your bank statement."
       },
       {
         "type": "paragraph",
-        "text": "Under Google Play's official **Financial Money Management Exception** policy, Pocket Advisor operates a lightweight on-device SMS parser (`SmsParser.kt`). The parser processes incoming text messages in under 15 milliseconds using a three-tier linguistic grammar engine:"
+        "text": "Google Play restricts SMS permissions and has eligibility requirements for financial-management use cases. Confirm the app's current permission status in Play Console before describing it as approved. The on-device parser is intended to identify transaction details from supported message formats:"
       },
       {
         "type": "callout",
@@ -957,7 +957,7 @@
       },
       {
         "type": "steps",
-        "title": "3-Step Setup Checklist for 100% Tracking Reliability",
+        "title": "Setup Checklist for More Reliable Tracking",
         "steps": [
           {
             "stepNumber": 1,
@@ -999,7 +999,7 @@
       },
       {
         "type": "table",
-        "caption": "Comprehensive Coverage Across Indian UPI Rails (October 2026)",
+        "caption": "Examples of UPI Apps and Message Formats",
         "headers": [
           "Payment Method",
           "Supported Apps / Providers",
@@ -1016,7 +1016,7 @@
               "badge": "Instant",
               "badgeColor": "green"
             },
-            "< 15ms"
+            "Varies by device"
           ],
           [
             "Direct Bank UPI Handles",
@@ -1025,7 +1025,7 @@
               "text": "VPA and UPI Ref parsing",
               "highlight": true
             },
-            "< 15ms"
+            "Varies by device"
           ],
           [
             "RuPay Credit Cards on UPI",
@@ -1035,7 +1035,7 @@
               "badge": "Supported",
               "badgeColor": "blue"
             },
-            "< 15ms"
+            "Varies by device"
           ],
           [
             "Offline Merchant QR Scans",
@@ -1044,7 +1044,7 @@
               "text": "Merchant VPA string extraction",
               "highlight": true
             },
-            "< 15ms"
+            "Varies by device"
           ],
           [
             "Peer-to-Peer (P2P) Transfers",
@@ -1054,7 +1054,7 @@
               "badge": "Splittable",
               "badgeColor": "purple"
             },
-            "< 15ms"
+            "Varies by device"
           ]
         ]
       },
@@ -1066,7 +1066,7 @@
       },
       {
         "type": "heading2",
-        "text": "4. How to Handle Missed SMS Alerts (Zero-Data-Loss Safety Net)",
+        "text": "4. How to Handle Missing or Delayed SMS Alerts",
         "id": "missed-sms-alerts"
       },
       {
@@ -1075,7 +1075,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Pocket Advisor addresses this edge case with a three-tier safety net that guarantees complete spending accuracy without data loss:"
+        "text": "SMS tracking cannot guarantee complete records. If an alert is missing or not recognized, add the transaction manually and periodically reconcile the ledger against your bank statement:"
       },
       {
         "type": "checklist",
@@ -1102,7 +1102,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Tracking spending is meaningless if all your transactions are dumped into an unorganized 'Miscellaneous' bucket. Pocket Advisor incorporates an intelligent categorization engine with a pre-mapped dictionary of **over 350 Indian merchants and payment aggregators**:"
+        "text": "Tracking spending is meaningless if all your transactions are dumped into an unorganized 'Miscellaneous' bucket. Pocket Advisor incorporates an intelligent categorization engine with a merchant-matching dictionary intended to categorize common merchants and payment references:"
       },
       {
         "type": "paragraph",
@@ -1118,7 +1118,7 @@
         "type": "callout",
         "variant": "tip",
         "title": "Machine-Learned Custom Rules",
-        "content": "If you buy specialty coffee at your neighborhood bakery and reclassify the transaction from 'Shopping' to 'Work Meetings', Pocket Advisor's custom resolver automatically learns this preference. Every future transaction at that merchant or UPI handle will be categorized according to your custom rule without prompting you again."
+        "content": "If you buy specialty coffee at your neighborhood bakery and reclassify the transaction from 'Shopping' to 'Work Meetings', Pocket Advisor's custom resolver automatically learns this preference. Future transactions may use your saved rule when the merchant or UPI reference matches; review results because message formats and merchant names can vary."
       },
       {
         "type": "heading2",
@@ -1127,7 +1127,7 @@
       },
       {
         "type": "paragraph",
-        "text": "Many expense tracking applications in India monetize by collecting your financial transactions, uploading them to remote corporate servers, and using your spending history to underwrite pre-approved personal loans, credit cards, or insurance policies. This often results in relentless in-app banners and unsolicited telemarketing calls."
+        "text": "Expense trackers differ in their storage, backup, advertising, and data-sharing practices. Review each app's privacy policy and permission disclosures before choosing one."
       },
       {
         "type": "paragraph",

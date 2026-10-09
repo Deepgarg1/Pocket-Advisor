@@ -984,8 +984,11 @@ export function getRouteBodyContent(slug) {
           <h1 style="font-size: 2.2rem; font-weight: 900; color: #f8fafc; line-height: 1.25; margin-bottom: 12px;">
             How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide)
           </h1>
-          <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.6; margin-bottom: 28px;">
+          <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.6; margin-bottom: 16px;">
             Stop typing every transaction. Master automatic on-device SMS parsing, OEM battery settings, missed alert recovery, smart categorization, and zero-telemetry privacy.
+          </p>
+          <p style="font-size: 0.98rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 28px;">
+            Want to see how the app handles eligible transaction alerts? Visit the <a href="/upi-expense-tracker" style="color: #a5b4fc; font-weight: 700; text-decoration: underline;">UPI Expense Tracker for Android</a> overview for details on supported-message parsing and privacy controls.
           </p>
 
           <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">

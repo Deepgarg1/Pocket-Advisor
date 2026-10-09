@@ -558,7 +558,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                   transition: 'var(--transition-smooth)',
                 }}
               >
-                News
+                Insights
               </a>
               <a
                 href="/guides"
@@ -908,7 +908,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
               display: 'block',
             }}
           >
-            News &amp; Spending Tips
+            Financial Insights &amp; Articles
           </a>
 
           <a

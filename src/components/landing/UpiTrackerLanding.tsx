@@ -126,11 +126,11 @@ const UPI_APPS = [
 const FAQS = [
   {
     q: 'How does Pocket Advisor detect my UPI transactions automatically?',
-    a: 'Whenever you pay via Google Pay, PhonePe, Paytm, or direct UPI, your issuing Indian bank (HDFC, SBI, ICICI, etc.) delivers an instant transactional SMS alert. Pocket Advisor securely listens to these incoming alerts on-device using Android broadcast receivers and runs deterministic regex parsers to instantly log the amount, merchant, and payment mode into your private ledger.',
+    a: 'Some banks send transaction SMS alerts for eligible payments, but delivery, timing, and message format vary. When a supported alert reaches your device, Pocket Advisor can parse available details such as amount and merchant for your ledger. Reconcile your records with your bank statement.',
   },
   {
     q: 'Does Pocket Advisor ever upload my financial SMS or messages to a cloud server?',
-    a: 'Never. Pocket Advisor operates with an offline-first architecture. All SMS parsing, categorization, and balance calculations happen 100% on your Android phone processor. The application database is protected on-device with 256-bit SQLCipher encryption and has zero remote cloud telemetry.',
+    a: 'SMS parsing and categorization are designed to run on your Android device. If you enable optional cloud backup, selected app data may sync according to your settings and the Privacy Policy. Review the app’s current privacy disclosures for encryption and data-sync details.',
   },
   {
     q: 'Does the app ask for my bank login, debit card PIN, or netbanking passwords?',
@@ -138,15 +138,15 @@ const FAQS = [
   },
   {
     q: 'How does Pocket Advisor protect one-time passwords (OTPs) in SMS?',
-    a: 'Our deterministic regex engine specifically detects and drops any SMS containing OTP markers, 2FA verification codes, or netbanking authentication tokens. Only completed debit and credit receipts are analyzed.',
+    a: 'The parser is designed to identify transaction messages and filter common OTP or authentication patterns. No automated filter can guarantee perfect classification across every message format, so review imported transactions and correct mistakes when needed.',
   },
   {
     q: 'What happens if a bank SMS is delayed, missed, or network is down?',
-    a: 'If poor cellular coverage delays an SMS, Pocket Advisor synchronizes unread financial messages once connectivity resumes. Additionally, you can log transactions in under 2 seconds using the Android 1-tap Home Screen widget or the persistent Notification Quick-Add bar.',
+    a: 'If an alert is delayed or never arrives, automatic tracking may miss that transaction. You can add missing expenses manually using the app’s available entry tools. Widget and notification features depend on your device and app settings.',
   },
   {
     q: 'How are refunds and transfers between my own accounts treated?',
-    a: 'Pocket Advisor detects refund keywords and reconciles the credit back to your original expenditure category rather than artificially inflating your monthly income. Self-transfers between your own verified accounts (such as paying a credit card bill or transferring from SBI to HDFC) are flagged as transfers so your spending analytics never double-count.',
+    a: 'Pocket Advisor may identify refunds and transfers from recognizable message patterns. Classification can vary by bank and message format, so review these entries and correct them if they are categorized incorrectly.',
   },
 ];
 
@@ -213,7 +213,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
           }}
         >
           <Sparkles size={15} />
-          <span>India Banking Intelligence • 100% On-Device Regex</span>
+          <span>On-device SMS parsing for supported transaction alerts</span>
         </div>
 
         <h1
@@ -242,7 +242,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             margin: '0 auto 32px',
           }}
         >
-          Stop typing every chai, cab, and grocery transaction manually. Pocket Advisor securely tracks real-time UPI and bank SMS alerts across SBI, HDFC, ICICI, Axis, Google Pay, PhonePe, and Paytm — 100% offline with zero cloud tracking.
+          Stop typing every chai, cab, and grocery transaction manually. Pocket Advisor helps you record eligible transactions from bank SMS alerts for supported banks and payment apps. SMS availability and parsing can vary by bank, account, and message format. Review our Privacy Policy to understand local storage and optional cloud backup.
         </p>
 
         {/* Primary Action Buttons */}
@@ -304,7 +304,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
           }}
         >
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-            <ShieldCheck size={16} color="#10b981" /> Play Store Financial SMS Compliant
+            <ShieldCheck size={16} color="#10b981" /> Built for Android expense tracking
           </span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
             <Lock size={16} color="#818cf8" /> SQLCipher 256-bit On-Device Encryption
@@ -391,7 +391,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
                   </span>
                 </div>
                 <span style={{ fontSize: '0.72rem', color: '#10b981', fontWeight: 700, padding: '3px 8px', borderRadius: '6px', background: 'rgba(16, 185, 129, 0.12)' }}>
-                  Verified Sender
+                  Sample SMS
                 </span>
               </div>
               <p
@@ -413,7 +413,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
 
             <div style={{ marginTop: '20px', paddingTop: '16px', borderTop: '1px solid var(--border-subtle)', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
               <Lock size={14} color="#10b981" />
-              <span>Broadcast receiver executes locally in &lt;10 milliseconds</span>
+              <span>This interactive example illustrates how a transaction SMS may be parsed</span>
             </div>
           </div>
 
@@ -507,7 +507,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             Supported Indian Banks &amp; Payment Apps
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
-            Pocket Advisor supports SMS confirmation patterns across all major public sector banks, private banks, and UPI handle transfers.
+            Pocket Advisor is designed to recognize transaction-alert formats from selected banks. Actual coverage depends on the SMS format delivered to your phone; check sample records and reconcile with your bank statement.
           </p>
         </div>
 
@@ -641,17 +641,17 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             Why We Have High Privacy Standards
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.65, marginBottom: '24px' }}>
-            Google Play strictly restricts SMS access on Android. Pocket Advisor operates under Google’s explicit Financial SMS exception policy, meaning the app is verified to only parse financial sender identifiers. Personal text messages, OTPs, and private chats are never accessed.
+            Google Play restricts SMS permissions and reviews eligible use cases under its current policies. Permission availability and approval depend on the app’s actual Play Console status. Review the app’s permission disclosures and Privacy Policy for details.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '16px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
-              <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>100% On-Device Execution</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>All regex processing happens strictly on your local phone processor.</div>
+              <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>On-Device SMS Parsing</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>SMS parsing is designed to run on your device. If you enable optional cloud backup, selected app data may sync according to your settings and Privacy Policy.</div>
             </div>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '16px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
-              <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>Zero Server Uploads</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>We have no remote server where your financial transactions are transmitted.</div>
+              <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>Local-First Processing</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>SMS parsing is designed to happen locally. Optional cloud backup may sync selected app data if you enable it; see the Privacy Policy for details.</div>
             </div>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '16px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
               <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px' }}>Encrypted SQLite Storage</div>

@@ -5,7 +5,7 @@
     "title": "Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending",
     "subtitle": "A data-backed, zero-stress guide to controlling festive UPI micro-transactions, setting category limits, and splitting celebration costs automatically.",
     "excerpt": "Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.",
-    "coverImage": "/assets/news/diwali-budget-guide.png",
+    "coverImage": "/assets/news/diwali-budget-guide.webp",
     "coverImageAlt": "Diwali 2026 Budget and UPI Expense Tracking Guide",
     "publishedAt": "2026-10-05",
     "updatedAt": "2026-10-08",
@@ -146,37 +146,67 @@
           [
             "Shopping & Apparel",
             "32.5%",
-            { "text": "₹6,500", "highlight": true, "badge": "Shopping", "badgeColor": "blue" },
+            {
+              "text": "₹6,500",
+              "highlight": true,
+              "badge": "Shopping",
+              "badgeColor": "blue"
+            },
             "Festive clothes, footwear, personal accessories"
           ],
           [
             "Gifts & Envelopes",
             "22.5%",
-            { "text": "₹4,500", "highlight": true, "badge": "Gifts", "badgeColor": "purple" },
+            {
+              "text": "₹4,500",
+              "highlight": true,
+              "badge": "Gifts",
+              "badgeColor": "purple"
+            },
             "Family gifts, dry fruit boxes, corporate tokens, shagun"
           ],
           [
             "Food, Sweets & Feasts",
             "17.5%",
-            { "text": "₹3,500", "highlight": true, "badge": "Sweets", "badgeColor": "amber" },
+            {
+              "text": "₹3,500",
+              "highlight": true,
+              "badge": "Sweets",
+              "badgeColor": "amber"
+            },
             "Mithai boxes, family dinners, dry fruits, party snacks"
           ],
           [
             "Diyas, Lights & Decor",
             "12.5%",
-            { "text": "₹2,500", "highlight": true, "badge": "Decor", "badgeColor": "purple" },
+            {
+              "text": "₹2,500",
+              "highlight": true,
+              "badge": "Decor",
+              "badgeColor": "purple"
+            },
             "Clay diyas, LED string lights, torans, rangoli, puja essentials"
           ],
           [
             "Festive Commute & Travel",
             "7.5%",
-            { "text": "₹1,500", "highlight": true, "badge": "Travel", "badgeColor": "blue" },
+            {
+              "text": "₹1,500",
+              "highlight": true,
+              "badge": "Travel",
+              "badgeColor": "blue"
+            },
             "Cabs to relatives' homes, metro cards, airport transit"
           ],
           [
             "Emergency Buffer Reserve",
             "7.5%",
-            { "text": "₹1,500", "highlight": true, "badge": "Reserve", "badgeColor": "green" },
+            {
+              "text": "₹1,500",
+              "highlight": true,
+              "badge": "Reserve",
+              "badgeColor": "green"
+            },
             "Last-minute visitors, impromptu sweets, delivery tips"
           ]
         ]
@@ -204,43 +234,75 @@
             "Chai & evening snacks during shopping trips",
             "₹180",
             "4 times",
-            { "text": "₹720", "badge": "Food", "badgeColor": "amber" }
+            {
+              "text": "₹720",
+              "badge": "Food",
+              "badgeColor": "amber"
+            }
           ],
           [
             "Quick sweet shop top-ups for sudden guests",
             "₹350",
             "3 times",
-            { "text": "₹1,050", "badge": "Sweets", "badgeColor": "amber" }
+            {
+              "text": "₹1,050",
+              "badge": "Sweets",
+              "badgeColor": "amber"
+            }
           ],
           [
             "Festival auto & cab surge fare between markets",
             "₹240",
             "5 times",
-            { "text": "₹1,200", "badge": "Travel", "badgeColor": "blue" }
+            {
+              "text": "₹1,200",
+              "badge": "Travel",
+              "badgeColor": "blue"
+            }
           ],
           [
             "Last-minute string lights, candles & pooja flowers",
             "₹450",
             "3 times",
-            { "text": "₹1,350", "badge": "Decor", "badgeColor": "purple" }
+            {
+              "text": "₹1,350",
+              "badge": "Decor",
+              "badgeColor": "purple"
+            }
           ],
           [
             "Quick 10-min grocery delivery top-ups",
             "₹280",
             "4 times",
-            { "text": "₹1,120", "badge": "Grocery", "badgeColor": "blue" }
+            {
+              "text": "₹1,120",
+              "badge": "Grocery",
+              "badgeColor": "blue"
+            }
           ],
           [
             "Delivery tips & impromptu courier charges",
             "₹80",
             "5 times",
-            { "text": "₹400", "badge": "Logistics", "badgeColor": "purple" }
+            {
+              "text": "₹400",
+              "badge": "Logistics",
+              "badgeColor": "purple"
+            }
           ],
           [
-            { "text": "Total Cumulative Micro-Leak", "highlight": true },
+            {
+              "text": "Total Cumulative Micro-Leak",
+              "highlight": true
+            },
             "—",
             "24 transactions",
-            { "text": "₹5,840", "highlight": true, "badge": "Nearly 30% of Budget", "badgeColor": "red" }
+            {
+              "text": "₹5,840",
+              "highlight": true,
+              "badge": "Nearly 30% of Budget",
+              "badgeColor": "red"
+            }
           ]
         ]
       },
@@ -259,16 +321,46 @@
         "type": "checklist",
         "title": "High-Frequency Festive UPI Transactions Checklist",
         "items": [
-          { "text": "Online Flash Sales: Check your cart for impulse electronics and decor discounts you didn't plan for.", "checked": true },
-          { "text": "Quick Grocery Apps: Monitor delivery charges and surge pricing on 10-minute grocery apps (Blinkit, Zepto, Instamart).", "checked": true },
-          { "text": "Bulk Sweet Hampers: Avoid luxury packaging markups by purchasing curated local mithai.", "checked": false },
-          { "text": "Cab Surge Pricing: Check ride aggregator surge multipliers during Dhanteras and Diwali eve traffic peaks.", "checked": false },
-          { "text": "Street Decor Scans: Keep track of small cash/QR scans on diyas, garlands, and fairy lights.", "checked": true },
-          { "text": "Recurring OTT Subscriptions: Pause unused streaming memberships that auto-renew during holiday week.", "checked": false },
-          { "text": "Peer Gift Pools: Log shared office gifts and family celebration contributions promptly.", "checked": false },
-          { "text": "Restaurant & Dining Out: Ensure group party dinners don't exceed your dining bucket.", "checked": false },
-          { "text": "Dhanteras Gold/Silver: Separate auspicious ceremonial purchases from long-term investment assets.", "checked": true },
-          { "text": "Unsettled Group Splits: Send UPI settlement requests immediately after shared festive trips.", "checked": false }
+          {
+            "text": "Online Flash Sales: Check your cart for impulse electronics and decor discounts you didn't plan for.",
+            "checked": true
+          },
+          {
+            "text": "Quick Grocery Apps: Monitor delivery charges and surge pricing on 10-minute grocery apps (Blinkit, Zepto, Instamart).",
+            "checked": true
+          },
+          {
+            "text": "Bulk Sweet Hampers: Avoid luxury packaging markups by purchasing curated local mithai.",
+            "checked": false
+          },
+          {
+            "text": "Cab Surge Pricing: Check ride aggregator surge multipliers during Dhanteras and Diwali eve traffic peaks.",
+            "checked": false
+          },
+          {
+            "text": "Street Decor Scans: Keep track of small cash/QR scans on diyas, garlands, and fairy lights.",
+            "checked": true
+          },
+          {
+            "text": "Recurring OTT Subscriptions: Pause unused streaming memberships that auto-renew during holiday week.",
+            "checked": false
+          },
+          {
+            "text": "Peer Gift Pools: Log shared office gifts and family celebration contributions promptly.",
+            "checked": false
+          },
+          {
+            "text": "Restaurant & Dining Out: Ensure group party dinners don't exceed your dining bucket.",
+            "checked": false
+          },
+          {
+            "text": "Dhanteras Gold/Silver: Separate auspicious ceremonial purchases from long-term investment assets.",
+            "checked": true
+          },
+          {
+            "text": "Unsettled Group Splits: Send UPI settlement requests immediately after shared festive trips.",
+            "checked": false
+          }
         ]
       },
       {
@@ -290,13 +382,53 @@
           "Running Weekly Total"
         ],
         "rows": [
-          [ "Day 1 (Mon)", "3 payments (Chai, flowers, fruit)", "₹290", "₹290" ],
-          [ "Day 2 (Tue)", "4 payments (Snacks, auto ride, courier)", "₹410", "₹700" ],
-          [ "Day 3 (Wed)", "2 payments (Coffee, quick grocery)", "₹320", "₹1,020" ],
-          [ "Day 4 (Thu)", "5 payments (Sweets sample, tea, diyas)", "₹580", "₹1,600" ],
-          [ "Day 5 (Fri)", "4 payments (Decor lights, street food)", "₹470", "₹2,070" ],
-          [ "Day 6 (Sat)", "6 payments (Market auto, drinks, snacks)", "₹690", "₹2,760" ],
-          [ "Day 7 (Sun)", "5 payments (Bakery treats, delivery fee)", "₹530", { "text": "₹3,290", "highlight": true, "badge": "7-Day Total", "badgeColor": "amber" } ]
+          [
+            "Day 1 (Mon)",
+            "3 payments (Chai, flowers, fruit)",
+            "₹290",
+            "₹290"
+          ],
+          [
+            "Day 2 (Tue)",
+            "4 payments (Snacks, auto ride, courier)",
+            "₹410",
+            "₹700"
+          ],
+          [
+            "Day 3 (Wed)",
+            "2 payments (Coffee, quick grocery)",
+            "₹320",
+            "₹1,020"
+          ],
+          [
+            "Day 4 (Thu)",
+            "5 payments (Sweets sample, tea, diyas)",
+            "₹580",
+            "₹1,600"
+          ],
+          [
+            "Day 5 (Fri)",
+            "4 payments (Decor lights, street food)",
+            "₹470",
+            "₹2,070"
+          ],
+          [
+            "Day 6 (Sat)",
+            "6 payments (Market auto, drinks, snacks)",
+            "₹690",
+            "₹2,760"
+          ],
+          [
+            "Day 7 (Sun)",
+            "5 payments (Bakery treats, delivery fee)",
+            "₹530",
+            {
+              "text": "₹3,290",
+              "highlight": true,
+              "badge": "7-Day Total",
+              "badgeColor": "amber"
+            }
+          ]
         ]
       },
       {
@@ -363,7 +495,12 @@
             "No (Manual)",
             "Historical only",
             "Requires bank login",
-            { "text": "100% Automated from SMS", "highlight": true, "badge": "Instant", "badgeColor": "green" }
+            {
+              "text": "100% Automated from SMS",
+              "highlight": true,
+              "badge": "Instant",
+              "badgeColor": "green"
+            }
           ],
           [
             "Real-Time Spending Alerts",
@@ -371,7 +508,12 @@
             "None",
             "End of month only",
             "Delayed cloud sync",
-            { "text": "Instant on SMS arrival", "highlight": true, "badge": "Real-Time", "badgeColor": "green" }
+            {
+              "text": "Instant on SMS arrival",
+              "highlight": true,
+              "badge": "Real-Time",
+              "badgeColor": "green"
+            }
           ],
           [
             "Zero Bank Passwords Needed",
@@ -379,7 +521,12 @@
             "Safe",
             "Safe",
             "Requires credentials",
-            { "text": "Zero Credentials Needed", "highlight": true, "badge": "Zero Risk", "badgeColor": "green" }
+            {
+              "text": "Zero Credentials Needed",
+              "highlight": true,
+              "badge": "Zero Risk",
+              "badgeColor": "green"
+            }
           ],
           [
             "100% On-Device Privacy",
@@ -387,7 +534,12 @@
             "Stored on cloud",
             "Stored in email",
             "Sold for loan ads",
-            { "text": "100% Private (No Cloud DB)", "highlight": true, "badge": "Encrypted", "badgeColor": "purple" }
+            {
+              "text": "100% Private (No Cloud DB)",
+              "highlight": true,
+              "badge": "Encrypted",
+              "badgeColor": "purple"
+            }
           ],
           [
             "Built-in Group Bill Splitter",
@@ -395,7 +547,12 @@
             "Complex formulas",
             "None",
             "Separate app needed",
-            { "text": "Greedy Bipartite Solver", "highlight": true, "badge": "Built-In", "badgeColor": "blue" }
+            {
+              "text": "Greedy Bipartite Solver",
+              "highlight": true,
+              "badge": "Built-In",
+              "badgeColor": "blue"
+            }
           ]
         ]
       },
@@ -458,7 +615,7 @@
     "title": "Welcome to Pocket Advisor: Intelligent, Private Wealth Tracking",
     "subtitle": "Why we built an Android-native financial companion designed around privacy, zero manual entry, and debt simplification.",
     "excerpt": "Stop manually typing every expense. Discover how Pocket Advisor pairs on-device bank SMS intelligence with 2-stage greedy bill splitting and advanced compounding wealth projections.",
-    "coverImage": "/assets/news/welcome-pocket-advisor.png",
+    "coverImage": "/assets/news/welcome-pocket-advisor.webp",
     "coverImageAlt": "Welcome to Pocket Advisor Product Announcement Cover",
     "publishedAt": "2026-09-12",
     "updatedAt": "2026-10-08",
@@ -665,6 +822,336 @@
         "description": "Download Pocket Advisor today and experience private, automatic expense tracking and group splits.",
         "buttonText": "Download for Android",
         "buttonLink": "/download"
+      }
+    ]
+  },
+  {
+    "id": "track-upi-expenses-automatically",
+    "slug": "track-upi-expenses-automatically",
+    "title": "How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide)",
+    "subtitle": "Stop typing every transaction. Master automatic on-device SMS parsing, OEM battery settings, missed alert recovery, smart categorization, and zero-telemetry privacy.",
+    "excerpt": "A complete guide to tracking Google Pay, PhonePe, Paytm, and CRED transactions automatically in India without manual entry. Learn on-device regex detection, Xiaomi/Samsung battery setup, handling missed SMS, custom category rules, and SQLCipher AES-256 privacy.",
+    "coverImage": "/assets/news/track-upi-expenses-automatically.svg",
+    "coverImageAlt": "How to Track UPI Expenses Automatically in India Step-by-Step Guide",
+    "publishedAt": "2026-10-09",
+    "updatedAt": "2026-10-09",
+    "category": "Guides",
+    "readTime": "10 min read",
+    "tags": [
+      "track upi expenses automatically",
+      "how to track upi spending",
+      "upi expense tracker india",
+      "automatic expense tracker sms",
+      "google pay expense tracker",
+      "phonepe tracker",
+      "android battery optimization",
+      "sqlcipher privacy",
+      "pocket advisor"
+    ],
+    "fontStyle": "sans",
+    "author": {
+      "name": "Deepesh Garg",
+      "role": "Product & Systems Architecture Desk"
+    },
+    "faqs": [
+      {
+        "question": "How does Pocket Advisor detect my UPI transactions automatically?",
+        "answer": "Every time you scan a QR code with Google Pay, PhonePe, Paytm, or CRED, your bank sends an instant confirmation SMS alert. Pocket Advisor processes this SMS in under 15ms directly on your Android phone using a deterministic regex grammar engine, without sending any data over the internet."
+      },
+      {
+        "question": "What permissions are required to track UPI payments automatically?",
+        "answer": "Pocket Advisor requires local SMS read/receive permissions under Google Play's official 'Financial Money Management Exception' policy. It never requests bank passwords, netbanking credentials, OTPs, or UPI PINs."
+      },
+      {
+        "question": "Why does automatic tracking stop working after a few hours on my phone?",
+        "answer": "Aggressive Android manufacturer battery managers (such as Xiaomi's HyperOS/MIUI, Samsung's One UI, or OnePlus's OxygenOS) put background apps to sleep to save battery. Setting Pocket Advisor's battery optimization to 'Unrestricted / No Restrictions' and enabling 'Autostart' keeps the SMS listener active continuously."
+      },
+      {
+        "question": "What happens if my bank doesn't send an SMS for small UPI payments below ₹100?",
+        "answer": "In 2024–2026, several Indian banks waived SMS alerts for micro-transactions under ₹100. Pocket Advisor solves this through its 1-tap Home Screen Quick-Add Widget and bank balance delta reconciliation: when the next SMS arrives with your updated balance, Pocket Advisor alerts you to reconcile the difference."
+      },
+      {
+        "question": "Can I back up my spending data to the cloud?",
+        "answer": "Yes. By default, Pocket Advisor stores everything 100% offline in a local SQLCipher AES-256 encrypted database. If you switch phones or want multi-device sync, you can enable optional Cloud Backup (powered by Supabase) with complete user control."
+      },
+      {
+        "question": "Is Pocket Advisor free, and are there advertisements?",
+        "answer": "Pocket Advisor provides an ad-supported free tier with clean, non-intrusive display ads. Users can also upgrade to an optional ad-free Pro tier. Crucially, we never sell your financial records or broker predatory personal loans."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "With over 15 billion monthly UPI transactions processed across India (NPCI 2026), digital payments have eliminated the physical friction of cash. An average urban smartphone user scans QR codes between 4 and 12 times a day: ₹15 for morning tea, ₹140 on quick-commerce groceries, ₹90 for an auto-rickshaw, ₹280 for lunch, and ₹60 at a pharmacy."
+      },
+      {
+        "type": "paragraph",
+        "text": "Trying to track these micro-transactions by manually typing amounts into a spreadsheet or traditional budgeting app fails for over 95% of people within two weeks. The sheer volume makes manual bookkeeping unsustainable. In this comprehensive guide, we demonstrate how to track your UPI spending automatically on Android—using zero manual entry, 100% on-device deterministic regex parsing, and military-grade SQLCipher encryption."
+      },
+      {
+        "type": "metrics",
+        "items": [
+          {
+            "label": "Monthly UPI Volume",
+            "value": "15B+",
+            "description": "Total monthly UPI transactions across India (NPCI 2026)",
+            "change": "+34% YoY",
+            "isPositive": true
+          },
+          {
+            "label": "Detection Latency",
+            "value": "<15ms",
+            "description": "On-device regex parse time per incoming transaction SMS",
+            "change": "Real-time",
+            "isPositive": true
+          },
+          {
+            "label": "Local Vault Encryption",
+            "value": "AES-256",
+            "description": "SQLCipher cryptographic storage in phone hardware sandbox",
+            "change": "Zero cloud leaks",
+            "isPositive": true
+          },
+          {
+            "label": "Telemarketing Calls",
+            "value": "0 Calls",
+            "description": "Strict policy: zero loan cross-selling or NBFC underwriting",
+            "change": "Guaranteed",
+            "isPositive": true
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "1. How Real-Time UPI Transaction Detection Works",
+        "id": "transaction-detection"
+      },
+      {
+        "type": "paragraph",
+        "text": "Whenever you complete a payment using Google Pay, PhonePe, Paytm, CRED, or BHIM, your underlying bank (HDFC, SBI, ICICI, Axis, Kotak, etc.) immediately transmits a formal confirmation SMS alert to your phone number. This confirmation is legally mandated by the Reserve Bank of India (RBI) for financial accountability."
+      },
+      {
+        "type": "paragraph",
+        "text": "Under Google Play's official **Financial Money Management Exception** policy, Pocket Advisor operates a lightweight on-device SMS parser (`SmsParser.kt`). The parser processes incoming text messages in under 15 milliseconds using a three-tier linguistic grammar engine:"
+      },
+      {
+        "type": "callout",
+        "variant": "info",
+        "title": "The 3-Tier On-Device Grammar Engine",
+        "content": "**1. Rejection Filters:** Immediately discards non-transactional messages, login OTPs, authentication codes, biller collection threats, and marketing spam in memory within 1 millisecond.\\n\\n**2. Action Anchors:** Verifies completed past-tense transaction verbs (debited, paid, spent, withdrawn, credited) while rejecting future promises (will be debited, emi due, auto-pay scheduled).\\n\\n**3. Context Anchors:** Extracts the exact transaction amount, counterparty merchant or UPI Virtual Payment Address (VPA), bank account identifier (last 4 digits), and updated ledger balance."
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/screenshot-upi-sms-detection.svg",
+        "alt": "Real-Time UPI SMS Detection and Regex Parsing in Pocket Advisor",
+        "caption": "Figure 1: Pocket Advisor intercepts incoming bank SMS alerts locally, extracts the merchant and amount, and commits the transaction to the on-device SQLCipher vault in under 15ms."
+      },
+      {
+        "type": "heading2",
+        "text": "2. Initial App Setup & Battery Optimization Guide",
+        "id": "setup-battery-optimization"
+      },
+      {
+        "type": "paragraph",
+        "text": "Setting up automatic tracking takes less than 60 seconds. However, the **#1 reason automatic expense tracking stops working** on Android is aggressive battery management by device manufacturers (OEMs). To preserve battery benchmarks, custom Android skins terminate background services when the screen is turned off."
+      },
+      {
+        "type": "steps",
+        "title": "3-Step Setup Checklist for 100% Tracking Reliability",
+        "steps": [
+          {
+            "stepNumber": 1,
+            "title": "Grant Local SMS Permissions",
+            "description": "When launching Pocket Advisor for the first time, allow SMS Read & Receive access. This permission is restricted strictly to local banking alerts under Google Play financial rules."
+          },
+          {
+            "stepNumber": 2,
+            "title": "Configure OEM Battery Restrictions",
+            "description": "Navigate to your phone's App Info settings and set Pocket Advisor's Battery Saver to 'Unrestricted' or 'No Restrictions'. Enable 'Autostart' on Xiaomi, OnePlus, and Oppo devices."
+          },
+          {
+            "stepNumber": 3,
+            "title": "Lock in Recent Apps (Optional)",
+            "description": "Open your Android Recent Apps overview screen, long-press the Pocket Advisor preview card, and tap the Lock icon to prevent the system task cleaner from closing it."
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/screenshot-battery-optimization.svg",
+        "alt": "Android OEM Battery Optimization Settings for Xiaomi, Samsung, and OnePlus",
+        "caption": "Figure 2: Step-by-step checklist to configure Autostart and Unrestricted Battery across Xiaomi HyperOS, Samsung One UI, and OnePlus OxygenOS."
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "title": "Manufacturer-Specific Settings",
+        "content": "• **Xiaomi / Redmi / POCO (HyperOS / MIUI):** App Info > Autostart (Toggle ON) > Battery Saver (Set to 'No Restrictions').\\n• **Samsung (One UI):** Settings > Battery > Background usage limits > Add to 'Never sleeping apps'.\\n• **OnePlus / Realme / Oppo (ColorOS / OxygenOS):** App Info > Battery Usage > Enable 'Allow background activity' and 'Allow auto-launch'."
+      },
+      {
+        "type": "heading2",
+        "text": "3. Supported UPI Apps, Handles & Payment Workflows",
+        "id": "supported-workflows"
+      },
+      {
+        "type": "paragraph",
+        "text": "Because Pocket Advisor operates at the bank SMS layer rather than inside individual payment app interfaces, it tracks payments across the entire Indian financial ecosystem without requiring separate integrations for each app:"
+      },
+      {
+        "type": "table",
+        "caption": "Comprehensive Coverage Across Indian UPI Rails (October 2026)",
+        "headers": [
+          "Payment Method",
+          "Supported Apps / Providers",
+          "Detection Mechanism",
+          "Speed"
+        ],
+        "rows": [
+          [
+            "Third-Party UPI (TPAP)",
+            "Google Pay, PhonePe, Paytm, CRED, BHIM, Navi, Super.money",
+            {
+              "text": "Real-time bank SMS regex",
+              "highlight": true,
+              "badge": "Instant",
+              "badgeColor": "green"
+            },
+            "< 15ms"
+          ],
+          [
+            "Direct Bank UPI Handles",
+            "@okhdfcbank, @okaxis, @oksbi, @okicici, @ybl, @ibl, @axl",
+            {
+              "text": "VPA and UPI Ref parsing",
+              "highlight": true
+            },
+            "< 15ms"
+          ],
+          [
+            "RuPay Credit Cards on UPI",
+            "HDFC, ICICI, SBI, Axis, PNB RuPay Credit Cards",
+            {
+              "text": "Credit card SMS debit alert",
+              "badge": "Supported",
+              "badgeColor": "blue"
+            },
+            "< 15ms"
+          ],
+          [
+            "Offline Merchant QR Scans",
+            "BharatPe, Paytm Soundbox, PhonePe Merchant QR",
+            {
+              "text": "Merchant VPA string extraction",
+              "highlight": true
+            },
+            "< 15ms"
+          ],
+          [
+            "Peer-to-Peer (P2P) Transfers",
+            "Direct money transfers to friends, family, or landlord",
+            {
+              "text": "Identified as Transfer / Split eligible",
+              "badge": "Splittable",
+              "badgeColor": "purple"
+            },
+            "< 15ms"
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "takeaway",
+        "title": "RuPay Credit Cards on UPI Are Fully Supported",
+        "content": "When you link your RuPay Credit Card to Google Pay or PhonePe and scan a merchant QR code, your card issuer sends a transaction alert (e.g. 'HDFC Bank Credit Card ending 8214 used for INR 650.00 at Blue Tokai'). Pocket Advisor parses this seamlessly, tagging both the merchant and the credit card identifier."
+      },
+      {
+        "type": "heading2",
+        "text": "4. How to Handle Missed SMS Alerts (Zero-Data-Loss Safety Net)",
+        "id": "missed-sms-alerts"
+      },
+      {
+        "type": "paragraph",
+        "text": "A common challenge faced by Indian smartphone users is that **banks do not always send SMS messages for every single transaction**. In recent years, several major banks (including HDFC Bank and SBI) adjusted their policies to reduce SMS volume for micro-payments under ₹50 or ₹100, relying instead on in-app push notifications. Furthermore, telecom network dead zones or DND gateway congestions can occasionally delay SMS delivery."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pocket Advisor addresses this edge case with a three-tier safety net that guarantees complete spending accuracy without data loss:"
+      },
+      {
+        "type": "checklist",
+        "title": "Pocket Advisor's 3-Tier Missed SMS Safety Net",
+        "items": [
+          {
+            "text": "Bank Balance Delta Reconciliation: Whenever the next SMS arrives containing an updated account balance, Pocket Advisor compares it against your recorded ledger. If an unrecorded micro-transaction caused a discrepancy, it flags the missing difference.",
+            "checked": true
+          },
+          {
+            "text": "1-Tap Android Home Screen Quick-Add Widget: Log untracked cash or ₹10 roadside chai payments in under 2 seconds right from your home screen without opening the application.",
+            "checked": true
+          },
+          {
+            "text": "Instant Fallback Prompt: Recent merchants are cached locally, allowing you to tap and log recurring vendors with a single click if an SMS is skipped.",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "5. Smart Categorization & Learned Merchant Rules",
+        "id": "categorization-rules"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tracking spending is meaningless if all your transactions are dumped into an unorganized 'Miscellaneous' bucket. Pocket Advisor incorporates an intelligent categorization engine with a pre-mapped dictionary of **over 350 Indian merchants and payment aggregators**:"
+      },
+      {
+        "type": "paragraph",
+        "text": "• **Food & Dining:** Swiggy, Zomato, EatSure, McDonald's, Starbucks, Domino's, Chai Point.\\n• **Groceries & Quick Commerce:** Zepto, Blinkit, Swiggy Instamart, BigBasket, D-Mart, Nature's Basket.\\n• **Commute & Travel:** Uber, Ola, Rapido, Namma Metro, Fastag, IRCTC, MakeMyTrip.\\n• **Bills & Utilities:** Bescom, Tata Power, Jio, Airtel, Mahanagar Gas, ACT Fibernet.\\n• **Investments:** Zerodha, Groww, Upstox, Angel One, Kuvera, Coin, National Pension System."
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/screenshot-category-rules.svg",
+        "alt": "Smart Categorization and User-Learned Custom Rules Engine",
+        "caption": "Figure 3: Built-in Indian merchant keyword mapping alongside user-learned custom category rules that remember your preferences permanently."
+      },
+      {
+        "type": "callout",
+        "variant": "tip",
+        "title": "Machine-Learned Custom Rules",
+        "content": "If you buy specialty coffee at your neighborhood bakery and reclassify the transaction from 'Shopping' to 'Work Meetings', Pocket Advisor's custom resolver automatically learns this preference. Every future transaction at that merchant or UPI handle will be categorized according to your custom rule without prompting you again."
+      },
+      {
+        "type": "heading2",
+        "text": "6. Data Privacy, Encryption & Monetization Transparency",
+        "id": "privacy-security"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many expense tracking applications in India monetize by collecting your financial transactions, uploading them to remote corporate servers, and using your spending history to underwrite pre-approved personal loans, credit cards, or insurance policies. This often results in relentless in-app banners and unsolicited telemarketing calls."
+      },
+      {
+        "type": "paragraph",
+        "text": "Pocket Advisor takes a fundamentally different engineering approach:"
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/screenshot-privacy-vault.svg",
+        "alt": "SQLCipher AES-256 On-Device Vault and Optional Cloud Backup",
+        "caption": "Figure 4: Cryptographic on-device isolation with optional user-controlled Supabase cloud backup for seamless multi-device sync."
+      },
+      {
+        "type": "callout",
+        "variant": "warning",
+        "title": "Why On-Device Isolation Matters",
+        "content": "• **Zero Cloud Telemetry by Default:** Your transaction history is stored locally in an encrypted SQLCipher SQLite database protected with AES-256 bit encryption.\\n• **Zero OTP Reading:** Verification codes, banking OTPs, and personal security messages are immediately identified and purged from memory in under 1 millisecond.\\n• **Transparent Monetization:** Pocket Advisor features a clean, ad-supported free tier with standard mobile display ads, alongside an optional ad-free Pro upgrade. We never sell your data or partner with NBFC lenders.\\n• **Optional Encrypted Cloud Backup:** If you wish to sync across devices or restore data on a new phone, you can voluntarily enable encrypted Cloud Backup powered by Supabase with Row-Level Security (RLS)."
+      },
+      {
+        "type": "cta",
+        "badge": "Android Native App",
+        "title": "Start Tracking Your UPI Spending Privately",
+        "description": "Download Pocket Advisor on Google Play Store today. Automated on-device SMS tracking, 100% SQLCipher privacy, optional cloud backup, and group debt minimization.",
+        "buttonText": "Get on Google Play (Free)",
+        "buttonLink": "https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
       }
     ]
   }

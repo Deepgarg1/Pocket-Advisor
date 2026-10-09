@@ -102,7 +102,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   },
   'upi-tracker': {
     title: 'UPI Expense Tracker for Android (India) | Pocket Advisor',
-    description: 'Track UPI & bank SMS expenses automatically on Android with zero cloud uploads. Supports Google Pay, PhonePe, Paytm, and all major Indian banks with 100% offline privacy.',
+    description: 'Track eligible UPI and bank SMS transactions on Android. Learn how supported-message parsing works, where coverage can vary, and how local storage and optional cloud backup are handled.',
     canonical: `${BASE_URL}/upi-expense-tracker`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

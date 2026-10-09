@@ -109,6 +109,9 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBack }) 
           <p style={{ marginTop: '10px' }}>
             This Privacy Policy explains what information Pocket Advisor processes, where it is processed, when it may leave your device, and how you can control or delete your information.
           </p>
+          <p style={{ marginTop: '10px' }}>
+            When you visit the Pocket Advisor website, Google Analytics 4 may be used to measure page views and general website usage only after you choose <strong>Accept analytics</strong>. If you reject analytics, the Google Analytics script is not loaded. Website analytics is not given access to your Pocket Advisor expense ledger, bank SMS messages, or app transaction database. You can change your choice using the website&apos;s <strong>Privacy settings</strong> control.
+          </p>
         </section>
 
         {/* 2. Information We Process */}

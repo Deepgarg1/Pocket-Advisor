@@ -21,6 +21,125 @@ import {
   renderFormattedText,
 } from './ArticleComponents';
 import { updatePageSeo } from '../../utils/seo';
+import { trackPageView } from '../../utils/analytics';
+
+interface NewsFeedViewProps {
+  slug?: string;
+  onNavigate?: (view: string) => void;
+}
+
+export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, onNavigate }) => {
+  const allArticles = getAllArticles();
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(initialSlug || null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<string>('All');
+
+  // Helper to extract article slug or ID from window.location
+  const getSlugFromUrl = (): string | null => {
+    try {
+      const pathname = window.location.pathname.replace(/\/+$/, '');
+      const parts = pathname.split('/');
+      // If path is /news/some-slug
+      if (parts.length >= 3 && parts[1] === 'news' && parts[2]) {
+        return parts[2];
+      }
+
+      // Query param fallback ?slug= or ?id=
+      const params = new URLSearchParams(window.location.search);
+      const querySlug = params.get('slug');
+      if (querySlug) return querySlug;
+
+      const queryId = params.get('id');
+      if (queryId) {
+        // Map legacy UUID or slug to new slug
+        if (queryId === '3f0a01dd-6c79-803c-81c2-c459d7271593') {
+          return 'diwali-2026-how-to-track-upi-spending';
+        }
+        if (queryId === '3d9a01dd-6c79-80ea-ac1c-e623f8aa0cf1') {
+          return 'welcome-to-pocket-advisor';
+        }
+        return queryId;
+      }
+
+      // Hash fallback #/news?slug= or #/news/slug
+      const rawHash = window.location.hash || '';
+      if (rawHash.includes('/news/')) {
+        const hashParts = rawHash.split('/news/');
+        if (hashParts[1]) return hashParts[1].split('?')[0];
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  };
+
+  // Sync state on load or popstate
+  useEffect(() => {
+    const slugFromUrl = getSlugFromUrl();
+    if (slugFromUrl) {
+      setSelectedSlug(slugFromUrl);
+    } else if (initialSlug) {
+      setSelectedSlug(initialSlug);
+    }
+  }, [initialSlug]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const slugFromUrl = getSlugFromUrl();
+      setSelectedSlug(slugFromUrl);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Update SEO dynamically whenever selected article changes
+  useEffect(() => {
+    if (selectedSlug) {
+      const article = getArticleBySlug(selectedSlug);
+      if (article) {
+        updatePageSeo('news', {
+          title: `${article.title} | Pocket Advisor`,
+          description: article.excerpt,
+          canonical: `https://www.pocketadvisor.in/news/${article.slug}`,
+          ogType: 'article',
+          ogImage: `https://www.pocketadvisor.in${article.coverImage}`,
+        });
+        trackPageView();
+      }
+    } else {
+      updatePageSeo('news', {
+        title: 'Personal Finance Insights & Guides | Pocket Advisor',
+        description: 'Read the latest guides on UPI expense tracking, festive budgeting, debt minimization math, and private on-device wealth management.',
+        canonical: 'https://www.pocketadvisor.in/news',
+        ogType: 'website',
+      });
+    }
+import React, { useState, useEffect } from 'react';
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  User,
+  Search,
+  Sparkles,
+  BookOpen,
+  ChevronRight,
+} from 'lucide-react';
+import { getAllArticles, getArticleBySlug } from '../../data/newsArticles';
+import {
+  ArticleTable,
+  ArticleCallout,
+  ArticleMetricsGrid,
+  ArticleSteps,
+  ArticleCtaBox,
+  ArticleFaqAccordion,
+  ArticleShareBar,
+  renderFormattedText,
+} from './ArticleComponents';
+import { updatePageSeo } from '../../utils/seo';
+import { trackPageView } from '../../utils/analytics';
 
 interface NewsFeedViewProps {
   slug?: string;
@@ -113,6 +232,7 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
         canonical: 'https://www.pocketadvisor.in/news',
         ogType: 'website',
       });
+      if (window.location.pathname.replace(/\/+$/, '') === '/news') trackPageView();
     }
   }, [selectedSlug]);
 

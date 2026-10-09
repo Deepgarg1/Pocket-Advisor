@@ -325,14 +325,14 @@ const routes = [
   },
   {
     slug: 'upi-expense-tracker',
-    title: 'Automatic UPI Expense Tracker App India (Zero Manual Entry) | Pocket Advisor',
-    description: 'Track daily UPI expenses automatically from bank SMS without bank account logins or cloud uploads. 100% on-device privacy, instant categorization, and zero ads.',
+    title: 'UPI Expense Tracker for Android (India) | Pocket Advisor',
+    description: 'Track eligible UPI and bank SMS transactions on Android. Learn how supported-message parsing works, where coverage can vary, and how local storage and optional cloud backup are handled.',
     canonical: `${BASE_URL}/upi-expense-tracker`,
-    badgeCategory: 'India UPI Feature',
-    pillText: '100% On-Device SMS Engine • No Bank Login Required',
-    h1: 'Automatic UPI Expense Tracker for India',
-    h1Gradient: 'Zero Manual Entry • 100% On-Device Privacy',
-    heroDesc: 'Tired of logging every ₹20 chai and ₹450 grocery run by hand? Pocket Advisor automatically parses your bank SMS alerts on your device the moment you pay via Google Pay, PhonePe, Paytm, or CRED.',
+    badgeCategory: 'UPI Expense Tracking',
+    pillText: 'On-device SMS parsing for supported transaction alerts',
+    h1: 'UPI Expense Tracker for Android',
+    h1Gradient: 'Supported Bank SMS Transaction Tracking',
+    heroDesc: 'Pocket Advisor helps you record eligible transactions from bank SMS alerts for supported banks and payment apps. SMS availability and parsing can vary by bank, account, and message format. Review our Privacy Policy to understand local storage and optional cloud backup.',
     ctaText: 'Get the Android App on Google Play',
     ctaHref: PLAY_STORE_URL,
     schemas: [
@@ -342,16 +342,16 @@ const routes = [
         name: 'Pocket Advisor UPI Expense Tracker',
         url: `${BASE_URL}/upi-expense-tracker`,
         image: DEFAULT_IMAGE,
-        description: 'Automatic UPI expense tracker for Android that parses bank transaction SMS alerts locally without bank logins, cloud storage, or statement uploads.',
+        description: 'Android expense tracker that can parse supported bank transaction SMS alerts on-device. Availability and message formats vary, and optional cloud backup may be enabled in app settings.',
         applicationCategory: 'FinanceApplication',
         operatingSystem: 'Android',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
         featureList: [
-          'Automatic bank SMS parsing across 15+ Indian banks',
-          'Instant merchant and category recognition',
-          '100% local on-device SQLite database storage',
-          'Reversal and refund detection without double counting',
-          'Zero cloud storage and zero bank login credentials needed'
+          'Parsing of supported bank transaction SMS alerts',
+          'Merchant and category extraction where supported by message format',
+          'On-device transaction parsing; review current privacy policy for storage and backup details',
+          'Refund and reversal classification where recognizable message patterns are present',
+          'No bank login credentials required for SMS parsing; optional cloud backup may be available'
         ]
       },
       {
@@ -372,7 +372,7 @@ const routes = [
             name: 'How does Pocket Advisor track UPI payments automatically without my bank login?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'When your bank sends you a transactional SMS after a UPI transfer, Pocket Advisor\'s on-device parser extracts the amount, merchant, and timestamp using local regular expressions. It never connects to your bank account or asks for net banking passwords.'
+              text: 'Some banks send transaction SMS alerts for eligible payments, but delivery, timing, and message format vary. When a supported alert reaches your device, Pocket Advisor can parse available details such as amount and merchant for your ledger. Reconcile your records with your bank statement.'
             }
           },
           {
@@ -380,7 +380,7 @@ const routes = [
             name: 'Are my financial SMS messages uploaded to your cloud servers?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No. All processing happens entirely within your Android phone\'s local sandbox. Pocket Advisor does not upload, sync, or sell your transaction history to external servers.'
+              text: 'SMS parsing and categorization are designed to run on your Android device. If you enable optional cloud backup, selected app data may sync according to your settings and the Privacy Policy. Review the app’s current privacy disclosures for encryption and data-sync details.'
             }
           },
           {
@@ -388,7 +388,7 @@ const routes = [
             name: 'How does Pocket Advisor handle failed transactions and refunds?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'The parsing engine detects reversal keywords like "refunded", "credited back", or "reversed". When a matching reversal alert arrives, it marks the transaction and adjusts your total spend so you never get double-counted numbers.'
+              text: 'Pocket Advisor may identify refunds and transfers from recognizable message patterns. Classification can vary by bank and message format, so review these entries and correct them if they are categorized incorrectly.'
             }
           },
           {
@@ -396,7 +396,7 @@ const routes = [
             name: 'Which Indian banks and UPI apps are supported?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Pocket Advisor supports standard transactional SMS alerts from HDFC, SBI, ICICI, Axis, Kotak, PNB, Bank of Baroda, IndusInd, IDFC FIRST, and Canara Bank across Google Pay, PhonePe, Paytm, BHIM, and CRED.'
+              text: 'Coverage depends on supported bank and payment-message formats. Check the current in-app supported-message information and review imported transactions, because not every bank or payment will generate a parseable alert.'
             }
           }
         ]

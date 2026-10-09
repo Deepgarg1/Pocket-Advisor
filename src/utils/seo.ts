@@ -109,7 +109,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   },
   features: {
     title: 'App Features & Security Architecture | Pocket Advisor',
-    description: 'Explore supported bank-SMS transaction tracking, group bill splitting, expense tools, and Pocket Advisor's data-storage and backup options.',
+    description: "Explore supported bank-SMS transaction tracking, group bill splitting, expense tools, and Pocket Advisor's data-storage and backup options.",
     canonical: `${BASE_URL}/features`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

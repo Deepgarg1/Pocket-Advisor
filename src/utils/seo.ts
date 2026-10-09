@@ -115,8 +115,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   news: {
-    title: 'Engineering & Spending Updates Blog — Pocket Advisor',
-    description: 'Deep dives on offline-first database syncing, mathematical debt minimization algorithms, and spending security in the UPI era.',
+    title: 'Personal Finance Insights & Guides | Pocket Advisor',
+    description: 'Practical personal finance articles on UPI expense tracking, budgeting, bill splitting, debt minimization, and smarter money decisions.',
     canonical: `${BASE_URL}/news`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
@@ -354,7 +354,7 @@ function getBreadcrumbsForView(view: string, canonical: string, title: string) {
     itemListElement.push({
       '@type': 'ListItem',
       position: 2,
-      name: 'News & Articles',
+      name: 'Financial Insights & Articles',
       item: `${BASE_URL}/news`,
     });
     itemListElement.push({

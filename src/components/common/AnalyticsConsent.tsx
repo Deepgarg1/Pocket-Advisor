@@ -31,7 +31,7 @@ export const AnalyticsConsent: React.FC = () => {
             position: 'fixed',
             left: '16px',
             right: '16px',
-            bottom: 'calc(92px + env(safe-area-inset-bottom, 0px))',
+            bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
             zIndex: 1000,
             maxWidth: '560px',
             margin: '0 auto',
@@ -71,7 +71,7 @@ export const AnalyticsConsent: React.FC = () => {
           </div>
         </aside>
       ) : (
-        <div style={{ position: 'fixed', left: '12px', bottom: 'calc(88px + env(safe-area-inset-bottom, 0px))', zIndex: 999 }}>
+        <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', padding: '16px 0 0', zIndex: 2 }}>
           <button
             type="button"
             onClick={() => setShowSettings(!showSettings)}
@@ -81,7 +81,7 @@ export const AnalyticsConsent: React.FC = () => {
             Privacy settings
           </button>
           {showSettings && (
-            <div style={{ marginTop: '8px', padding: '12px', borderRadius: '12px', background: '#111827', border: '1px solid #475569', color: '#f8fafc', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
+            <div style={{ position: 'absolute', right: 0, bottom: 'calc(100% + 8px)', minWidth: '210px', marginTop: '8px', padding: '12px', borderRadius: '12px', background: '#111827', border: '1px solid #475569', color: '#f8fafc', boxShadow: '0 8px 24px rgba(0,0,0,0.3)' }}>
               <p style={{ margin: '0 0 10px', fontSize: '0.82rem' }}>
                 Analytics: {choice === 'granted' ? 'accepted' : 'rejected'}
               </p>

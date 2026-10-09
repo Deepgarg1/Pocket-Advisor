@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnalyticsConsent } from '../common/AnalyticsConsent';
 import { Shield, Lock, Smartphone, ArrowRight } from 'lucide-react';
 
 interface FooterProps {
@@ -331,6 +332,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
         </div>
+
+        {/* Analytics privacy preferences live in the footer, not over mobile content. */}
+        <AnalyticsConsent />
 
         {/* Bottom Bar: Copyright & Security Guarantee */}
         <div

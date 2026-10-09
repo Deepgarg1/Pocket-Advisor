@@ -21,6 +21,7 @@ import {
   renderFormattedText,
 } from './ArticleComponents';
 import { updatePageSeo } from '../../utils/seo';
+import { trackPageView } from '../../utils/analytics';
 
 interface NewsFeedViewProps {
   slug?: string;
@@ -105,6 +106,7 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
           ogType: 'article',
           ogImage: `https://www.pocketadvisor.in${article.coverImage}`,
         });
+        trackPageView();
       }
     } else {
       updatePageSeo('news', {
@@ -113,6 +115,7 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
         canonical: 'https://www.pocketadvisor.in/news',
         ogType: 'website',
       });
+      if (window.location.pathname.replace(/\/+$/, '') === '/news') trackPageView();
     }
   }, [selectedSlug]);
 

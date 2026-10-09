@@ -27,7 +27,6 @@ const ArticleStudio = adminLoader
 
 import { updatePageSeo } from './utils/seo';
 import { trackPageView } from './utils/analytics';
-import { AnalyticsConsent } from './components/common/AnalyticsConsent';
 
 const getRouteFromUrl = (): { view: string; tab?: 'PREPAYMENT' | 'EMI' | 'SIP' } => {
   const path = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
@@ -358,7 +357,6 @@ export const App: React.FC = () => {
         </Suspense>
       </main>
 
-      {currentView !== 'admin' && <AnalyticsConsent />}
 
       {/* Persistent Mobile Bottom Navigation Bar (Hidden on Desktop & Admin) */}
       {currentView !== 'admin' && <MobileBottomNav currentView={currentView} onNavigate={navigateView} />}

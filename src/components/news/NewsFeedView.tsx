@@ -108,7 +108,7 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
       }
     } else {
       updatePageSeo('news', {
-        title: 'News, Articles & Financial Engineering Guides | Pocket Advisor',
+        title: 'Personal Finance Insights & Guides | Pocket Advisor',
         description: 'Read the latest guides on UPI expense tracking, festive budgeting, debt minimization math, and private on-device wealth management.',
         canonical: 'https://www.pocketadvisor.in/news',
         ogType: 'website',
@@ -694,7 +694,7 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
           }}
         >
           <Sparkles size={16} />
-          <span>FINANCIAL ENGINEERING &amp; PRODUCT NEWS</span>
+          <span>PERSONAL FINANCE INSIGHTS</span>
         </div>
         <h1
           style={{

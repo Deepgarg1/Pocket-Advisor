@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node scripts/prerender.js",
+    "build": "tsc && vite build && node scripts/prerender.js && node scripts/validate-sitemap.js",
     "preview": "vite preview",
     "publish:articles": "git add src/data/articles.json && git commit -m \"Publish article updates\" && git push"
   },

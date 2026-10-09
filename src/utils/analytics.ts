@@ -53,6 +53,7 @@ export function setAnalyticsConsent(choice: Exclude<AnalyticsConsentChoice, null
 
   if (choice === 'granted') {
     initializeGoogleAnalytics();
+    window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
     trackPageView();
     return;
   }

@@ -116,7 +116,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   },
   news: {
     title: 'Personal Finance Insights & Guides | Pocket Advisor',
-    description: 'Practical personal finance articles on UPI expense tracking, budgeting, bill splitting, debt minimization, and smarter money decisions.'
+    description: 'Practical personal finance articles on UPI expense tracking, budgeting, bill splitting, debt minimization, and smarter money decisions.',
     canonical: `${BASE_URL}/news`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

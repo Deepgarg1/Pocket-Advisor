@@ -27,7 +27,7 @@
 
 ## Engineering Blog & Guides
 
-- [Engineering Blog](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.
+- [Financial Insights & Guides](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.
 - [Financial Guides Knowledge Base](https://www.pocketadvisor.in/guides): Problem-solving personal finance guides.
 - [How to Split Rent Fairly with Unequal Rooms](https://www.pocketadvisor.in/how-to-split-rent-unequal-rooms): Mathematical 50/50 square-footage rent split framework.
 - [Home Loan Prepayment vs Mutual Funds Guide](https://www.pocketadvisor.in/home-loan-prepayment-vs-mutual-funds): 50:50 hybrid strategy, Section 24b tax analysis, and compounding math.

@@ -750,6 +750,13 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         >
           Why cloud-based expense trackers and netbanking credential logins compromise your privacy, and how Pocket Advisor uses 100% on-device SMS parsing under Google Play's financial exception.
         </p>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.96rem', marginBottom: '28px' }}>
+          Looking for an Android app to organize eligible bank transaction alerts? Explore the{' '}
+          <a href="/upi-expense-tracker" onClick={(e) => handleNav('upi-expense-tracker', e)} style={{ color: 'var(--primary)', fontWeight: 700, textDecoration: 'underline' }}>
+            Pocket Advisor UPI Expense Tracker
+          </a>{' '}
+          to learn how supported-message parsing and privacy controls work.
+        </p>
 
         {/* E-E-A-T Author Card */}
         <AuthorCard topic="Zero-Trust Android Security &amp; SMS Expense Tracking" />

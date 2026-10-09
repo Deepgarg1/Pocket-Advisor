@@ -100,6 +100,59 @@
       ],
       "version": "1.0.0",
       "updatedAt": "2026-09-26T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:guides:best-expense-tracker-apps-india",
+      "displayName": "Best Expense Tracker Apps in India (2026): Architectural Comparison",
+      "type": "text/html",
+      "url": "https://www.pocketadvisor.in/best-expense-tracker-apps-india",
+      "description": "Comprehensive architectural comparison of Indian personal expense trackers across 4 categories: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers. Analyzes privacy, cloud backup, and monetization models.",
+      "tags": [
+        "best-expense-tracker-apps-india",
+        "expense-tracker-comparison",
+        "upi-sms-parsing",
+        "account-aggregator",
+        "privacy-security"
+      ],
+      "capabilities": [
+        "CompareExpenseApps",
+        "EvaluateFintechPrivacy",
+        "ExplainAccountAggregatorVsSMS"
+      ],
+      "representativeQueries": [
+        "best expense tracker app india 2026",
+        "account aggregator vs sms expense tracker",
+        "offline sms expense tracker privacy"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-09T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:guides:track-upi-expenses-automatically",
+      "displayName": "How to Track UPI Expenses Automatically in India (2026)",
+      "type": "text/html",
+      "url": "https://www.pocketadvisor.in/news/track-upi-expenses-automatically",
+      "description": "Step-by-step guide explaining on-device bank SMS regex parsing, OEM battery settings (Xiaomi, Samsung, OnePlus), missed SMS recovery, and SQLCipher AES-256 privacy.",
+      "tags": [
+        "track-upi-expenses-automatically",
+        "upi-sms-parsing",
+        "android-battery-optimization",
+        "sqlcipher-privacy",
+        "zero-manual-entry"
+      ],
+      "capabilities": [
+        "ExplainUpiTrackingSetup",
+        "ConfigureAndroidBatteryOptimization",
+        "HandleMissedSmsAlerts"
+      ],
+      "representativeQueries": [
+        "how to track upi expenses automatically",
+        "automatic upi expense tracker android",
+        "track google pay phonepe expenses from sms",
+        "pocket advisor battery optimization setup"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-10-09T00:00:00Z"
     }
   ]
 }

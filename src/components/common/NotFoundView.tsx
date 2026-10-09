@@ -36,9 +36,12 @@ export const NotFoundView: React.FC<NotFoundViewProps> = ({ onNavigate }) => {
           fontWeight: 900,
           letterSpacing: '-0.04em',
           lineHeight: 1,
-          background: 'linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)',
+          backgroundImage: 'linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)',
           WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
+          color: 'transparent',
+          display: 'inline-block',
           marginBottom: '12px',
           userSelect: 'none',
         }}

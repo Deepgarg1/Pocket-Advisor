@@ -97,7 +97,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleNavClick('features', e)}
                   className="footer-nav-link"
                 >
-                  Automatic Bank &amp; UPI Tracking
+                  App Features &amp; Security
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/upi-expense-tracker"
+                  onClick={(e) => handleNavClick('upi-expense-tracker', e)}
+                  className="footer-nav-link"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <span>UPI Expense Tracker</span>
+                  <span style={{ fontSize: '0.62rem', fontWeight: 800, padding: '1px 5px', borderRadius: '4px', background: 'rgba(249, 115, 22, 0.15)', color: '#f97316' }}>India</span>
                 </a>
               </li>
               <li>
@@ -181,6 +192,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/best-expense-tracker-apps-india"
+                  onClick={(e) => handleNavClick('best-expense-tracker-apps-india', e)}
+                  className="footer-nav-link"
+                >
+                  Best Expense Tracker Apps (2026)
+                </a>
+              </li>
+              <li>
+                <a
                   href="/news"
                   onClick={(e) => handleNavClick('news', e)}
                   className="footer-nav-link"
@@ -188,18 +208,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Spending Intelligence Blog
                 </a>
               </li>
-              {import.meta.env.DEV && (
-                <li>
-                  <a
-                    href="/admin"
-                    onClick={(e) => handleNavClick('admin', e)}
-                    className="footer-nav-link"
-                    style={{ opacity: 0.6 }}
-                  >
-                    Admin Studio (Dev Only)
-                  </a>
-                </li>
-              )}
               <li>
                 <a
                   href="/guides"

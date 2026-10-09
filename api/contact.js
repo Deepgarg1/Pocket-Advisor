@@ -6,10 +6,21 @@ import { createClient } from '@supabase/supabase-js';
  * Replaces Web3Forms — customer email is stored as-is, enabling direct replies.
  */
 export default async function handler(req, res) {
-  // CORS — allow only our own origin
-  res.setHeader('Access-Control-Allow-Origin', 'https://pocketadvisor.in');
+  // CORS — allow our production domains and local development
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    'https://pocketadvisor.in',
+    'https://www.pocketadvisor.in',
+  ];
+
+  if (origin && (allowedOrigins.includes(origin) || origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:'))) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  } else {
+    res.setHeader('Access-Control-Allow-Origin', 'https://www.pocketadvisor.in');
+  }
+  res.setHeader('Vary', 'Origin');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Accept');
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();

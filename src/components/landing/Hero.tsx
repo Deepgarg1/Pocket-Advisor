@@ -140,15 +140,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           color: 'var(--text-primary)',
         }}
       >
-        Pocket Advisor: Spending & Monthly Budget App for{' '}
-        <span
-          style={{
-            background: 'linear-gradient(135deg, #00d2ff 0%, #00f5a0 50%, #6366f1 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
-          Android
+        Pocket Advisor: Smart Spending Tracker &amp; Bill Splitter<br />
+        <span className="text-gradient">
+          Private, Offline &amp; Effortlessly Simple
         </span>
       </h1>
 
@@ -162,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           marginBottom: '28px',
         }}
       >
-        Effortless expense logging with automatic bank & UPI SMS transaction detection (HDFC, SBI, ICICI, Axis & all bank SMS), mathematical 2-stage group debt minimization, home screen widgets, and AI-powered spending insights.
+        Know where your money goes. Pocket Advisor helps you organize expenses with automatic bank &amp; UPI alert detection, split group bills with zero debt, and plan with complete on-device privacy.
       </p>
 
       {/* Download CTAs */}
@@ -177,11 +171,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           marginBottom: '24px',
         }}
       >
-        {/* Google Play Button (Temporarily commented out) */}
-        {/* <a
+        {/* Google Play Store Button */}
+        <a
           href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -220,7 +214,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.8 }}>GET IT ON</div>
             <div style={{ fontSize: '1.1rem', fontWeight: 800, lineHeight: 1.1 }}>Google Play</div>
           </div>
-        </a> */}
+        </a>
 
         {/* Interactive Web Tools Quick Anchor */}
         <a

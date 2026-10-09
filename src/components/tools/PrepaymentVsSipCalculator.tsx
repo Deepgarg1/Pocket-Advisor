@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useSettings } from '../../context/SettingsContext';
 import { formatMoney } from '../../utils/formatters';
 import {
@@ -9,6 +9,7 @@ import {
   Copy,
   Check,
   MessageCircle,
+  Smartphone,
 } from 'lucide-react';
 
 interface PrepaymentVsSipCalculatorProps {
@@ -18,15 +19,67 @@ interface PrepaymentVsSipCalculatorProps {
 export const PrepaymentVsSipCalculator: React.FC<PrepaymentVsSipCalculatorProps> = ({ onExploreOther }) => {
   const { currencySymbol } = useSettings();
 
-  // State
-  const [loanPrincipal, setLoanPrincipal] = useState<number>(4000000); // 40 Lakhs
-  const [loanInterestRate, setLoanInterestRate] = useState<number>(8.5); // 8.5%
-  const [tenureYears, setTenureYears] = useState<number>(20); // 20 Years
-  const [monthlySurplus, setMonthlySurplus] = useState<number>(10000); // 10k/month extra
-  const [expectedSipReturn, setExpectedSipReturn] = useState<number>(12); // 12% equity CAGR
-  const [annualLumpsum, setAnnualLumpsum] = useState<number>(0); // e.g. Diwali bonus
+  // Read initial parameters from URL for seamless link sharing & state preservation
+  const initialParams = useMemo(() => {
+    if (typeof window === 'undefined') return new URLSearchParams();
+    return new URLSearchParams(window.location.search);
+  }, []);
+
+  // State with URL param fallback
+  const [loanPrincipal, setLoanPrincipal] = useState<number>(() => {
+    const val = Number(initialParams.get('loan'));
+    return Number.isFinite(val) && val > 0 ? val : 4000000; // 40 Lakhs default
+  });
+  const [loanInterestRate, setLoanInterestRate] = useState<number>(() => {
+    const val = Number(initialParams.get('rate'));
+    return Number.isFinite(val) && val > 0 ? val : 8.5; // 8.5% default
+  });
+  const [tenureYears, setTenureYears] = useState<number>(() => {
+    const val = Number(initialParams.get('tenure'));
+    return Number.isFinite(val) && val > 0 ? val : 20; // 20 Years default
+  });
+  const [monthlySurplus, setMonthlySurplus] = useState<number>(() => {
+    const val = Number(initialParams.get('surplus'));
+    return Number.isFinite(val) && val >= 0 ? val : 10000; // 10k/month extra default
+  });
+  const [expectedSipReturn, setExpectedSipReturn] = useState<number>(() => {
+    const val = Number(initialParams.get('sipRate'));
+    return Number.isFinite(val) && val > 0 ? val : 12; // 12% equity CAGR default
+  });
+  const [annualLumpsum, setAnnualLumpsum] = useState<number>(() => {
+    const val = Number(initialParams.get('bonus'));
+    return Number.isFinite(val) && val >= 0 ? val : 0; // e.g. Diwali bonus
+  });
   const [activeStrategyView, setActiveStrategyView] = useState<'VERDICT' | 'MILESTONES' | 'HYBRID'>('VERDICT');
   const [copiedShare, setCopiedShare] = useState(false);
+
+  // Sync state changes to browser address bar without reload
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams();
+    if (loanPrincipal !== 4000000) params.set('loan', String(loanPrincipal));
+    if (loanInterestRate !== 8.5) params.set('rate', String(loanInterestRate));
+    if (tenureYears !== 20) params.set('tenure', String(tenureYears));
+    if (monthlySurplus !== 10000) params.set('surplus', String(monthlySurplus));
+    if (expectedSipReturn !== 12) params.set('sipRate', String(expectedSipReturn));
+    if (annualLumpsum > 0) params.set('bonus', String(annualLumpsum));
+
+    const qs = params.toString();
+    const newPath = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+    window.history.replaceState(null, '', newPath);
+  }, [loanPrincipal, loanInterestRate, tenureYears, monthlySurplus, expectedSipReturn, annualLumpsum]);
+
+  // Generates permanent shareable URL for WhatsApp and clipboard copying
+  const shareUrl = useMemo(() => {
+    const params = new URLSearchParams();
+    params.set('loan', String(loanPrincipal));
+    params.set('rate', String(loanInterestRate));
+    params.set('tenure', String(tenureYears));
+    params.set('surplus', String(monthlySurplus));
+    params.set('sipRate', String(expectedSipReturn));
+    if (annualLumpsum > 0) params.set('bonus', String(annualLumpsum));
+    return `https://www.pocketadvisor.in/home-loan-prepayment-vs-sip?${params.toString()}`;
+  }, [loanPrincipal, loanInterestRate, tenureYears, monthlySurplus, expectedSipReturn, annualLumpsum]);
 
   // Calculations
   const comparison = useMemo(() => {
@@ -156,29 +209,29 @@ export const PrepaymentVsSipCalculator: React.FC<PrepaymentVsSipCalculatorProps>
   }, [loanPrincipal, loanInterestRate, tenureYears, monthlySurplus, annualLumpsum, expectedSipReturn]);
 
   const handleShareWhatsApp = () => {
-    const text = `⚖️ *Home Loan Prepayment vs. SIP Analysis*
-🏠 *Loan:* ${formatMoney(loanPrincipal, currencySymbol)} at ${loanInterestRate}% (${tenureYears} yrs)
-💵 *Regular EMI:* ${formatMoney(comparison.regularEmi, currencySymbol)}/mo
+    const text = `⚖️ *Home Loan Prepayment vs. Equity SIP*
+🏠 *Loan Balance:* ${formatMoney(loanPrincipal, currencySymbol)} at ${loanInterestRate}% (${tenureYears} yrs)
+💵 *Monthly EMI:* ${formatMoney(comparison.regularEmi, currencySymbol)}/mo
 💰 *Extra Monthly Surplus:* ${formatMoney(monthlySurplus, currencySymbol)}/mo
 
 📊 *Strategy Comparison:*
 1️⃣ *Prepay Home Loan:*
-   • Pay off loan in *${comparison.yearsToPayoff} years* (Saved *${comparison.yearsSaved} years*!)
-   • Total Interest Saved: *${formatMoney(comparison.interestSaved, currencySymbol)}* (100% Risk-Free)
+   • Clears loan in: *${comparison.yearsToPayoff} years* (Cuts *${comparison.yearsSaved} years*!)
+   • Total Interest Saved: *${formatMoney(comparison.interestSaved, currencySymbol)}* (100% Guaranteed)
 
 2️⃣ *Invest Surplus in Equity SIP (${expectedSipReturn}% CAGR):*
    • Total Invested: ${formatMoney(comparison.totalSipInvested, currencySymbol)}
-   • Accumulated SIP Corpus: *${formatMoney(comparison.sipCorpus, currencySymbol)}*
+   • Maturity SIP Corpus: *${formatMoney(comparison.sipCorpus, currencySymbol)}*
    • Net Wealth Gain: *${formatMoney(comparison.sipNetWealthProfit, currencySymbol)}*
 
 🏆 *Verdict:* ${
       comparison.isSipWinner
         ? `Investing in SIP builds *${formatMoney(comparison.netDifference, currencySymbol)} MORE net wealth* than loan prepayment!`
-        : `Prepaying loan saves *${formatMoney(comparison.netDifference, currencySymbol)} MORE* with guaranteed peace of mind!`
+        : `Prepaying loan saves *${formatMoney(comparison.netDifference, currencySymbol)} MORE* with guaranteed debt-free peace!`
     }
 
-🔗 *Simulate your loan on Pocket Advisor:*
-https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
+🔗 *Simulate & tweak this calculation on Pocket Advisor:*
+${shareUrl}`;
 
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -189,7 +242,7 @@ https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
 Prepaying saves ${formatMoney(comparison.interestSaved, currencySymbol)} and cuts ${comparison.yearsSaved} years off your loan.
 Investing in SIP builds a corpus of ${formatMoney(comparison.sipCorpus, currencySymbol)}.
 Verdict: ${comparison.isSipWinner ? 'SIP Wins by ' + formatMoney(comparison.netDifference, currencySymbol) : 'Prepayment Wins by ' + formatMoney(comparison.netDifference, currencySymbol)}.
-Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
+Simulate your numbers: ${shareUrl}`;
 
     try {
       if (navigator?.clipboard?.writeText) {
@@ -292,8 +345,8 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
               padding: 'clamp(20px, 3vw, 28px)',
               borderRadius: '24px',
               backgroundColor: 'var(--bg-surface)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.4)',
+              border: '1px solid var(--border-subtle)',
+              boxShadow: 'var(--shadow-md)',
               display: 'flex',
               flexDirection: 'column',
               gap: '20px',
@@ -384,8 +437,8 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
               style={{
                 padding: '12px 16px',
                 borderRadius: '14px',
-                background: 'rgba(255, 255, 255, 0.03)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
+                background: 'var(--bg-surface-elevated)',
+                border: '1px solid var(--border-subtle)',
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
@@ -406,8 +459,8 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
               padding: 'clamp(20px, 3vw, 28px)',
               borderRadius: '24px',
               backgroundColor: 'var(--bg-surface)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.4)',
+              border: '1px solid var(--border-subtle)',
+              boxShadow: 'var(--shadow-md)',
               display: 'flex',
               flexDirection: 'column',
               gap: '20px',
@@ -638,7 +691,7 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
                     {formatMoney(comparison.interestSaved, currencySymbol)}
                   </div>
                 </div>
-                <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '6px', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
+                <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '6px', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
                   Closes loan in <strong>{comparison.yearsToPayoff} yrs</strong>
                   <br />
                   <span style={{ color: '#10b981', fontWeight: 700 }}>Saved {comparison.yearsSaved} Years!</span>
@@ -666,7 +719,7 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
                     {formatMoney(comparison.sipCorpus, currencySymbol)}
                   </div>
                 </div>
-                <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '6px', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
+                <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '6px', fontSize: '0.78rem', color: 'var(--text-secondary)' }}>
                   Total Profit: <strong>{formatMoney(comparison.sipNetWealthProfit, currencySymbol)}</strong>
                   <br />
                   <span style={{ color: '#f59e0b', fontWeight: 700 }}>Over {tenureYears} Years</span>
@@ -715,7 +768,7 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
                 <span style={{ color: '#10b981' }}>Option A (Interest Saved: {formatMoney(comparison.interestSaved, currencySymbol)})</span>
                 <span style={{ color: '#f59e0b' }}>Option B (SIP Profit: {formatMoney(comparison.sipNetWealthProfit, currencySymbol)})</span>
               </div>
-              <div style={{ display: 'flex', height: '12px', borderRadius: '6px', overflow: 'hidden', backgroundColor: 'rgba(255, 255, 255, 0.06)' }}>
+              <div style={{ display: 'flex', height: '12px', borderRadius: '6px', overflow: 'hidden', backgroundColor: 'var(--border-subtle)' }}>
                 {(() => {
                   const total = comparison.interestSaved + comparison.sipNetWealthProfit;
                   const pctPrepay = total > 0 ? (comparison.interestSaved / total) * 100 : 50;
@@ -735,7 +788,7 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
               style={{
                 padding: '12px 14px',
                 borderRadius: '12px',
-                background: 'rgba(255, 255, 255, 0.02)',
+                background: 'var(--bg-surface-elevated)',
                 border: '1px solid var(--border-subtle)',
                 fontSize: '0.8rem',
                 color: 'var(--text-muted)',
@@ -745,6 +798,59 @@ Calculated at https://www.pocketadvisor.in/home-loan-prepayment-vs-sip`;
               💡 <strong>Tax Tip:</strong> If you claim home loan tax deductions (up to ₹2 Lakhs on interest under Section 24b and ₹1.5 Lakhs under 80C), your effective post-tax loan cost is lower (~6.5%–7%), making SIP investing even more lucrative.
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Contextual Android App Bridge Banner */}
+      <div
+        style={{
+          padding: 'clamp(22px, 3.5vw, 32px)',
+          borderRadius: '24px',
+          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)',
+          border: '1px solid rgba(99, 102, 241, 0.28)',
+          boxShadow: 'var(--shadow-md)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '20px',
+        }}
+      >
+        <div style={{ maxWidth: '640px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+            <Sparkles size={14} /> Bridge to Automated Savings
+          </div>
+          <h4 style={{ fontSize: '1.28rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 6px 0' }}>
+            Want More Monthly Surplus for Prepayments or SIPs?
+          </h4>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.55, margin: 0 }}>
+            Planning a repayment strategy is easy; finding an extra ₹10,000 every month is the hard part. Pocket Advisor for Android reads bank SMS alerts directly on your device with <strong>100% offline encryption</strong>, shows you where micro-spends leak, and helps you keep more cash for what actually matters.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: '12px 22px',
+              borderRadius: '14px',
+              background: 'var(--primary-gradient)',
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 6px 20px rgba(99, 102, 241, 0.35)',
+              transition: 'transform 0.15s ease',
+            }}
+          >
+            <Smartphone size={16} />
+            <span>Get Android App</span>
+          </a>
         </div>
       </div>
 

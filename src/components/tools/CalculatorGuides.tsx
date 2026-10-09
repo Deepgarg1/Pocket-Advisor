@@ -68,7 +68,7 @@ export const FaqAccordionItem: React.FC<{ question: string; answer: string | Rea
             color: 'var(--text-secondary)',
             fontSize: '0.92rem',
             lineHeight: 1.65,
-            borderTop: '1px solid rgba(255, 255, 255, 0.05)',
+            borderTop: '1px solid var(--border-subtle)',
             marginTop: '4px',
           }}
         >
@@ -226,33 +226,33 @@ export const AppConversionBanner: React.FC = () => {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%', maxWidth: '240px', flexShrink: 0 }}>
-          {/* <a
+          <a
             href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
+            style={{
+              padding: '13px 22px',
+              borderRadius: '14px',
+              background: 'var(--primary-gradient)',
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: '0.92rem',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              boxShadow: '0 8px 24px rgba(99, 102, 241, 0.4)',
+              transition: 'transform 0.15s ease, box-shadow 0.15s ease',
+            }}
           >
-            <Button
-              variant="primary"
-              style={{
-                width: '100%',
-                padding: '12px 20px',
-                fontWeight: 700,
-                fontSize: '0.92rem',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 8px 20px rgba(99, 102, 241, 0.35)',
-              }}
-            >
-              <Sparkles size={16} /> Get on Google Play
-            </Button>
-          </a> */}
+            <Smartphone size={18} />
+            <span>Get Android App</span>
+          </a>
         </div>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '16px', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <ShieldCheck size={16} color="#10b981" /> 100% Offline & Private
         </span>
@@ -405,14 +405,14 @@ export const EmiCalculatorGuide: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 600 }}>₹10,00,000</td>
                 <td style={{ padding: '12px 16px' }}>5 Years</td>
                 <td style={{ padding: '12px 16px', color: 'var(--primary)', fontWeight: 700 }}>₹20,517</td>
                 <td style={{ padding: '12px 16px', color: 'var(--warning)' }}>₹2,30,992</td>
                 <td style={{ padding: '12px 16px' }}>₹12,30,992</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 600 }}>₹25,00,000</td>
                 <td style={{ padding: '12px 16px' }}>15 Years</td>
                 <td style={{ padding: '12px 16px', color: 'var(--primary)', fontWeight: 700 }}>₹24,619</td>
@@ -523,14 +523,14 @@ export const SipCalculatorGuide: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 600 }}>₹10,000 / mo</td>
                 <td style={{ padding: '12px 16px', color: 'var(--text-muted)' }}>0% (Flat)</td>
                 <td style={{ padding: '12px 16px' }}>15 Years</td>
                 <td style={{ padding: '12px 16px' }}>₹18,00,000</td>
                 <td style={{ padding: '12px 16px', color: '#10b981', fontWeight: 700 }}>₹50,45,760</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 600 }}>₹10,000 / mo</td>
                 <td style={{ padding: '12px 16px', color: 'var(--info)' }}>5% Yearly</td>
                 <td style={{ padding: '12px 16px' }}>15 Years</td>
@@ -625,7 +625,7 @@ export const PrepaymentVsSipGuide: React.FC = () => {
         <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.86rem', textAlign: 'left' }}>
             <thead>
-              <tr style={{ borderBottom: '1.5px solid rgba(255, 255, 255, 0.1)', color: 'var(--text-secondary)' }}>
+              <tr style={{ borderBottom: '1.5px solid var(--border-subtle)', color: 'var(--text-secondary)' }}>
                 <th style={{ padding: '12px 16px' }}>Dimension</th>
                 <th style={{ padding: '12px 16px' }}>Option A: Prepay Home Loan</th>
                 <th style={{ padding: '12px 16px' }}>Option B: Equity SIP</th>
@@ -633,25 +633,25 @@ export const PrepaymentVsSipGuide: React.FC = () => {
               </tr>
             </thead>
             <tbody>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-primary)' }}>Nature of Return</td>
                 <td style={{ padding: '12px 16px', color: '#10b981', fontWeight: 600 }}>100% Guaranteed &amp; Risk-Free</td>
                 <td style={{ padding: '12px 16px', color: '#f59e0b', fontWeight: 600 }}>Market-Linked (Volatile)</td>
                 <td style={{ padding: '12px 16px', color: 'var(--primary)', fontWeight: 600 }}>Balanced Risk-Return</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-primary)' }}>Effective Rate</td>
                 <td style={{ padding: '12px 16px' }}>Saves 8.5% borrowing cost</td>
                 <td style={{ padding: '12px 16px', color: '#10b981', fontWeight: 700 }}>Compounds at ~12%–14% CAGR</td>
                 <td style={{ padding: '12px 16px' }}>Earns 12% on half, saves 8.5% on half</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-primary)' }}>Liquidity</td>
                 <td style={{ padding: '12px 16px', color: 'var(--text-muted)' }}>Low (Locked in brick &amp; mortar)</td>
                 <td style={{ padding: '12px 16px', color: '#10b981', fontWeight: 600 }}>High (Redeemable in T+2 days)</td>
                 <td style={{ padding: '12px 16px' }}>Moderate emergency liquidity</td>
               </tr>
-              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                 <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-primary)' }}>Tax Advantage</td>
                 <td style={{ padding: '12px 16px' }}>Reduces interest deduction eligible under Sec 24b</td>
                 <td style={{ padding: '12px 16px' }}>12.5% LTCG above ₹1.25 Lakhs exemption</td>

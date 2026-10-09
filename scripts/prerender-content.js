@@ -82,6 +82,7 @@ export function getPrerenderFooterHtml() {
           <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">App &amp; Legal</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
             <li><a href="/features" style="color: #cbd5e1; text-decoration: none;">Features &amp; Security</a></li>
+            <li><a href="/upi-expense-tracker" style="color: #cbd5e1; text-decoration: none;">UPI Expense Tracker (India)</a></li>
             <li><a href="/download" style="color: #cbd5e1; text-decoration: none;">Download Android App</a></li>
             <li><a href="/faq" style="color: #cbd5e1; text-decoration: none;">Frequently Asked Questions</a></li>
             <li><a href="/privacy" style="color: #cbd5e1; text-decoration: none;">Privacy Policy</a></li>
@@ -280,6 +281,163 @@ export function getRouteBodyContent(slug) {
           </div>
         </article>`;
 
+    case 'best-expense-tracker-apps-india':
+      return `
+        <article style="${contentStyle}">
+          <div style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">The 30-Second Summary: Which Category Fits Your Needs?</h2>
+            <p>
+              Tracking everyday personal expenses in India requires a completely different approach than in the US or Europe. With over 15 billion monthly UPI transactions, entering expenses manually becomes unsustainable within two weeks. Picking an expense tracker in India comes down to which underlying technical architecture and business model matches your daily habits:
+            </p>
+            <ul style="padding-left: 20px; margin-top: 10px;">
+              <li><strong>Category 1: Offline-First SMS Trackers with Optional Cloud Sync (e.g. Pocket Advisor):</strong> Parses bank &amp; UPI SMS locally on-device with SQLCipher AES-256 encryption. Operates 100% offline-first, offers optional encrypted cloud backup for multi-device sync, and includes bill splitting. Ad-supported free tier with optional ad-free Pro upgrade; zero loan telemarketing. (Android only).</li>
+              <li><strong>Category 2: Account Aggregator Apps (e.g. Fold Money):</strong> Connects to banks via the RBI-regulated Account Aggregator framework with OTP consent. Cross-platform (iOS &amp; Android) with zero SMS access. Requires an annual subscription fee (~₹1,500+/yr).</li>
+              <li><strong>Category 3: Cloud FinTech &amp; Credit Marketplaces (e.g. Moneyview, Axio):</strong> Syncs SMS and bank transactions to corporate cloud databases to offer instant personal loans, credit lines, and free credit score updates. Expect frequent in-app loan marketing.</li>
+              <li><strong>Category 4: Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha):</strong> Manual budgeting accessible on laptop/desktop web browsers and mobile apps. Requires ongoing entry discipline; free tier includes ads.</li>
+            </ul>
+          </div>
+
+          <h2 style="${headingStyle}">Why Personal Finance in India is Architecturally Unique: The 4 Core Models</h2>
+          <p>
+            Because Open Banking APIs like Plaid do not exist in India for consumer apps, expense trackers have evolved into four distinct architectural approaches:
+          </p>
+          <ol style="padding-left: 20px; margin-bottom: 24px;">
+            <li><strong>On-Device Deterministic Regex Parsing (e.g. Pocket Advisor):</strong> Intercepts bank transactional SMS on your Android phone, parses the amount and merchant using local regex patterns, and commits records to an encrypted on-device database (SQLCipher AES-256). Works 100% offline, with optional encrypted cloud backup for multi-device sync.</li>
+            <li><strong>The RBI Account Aggregator (AA) Framework (e.g. Fold):</strong> Connects directly to bank servers using RBI-regulated NBFC-AA intermediaries with explicit user OTP consent. Works on iOS, but relies on bank server uptime and involves recurring API query costs funded via subscriptions.</li>
+            <li><strong>Cloud FinTech &amp; Credit Underwriting Marketplaces (e.g. Moneyview, Axio):</strong> Reads SMS messages and uploads transaction logs to corporate cloud databases to underwrite personal loans, credit cards, and Buy Now Pay Later lines.</li>
+            <li><strong>Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha):</strong> Focuses on deliberate manual logging across desktop web browsers and mobile apps, avoiding permission sensitivities at the cost of manual effort.</li>
+          </ol>
+
+          <h2 style="${headingStyle}">Architectural Category Comparison Matrix (October 2026)</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; min-width: 760px; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); color: #f8fafc;">
+                  <th style="padding: 12px 10px;">Metric</th>
+                  <th style="padding: 12px 10px; color: #818cf8;">Offline-First SMS (e.g. Pocket Advisor)</th>
+                  <th style="padding: 12px 10px;">Account Aggregator (e.g. Fold)</th>
+                  <th style="padding: 12px 10px;">Cloud Credit Hubs (e.g. Moneyview, Axio)</th>
+                  <th style="padding: 12px 10px;">Manual Web Tools (e.g. Mera Kharcha)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Tracking Engine</td>
+                  <td style="padding: 10px; color: #34d399;">On-Device SMS Regex (Android)</td>
+                  <td style="padding: 10px;">RBI Account Aggregator APIs</td>
+                  <td style="padding: 10px;">Cloud-Parsed SMS &amp; Statements</td>
+                  <td style="padding: 10px;">Manual Entry (+ basic SMS)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Data Storage &amp; Sync</td>
+                  <td style="padding: 10px; color: #34d399;">Local SQLCipher + Optional Cloud Backup</td>
+                  <td style="padding: 10px;">Cloud Database</td>
+                  <td style="padding: 10px; color: #f87171;">Cloud Underwriting DB</td>
+                  <td style="padding: 10px;">Cloud Database</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Bank Login / OTP</td>
+                  <td style="padding: 10px; color: #34d399;">Zero Logins (Local SMS Filter)</td>
+                  <td style="padding: 10px;">Phone OTP + RBI AA Consent</td>
+                  <td style="padding: 10px; color: #fbbf24;">Phone OTP + Cloud SMS Permissions</td>
+                  <td style="padding: 10px;">User Email / Password</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Monetization &amp; Ads</td>
+                  <td style="padding: 10px; color: #818cf8;">Ad-Supported Free / Optional Ad-Free Pro</td>
+                  <td style="padding: 10px;">Paid Subscription (~₹1,500–₹2,500/yr)</td>
+                  <td style="padding: 10px; color: #fbbf24;">Free (Monetized via Personal Loans/Cards)</td>
+                  <td style="padding: 10px;">Free with Ads / Pro Upgrade</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Loan Telemarketing?</td>
+                  <td style="padding: 10px; color: #34d399;">Zero Loan Sales / No NBFC Sharing</td>
+                  <td style="padding: 10px; color: #34d399;">Zero Loan Sales (Subscription model)</td>
+                  <td style="padding: 10px; color: #f87171;">Frequent In-App Loan &amp; Card Prompts</td>
+                  <td style="padding: 10px; color: #34d399;">No Loan Sales</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Group Bill Splitting</td>
+                  <td style="padding: 10px; color: #818cf8;">Built-in 2-Stage Greedy Debt Minimization</td>
+                  <td style="padding: 10px; color: #94a3b8;">Not Available</td>
+                  <td style="padding: 10px; color: #94a3b8;">Basic or Bill Reminders</td>
+                  <td style="padding: 10px;">Basic Group Ledger</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Works Offline?</td>
+                  <td style="padding: 10px; color: #34d399;">100% Functional Without Internet</td>
+                  <td style="padding: 10px; color: #f87171;">No (Requires Active AA Server)</td>
+                  <td style="padding: 10px;">Partial (Requires Cloud Sync)</td>
+                  <td style="padding: 10px;">Partial (Requires Web Connection)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Supported Platforms</td>
+                  <td style="padding: 10px; color: #818cf8;">Android Native + Free Web Tools</td>
+                  <td style="padding: 10px;">Android + iOS</td>
+                  <td style="padding: 10px;">Android + iOS</td>
+                  <td style="padding: 10px;">Desktop Web + Android + iOS</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">In-Depth Analysis of Each Architecture</h2>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #818cf8; margin-top: 0;">Category 1: Offline-First SMS Trackers with Optional Cloud Sync (e.g. Pocket Advisor)</h3>
+            <p>
+              Focuses on data ownership and speed. Pocket Advisor parses transaction SMS alerts from 15+ Indian banks and UPI applications (Google Pay, PhonePe, Paytm, BHIM) locally on-device. Data is stored in a local SQLCipher AES-256 encrypted database. Users who want seamless synchronization across devices or backup protection can enable optional encrypted Cloud Backup (powered by Supabase).
+            </p>
+            <p><strong>Key Strengths:</strong> 100% offline-first functionality, local SQLCipher AES-256 database encryption, optional encrypted cloud backup for multi-device sync, integrated 2-stage greedy debt minimization for group expenses, and zero loan telemarketing calls or NBFC data sharing.</p>
+            <p><strong>Realistic Trade-offs:</strong> Free tier includes standard display ads (removable via optional Pro upgrade); automated SMS parsing is Android-only due to Apple iOS sandbox restrictions.</p>
+          </div>
+
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-top: 0;">Category 2: RBI Account Aggregator Apps (e.g. Fold Money)</h3>
+            <p>
+              Connects directly to bank accounts via the RBI Account Aggregator framework. Users give OTP consent to fetch account balances and statements directly from participating banks, eliminating the need to read SMS text messages.
+            </p>
+            <p><strong>Key Strengths:</strong> Works on both iOS and Android with identical feature sets; direct bank server connection with zero SMS permissions required; modern, clutter-free user interface with zero advertising.</p>
+            <p><strong>Realistic Trade-offs:</strong> Requires a recurring annual paid subscription (~₹1,500 – ₹2,500/year); dependent on bank API uptimes; does not support group debt minimization.</p>
+          </div>
+
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fbbf24; margin-top: 0;">Category 3: Cloud FinTech &amp; Credit Marketplaces (e.g. Moneyview, Axio)</h3>
+            <p>
+              Pairs SMS and statement expense tracking with credit line services. Provides real-time balance overviews, credit card due date alerts, and free monthly credit bureau score checks, funded primarily through digital lending products.
+            </p>
+            <p><strong>Key Strengths:</strong> Free monthly CIBIL/Experian credit score tracking; fast pre-approved personal loans; mature credit card statement cycle tracking.</p>
+            <p><strong>Realistic Trade-offs:</strong> Financial records hosted on corporate cloud databases for credit underwriting; frequent in-app loan banners and telemarketing notifications.</p>
+          </div>
+
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #a78bfa; margin-top: 0;">Category 4: Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha)</h3>
+            <p>
+              Focuses on deliberate manual logging across desktop web browsers and mobile apps. Ideal for users who prefer doing their budgeting at an office desk or laptop browser without installing mobile applications.
+            </p>
+            <p><strong>Key Strengths:</strong> Accessible on any desktop browser without mobile device dependency; zero mobile SMS permissions required; intuitive interface for manual household accounting.</p>
+            <p><strong>Realistic Trade-offs:</strong> Requires ongoing manual entry discipline; financial records hosted on remote cloud databases; free tier displays banner ads.</p>
+          </div>
+
+          <div style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">Decision Framework: Which Architecture Matches You?</h2>
+            <ul style="padding-left: 20px; line-height: 1.8;">
+              <li><strong>Offline-First SMS Tracker (e.g. Pocket Advisor):</strong> Best if you want automated UPI tracking, zero loan telemarketing calls, on-device encryption, optional cloud backup, and group bill splitting.</li>
+              <li><strong>Account Aggregator App (e.g. Fold Money):</strong> Best if you use an iPhone and are comfortable paying an annual subscription for direct bank API connectivity.</li>
+              <li><strong>Cloud Credit Marketplace (e.g. Moneyview, Axio):</strong> Best if you actively need credit score tracking and access to pre-approved personal loans.</li>
+              <li><strong>Manual Web Tool (e.g. Mera Kharcha):</strong> Best if you prefer entering income and expense numbers manually on a desktop computer.</li>
+            </ul>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; margin: 24px 0; font-size: 0.82rem; color: #94a3b8; line-height: 1.6;">
+            <strong>Trademark &amp; Fair Use Notice:</strong> All product names, logos, trademarks, and registered trademarks mentioned (including Pocket Advisor, Fold, Moneyview, Axio, Walnut, Mera Kharcha, and Splitwise) are property of their respective owners. Their use in this guide is strictly for nominative fair use to provide factual, comparative education on personal finance technologies in India. Information verified as of October 2026.
+          </div>
+
+          <div style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 14px; padding: 20px; margin: 30px 0;">
+            <div style="font-weight: 700; color: #818cf8; margin-bottom: 6px;">Editorial Standards &amp; Attribution</div>
+            <div style="font-size: 0.92rem; color: #cbd5e1;">Authored by the Pocket Advisor Financial Engineering Team. Updated October 2026. Researched independently across active Android and iOS personal finance architectures in India.</div>
+          </div>
+        </article>`;
+
     case 'split':
       return `
         <div style="${contentStyle}">
@@ -455,6 +613,125 @@ export function getRouteBodyContent(slug) {
             Monitor real-time monthly budget velocity, daily spending caps, and remaining category allocations directly from your Android home screen without launching the app.
           </p>
         </div>`;
+
+    case 'upi-expense-tracker':
+      return `
+        <article style="${contentStyle}">
+          <div style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">Automatic UPI Expense Tracking: Stop Logging Chai, Cabs, and Groceries by Hand</h2>
+            <p>
+              If you live in India, you probably make 15 to 25 UPI transactions every single day: ₹20 for morning tea, ₹120 for an auto ride, ₹350 on Blinkit or Zepto, ₹600 for lunch on Swiggy, and a couple of bill splits with friends in the evening.
+            </p>
+            <p style="margin-top: 12px;">
+              Manually logging each one into a spreadsheet or budgeting app sounds great on paper, but almost everyone abandons it after three days. Pocket Advisor solves this by automatically reading your transactional bank SMS alerts directly on your Android phone — with <strong>zero cloud uploads</strong>, <strong>zero bank logins</strong>, and <strong>100% offline encryption</strong>.
+            </p>
+          </div>
+
+          <h2 style="${headingStyle}">How On-Device SMS Tracking Works (Without Giving Away Your Passwords)</h2>
+          <p>
+            Whenever you scan a QR code or pay someone via Google Pay, PhonePe, Paytm, or CRED, your bank sends you a standard SMS alert (for example: <em>"Sent Rs. 385.00 from HDFC Bank A/C **4819 to SWIGGY UPI ref 418293817291..."</em>).
+          </p>
+          <p style="margin-top: 12px;">
+            Here is what happens the instant that text message arrives:
+          </p>
+          <ol style="padding-left: 20px; margin-bottom: 24px;">
+            <li><strong>Local Broadcast Receiver:</strong> Pocket Advisor's Android service intercepts the incoming SMS right on your device processor.</li>
+            <li><strong>Strict Regex Extraction:</strong> It parses only the amount (₹385), the merchant (Swiggy), the account last 4 digits (4819), and transaction type (Debit).</li>
+            <li><strong>OTP and Sensitive Data Drop:</strong> Any message containing OTPs, login verification codes, or personal chats is instantly discarded. We never touch or store verification codes.</li>
+            <li><strong>Automatic Categorization:</strong> The merchant name is matched locally to categories like Food &amp; Dining, Groceries, Transport, or Shopping.</li>
+            <li><strong>Encrypted SQLite Ledger:</strong> The entry is saved directly to your local phone database, encrypted using 256-bit AES SQLCipher. It never leaves your phone.</li>
+          </ol>
+
+          <h2 style="${headingStyle}">Comparison: Pocket Advisor vs Traditional Tracking Methods</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 14px; text-align: left; color: #f8fafc;">Feature</th>
+                  <th style="padding: 12px 14px; text-align: left; color: #f8fafc;">Manual Spreadsheets</th>
+                  <th style="padding: 12px 14px; text-align: left; color: #f8fafc;">Cloud Finance Apps</th>
+                  <th style="padding: 12px 14px; text-align: left; color: #f8fafc;">Pocket Advisor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 12px 14px; font-weight: 700;">Data Entry</td>
+                  <td style="padding: 12px 14px;">Manual (typing 15+ times/day)</td>
+                  <td style="padding: 12px 14px;">Cloud scraping / PDF uploads</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Automatic (100% on-device SMS)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 12px 14px; font-weight: 700;">Financial Privacy</td>
+                  <td style="padding: 12px 14px;">High (stored locally)</td>
+                  <td style="padding: 12px 14px; color: #f87171;">Low (uploaded to servers for ad targeting)</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">100% Offline (Zero server telemetry)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 12px 14px; font-weight: 700;">Bank Passwords Needed</td>
+                  <td style="padding: 12px 14px;">None</td>
+                  <td style="padding: 12px 14px; color: #f87171;">Often requested for scraping</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Never (Zero credentials requested)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                  <td style="padding: 12px 14px; font-weight: 700;">Group Bill Splitting</td>
+                  <td style="padding: 12px 14px;">Requires manual math</td>
+                  <td style="padding: 12px 14px;">Separate tool required</td>
+                  <td style="padding: 12px 14px; color: #c084fc; font-weight: 700;">Built-in 2-stage greedy debt solver</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 14px; font-weight: 700;">Ads &amp; Upsells</td>
+                  <td style="padding: 12px 14px;">None</td>
+                  <td style="padding: 12px 14px; color: #f87171;">Constant loan and credit card spam</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Zero advertisements</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">Handled Edge Cases: Refunds, Failed Payments, and RuPay Credit Cards</h2>
+          <p>
+            Real-world Indian banking has plenty of weird edge cases. Here is how Pocket Advisor handles them smoothly:
+          </p>
+          <ul style="padding-left: 20px; margin-bottom: 24px;">
+            <li><strong>UPI Refunds &amp; Reversals:</strong> If a payment fails on Swiggy or Zomato and your bank credits it back 48 hours later, the app detects the reversal and offsets your original spending instead of treating the refund as new monthly salary.</li>
+            <li><strong>Self-Transfers:</strong> Moving money between your SBI savings account and your HDFC salary account? The app identifies transfers between your own linked accounts so your total spend is not double-counted.</li>
+            <li><strong>RuPay Credit Cards on UPI:</strong> Scanned a merchant QR code using a RuPay credit card? Pocket Advisor identifies the card account and categorizes it under credit spending while updating your payment cycle.</li>
+          </ul>
+
+          <h2 style="${headingStyle}">Supported Indian Banks &amp; UPI Apps</h2>
+          <div style="${cardStyle}">
+            <p style="margin: 0 0 12px 0;">
+              Pocket Advisor parses standard transactional SMS alerts from all major Indian scheduled commercial banks:
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">State Bank of India (SBI)</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">HDFC Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">ICICI Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Axis Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Kotak Mahindra Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Punjab National Bank (PNB)</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Bank of Baroda</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Canara Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">IndusInd Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">IDFC FIRST Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Bandhan Bank</span>
+              <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Union Bank of India</span>
+            </div>
+            <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;">
+              Works seamlessly with all UPI client apps including <strong>Google Pay</strong>, <strong>PhonePe</strong>, <strong>Paytm</strong>, <strong>CRED</strong>, <strong>BHIM UPI</strong>, and <strong>Amazon Pay</strong>.
+            </p>
+          </div>
+
+          <div style="${cardStyle} text-align: center; margin: 40px 0;">
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Try Pocket Advisor for Android</h3>
+            <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 20px 0;">
+              Get automatic expense tracking with complete peace of mind. Zero ads, zero cloud sync, and 100% on-device encryption.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #6366f1; color: #ffffff; padding: 13px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 0.95rem;">
+              Download on Google Play &rarr;
+            </a>
+          </div>
+        </article>`;
 
     case 'faq':
       return `
@@ -662,6 +939,17 @@ export function getRouteBodyContent(slug) {
           <h2 style="${headingStyle}">Recent Articles &amp; Practical Guides</h2>
           <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
             <div style="${cardStyle}">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #10b981; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 10px; border-radius: 9999px;">Step-by-Step Guide</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin: 10px 0 6px 0;">
+                <a href="/news/track-upi-expenses-automatically" style="color: inherit; text-decoration: none;">How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide) &rarr;</a>
+              </h3>
+              <p style="font-size: 0.94rem; margin: 0 0 14px 0; color: #94a3b8;">
+                Stop typing every transaction. Learn how on-device bank SMS regex parsing, Android battery setup, missed SMS recovery, and SQLCipher AES-256 deliver automated UPI tracking without privacy leaks.
+              </p>
+              <a href="/news/track-upi-expenses-automatically" style="color: #10b981; font-weight: 700; font-size: 0.9rem;">Read Complete Guide &rarr;</a>
+            </div>
+
+            <div style="${cardStyle}">
               <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #fbbf24; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); padding: 3px 10px; border-radius: 9999px;">Budgeting Guide</span>
               <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin: 10px 0 6px 0;">
                 <a href="/news/diwali-2026-how-to-track-upi-spending" style="color: inherit; text-decoration: none;">Diwali 2026: How to Track UPI Spending and Stay Within Your Budget &rarr;</a>
@@ -685,6 +973,160 @@ export function getRouteBodyContent(slug) {
           </div>
         </div>`;
 
+    case 'news/track-upi-expenses-automatically':
+      return `
+        <article style="${contentStyle}">
+          <div style="margin-bottom: 24px;">
+            <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 14px; border-radius: 9999px; background-color: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3);">Step-by-Step Android Guide</span>
+            <span style="margin-left: 12px; font-size: 0.85rem; color: #94a3b8;">10 min read • Written by Deepesh Garg • Updated October 9, 2026</span>
+          </div>
+
+          <h1 style="font-size: 2.2rem; font-weight: 900; color: #f8fafc; line-height: 1.25; margin-bottom: 12px;">
+            How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide)
+          </h1>
+          <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.6; margin-bottom: 28px;">
+            Stop typing every transaction. Master automatic on-device SMS parsing, OEM battery settings, missed alert recovery, smart categorization, and zero-telemetry privacy.
+          </p>
+
+          <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/track-upi-expenses-automatically.svg" alt="How to Track UPI Expenses Automatically in India Step-by-Step Guide" width="1200" height="630" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0;">
+            <div style="${cardStyle} text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Monthly UPI Volume</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #10b981; margin: 6px 0;">15B+</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Total transactions across India (NPCI)</div>
+            </div>
+            <div style="${cardStyle} text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Detection Speed</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 6px 0;">&lt; 15ms</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">On-device regex parse time per SMS</div>
+            </div>
+            <div style="${cardStyle} text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Vault Encryption</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #818cf8; margin: 6px 0;">AES-256</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">SQLCipher local hardware sandbox</div>
+            </div>
+            <div style="${cardStyle} text-align: center;">
+              <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Telemarketing Calls</div>
+              <div style="font-size: 1.8rem; font-weight: 800; color: #34d399; margin: 6px 0;">0 Calls</div>
+              <div style="font-size: 0.8rem; color: #94a3b8;">Zero loan underwriting or NBFC sharing</div>
+            </div>
+          </div>
+
+          <h2 style="${headingStyle}">1. How Real-Time UPI Transaction Detection Works</h2>
+          <p>
+            Whenever you scan a QR code with Google Pay, PhonePe, Paytm, or CRED, your bank (HDFC, SBI, ICICI, Axis, etc.) immediately generates an official transaction confirmation SMS alert. This confirmation is legally mandated by the Reserve Bank of India (RBI) for account accountability.
+          </p>
+          <p>
+            Under Google Play's official <strong>Financial Money Management Exception</strong> policy, Pocket Advisor runs a lightweight on-device SMS parser directly in Android memory. It executes a 3-tier grammar engine:
+          </p>
+          <ol style="padding-left: 20px; line-height: 1.8; margin-bottom: 24px;">
+            <li><strong>Rejection Filters:</strong> Instantly purges OTPs, login verification codes, credit score threats, and collection reminders in under 1 millisecond.</li>
+            <li><strong>Action Anchors:</strong> Verifies completed past-tense verbs (debited, paid, spent, withdrawn) while discarding future scheduled promises.</li>
+            <li><strong>Context Anchors:</strong> Extracts the exact amount, counterparty VPA or merchant name, bank account identifier, and updated ledger balance.</li>
+          </ol>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 32px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/screenshot-upi-sms-detection.svg" alt="Real-Time UPI SMS Detection and Regex Parsing in Pocket Advisor" width="840" height="540" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <h2 style="${headingStyle}">2. Initial App Setup &amp; Battery Optimization Guide</h2>
+          <p>
+            The <strong>#1 reason automatic expense tracking stops working</strong> on Android devices is aggressive battery management by phone manufacturers (OEMs). To artificially boost battery life, custom Android skins terminate background services when your phone screen turns off.
+          </p>
+          <p>
+            To guarantee 100% continuous tracking reliability, apply the following 3 settings:
+          </p>
+          <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 24px;">
+            <li><strong>Xiaomi / Redmi / POCO (HyperOS / MIUI):</strong> Go to Settings &gt; Apps &gt; Manage Apps &gt; Pocket Advisor &gt; Toggle <em>Autostart ON</em> &gt; Set Battery Saver to <em>No Restrictions</em>.</li>
+            <li><strong>Samsung (One UI):</strong> Go to Settings &gt; Battery &gt; Background Usage Limits &gt; Add Pocket Advisor to <em>Never Sleeping Apps</em> &gt; Set App Battery to <em>Unrestricted</em>.</li>
+            <li><strong>OnePlus / Realme / Oppo (ColorOS / OxygenOS):</strong> Go to App Info &gt; Battery Usage &gt; Enable <em>Allow background activity</em> and <em>Allow auto-launch</em>.</li>
+          </ul>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 32px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/screenshot-battery-optimization.svg" alt="Android OEM Battery Optimization Settings for Xiaomi, Samsung, and OnePlus" width="840" height="540" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <h2 style="${headingStyle}">3. Supported UPI Apps, Handles &amp; Payment Workflows</h2>
+          <p>
+            Because Pocket Advisor operates at the bank SMS layer rather than inside individual payment apps, it automatically covers all Indian UPI payment rails:
+          </p>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Payment Rail</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Supported Providers</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Detection Engine</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Third-Party Apps (TPAP)</td><td style="padding: 12px 16px;">Google Pay, PhonePe, Paytm, CRED, BHIM, Navi</td><td style="padding: 12px 16px; color: #34d399; font-weight: 700;">Bank SMS Regex</td><td style="padding: 12px 16px;">&lt; 15ms</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Direct Bank Handles</td><td style="padding: 12px 16px;">@okhdfcbank, @okaxis, @oksbi, @ybl, @ibl</td><td style="padding: 12px 16px;">VPA / UPI Ref Parsing</td><td style="padding: 12px 16px;">&lt; 15ms</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">RuPay Credit Cards on UPI</td><td style="padding: 12px 16px;">HDFC, ICICI, SBI, Axis RuPay Credit Cards</td><td style="padding: 12px 16px; color: #38bdf8; font-weight: 700;">Card SMS Debit Parsing</td><td style="padding: 12px 16px;">&lt; 15ms</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Offline Merchant QRs</td><td style="padding: 12px 16px;">BharatPe, Paytm Soundbox, Merchant QR</td><td style="padding: 12px 16px;">Merchant Name Extraction</td><td style="padding: 12px 16px;">&lt; 15ms</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">Peer-to-Peer (P2P)</td><td style="padding: 12px 16px;">Direct Transfers to Friends / Landlords</td><td style="padding: 12px 16px; color: #c084fc; font-weight: 700;">1-Tap Split Eligible</td><td style="padding: 12px 16px;">&lt; 15ms</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">4. How to Handle Missed SMS Alerts (Zero-Data-Loss Safety Net)</h2>
+          <p>
+            In recent years, several major banks (including HDFC Bank and SBI) adjusted their policies to reduce SMS volume for micro-payments under ₹100, relying instead on app notifications. In addition, telecom dead zones can occasionally delay SMS delivery.
+          </p>
+          <p>
+            Pocket Advisor incorporates a 3-tier safety net to guarantee zero financial blind spots:
+          </p>
+          <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 24px;">
+            <li><strong>Bank Balance Delta Reconciliation:</strong> When your next SMS arrives containing an updated bank balance, Pocket Advisor compares it against your recorded ledger and flags any unrecorded micro-difference.</li>
+            <li><strong>1-Tap Home Screen Quick-Add Widget:</strong> Log cash or ₹10 chai debits in under 2 seconds directly from your Android home screen without opening the application.</li>
+            <li><strong>Instant Merchant Quick-Log:</strong> Frequently visited merchants are cached locally so you can log recurring expenses with a single tap.</li>
+          </ul>
+
+          <h2 style="${headingStyle}">5. Smart Categorization &amp; Learned Merchant Rules</h2>
+          <p>
+            Pocket Advisor ships with a built-in dictionary mapping over 350 Indian merchants and aggregators to structured categories:
+          </p>
+          <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 24px;">
+            <li><strong>Food &amp; Dining:</strong> Swiggy, Zomato, Starbucks, McDonald's, Chai Point, Cafe Coffee Day.</li>
+            <li><strong>Groceries &amp; Quick Commerce:</strong> Zepto, Blinkit, Swiggy Instamart, BigBasket, D-Mart.</li>
+            <li><strong>Commute &amp; Travel:</strong> Uber, Ola, Rapido, Namma Metro, Fastag, IRCTC.</li>
+            <li><strong>Investments:</strong> Zerodha, Groww, Upstox, Angel One, Kuvera, Coin.</li>
+          </ul>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 32px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/screenshot-category-rules.svg" alt="Smart Categorization and User-Learned Custom Rules Engine" width="840" height="540" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <h2 style="${headingStyle}">6. Data Privacy, Encryption &amp; Monetization Transparency</h2>
+          <p>
+            Many Indian financial apps upload your full SMS inbox to cloud servers to underwrite instant personal loans and credit cards. Pocket Advisor takes an uncompromising privacy-first approach:
+          </p>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 32px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/screenshot-privacy-vault.svg" alt="SQLCipher AES-256 On-Device Vault and Optional Cloud Backup" width="840" height="540" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <div style="${cardStyle} margin: 36px 0;">
+            <h3 style="font-size: 1.2rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Our Privacy &amp; Business Model Guarantees:</h3>
+            <ul style="padding-left: 20px; line-height: 1.8; margin-bottom: 0;">
+              <li><strong>100% On-Device SQLCipher AES-256 Encryption:</strong> Your ledger never leaves your phone's hardware sandbox unless you explicitly choose to back it up.</li>
+              <li><strong>Zero Telemarketing or Loan Brokering:</strong> We will never sell your financial records or call you with personal loan offers.</li>
+              <li><strong>Ad-Supported Free Tier with Pro Upgrade:</strong> Standard non-intrusive mobile display ads in the free version, with an optional ad-free Pro tier.</li>
+              <li><strong>Optional Encrypted Cloud Backup:</strong> Toggle Supabase cloud backup voluntarily whenever you need multi-device sync or phone restoration.</li>
+            </ul>
+          </div>
+
+          <div style="${cardStyle} text-align: center; margin: 36px 0;">
+            <h3 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Ready for Automated, Private Expense Tracking?</h3>
+            <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 16px 0;">Download Pocket Advisor on Google Play Store and start tracking UPI spending effortlessly.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #10b981; color: #020617; padding: 12px 24px; border-radius: 12px; font-weight: 800; text-decoration: none;">Get on Google Play (Free) &rarr;</a>
+          </div>
+        </article>`;
+
     case 'news/diwali-2026-how-to-track-upi-spending':
       return `
         <article style="${contentStyle}">
@@ -701,7 +1143,7 @@ export function getRouteBodyContent(slug) {
           </p>
 
           <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <img src="/assets/news/diwali-budget-guide.png" alt="Diwali 2026 Budget and UPI Expense Tracking Guide" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/news/diwali-budget-guide.webp" alt="Diwali 2026 Budget and UPI Expense Tracking Guide" width="1200" height="630" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0;">
@@ -787,7 +1229,7 @@ export function getRouteBodyContent(slug) {
           </p>
 
           <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <img src="/assets/news/welcome-pocket-advisor.png" alt="Welcome to Pocket Advisor Launch Announcement" style="width: 100%; height: auto; display: block;" />
+            <img src="/assets/news/welcome-pocket-advisor.webp" alt="Welcome to Pocket Advisor Launch Announcement" width="1200" height="630" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 32px 0;">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '../common/Card';
+import { useSettings } from '../../context/SettingsContext';
 import {
   Sparkles,
   Users,
@@ -39,6 +40,8 @@ interface FeatureItem {
 }
 
 export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
+  const { theme } = useSettings();
+  const isDark = theme === 'dark';
   const [activeCategory, setActiveCategory] = useState<FeatureCategory>('all');
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -180,6 +183,10 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       : features.filter((f) => f.category === activeCategory);
 
   const renderVisualSnippet = (type: FeatureItem['previewType']) => {
+    const snippetBg = isDark ? 'rgba(15, 23, 42, 0.65)' : 'var(--bg-surface-elevated)';
+    const snippetBorder = isDark ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid var(--border-subtle)';
+    const progressTrackBg = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.08)';
+
     switch (type) {
       case 'notification':
         return (
@@ -188,8 +195,8 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid var(--border-subtle)',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
               fontSize: '0.82rem',
               display: 'flex',
               flexDirection: 'column',
@@ -211,16 +218,16 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               style={{
                 marginTop: '4px',
                 paddingTop: '6px',
-                borderTop: '1px dashed var(--border-subtle)',
+                borderTop: isDark ? '1px dashed rgba(255, 255, 255, 0.1)' : '1px dashed var(--border-subtle)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                color: '#818cf8',
+                color: isDark ? '#818cf8' : '#4f46e5',
                 fontSize: '0.75rem',
                 fontWeight: 600,
               }}
             >
-              <span>Auto-Categorized: Dining & Cafes</span>
+              <span>Auto-Categorized: Dining &amp; Cafes</span>
               <Check size={14} />
             </div>
           </div>
@@ -233,21 +240,21 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid var(--border-subtle)',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
               fontSize: '0.82rem',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
               <span>Trip to Goa (5 Friends)</span>
-              <span style={{ color: '#a78bfa', fontWeight: 700 }}>50% Debt Reduction</span>
+              <span style={{ color: isDark ? '#a78bfa' : '#7c3aed', fontWeight: 700 }}>50% Debt Reduction</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <div style={{ flex: 1, padding: '6px 8px', borderRadius: '6px', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: '#f87171', textAlign: 'center', fontSize: '0.75rem' }}>
+              <div style={{ flex: 1, padding: '6px 8px', borderRadius: '6px', backgroundColor: isDark ? 'rgba(239, 68, 68, 0.15)' : 'rgba(239, 68, 68, 0.1)', color: isDark ? '#f87171' : '#dc2626', textAlign: 'center', fontSize: '0.75rem', fontWeight: 600 }}>
                 4 Raw Debts
               </div>
               <ArrowRight size={14} color="var(--text-muted)" />
-              <div style={{ flex: 1, padding: '6px 8px', borderRadius: '6px', backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#34d399', textAlign: 'center', fontWeight: 700, fontSize: '0.75rem' }}>
+              <div style={{ flex: 1, padding: '6px 8px', borderRadius: '6px', backgroundColor: isDark ? 'rgba(16, 185, 129, 0.15)' : 'rgba(16, 185, 129, 0.12)', color: isDark ? '#34d399' : '#059669', textAlign: 'center', fontWeight: 700, fontSize: '0.75rem' }}>
                 ✨ 2 Simplified
               </div>
             </div>
@@ -261,22 +268,22 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid var(--border-subtle)',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
               fontSize: '0.82rem',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>September Allowance</span>
-              <span style={{ fontWeight: 700, color: '#34d399' }}>₹24,800 Left</span>
+              <span style={{ fontWeight: 700, color: isDark ? '#34d399' : '#059669' }}>₹24,800 Left</span>
             </div>
-            <div style={{ height: '6px', width: '100%', borderRadius: '9999px', backgroundColor: 'rgba(255, 255, 255, 0.1)', overflow: 'hidden', marginBottom: '8px' }}>
-              <div style={{ height: '100%', width: '58%', backgroundColor: '#34d399', borderRadius: '9999px' }} />
+            <div style={{ height: '6px', width: '100%', borderRadius: '9999px', backgroundColor: progressTrackBg, overflow: 'hidden', marginBottom: '8px' }}>
+              <div style={{ height: '100%', width: '58%', backgroundColor: isDark ? '#34d399' : '#10b981', borderRadius: '9999px' }} />
             </div>
             <div style={{ display: 'flex', gap: '6px' }}>
-              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: 'var(--bg-surface-elevated)', textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>+ ₹100</span>
-              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: 'var(--bg-surface-elevated)', textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>+ ₹500</span>
-              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: 'rgba(99, 102, 241, 0.2)', textAlign: 'center', fontSize: '0.72rem', color: '#818cf8', fontWeight: 600 }}>Quick Log</span>
+              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : '#ffffff', border: snippetBorder, textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: 600 }}>+ ₹100</span>
+              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : '#ffffff', border: snippetBorder, textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: 600 }}>+ ₹500</span>
+              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: 'var(--primary-surface)', textAlign: 'center', fontSize: '0.72rem', color: 'var(--primary)', fontWeight: 700 }}>Quick Log</span>
             </div>
           </div>
         );
@@ -288,14 +295,14 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(245, 158, 11, 0.08)',
-              border: '1px solid rgba(245, 158, 11, 0.25)',
+              backgroundColor: isDark ? 'rgba(245, 158, 11, 0.08)' : 'rgba(245, 158, 11, 0.1)',
+              border: isDark ? '1px solid rgba(245, 158, 11, 0.25)' : '1px solid rgba(245, 158, 11, 0.3)',
               fontSize: '0.8rem',
               color: 'var(--text-secondary)',
               lineHeight: 1.5,
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#fbbf24', fontWeight: 700, marginBottom: '4px', fontSize: '0.76rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: isDark ? '#fbbf24' : '#b45309', fontWeight: 700, marginBottom: '4px', fontSize: '0.76rem' }}>
               <Sparkles size={13} />
               <span>Smart Spending Insight</span>
             </div>
@@ -310,21 +317,21 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid var(--border-subtle)',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
               fontSize: '0.82rem',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
               <span style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>Weekly Groceries</span>
-              <span style={{ color: '#f472b6', fontWeight: 700, fontSize: '0.75rem' }}>₹2,850 / ₹3,500</span>
+              <span style={{ color: isDark ? '#f472b6' : '#db2777', fontWeight: 700, fontSize: '0.75rem' }}>₹2,850 / ₹3,500</span>
             </div>
-            <div style={{ height: '6px', width: '100%', borderRadius: '9999px', backgroundColor: 'rgba(255, 255, 255, 0.1)', overflow: 'hidden' }}>
+            <div style={{ height: '6px', width: '100%', borderRadius: '9999px', backgroundColor: progressTrackBg, overflow: 'hidden' }}>
               <div style={{ height: '100%', width: '81%', backgroundColor: '#ec4899', borderRadius: '9999px' }} />
             </div>
             <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
               <span>✓ 6 items checked</span>
-              <span style={{ color: '#10b981', fontWeight: 600 }}>Safe Budget</span>
+              <span style={{ color: isDark ? '#10b981' : '#059669', fontWeight: 600 }}>Safe Budget</span>
             </div>
           </div>
         );
@@ -336,7 +343,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '10px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(56, 189, 248, 0.08)',
+              backgroundColor: isDark ? 'rgba(56, 189, 248, 0.08)' : 'rgba(56, 189, 248, 0.12)',
               border: '1px solid rgba(56, 189, 248, 0.25)',
               fontSize: '0.78rem',
               display: 'flex',
@@ -344,11 +351,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               gap: '6px',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 600 }}>
               <CheckCircle2 size={14} />
               <span>AES-256 SQLCipher Database Encryption</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#38bdf8', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 600 }}>
               <CheckCircle2 size={14} />
               <span>100% On-Device • Zero Cloud Tracking</span>
             </div>
@@ -362,19 +369,19 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '12px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(15, 23, 42, 0.6)',
-              border: '1px solid var(--border-subtle)',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
               fontSize: '0.82rem',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.75rem' }}>
               <span style={{ color: 'var(--text-muted)' }}>₹10,000/mo @ 12% for 15 yrs</span>
-              <span style={{ color: '#10b981', fontWeight: 700 }}>₹50.45 Lakhs</span>
+              <span style={{ color: isDark ? '#10b981' : '#059669', fontWeight: 700 }}>₹50.45 Lakhs</span>
             </div>
             <div style={{ display: 'flex', gap: '8px', fontSize: '0.72rem' }}>
               <span style={{ color: 'var(--text-secondary)' }}>Invested: ₹18L</span>
               <span style={{ color: 'var(--text-muted)' }}>•</span>
-              <span style={{ color: '#34d399', fontWeight: 600 }}>Gain: ₹32.45L (180%)</span>
+              <span style={{ color: isDark ? '#34d399' : '#059669', fontWeight: 600 }}>Gain: ₹32.45L (180%)</span>
             </div>
           </div>
         );
@@ -389,10 +396,10 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               fontSize: '0.75rem',
             }}
           >
-            <div style={{ flex: 1, padding: '8px', borderRadius: '8px', backgroundColor: 'rgba(99, 102, 241, 0.1)', border: '1px solid rgba(99, 102, 241, 0.2)', textAlign: 'center', color: '#818cf8', fontWeight: 600 }}>
+            <div style={{ flex: 1, padding: '8px', borderRadius: '8px', backgroundColor: isDark ? 'rgba(99, 102, 241, 0.1)' : 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.2)', textAlign: 'center', color: 'var(--primary)', fontWeight: 600 }}>
               📄 Tax PDF Report
             </div>
-            <div style={{ flex: 1, padding: '8px', borderRadius: '8px', backgroundColor: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.2)', textAlign: 'center', color: '#34d399', fontWeight: 600 }}>
+            <div style={{ flex: 1, padding: '8px', borderRadius: '8px', backgroundColor: isDark ? 'rgba(16, 185, 129, 0.1)' : 'rgba(16, 185, 129, 0.08)', border: '1px solid rgba(16, 185, 129, 0.2)', textAlign: 'center', color: isDark ? '#34d399' : '#059669', fontWeight: 600 }}>
               📊 Excel / CSV
             </div>
           </div>
@@ -405,19 +412,19 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '18px',
               padding: '10px 14px',
               borderRadius: '12px',
-              backgroundColor: 'rgba(239, 68, 68, 0.08)',
-              border: '1px solid rgba(239, 68, 68, 0.2)',
+              backgroundColor: isDark ? 'rgba(239, 68, 68, 0.08)' : 'rgba(239, 68, 68, 0.1)',
+              border: isDark ? '1px solid rgba(239, 68, 68, 0.2)' : '1px solid rgba(239, 68, 68, 0.25)',
               fontSize: '0.78rem',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#f87171', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: isDark ? '#f87171' : '#dc2626', fontWeight: 600 }}>
               <Lock size={14} />
               <span>Biometric Guard Active</span>
             </div>
-            <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '9999px', backgroundColor: 'rgba(239, 68, 68, 0.2)', color: '#f87171', fontWeight: 700 }}>
+            <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '9999px', backgroundColor: isDark ? 'rgba(239, 68, 68, 0.2)' : 'rgba(239, 68, 68, 0.15)', color: isDark ? '#f87171' : '#dc2626', fontWeight: 700 }}>
               Secured
             </span>
           </div>
@@ -483,13 +490,14 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               fontWeight: 800,
               letterSpacing: '-0.03em',
               marginBottom: '14px',
-              background: 'linear-gradient(135deg, #ffffff 30%, #cbd5e1 70%, #818cf8 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: 'var(--text-primary)',
               lineHeight: 1.15,
             }}
           >
-            Engineered for Android. Designed for Clarity.
+            Engineered for Android.{' '}
+            <span className="text-gradient-alt">
+              Designed for Clarity.
+            </span>
           </h2>
           <p
             style={{
@@ -531,11 +539,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
                       : '1px solid var(--border-subtle)',
                     backgroundColor: isSelected
                       ? 'var(--primary)'
-                      : 'var(--bg-surface-elevated)',
+                      : isDark ? 'var(--bg-surface-elevated)' : '#ffffff',
                     color: isSelected ? '#ffffff' : 'var(--text-secondary)',
                     boxShadow: isSelected
                       ? '0 4px 14px rgba(99, 102, 241, 0.35)'
-                      : 'none',
+                      : isDark ? 'none' : '0 1px 3px rgba(0, 0, 0, 0.05)',
                   }}
                   onMouseEnter={(e) => {
                     if (!isSelected) {
@@ -583,7 +591,9 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
                     : '1px solid var(--border-glass)',
                   transform: isHovered ? 'translateY(-4px)' : 'none',
                   boxShadow: isHovered
-                    ? `0 12px 28px -8px rgba(0, 0, 0, 0.5), 0 0 20px ${item.iconBg}`
+                    ? (isDark
+                      ? `0 12px 28px -8px rgba(0, 0, 0, 0.5), 0 0 20px ${item.iconBg}`
+                      : `0 12px 28px -8px rgba(15, 23, 42, 0.12), 0 0 16px ${item.iconBg}`)
                     : 'var(--shadow-sm)',
                   transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
                   position: 'relative',
@@ -717,9 +727,15 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               marginTop: '56px',
               padding: 'clamp(32px, 5vw, 44px) clamp(24px, 4vw, 40px)',
               borderRadius: '24px',
-              background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, rgba(16, 185, 129, 0.08) 100%)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
-              boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.4)',
+              background: isDark
+                ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.14) 0%, rgba(16, 185, 129, 0.08) 100%)'
+                : 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #eef2ff 100%)',
+              border: isDark
+                ? '1px solid rgba(99, 102, 241, 0.3)'
+                : '1.5px solid rgba(99, 102, 241, 0.25)',
+              boxShadow: isDark
+                ? '0 20px 40px -15px rgba(0, 0, 0, 0.4)'
+                : '0 20px 40px -15px rgba(99, 102, 241, 0.08), 0 4px 12px rgba(0, 0, 0, 0.03)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',

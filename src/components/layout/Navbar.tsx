@@ -127,14 +127,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
           </picture>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'nowrap', marginTop: '2px' }}>
             <span
+              className="text-gradient-brand"
               style={{
                 fontSize: '1.25rem',
                 fontWeight: 800,
                 letterSpacing: '-0.02em',
                 lineHeight: 1,
-                background: 'linear-gradient(to right, var(--text-primary), var(--primary))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
                 whiteSpace: 'nowrap',
               }}
             >
@@ -205,6 +203,41 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
             }}
           >
             Features
+          </a>
+          <a
+            href="/upi-expense-tracker"
+            onClick={(e) => handleNav('upi-expense-tracker', e)}
+            onMouseEnter={() => prefetchRoute('upi-expense-tracker')}
+            style={{
+              background: currentView === 'upi-expense-tracker' ? 'var(--primary-surface)' : 'transparent',
+              color: currentView === 'upi-expense-tracker' ? 'var(--primary)' : 'var(--text-secondary)',
+              border: 'none',
+              borderRadius: '10px',
+              padding: '7px 14px',
+              fontSize: '0.92rem',
+              fontWeight: currentView === 'upi-expense-tracker' ? 700 : 600,
+              cursor: 'pointer',
+              textDecoration: 'none',
+              transition: 'var(--transition-smooth)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+          >
+            <span>UPI Tracker</span>
+            <span
+              style={{
+                fontSize: '0.62rem',
+                fontWeight: 800,
+                padding: '2px 5px',
+                borderRadius: '5px',
+                background: 'rgba(249, 115, 22, 0.15)',
+                color: '#f97316',
+                lineHeight: 1,
+              }}
+            >
+              India
+            </span>
           </a>
               {/* Tools Button with Hover Dropdown */}
               <div
@@ -532,13 +565,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                 onClick={(e) => handleNav('guides', e)}
                 onMouseEnter={() => prefetchRoute('guides')}
                 style={{
-                  background: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') ? 'var(--primary-surface)' : 'transparent',
-                  color: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') ? 'var(--primary)' : 'var(--text-secondary)',
+                  background: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') || currentView.includes('best-expense-tracker') ? 'var(--primary-surface)' : 'transparent',
+                  color: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') || currentView.includes('best-expense-tracker') ? 'var(--primary)' : 'var(--text-secondary)',
                   border: 'none',
                   borderRadius: '10px',
                   padding: '7px 14px',
                   fontSize: '0.92rem',
-                  fontWeight: currentView === 'guides' ? 700 : 600,
+                  fontWeight: currentView === 'guides' || currentView.includes('best-expense-tracker') ? 700 : 600,
                   cursor: 'pointer',
                   textDecoration: 'none',
                   transition: 'var(--transition-smooth)',
@@ -665,6 +698,37 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
             }}
           >
             App Features &amp; Security
+          </a>
+          <a
+            href="/upi-expense-tracker"
+            onClick={(e) => handleNav('upi-expense-tracker', e)}
+            style={{
+              color: currentView === 'upi-expense-tracker' ? 'var(--primary)' : 'var(--text-primary)',
+              textAlign: 'left',
+              fontWeight: currentView === 'upi-expense-tracker' ? 700 : 600,
+              fontSize: '1rem',
+              padding: '8px 0',
+              cursor: 'pointer',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+            }}
+          >
+            <span>Automatic UPI Tracker</span>
+            <span
+              style={{
+                fontSize: '0.62rem',
+                fontWeight: 800,
+                padding: '2px 6px',
+                borderRadius: '5px',
+                background: 'rgba(249, 115, 22, 0.15)',
+                color: '#f97316',
+                lineHeight: 1,
+              }}
+            >
+              India
+            </span>
           </a>
           {/* Mobile Tools & Calculators Accordion */}
           <div>
@@ -851,9 +915,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
             href="/guides"
             onClick={(e) => handleNav('guides', e)}
             style={{
-              color: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') ? 'var(--primary)' : 'var(--text-primary)',
+              color: currentView === 'guides' || currentView.startsWith('how-to') || currentView.includes('mutual-funds') || currentView.includes('best-expense-tracker') ? 'var(--primary)' : 'var(--text-primary)',
               textAlign: 'left',
-              fontWeight: currentView === 'guides' ? 700 : 600,
+              fontWeight: currentView === 'guides' || currentView.includes('best-expense-tracker') ? 700 : 600,
               fontSize: '1rem',
               padding: '8px 0',
               cursor: 'pointer',

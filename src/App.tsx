@@ -2,8 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
-import { Hero } from './components/landing/Hero';
-
+const Hero = lazy(() => import('./components/landing/Hero').then(module => ({ default: module.Hero })));
 const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then(module => ({ default: module.FeaturesGrid })));
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then(module => ({ default: module.InteractiveDemo })));
 const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then(module => ({ default: module.DownloadSection })));
@@ -15,6 +14,7 @@ const DeleteAccountView = lazy(() => import('./components/legal/DeleteAccountVie
 const RefundPolicyView = lazy(() => import('./components/legal/RefundPolicyView').then(module => ({ default: module.RefundPolicyView })));
 const NewsFeedView = lazy(() => import('./components/news/NewsFeedView').then(module => ({ default: module.NewsFeedView })));
 const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvingGuides').then(module => ({ default: module.ProblemSolvingGuides })));
+const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then(module => ({ default: module.UpiTrackerLanding })));
 const ContactView = lazy(() => import('./components/support/ContactView').then(module => ({ default: module.ContactView })));
 const NotFoundView = lazy(() => import('./components/common/NotFoundView').then(module => ({ default: module.NotFoundView })));
 
@@ -73,6 +73,26 @@ const getRouteFromUrl = (): { view: string; tab?: 'PREPAYMENT' | 'EMI' | 'SIP' }
     hash.includes('track-upi-payments')
   ) {
     return { view: 'how-to-track-upi-payments-automatically' };
+  }
+
+  if (
+    isRoute('best-expense-tracker-apps-india') ||
+    isRoute('best-expense-tracker-apps') ||
+    isRoute('expense-tracker-apps-india') ||
+    path.includes('best-expense-tracker') ||
+    hash.includes('best-expense-tracker')
+  ) {
+    return { view: 'best-expense-tracker-apps-india' };
+  }
+
+  if (
+    isRoute('upi-expense-tracker') ||
+    isRoute('upi-tracker') ||
+    isRoute('upi') ||
+    path.includes('upi-expense-tracker') ||
+    hash.includes('upi-expense-tracker')
+  ) {
+    return { view: 'upi-expense-tracker' };
   }
 
   if (isRoute('guides') || isRoute('guide')) {
@@ -196,6 +216,8 @@ export const App: React.FC = () => {
       view === 'guides'
     ) {
       urlPath = `/${view}`;
+    } else if (view === 'upi-expense-tracker' || view === 'upi-tracker' || view === 'upi') {
+      urlPath = '/upi-expense-tracker';
     } else {
       urlPath = `/${view}`;
     }
@@ -287,9 +309,16 @@ export const App: React.FC = () => {
           {(currentView === 'how-to-split-rent-unequal-rooms' ||
             currentView === 'home-loan-prepayment-vs-mutual-funds' ||
             currentView === 'how-to-track-upi-payments-automatically' ||
+            currentView === 'best-expense-tracker-apps-india' ||
             currentView === 'guides') && (
             <div className="animate-fade-in">
               <ProblemSolvingGuides slug={currentView} onNavigate={navigateView} />
+            </div>
+          )}
+
+          {currentView === 'upi-expense-tracker' && (
+            <div className="animate-fade-in">
+              <UpiTrackerLanding onNavigate={navigateView} />
             </div>
           )}
 

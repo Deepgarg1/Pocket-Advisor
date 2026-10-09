@@ -6,6 +6,9 @@ export const prefetchRoute = (route: string): void => {
   prefetchedRoutes.add(route);
 
   switch (route) {
+    case 'home':
+      import('../components/landing/Hero');
+      break;
     case 'split':
     case 'flatmates-rent-splitter':
     case 'rent-splitter':
@@ -20,6 +23,11 @@ export const prefetchRoute = (route: string): void => {
       break;
     case 'features':
       import('../components/landing/FeaturesGrid');
+      break;
+    case 'upi-expense-tracker':
+    case 'upi-tracker':
+    case 'upi':
+      import('../components/landing/UpiTrackerLanding');
       break;
     case 'news':
       import('../components/news/NewsFeedView');

@@ -1,5 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Calculator, TrendingUp, Sparkles, Scale } from 'lucide-react';
+import React, { useState, useEffect, useMemo } from 'react';
+import {
+  Calculator,
+  TrendingUp,
+  Sparkles,
+  Scale,
+  MessageCircle,
+  Copy,
+  Check,
+  Smartphone,
+} from 'lucide-react';
 import { useSettings } from '../../context/SettingsContext';
 import { formatMoney } from '../../utils/formatters';
 import { PrepaymentVsSipCalculator } from '../tools/PrepaymentVsSipCalculator';
@@ -19,6 +28,13 @@ interface InteractiveDemoProps {
 
 export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, onNavigate }) => {
   const { currencySymbol } = useSettings();
+
+  // Read initial query parameters for state persistence & direct link sharing
+  const initialParams = useMemo(() => {
+    if (typeof window === 'undefined') return new URLSearchParams();
+    return new URLSearchParams(window.location.search);
+  }, []);
+
   const [activeTab, setActiveTab] = useState<DemoTab>(() => {
     if (initialTab) return initialTab;
     const full = `${window.location.pathname} ${window.location.hash}`.toLowerCase();
@@ -70,18 +86,95 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
     }
   };
 
-  // EMI State
-  const [loanAmount, setLoanAmount] = useState<number>(500000);
-  const [interestRate, setInterestRate] = useState<number>(8.5);
-  const [tenureYears, setTenureYears] = useState<number>(5);
+  // EMI State with URL Param hydration
+  const [loanAmount, setLoanAmount] = useState<number>(() => {
+    const val = Number(initialParams.get('amount') || initialParams.get('loan'));
+    return Number.isFinite(val) && val > 0 ? val : 500000;
+  });
+  const [interestRate, setInterestRate] = useState<number>(() => {
+    const val = Number(initialParams.get('rate'));
+    return Number.isFinite(val) && val > 0 ? val : 8.5;
+  });
+  const [tenureYears, setTenureYears] = useState<number>(() => {
+    const val = Number(initialParams.get('years') || initialParams.get('tenure'));
+    return Number.isFinite(val) && val > 0 ? val : 5;
+  });
 
-  // SIP State
-  const [monthlyInvestment, setMonthlyInvestment] = useState<number>(10000);
-  const [expectedReturn, setExpectedReturn] = useState<number>(12);
-  const [investmentYears, setInvestmentYears] = useState<number>(10);
-  const [sipTiming, setSipTiming] = useState<'beginning' | 'end'>('beginning');
-  const [annualStepUp, setAnnualStepUp] = useState<number>(5);
-  const [inflationRate, setInflationRate] = useState<number>(6);
+  // SIP State with URL Param hydration
+  const [monthlyInvestment, setMonthlyInvestment] = useState<number>(() => {
+    const val = Number(initialParams.get('monthly') || initialParams.get('sip'));
+    return Number.isFinite(val) && val > 0 ? val : 10000;
+  });
+  const [expectedReturn, setExpectedReturn] = useState<number>(() => {
+    const val = Number(initialParams.get('return') || initialParams.get('rate'));
+    return Number.isFinite(val) && val > 0 ? val : 12;
+  });
+  const [investmentYears, setInvestmentYears] = useState<number>(() => {
+    const val = Number(initialParams.get('years') || initialParams.get('tenure'));
+    return Number.isFinite(val) && val > 0 ? val : 10;
+  });
+  const [sipTiming, setSipTiming] = useState<'beginning' | 'end'>(() => {
+    const val = initialParams.get('timing');
+    return val === 'end' ? 'end' : 'beginning';
+  });
+  const [annualStepUp, setAnnualStepUp] = useState<number>(() => {
+    const val = Number(initialParams.get('stepup'));
+    return Number.isFinite(val) && val >= 0 ? val : 5;
+  });
+  const [inflationRate, setInflationRate] = useState<number>(() => {
+    const val = Number(initialParams.get('inflation'));
+    return Number.isFinite(val) && val >= 0 ? val : 6;
+  });
+
+  // Clipboard copy state flags
+  const [copiedEmi, setCopiedEmi] = useState(false);
+  const [copiedSip, setCopiedSip] = useState(false);
+
+  // Sync EMI parameters to URL address bar
+  useEffect(() => {
+    if (typeof window === 'undefined' || activeTab !== 'EMI') return;
+    const params = new URLSearchParams();
+    if (loanAmount !== 500000) params.set('amount', String(loanAmount));
+    if (interestRate !== 8.5) params.set('rate', String(interestRate));
+    if (tenureYears !== 5) params.set('years', String(tenureYears));
+    const qs = params.toString();
+    const newPath = qs ? `/emi-calculator?${qs}` : '/emi-calculator';
+    window.history.replaceState(null, '', newPath);
+  }, [activeTab, loanAmount, interestRate, tenureYears]);
+
+  // Sync SIP parameters to URL address bar
+  useEffect(() => {
+    if (typeof window === 'undefined' || activeTab !== 'SIP') return;
+    const params = new URLSearchParams();
+    if (monthlyInvestment !== 10000) params.set('monthly', String(monthlyInvestment));
+    if (expectedReturn !== 12) params.set('return', String(expectedReturn));
+    if (investmentYears !== 10) params.set('years', String(investmentYears));
+    if (annualStepUp !== 5) params.set('stepup', String(annualStepUp));
+    if (inflationRate !== 6) params.set('inflation', String(inflationRate));
+    if (sipTiming !== 'beginning') params.set('timing', sipTiming);
+    const qs = params.toString();
+    const newPath = qs ? `/sip-calculator?${qs}` : '/sip-calculator';
+    window.history.replaceState(null, '', newPath);
+  }, [activeTab, monthlyInvestment, expectedReturn, investmentYears, annualStepUp, inflationRate, sipTiming]);
+
+  // Dynamic shareable URLs
+  const emiShareUrl = useMemo(() => {
+    const params = new URLSearchParams();
+    params.set('amount', String(loanAmount));
+    params.set('rate', String(interestRate));
+    params.set('years', String(tenureYears));
+    return `https://www.pocketadvisor.in/emi-calculator?${params.toString()}`;
+  }, [loanAmount, interestRate, tenureYears]);
+
+  const sipShareUrl = useMemo(() => {
+    const params = new URLSearchParams();
+    params.set('monthly', String(monthlyInvestment));
+    params.set('return', String(expectedReturn));
+    params.set('years', String(investmentYears));
+    params.set('stepup', String(annualStepUp));
+    if (inflationRate !== 6) params.set('inflation', String(inflationRate));
+    return `https://www.pocketadvisor.in/sip-calculator?${params.toString()}`;
+  }, [monthlyInvestment, expectedReturn, investmentYears, annualStepUp, inflationRate]);
 
   // Calculate EMI
   const emiRes = React.useMemo(() => {
@@ -465,6 +558,78 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
                   <div style={{ width: `${emiRes.interestPct}%`, background: 'var(--expense)' }} title="Interest" />
                 </div>
               </div>
+
+              {/* Action Buttons: WhatsApp Share & Copy Link */}
+              <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const text = `💵 *Loan EMI Calculation*
+🏠 *Loan Amount:* ${formatMoney(loanAmount, currencySymbol, 0)}
+📈 *Interest Rate:* ${interestRate}% p.a.
+⏳ *Tenure:* ${tenureYears} Years (${tenureYears * 12} Months)
+
+📊 *Payment Breakdown:*
+• *Monthly EMI:* *${formatMoney(Math.round(emiRes.emi), currencySymbol, 0)}*
+• *Total Interest Payable:* ${formatMoney(Math.round(emiRes.totalInterest), currencySymbol, 0)}
+• *Total Repayment:* ${formatMoney(Math.round(emiRes.totalPayment), currencySymbol, 0)}
+• *Breakdown:* ${emiRes.principalPct}% Principal / ${emiRes.interestPct}% Interest
+
+🔗 *Simulate & tweak on Pocket Advisor:*
+${emiShareUrl}`;
+                    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                    color: '#ffffff',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+                  }}
+                >
+                  <MessageCircle size={15} /> Share EMI
+                </button>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      if (navigator?.clipboard?.writeText) {
+                        await navigator.clipboard.writeText(emiShareUrl);
+                      }
+                      setCopiedEmi(true);
+                      setTimeout(() => setCopiedEmi(false), 2000);
+                    } catch {
+                      // ignore
+                    }
+                  }}
+                  style={{
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    border: '1px solid var(--border-subtle)',
+                    backgroundColor: 'var(--bg-surface)',
+                    color: copiedEmi ? '#10b981' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  {copiedEmi ? <Check size={15} /> : <Copy size={15} />}
+                  <span>{copiedEmi ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
         ) : (
@@ -707,7 +872,7 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
                 </div>
               </div>
 
-              <div style={{ marginTop: '2px', padding: '10px 12px', borderRadius: '8px', background: 'rgba(255,255,255,0.03)', border: '1px solid var(--border-subtle)', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.45' }}>
+              <div style={{ marginTop: '2px', padding: '10px 12px', borderRadius: '8px', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.45' }}>
                 {sipTiming === 'beginning' ? (
                   <span>
                     <strong style={{ color: '#10b981' }}>Model:</strong> Annuity Due (start of month). Annual step-up applied at end of year. Real wealth assumes {inflationRate}% constant inflation.
@@ -718,10 +883,140 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
                   </span>
                 )}
               </div>
+
+              {/* Action Buttons: WhatsApp Share & Copy Link */}
+              <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    const text = `📈 *Step-Up SIP Wealth Plan*
+💰 *Monthly Investment:* ${formatMoney(monthlyInvestment, currencySymbol, 0)}/mo
+🚀 *Expected Return:* ${expectedReturn}% p.a.
+⏳ *Time Period:* ${investmentYears} Years
+⚡ *Annual Step-Up:* ${annualStepUp}%
+
+🏆 *Projected Wealth:*
+• *Estimated Maturity Value:* *${formatMoney(Math.round(sipRes.totalWealth), currencySymbol, 0)}*
+• *Total Capital Invested:* ${formatMoney(Math.round(sipRes.investedAmount), currencySymbol, 0)}
+• *Compounded Wealth Gains:* ${formatMoney(Math.round(sipRes.estReturns), currencySymbol, 0)}
+• *Real Wealth (${inflationRate}% Inflation-adjusted):* ${formatMoney(Math.round(sipRes.realWealth), currencySymbol, 0)}
+
+🔗 *Plan your SIP compounding on Pocket Advisor:*
+${sipShareUrl}`;
+                    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                  }}
+                  style={{
+                    flex: 1,
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    border: 'none',
+                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                    color: '#ffffff',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px',
+                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
+                  }}
+                >
+                  <MessageCircle size={15} /> Share Wealth Plan
+                </button>
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      if (navigator?.clipboard?.writeText) {
+                        await navigator.clipboard.writeText(sipShareUrl);
+                      }
+                      setCopiedSip(true);
+                      setTimeout(() => setCopiedSip(false), 2000);
+                    } catch {
+                      // ignore
+                    }
+                  }}
+                  style={{
+                    padding: '10px 14px',
+                    borderRadius: '12px',
+                    border: '1px solid var(--border-subtle)',
+                    backgroundColor: 'var(--bg-surface)',
+                    color: copiedSip ? '#10b981' : 'var(--text-secondary)',
+                    fontWeight: 700,
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  {copiedSip ? <Check size={15} /> : <Copy size={15} />}
+                  <span>{copiedSip ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
         )}
       </div>
+
+      {/* Contextual Android App Bridge Banner */}
+      <div
+        style={{
+          marginTop: '28px',
+          padding: 'clamp(20px, 3.5vw, 28px)',
+          borderRadius: '24px',
+          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)',
+          border: '1px solid rgba(99, 102, 241, 0.28)',
+          boxShadow: 'var(--shadow-md)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '20px',
+        }}
+      >
+        <div style={{ maxWidth: '640px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '8px' }}>
+            <Sparkles size={14} /> Bridge to Automated Money Management
+          </div>
+          <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 6px 0' }}>
+            {activeTab === 'EMI' ? 'Never Miss an EMI or Loan Auto-Debit' : 'Keep Your Monthly SIPs on Auto-Pilot'}
+          </h4>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.55, margin: 0 }}>
+            {activeTab === 'EMI'
+              ? 'Tracking loan installments manually is stressful. Pocket Advisor on Android tracks debit SMS alerts directly on your device with 100% offline encryption, predicts upcoming EMIs, and ensures your bank balance is always ready.'
+              : 'Consistent investing requires keeping lifestyle spending in check. Pocket Advisor detects income credits, calculates your disposable surplus, and helps you fund your monthly SIPs without dipping into emergency savings.'}
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: '12px 22px',
+              borderRadius: '14px',
+              background: 'var(--primary-gradient)',
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              boxShadow: '0 6px 20px rgba(99, 102, 241, 0.35)',
+              transition: 'transform 0.15s ease',
+            }}
+          >
+            <Smartphone size={16} />
+            <span>Get Android App</span>
+          </a>
+        </div>
+      </div>
+
       {activeTab === 'EMI' && <EmiCalculatorGuide />}
       {activeTab === 'SIP' && <SipCalculatorGuide />}
     </>

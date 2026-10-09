@@ -161,7 +161,8 @@ const getInitialSplitState = (): ParsedSplitState => {
 };
 
 export const QuickBillSplitter: React.FC = () => {
-  const { currencySymbol } = useSettings();
+  const { currencySymbol, theme } = useSettings();
+  const isDark = theme === 'dark';
   const initial = useMemo(() => getInitialSplitState(), []);
 
   // Form State initialized from smart parser
@@ -498,10 +499,11 @@ ${breakdownLines}
 💸 *Settlements:*
 ${settlementLines}
 ${upiSection}
-🔗 *Tap to view receipt & 1-tap pay via UPI:*
+🔗 *Tap to view receipt & pay via UPI:*
 ${shareUrl}
 
-⚡ _Split seamlessly with Pocket Advisor_`;
+⚡ _Split effortlessly with Pocket Advisor • Free Bill Splitter & Automatic UPI Tracker_
+👉 https://www.pocketadvisor.in`;
   };
 
   // Resilient Clipboard helper with fallback
@@ -1495,7 +1497,7 @@ ${shareUrl}
             <div style={{ padding: '24px 26px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {/* Itemized custom share inputs if active */}
               {splitMode === 'CUSTOM' && (
-                <div style={{ padding: '14px', borderRadius: '14px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ padding: '14px', borderRadius: '14px', background: isDark ? 'rgba(255, 255, 255, 0.03)' : 'var(--bg-surface-elevated)', border: '1px solid var(--border-subtle)', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                   <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', margin: 0 }}>
                     Enter pre-tax item subtotals for each person. Taxes are applied proportionally:
                   </p>
@@ -1889,8 +1891,15 @@ ${shareUrl}
           marginTop: '12px',
           padding: 'clamp(20px, 3vw, 28px)',
           borderRadius: '24px',
-          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)',
-          border: '1px solid rgba(99, 102, 241, 0.25)',
+          background: isDark
+            ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)'
+            : 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #eef2ff 100%)',
+          border: isDark
+            ? '1px solid rgba(99, 102, 241, 0.25)'
+            : '1.5px solid rgba(99, 102, 241, 0.25)',
+          boxShadow: isDark
+            ? 'none'
+            : '0 8px 24px rgba(99, 102, 241, 0.08)',
           display: 'flex',
           flexDirection: 'column',
           gap: '16px',
@@ -1909,7 +1918,7 @@ ${shareUrl}
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
             <button
               type="button"
               onClick={() => {
@@ -1940,7 +1949,7 @@ ${shareUrl}
               Start Fresh Split
             </button>
 
-            {/* <a
+            <a
               href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
               target="_blank"
               rel="noopener noreferrer"
@@ -1954,12 +1963,14 @@ ${shareUrl}
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '6px',
+                gap: '8px',
                 boxShadow: '0 4px 14px rgba(99, 102, 241, 0.35)',
+                transition: 'all 0.15s ease',
               }}
             >
-              <Smartphone size={16} /> Get Android App
-            </a> */}
+              <Smartphone size={16} />
+              <span>Get Android App</span>
+            </a>
           </div>
         </div>
       </div>

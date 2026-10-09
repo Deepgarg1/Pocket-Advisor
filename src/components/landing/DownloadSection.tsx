@@ -67,18 +67,18 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               >
                 Get Pocket Advisor for Android
               </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '4px' }}>
-                <div style={{ display: 'flex', color: '#f59e0b' }}>
-                  {'★'.repeat(5)}
-                </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
                 <span
                   style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
                     fontSize: '0.8rem',
-                    color: isDark ? '#94a3b8' : '#475569',
-                    fontWeight: 600,
+                    color: isDark ? '#34d399' : '#059669',
+                    fontWeight: 700,
                   }}
                 >
-                  4.9 / 5 Rating • Verified Android App
+                  <Sparkles size={14} /> Google Play Verified • 100% On-Device Storage
                 </span>
               </div>
             </div>
@@ -97,11 +97,10 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
 
           {/* Download buttons */}
           <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', marginBottom: '24px' }}>
-            {/* Google Play Store Badge Button (Temporarily commented out) */}
-            {/* <a
+            <a
               href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -139,7 +138,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
                 <div style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.8 }}>GET IT ON</div>
                 <div style={{ fontSize: '1.1rem', fontWeight: 800, lineHeight: 1.1 }}>Google Play</div>
               </div>
-            </a> */}
+            </a>
           </div>
 
           {/* Guarantee Badges */}

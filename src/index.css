@@ -25,6 +25,9 @@
   --primary-hover: #a5b4fc;
   --primary-btn: #4f46e5;
   --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --heading-gradient: linear-gradient(135deg, #00d2ff 0%, #00f5a0 50%, #6366f1 100%);
+  --heading-gradient-alt: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
+  --brand-logo-gradient: linear-gradient(to right, var(--text-primary), var(--primary));
   --primary-glow: rgba(99, 102, 241, 0.25);
   --primary-surface: rgba(99, 102, 241, 0.14);
 
@@ -79,6 +82,9 @@
   --primary-hover: #4338ca;
   --primary-btn: #4f46e5;
   --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --heading-gradient: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #059669 100%);
+  --heading-gradient-alt: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #059669 100%);
+  --brand-logo-gradient: linear-gradient(to right, var(--text-primary), var(--primary));
   --primary-glow: rgba(79, 70, 229, 0.15);
   --primary-surface: rgba(79, 70, 229, 0.1);
 
@@ -433,5 +439,32 @@ button:active:not(:disabled) {
   }
 }
 
+/* ==============================================================================
+   TEXT GRADIENTS (Theme-Resilient with -webkit-background-clip & background-clip)
+   ============================================================================== */
+.text-gradient {
+  background-image: var(--heading-gradient);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+}
 
+.text-gradient-alt {
+  background-image: var(--heading-gradient-alt);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+}
 
+.text-gradient-brand {
+  background-image: var(--brand-logo-gradient);
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+}

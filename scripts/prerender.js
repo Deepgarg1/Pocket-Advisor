@@ -12,6 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const BASE_URL = 'https://www.pocketadvisor.in';
+const PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.pocketadvisor.app';
 const DEFAULT_IMAGE = `${BASE_URL}/logo.png`;
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const TEMPLATE_PATH = path.join(DIST_DIR, 'index.html');
@@ -26,7 +27,7 @@ const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 const routes = [
   {
     slug: 'split',
-    title: 'Free Bill Splitter & Debt Simplifier | Pocket Advisor',
+    title: 'Bill Splitter App | Split Group Expenses Fairly | Pocket Advisor',
     description: 'Split restaurant bills, group trips, and rent with 2-stage greedy debt minimization. Eliminate tangled debts, calculate tax/tips, and export receipts to WhatsApp for free.',
     canonical: `${BASE_URL}/split`,
     badgeCategory: 'Free Web Tool',
@@ -188,8 +189,8 @@ const routes = [
   },
   {
     slug: 'sip-calculator',
-    title: 'Step-Up SIP Calculator with Inflation Discounting | Pocket Advisor',
-    description: 'Calculate compounding mutual fund wealth with annual salary step-ups and real inflation purchasing power adjustments online.',
+    title: 'SIP Calculator India | Step-Up & Wealth Growth | Pocket Advisor',
+    description: 'Calculate compounding mutual fund returns in India with annual step-ups and real inflation discounting. Plan long-term financial goals with accurate wealth projections.',
     canonical: `${BASE_URL}/sip-calculator`,
     badgeCategory: 'Wealth Calculator',
     pillText: 'Compounding Projections • Real Purchasing Power',
@@ -223,8 +224,8 @@ const routes = [
   },
   {
     slug: 'emi-calculator',
-    title: 'Loan EMI Calculator & Amortization | Pocket Advisor',
-    description: 'Calculate exact monthly loan EMI, total interest payable, and amortization schedules. Compare reducing balance interest rates online.',
+    title: 'Loan EMI Calculator India & Amortization | Pocket Advisor',
+    description: 'Calculate exact monthly loan EMIs, interest payable, and payment schedules for personal, car, or home loans with reducing balance interest in India.',
     canonical: `${BASE_URL}/emi-calculator`,
     badgeCategory: 'Loan Calculator',
     pillText: 'Accurate Monthly Installments • Principal vs Interest',
@@ -318,6 +319,86 @@ const routes = [
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Features', item: `${BASE_URL}/features` }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'upi-expense-tracker',
+    title: 'Automatic UPI Expense Tracker App India (Zero Manual Entry) | Pocket Advisor',
+    description: 'Track daily UPI expenses automatically from bank SMS without bank account logins or cloud uploads. 100% on-device privacy, instant categorization, and zero ads.',
+    canonical: `${BASE_URL}/upi-expense-tracker`,
+    badgeCategory: 'India UPI Feature',
+    pillText: '100% On-Device SMS Engine • No Bank Login Required',
+    h1: 'Automatic UPI Expense Tracker for India',
+    h1Gradient: 'Zero Manual Entry • 100% On-Device Privacy',
+    heroDesc: 'Tired of logging every ₹20 chai and ₹450 grocery run by hand? Pocket Advisor automatically parses your bank SMS alerts on your device the moment you pay via Google Pay, PhonePe, Paytm, or CRED.',
+    ctaText: 'Get the Android App on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Pocket Advisor UPI Expense Tracker',
+        url: `${BASE_URL}/upi-expense-tracker`,
+        image: DEFAULT_IMAGE,
+        description: 'Automatic UPI expense tracker for Android that parses bank transaction SMS alerts locally without bank logins, cloud storage, or statement uploads.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'Android',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        featureList: [
+          'Automatic bank SMS parsing across 15+ Indian banks',
+          'Instant merchant and category recognition',
+          '100% local on-device SQLite database storage',
+          'Reversal and refund detection without double counting',
+          'Zero cloud storage and zero bank login credentials needed'
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Features', item: `${BASE_URL}/features` },
+          { '@type': 'ListItem', position: 3, name: 'UPI Expense Tracker', item: `${BASE_URL}/upi-expense-tracker` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does Pocket Advisor track UPI payments automatically without my bank login?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'When your bank sends you a transactional SMS after a UPI transfer, Pocket Advisor\'s on-device parser extracts the amount, merchant, and timestamp using local regular expressions. It never connects to your bank account or asks for net banking passwords.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Are my financial SMS messages uploaded to your cloud servers?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. All processing happens entirely within your Android phone\'s local sandbox. Pocket Advisor does not upload, sync, or sell your transaction history to external servers.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does Pocket Advisor handle failed transactions and refunds?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The parsing engine detects reversal keywords like "refunded", "credited back", or "reversed". When a matching reversal alert arrives, it marks the transaction and adjusts your total spend so you never get double-counted numbers.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Which Indian banks and UPI apps are supported?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pocket Advisor supports standard transactional SMS alerts from HDFC, SBI, ICICI, Axis, Kotak, PNB, Bank of Baroda, IndusInd, IDFC FIRST, and Canara Bank across Google Pay, PhonePe, Paytm, BHIM, and CRED.'
+            }
+          }
         ]
       }
     ]
@@ -624,7 +705,7 @@ const routes = [
         '@type': 'Article',
         headline: 'Diwali 2026 Budget: How to Track UPI Spending & Avoid Overspending',
         description: 'Stop letting festive UPI transactions drain your savings. Discover how to track Google Pay, PhonePe, and Paytm expenses from bank SMS, avoid credit leaks, and manage your Diwali budget with real NPCI data and interactive templates.',
-        image: `${BASE_URL}/assets/news/diwali-budget-guide.png`,
+        image: `${BASE_URL}/assets/news/diwali-budget-guide.webp`,
         datePublished: '2026-10-05T00:00:00+05:30',
         dateModified: '2026-10-08T00:00:00+05:30',
         author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Personal Finance Desk', url: BASE_URL },
@@ -698,7 +779,7 @@ const routes = [
         '@type': 'Article',
         headline: 'Welcome to Pocket Advisor: Intelligent, Private Wealth Tracking',
         description: 'Why we built an Android-native financial companion designed around privacy, zero manual entry, and debt simplification.',
-        image: `${BASE_URL}/assets/news/welcome-pocket-advisor.png`,
+        image: `${BASE_URL}/assets/news/welcome-pocket-advisor.webp`,
         datePublished: '2026-09-12T00:00:00+05:30',
         dateModified: '2026-10-08T00:00:00+05:30',
         author: { '@type': 'Organization', name: 'Pocket Advisor Core Team', url: BASE_URL },
@@ -712,6 +793,96 @@ const routes = [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
           { '@type': 'ListItem', position: 3, name: 'Welcome to Pocket Advisor', item: `${BASE_URL}/news/welcome-to-pocket-advisor` }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'news/track-upi-expenses-automatically',
+    title: 'How to Track UPI Expenses Automatically in India (2026) | Pocket Advisor',
+    description: 'A complete step-by-step guide to tracking Google Pay, PhonePe, Paytm, and CRED transactions automatically in India from bank SMS. Covers on-device regex detection, OEM battery setup, missed SMS handling, custom category rules, and SQLCipher AES-256 privacy.',
+    canonical: `${BASE_URL}/news/track-upi-expenses-automatically`,
+    badgeCategory: 'Step-by-Step Android Guide',
+    pillText: 'Automated UPI Tracking • On-Device Privacy Architecture',
+    h1: 'How to Track UPI Expenses Automatically in India',
+    h1Gradient: 'On-Device SMS Detection &amp; Zero Manual Entry (2026)',
+    heroDesc: 'Stop typing every chai and grocery purchase manually. Learn how to track UPI spending across Google Pay, PhonePe, and Paytm with on-device regex parsing, Android battery setup, and SQLCipher encryption.',
+    ctaText: 'Get Pocket Advisor on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide)',
+        description: 'A complete step-by-step guide to tracking Google Pay, PhonePe, Paytm, and CRED transactions automatically in India from bank SMS. Covers on-device regex detection, OEM battery setup, missed SMS handling, custom category rules, and SQLCipher AES-256 privacy.',
+        image: `${BASE_URL}/assets/news/track-upi-expenses-automatically.svg`,
+        datePublished: '2026-10-09T00:00:00+05:30',
+        dateModified: '2026-10-09T00:00:00+05:30',
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Systems Architecture Desk', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/news/track-upi-expenses-automatically`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: 'Track UPI Expenses Automatically', item: `${BASE_URL}/news/track-upi-expenses-automatically` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does Pocket Advisor detect my UPI transactions automatically?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Every time you scan a QR code with Google Pay, PhonePe, Paytm, or CRED, your bank sends an instant confirmation SMS alert. Pocket Advisor processes this SMS in under 15ms directly on your Android phone using a deterministic regex grammar engine, without sending any data over the internet.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What permissions are required to track UPI payments automatically?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pocket Advisor requires local SMS read/receive permissions under Google Play\'s official \'Financial Money Management Exception\' policy. It never requests bank passwords, netbanking credentials, OTPs, or UPI PINs.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Why does automatic tracking stop working after a few hours on my phone?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Aggressive Android manufacturer battery managers (such as Xiaomi\'s HyperOS/MIUI, Samsung\'s One UI, or OnePlus\'s OxygenOS) put background apps to sleep to save battery. Setting Pocket Advisor\'s battery optimization to \'Unrestricted / No Restrictions\' and enabling \'Autostart\' keeps the SMS listener active continuously.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What happens if my bank doesn\'t send an SMS for small UPI payments below ₹100?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'In 2024–2026, several Indian banks waived SMS alerts for micro-transactions under ₹100. Pocket Advisor solves this through its 1-tap Home Screen Quick-Add Widget and bank balance delta reconciliation: when the next SMS arrives with your updated balance, Pocket Advisor alerts you to reconcile the difference.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I back up my spending data to the cloud?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. By default, Pocket Advisor stores everything 100% offline in a local SQLCipher AES-256 encrypted database. If you switch phones or want multi-device sync, you can enable optional Cloud Backup (powered by Supabase) with complete user control.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is Pocket Advisor free, and are there advertisements?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pocket Advisor provides an ad-supported free tier with clean, non-intrusive display ads. Users can also upgrade to an optional ad-free Pro tier. Crucially, we never sell your financial records or broker predatory personal loans.'
+            }
+          }
         ]
       }
     ]
@@ -884,6 +1055,88 @@ const routes = [
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'Yes, 100%. All transaction parsing, database insertion, and analytics run entirely on your phone local CPU with zero cloud transmission.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'best-expense-tracker-apps-india',
+    title: 'Best Expense Tracker Apps in India (2026): Architectural Comparison | Pocket Advisor',
+    description: 'An architectural comparison of India’s personal finance apps across 4 models: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers.',
+    canonical: `${BASE_URL}/best-expense-tracker-apps-india`,
+    badgeCategory: 'Architectural Comparison Guide',
+    pillText: 'Objective Technical Analysis • Category Framework',
+    h1: 'Best Expense Tracker Apps in India (2026): An Architectural Comparison',
+    h1Gradient: 'Offline-First SMS vs Account Aggregators vs Cloud Credit Hubs vs Web Ledgers',
+    heroDesc: 'An objective, technical evaluation of India’s 4 dominant personal finance architectures: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual web tools. Compare privacy, cloud sync options, and business models.',
+    ctaText: 'Get Pocket Advisor on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'Best Expense Tracker Apps in India (2026): An Architectural Comparison',
+        description: 'An objective, technical evaluation of India’s 4 dominant personal finance architectures: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual web tools. Compare privacy, cloud sync options, and business models.',
+        image: DEFAULT_IMAGE,
+        datePublished: '2026-10-09T00:00:00+05:30',
+        dateModified: '2026-10-09T00:00:00+05:30',
+        author: { '@type': 'Organization', name: 'Pocket Advisor Financial Engineering Team', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/best-expense-tracker-apps-india`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
+          { '@type': 'ListItem', position: 3, name: 'Best Expense Tracker Apps India', item: `${BASE_URL}/best-expense-tracker-apps-india` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Can Pocket Advisor back up my expenses to the cloud?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. Pocket Advisor gives you full control over your data. By default, it operates 100% offline using on-device SQLCipher AES-256 encryption. If you wish to sync across devices or prevent data loss when changing phones, you can enable optional Cloud Backup (powered by Supabase) at any time.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How is Pocket Advisor monetized if you don\'t push personal loans?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pocket Advisor provides a free ad-supported tier with standard, clean mobile display ads. Users who prefer a completely ad-free experience can upgrade to Pocket Advisor Pro. Crucially, we never sell user financial data, broker NBFC loans, or make telemarketing calls.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is it safe to give SMS permissions to an expense tracker in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'It depends on whether parsing is done on-device or on a remote server. Pocket Advisor processes bank messages 100% locally on your Android device using deterministic regex and immediately purges OTPs and non-financial messages in memory. Apps that upload your raw SMS inbox to remote servers expose your financial history to data breaches and loan marketing.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Why isn\'t automated SMS tracking available on iPhone?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Apple\'s iOS operating system does not allow third-party apps to read SMS messages in the background. Android permits this under Google Play\'s Financial Exception policy. On iPhone, automated options rely on the RBI Account Aggregator framework, which requires subscription fees to maintain server infrastructure.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the difference between Account Aggregator and SMS tracking?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'SMS tracking parses instant debit alerts sent by your bank to your device locally with zero external dependencies. Account Aggregators (AA) query your bank\'s servers directly via RBI-regulated intermediaries. AA works on iPhone and doesn\'t require SMS access, but depends on bank server uptime and requires paid subscriptions or loan cross-selling to cover API query fees.'
             }
           }
         ]

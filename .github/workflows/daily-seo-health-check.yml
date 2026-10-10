@@ -16,16 +16,16 @@ concurrency:
 jobs:
   live-seo-check:
     name: Check production SEO signals
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Check sitemap, robots.txt, HTTP status, canonical and noindex
         run: node scripts/check-live-seo.js

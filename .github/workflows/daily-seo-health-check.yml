@@ -1,0 +1,31 @@
+name: Daily SEO Health Check
+
+on:
+  schedule:
+    # 09:00 Asia/Kolkata (03:30 UTC)
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: daily-seo-health-check
+  cancel-in-progress: true
+
+jobs:
+  live-seo-check:
+    name: Check production SEO signals
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Check sitemap, robots.txt, HTTP status, canonical and noindex
+        run: node scripts/check-live-seo.js

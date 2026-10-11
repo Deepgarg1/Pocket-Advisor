@@ -1,8 +1,8 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { Hero } from './components/landing/Hero';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
-const Hero = lazy(() => import('./components/landing/Hero').then(module => ({ default: module.Hero })));
 const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then(module => ({ default: module.FeaturesGrid })));
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then(module => ({ default: module.InteractiveDemo })));
 const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then(module => ({ default: module.DownloadSection })));

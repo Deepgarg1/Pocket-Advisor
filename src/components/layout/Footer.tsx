@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
   return (
     <footer
-      className="cv-auto"
+      className="footer-shell"
       style={{
         borderTop: '1px solid var(--border-subtle)',
         backgroundColor: 'var(--bg-surface)',

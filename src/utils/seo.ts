@@ -23,6 +23,13 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
   },
+  'monthly-budget-planner': {
+    title: 'Monthly Budget Planner India – Free 50/30/20 Calculator | Pocket Advisor',
+    description: 'Plan your monthly budget in India with an interactive income and expense planner. Compare needs, wants, savings, and export your budget as CSV.',
+    canonical: `${BASE_URL}/monthly-budget-planner`,
+    ogType: 'website',
+    ogImage: DEFAULT_IMAGE,
+  },
   calculators: {
     title: 'Free Bill Splitter, EMI & SIP Calculators | Pocket Advisor',
     description: 'Calculate fair group bill splits with 2-stage greedy debt minimization, export itemized receipts to WhatsApp, and project compounding SIP wealth growth online.',

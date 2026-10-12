@@ -78,8 +78,8 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
   };
 
   return (
-    <div style={{ maxWidth: 1080, margin: '0 auto', padding: 'clamp(18px, 3.5vw, 36px) clamp(12px, 3vw, 24px) 64px', color: 'var(--text-primary)' }}>
-      <header style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto 24px' }}>
+    <div className="budget-planner-page" style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(18px, 3.5vw, 36px) clamp(12px, 3vw, 24px) 64px', color: 'var(--text-primary)' }}>
+      <header className="budget-planner-header" style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto 24px' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', borderRadius: 999, padding: '6px 11px', color: 'var(--text-secondary)', fontSize: 12, marginBottom: 13 }}>
           <Wallet size={14} /> FREE PERSONAL FINANCE TOOL
         </div>
@@ -91,7 +91,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         </p>
       </header>
 
-      <section style={{ ...cardStyle, padding: '16px', marginBottom: 12 }}>
+      <section className="budget-income-card" style={{ ...cardStyle, padding: '16px', marginBottom: 12 }}>
         <label htmlFor="budget-income" style={{ display: 'block', fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>MONTHLY TAKE-HOME INCOME</label>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <span style={{ fontSize: 23, fontWeight: 800, color: 'var(--text-muted)' }}>₹</span>
@@ -100,7 +100,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '7px 0 0' }}>Your income after tax and salary deductions</p>
       </section>
 
-      <section style={{ ...cardStyle, padding: 17, marginBottom: 18, background: 'linear-gradient(145deg, var(--bg-surface) 0%, rgba(56, 189, 248, 0.07) 100%)' }}>
+      <section className="budget-summary-card" style={{ ...cardStyle, padding: 17, marginBottom: 18, background: 'linear-gradient(145deg, var(--bg-surface) 0%, rgba(56, 189, 248, 0.07) 100%)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-secondary)', fontSize: 12 }}><CircleDollarSign size={15} /> MONEY LEFT TO ASSIGN</div>
@@ -129,7 +129,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         </div>}
       </section>
 
-      <section style={{ ...cardStyle, padding: '17px clamp(13px, 3vw, 22px)', marginBottom: 18 }}>
+      <section className="budget-plan-card" style={{ ...cardStyle, padding: '17px clamp(13px, 3vw, 22px)', marginBottom: 18 }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 4 }}>
           <div>
             <h2 style={{ margin: 0, fontSize: 20, fontWeight: 820 }}>Your monthly plan</h2>
@@ -176,7 +176,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         </div>
       </section>
 
-      <section style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
+      <section className="budget-guide-card" style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
         <h2 style={{ margin: '0 0 5px', fontSize: 17 }}>Your 50/30/20 guide</h2>
         <p style={{ margin: '0 0 12px', color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>A flexible starting point—not a rule. Adjust for your rent, family commitments and goals.</p>
         {groups.map(group => <div key={group.key} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 10, alignItems: 'center', padding: '9px 0', borderTop: '1px solid var(--border-subtle)', fontSize: 13 }}>
@@ -185,13 +185,13 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         </div>)}
       </section>
 
-      <section style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
+      <section className="budget-result-card" style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
         <h2 style={{ margin: '0 0 7px', fontSize: 17 }}>Understand your result</h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{summary.monthlyIncome <= 0 ? 'Enter your monthly take-home income to see the budget breakdown.' : summary.remaining < 0 ? 'Your plan is over income. Review flexible spending and adjust estimates to fit your current situation.' : summary.remaining === 0 ? 'Your income is fully allocated. Consider whether you need a small buffer for irregular costs.' : 'Your plan leaves ' + money(summary.remaining) + ' unallocated. Consider assigning some to emergency savings, upcoming bills, or a goal.'}</p>
         <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginTop: 13, color: 'var(--text-secondary)', fontSize: 11, lineHeight: 1.55 }}><ShieldCheck size={16} style={{ flexShrink: 0, color: '#34d399' }} />Your entries stay in this browser and are not sent to a server or saved automatically.</div>
       </section>
 
-      <section style={{ ...cardStyle, padding: 16 }}>
+      <section className="budget-howto-card" style={{ ...cardStyle, padding: 16 }}>
         <button type="button" onClick={() => setShowGuide(value => !value)} aria-expanded={showGuide} style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between', gap: 12, background: 'transparent', border: 0, padding: 0, color: 'var(--text-primary)', cursor: 'pointer', textAlign: 'left' }}>
           <span style={{ fontWeight: 800, fontSize: 16 }}>How to build a monthly budget</span><ChevronDown size={17} style={{ transform: showGuide ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }} />
         </button>
@@ -206,7 +206,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
         </div>}
       </section>
 
-      <section style={{ maxWidth: 720, margin: '26px auto 0', textAlign: 'center', padding: '0 8px' }}>
+      <section className="budget-planner-cta" style={{ maxWidth: 720, margin: '26px auto 0', textAlign: 'center', padding: '0 8px' }}>
         <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.7rem)', margin: '0 0 8px' }}>Plan your budget. Track your real expenses.</h2>
         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: 13, margin: '0 0 15px' }}>A budget is a plan; tracking helps compare it with what you actually spend. Pocket Advisor helps organize supported bank and UPI alert transactions on Android.</p>
         {onNavigate && <button type="button" onClick={() => onNavigate('download')} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 16px', borderRadius: 12, border: 0, background: 'var(--primary-btn)', color: '#fff', fontWeight: 750, cursor: 'pointer' }}>Explore Pocket Advisor <ArrowRight size={16} /></button>}

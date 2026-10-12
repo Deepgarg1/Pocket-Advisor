@@ -140,7 +140,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           color: 'var(--text-primary)',
         }}
       >
-        Pocket Advisor: Smart Spending Tracker &amp; Bill Splitter<br />
+        Pocket Advisor: Smart Expense Tracker &amp; Bill Splitter<br />
         <span className="text-gradient">
           Private, Offline &amp; Effortlessly Simple
         </span>
@@ -156,7 +156,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           marginBottom: '28px',
         }}
       >
-        Know where your money goes. Pocket Advisor helps you organize expenses with automatic bank &amp; UPI alert detection, split group bills with zero debt, and plan with complete on-device privacy.
+        Know where your money goes. Pocket Advisor helps you track expenses with supported bank &amp; UPI alert detection, split group bills with zero debt, and plan with complete on-device privacy.
       </p>
 
       {/* Download CTAs */}

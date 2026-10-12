@@ -157,8 +157,6 @@ function renderArticleFromData(article) {
 
   return '<article style="max-width:860px;margin:0 auto;padding:0 24px 40px;color:#cbd5e1;line-height:1.75;font-size:1rem;">' +
     '<div style="margin-bottom:24px;"><span style="font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:4px 14px;border-radius:9999px;background:rgba(56,189,248,.15);color:#38bdf8;border:1px solid rgba(56,189,248,.3);">' + escapeHtml(article.category || 'Guide') + '</span><span style="margin-left:12px;font-size:.85rem;color:#94a3b8;">' + escapeHtml(article.readTime || '') + ' • Written by ' + escapeHtml(article.author && article.author.name || 'Pocket Advisor') + ' • Updated ' + escapeHtml(article.updatedAt || article.publishedAt || '') + '</span></div>' +
-    '<h1 style="font-size:2.2rem;font-weight:900;color:#f8fafc;line-height:1.25;margin:0 0 12px;">' + escapeHtml(article.title) + '</h1>' +
-    '<p style="font-size:1.15rem;color:#94a3b8;line-height:1.6;margin-bottom:28px;">' + escapeHtml(article.subtitle || article.excerpt || '') + '</p>' +
     '<div style="border-radius:16px;overflow:hidden;margin-bottom:36px;border:1px solid rgba(255,255,255,.1);"><img src="' + escapeHtml(article.coverImage) + '" alt="' + escapeHtml(article.coverImageAlt || article.title) + '" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;" /></div>' +
     blocks + '</article>';
 }

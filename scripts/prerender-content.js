@@ -939,6 +939,17 @@ export function getRouteBodyContent(slug) {
           <h2 style="${headingStyle}">Recent Articles &amp; Practical Guides</h2>
           <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
             <div style="${cardStyle}">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #38bdf8; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); padding: 3px 10px; border-radius: 9999px;">Android Spending Guide</span>
+              <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin: 10px 0 6px 0;">
+                <a href="/news/how-to-track-spending-automatically-android" style="color: inherit; text-decoration: none;">How to Track Your Spending Automatically on Android (2026 Guide) &rarr;</a>
+              </h3>
+              <p style="font-size: 0.94rem; margin: 0 0 14px 0; color: #94a3b8;">
+                Let your bank and UPI notifications be tracked automatically so you always know where your money goes. Learn how on-device parsing, privacy controls, and categorization save hours of manual logging.
+              </p>
+              <a href="/news/how-to-track-spending-automatically-android" style="color: #38bdf8; font-weight: 700; font-size: 0.9rem;">Read Complete Guide &rarr;</a>
+            </div>
+
+            <div style="${cardStyle}">
               <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; color: #10b981; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); padding: 3px 10px; border-radius: 9999px;">Step-by-Step Guide</span>
               <h3 style="font-size: 1.25rem; font-weight: 800; color: #f8fafc; margin: 10px 0 6px 0;">
                 <a href="/news/track-upi-expenses-automatically" style="color: inherit; text-decoration: none;">How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide) &rarr;</a>
@@ -1289,6 +1300,100 @@ export function getRouteBodyContent(slug) {
             <h3 style="font-size: 1.3rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Download Pocket Advisor for Android</h3>
             <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 16px 0;">Start tracking your spending automatically without sacrificing your financial privacy.</p>
             <a href="/download" style="display: inline-block; background: #6366f1; color: #ffffff; padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none;">Download Android App &rarr;</a>
+          </div>
+        </article>`;
+
+    case 'news/how-to-track-spending-automatically-android':
+      return `
+        <article style="${contentStyle}">
+          <div style="margin-bottom: 24px;">
+            <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 14px; border-radius: 9999px; background-color: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">Android Spending Guide</span>
+            <span style="margin-left: 12px; font-size: 0.85rem; color: #94a3b8;">7 min read • Written by Deepesh Garg • Published October 12, 2026</span>
+          </div>
+
+          <h1 style="font-size: 2.2rem; font-weight: 900; color: #f8fafc; line-height: 1.25; margin-bottom: 12px;">
+            How to Track Your Spending Automatically on Android
+          </h1>
+          <p style="font-size: 1.15rem; color: #94a3b8; line-height: 1.6; margin-bottom: 28px;">
+            Let your bank and UPI notifications be tracked automatically so you always know where your money goes without manual data entry.
+          </p>
+
+          <div style="border-radius: 16px; overflow: hidden; margin-bottom: 36px; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/how-to-track-spending-automatically-android-cover.webp" alt="How to Track Your Spending Automatically on Android" width="1200" height="675" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <p>
+            Keeping track of your money sounds easy—until you try to record every coffee, online order, grocery run, and monthly bill. You open an expense app, enter the amount, choose a category, and repeat the whole process the next time you spend. Before long, it starts to feel like another chore. Miss a few days, and your budget may no longer reflect what you actually spent.
+          </p>
+          <p>
+            That’s where <strong>automatic expense tracking</strong> can help. Instead of entering every purchase yourself, a compatible Android app can detect supported bank or payment notifications, extract transaction details, and organize them in your expense history.
+          </p>
+          <p>
+            You may still need to correct an occasional mistake or add a cash purchase manually. But you won’t have to start from scratch every time you spend money.
+          </p>
+
+          <h2 style="${headingStyle}">What Is Automatic Expense Tracking?</h2>
+          <p>
+            Think of it as keeping your expense records up to date without manually entering every transaction. When a supported transaction notification reaches your phone, an expense tracker can recognize the amount, merchant, date, and transaction type, converting those details directly into an expense record.
+          </p>
+          <p>
+            Exactly how this works depends on the app. Some process information strictly on your device, while others offer cloud synchronization. Before enabling automatic tracking, verify what information the app collects, where it is stored, and which permissions it requires.
+          </p>
+
+          <div style="${cardStyle} border-left: 4px solid #38bdf8; margin: 24px 0;">
+            <strong style="color: #38bdf8;">Privacy &amp; Security Tip:</strong> Prioritize local-first expense trackers. When transaction data stays encrypted on your device rather than syncing to unvetted third-party servers, your financial habits and balances remain private.
+          </div>
+
+          <h2 style="${headingStyle}">How Automatic Expense Tracking Works on Android</h2>
+          <p>
+            The process is fairly straightforward, although it varies between apps and financial providers:
+          </p>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 28px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/how-automatic-expense-tracking-works.webp" alt="How Automatic Expense Tracking Works on Android Workflow" width="1024" height="576" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <p><strong>1. Your bank or payment service sends a notification:</strong> After a payment, transfer, or withdrawal, your bank sends a notification or SMS containing transaction details.</p>
+          <p><strong>2. The app recognizes the transaction:</strong> The app parses clues that indicate a financial transaction, accommodating different formats rather than depending on a single template.</p>
+          <p><strong>3. It extracts important details:</strong> Key figures—amount, merchant name, date, and account identifier—are captured cleanly.</p>
+          <p><strong>4. It assigns a spending category:</strong> Transactions are categorized into Groceries, Transport, Shopping, Bills, or Dining based on merchant signatures.</p>
+          <p><strong>5. Your expense history updates:</strong> Transactions contribute immediately to your monthly totals and category analytics.</p>
+
+          <h2 style="${headingStyle}">6 Steps to Get Started With Automatic Tracking</h2>
+          <div style="margin: 20px 0;">
+            <p><strong>Step 1: Choose an app that supports your transactions:</strong> Verify support for the banks, UPI apps, and transaction formats you use.</p>
+            <p><strong>Step 2: Check how your financial data is handled:</strong> Look for clear guarantees around local storage, encryption, and zero third-party data selling.</p>
+            <p><strong>Step 3: Review the permissions:</strong> Grant only necessary permissions (such as local notification/SMS read permissions) that are clearly explained.</p>
+            <p><strong>Step 4: Check your first few transactions:</strong> Verify amounts, dates, and merchants to ensure regex patterns match your bank's alerts.</p>
+            <p><strong>Step 5: Correct mistakes when they happen:</strong> Fix any miscategorized items and establish custom rules for frequent merchants.</p>
+            <p><strong>Step 6: Look for spending patterns:</strong> Use your updated category breakdowns to spot spending leaks and keep your budget intact.</p>
+          </div>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 28px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/how-automatic-expense-tracking-works-edit.webp" alt="Reviewing and Editing Detected Transactions" width="1024" height="576" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <h2 style="${headingStyle}">Automatic vs. Manual Expense Tracking</h2>
+          <p>
+            Manual tracking offers control but requires high daily discipline. Automatic tracking removes manual friction so you can focus on insights.
+          </p>
+
+          <div style="border-radius: 16px; overflow: hidden; margin: 28px 0; border: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="/assets/news/automatic-vs-manual-expense-tracking.webp" alt="Automatic vs Manual Expense Tracking" width="1024" height="682" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;" />
+          </div>
+
+          <h2 style="${headingStyle}">How Pocket Advisor Can Help</h2>
+          <p>
+            Pocket Advisor is built specifically to make everyday expense tracking effortless on Android. It detects supported bank and UPI notifications locally, extracts transaction details, and organizes them into your spending history with zero internet transmission.
+          </p>
+          <p>
+            Beyond automated tracking, Pocket Advisor includes multi-currency bill splitting with 2-stage greedy debt minimization, EMI vs SIP calculators, interactive home-screen widgets, and offline-first encrypted storage.
+          </p>
+
+          <div style="${cardStyle} text-align: center; margin: 36px 0;">
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Take Control of Your Spending Automatically</h3>
+            <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 16px 0;">Track your everyday UPI and bank expenses automatically without sharing banking passwords or uploading private financial data.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" style="display: inline-block; background: #10b981; color: #ffffff; padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none;">Get Pocket Advisor on Google Play &rarr;</a>
           </div>
         </article>`;
 

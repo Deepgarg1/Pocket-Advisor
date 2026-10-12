@@ -888,6 +888,104 @@ const routes = [
     ]
   },
   {
+    slug: 'news/how-to-track-spending-automatically-android',
+    title: 'How to Track Your Spending Automatically on Android (2026) | Pocket Advisor',
+    description: 'Learn how to track your spending automatically on Android. Discover how compatible apps parse transaction notifications, extract amounts and merchants, protect your privacy, and organize expenses without manual entry.',
+    canonical: `${BASE_URL}/news/how-to-track-spending-automatically-android`,
+    badgeCategory: 'Android Spending Guide',
+    pillText: 'Automated Expense Tracking • On-Device Detection',
+    h1: 'How to Track Your Spending Automatically on Android',
+    h1Gradient: 'From Notifications to Organized Ledger Records',
+    heroDesc: 'Let your bank and UPI notifications be tracked automatically so you always know where your money goes without manual data entry.',
+    ctaText: 'Get Pocket Advisor on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'How to Track Your Spending Automatically on Android',
+        description: 'Discover how automatic expense tracking works on Android. Learn how compatible apps parse transaction notifications, extract amounts and merchants, protect your privacy, and organize your finances with zero manual entry.',
+        image: `${BASE_URL}/assets/news/how-to-track-spending-automatically-android-cover.webp`,
+        datePublished: '2026-10-12T00:00:00+05:30',
+        dateModified: '2026-10-12T00:00:00+05:30',
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Systems Architecture Desk', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/news/how-to-track-spending-automatically-android`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: 'Track Spending Automatically on Android', item: `${BASE_URL}/news/how-to-track-spending-automatically-android` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Can Android track expenses automatically?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. Compatible Android apps can detect supported transaction notifications and turn them into expense records when you grant the required permissions.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I track bank transactions automatically?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'In supported setups, an app can detect transaction notifications and extract details such as the amount and merchant. Compatibility depends on the bank, country, notification format, and Android restrictions.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is automatic expense tracking better than manual tracking?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'That depends on your spending habits. Automatic tracking saves time on supported digital transactions, while manual entry is useful for cash and unusual purchases. Using both is often a practical approach.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Is it safe to give an expense tracker access to financial notifications?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'It depends on the app\'s security and privacy practices. Review its permissions, privacy policy, data storage, encryption, and cloud-sync settings before enabling access. Local-first apps like Pocket Advisor keep all data encrypted strictly on your device.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can an app categorize transactions automatically?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Many apps can suggest categories using merchant names, transaction text, and categorization rules. You should still be able to correct a category when the suggestion is wrong.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I track expenses automatically without cloud storage?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Some apps support local-only or local-first storage. Pocket Advisor stores transaction records in an encrypted SQLCipher vault entirely offline on your device, with optional cloud backup.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What if the app misses a transaction?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'You can easily add the missing transaction manually. Reviewing your history occasionally also helps catch missing entries, duplicates, or incorrect categories.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'how-to-split-rent-unequal-rooms',
     title: 'Split Rent Fairly for Unequal Rooms | Pocket Advisor',
     description: 'Learn how to split apartment rent fairly when room sizes are different. Master vs small bedroom 50/50 square footage math and 1-tap WhatsApp UPI settlements.',

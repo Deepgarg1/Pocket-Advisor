@@ -9,6 +9,7 @@ import {
   ChevronDown,
   Users,
   Calculator,
+  Wallet,
   Scale,
   TrendingUp,
   Home,
@@ -31,11 +32,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
 
   const isSplitActive = currentView === 'split' || currentView === 'flatmates-rent-splitter';
   const isCalculatorsActive = currentView === 'calculators' || currentView === 'emi-calculator' || currentView === 'sip-calculator' || currentView === 'home-loan-prepayment-vs-sip';
-  const isToolsActive = isSplitActive || isCalculatorsActive;
+  const isToolsActive = isSplitActive || isCalculatorsActive || currentView === 'monthly-budget-planner';
 
   const handleMouseEnterTools = () => {
     prefetchRoute('split');
     prefetchRoute('calculators');
+    prefetchRoute('monthly-budget-planner');
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
@@ -514,6 +516,45 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                       </div>
                     </div>
 
+                    <a
+                      href="/monthly-budget-planner"
+                      onClick={(e) => handleNav('monthly-budget-planner', e)}
+                      onMouseEnter={() => prefetchRoute('monthly-budget-planner')}
+                      className="nav-dropdown-item"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <div
+                        className="item-icon-box"
+                        style={{
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '10px',
+                          background: 'rgba(56, 189, 248, 0.12)',
+                          color: '#38bdf8',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                          transition: 'transform 0.2s ease',
+                        }}
+                      >
+                        <Wallet size={17} />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          <span className="item-title" style={{ fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                            Monthly Budget Planner
+                          </span>
+                          <span style={{ fontSize: '0.62rem', fontWeight: 800, padding: '2px 6px', borderRadius: '6px', background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8' }}>
+                            New
+                          </span>
+                        </div>
+                        <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                          Plan income, spending, and savings with the 50/30/20 guide
+                        </div>
+                      </div>
+                    </a>
+
                     {/* Bottom All Tools Link */}
                     <a
                       href="/calculators"
@@ -869,6 +910,27 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
                   }}
                 >
                   <TrendingUp size={15} color="#10b981" /> SIP Wealth Planner
+                </a>
+                <a
+                  href="/monthly-budget-planner"
+                  onClick={(e) => handleNav('monthly-budget-planner', e)}
+                  onTouchStart={() => prefetchRoute('monthly-budget-planner')}
+                  style={{
+                    background: currentView === 'monthly-budget-planner' ? 'var(--primary-surface)' : 'none',
+                    color: currentView === 'monthly-budget-planner' ? 'var(--primary)' : 'var(--text-secondary)',
+                    textAlign: 'left',
+                    fontWeight: currentView === 'monthly-budget-planner' ? 700 : 500,
+                    fontSize: '0.9rem',
+                    padding: '8px 10px',
+                    borderRadius: '8px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <Wallet size={15} color="#38bdf8" /> Monthly Budget Planner
                 </a>
                 <a
                   href="/calculators"

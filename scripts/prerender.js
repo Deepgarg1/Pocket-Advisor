@@ -258,6 +258,41 @@ const routes = [
     ]
   },
   {
+    slug: 'monthly-budget-planner',
+    title: 'Monthly Budget Planner India – Free 50/30/20 Calculator | Pocket Advisor',
+    description: 'Plan your monthly budget in India with an interactive income and expense planner. Compare needs, wants, savings, and export your budget as CSV.',
+    canonical: `${BASE_URL}/monthly-budget-planner`,
+    badgeCategory: 'Free Budget Tool',
+    pillText: 'Monthly Income • Expense Plan • 50/30/20 Guide',
+    h1: 'Monthly Budget Planner',
+    h1Gradient: 'Plan Your Money with the 50/30/20 Guide',
+    heroDesc: 'Plan your monthly income, organize expenses, and see how much you can save. Adjust the numbers to build a budget that fits your life.',
+    ctaText: 'Open Monthly Budget Planner',
+    ctaHref: '/monthly-budget-planner',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Pocket Advisor Monthly Budget Planner',
+        url: `${BASE_URL}/monthly-budget-planner`,
+        image: DEFAULT_IMAGE,
+        description: 'Free interactive monthly budget planner for India with income and expense categories, 50/30/20 budgeting guidance, and CSV export.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
+        featureList: ['Monthly income and expense planning', '50/30/20 budget guide', 'CSV budget export']
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Monthly Budget Planner', item: `${BASE_URL}/monthly-budget-planner` }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'calculators',
     title: 'Free Bill Splitter, EMI & SIP Calculators | Pocket Advisor',
     description: 'Calculate fair group bill splits with 2-stage greedy debt minimization, export itemized receipts to WhatsApp, and project compounding SIP wealth growth online.',

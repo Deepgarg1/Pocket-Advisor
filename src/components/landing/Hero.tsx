@@ -393,6 +393,32 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           ❓ Expense Tracker FAQ
         </a>
         <a
+          href="/monthly-budget-planner"
+          onClick={(e) => {
+            e.preventDefault();
+            if (onNavigate) onNavigate('monthly-budget-planner');
+          }}
+          onMouseEnter={() => prefetchRoute('monthly-budget-planner')}
+          onTouchStart={() => prefetchRoute('monthly-budget-planner')}
+          aria-label="Open the free monthly budget planner for India"
+          style={{
+            background: 'var(--bg-surface)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: '20px',
+            padding: '5px 12px',
+            fontSize: '0.8rem',
+            fontWeight: 600,
+            color: 'var(--text-secondary)',
+            cursor: 'pointer',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '4px',
+            textDecoration: 'none',
+          }}
+        >
+          ₹ Monthly Budget Planner
+        </a>
+        <a
           href="/upi-expense-tracker"
           onClick={(e) => {
             e.preventDefault();

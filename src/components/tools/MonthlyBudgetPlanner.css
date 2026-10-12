@@ -1,0 +1,67 @@
+/* Monthly Budget Planner — purpose-built desktop and mobile layouts */
+.budget-planner-page {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .85fr);
+  grid-template-areas:
+    "header header"
+    "income summary"
+    "plan guide"
+    "plan result"
+    "howto howto"
+    "cta cta";
+  align-items: start;
+  column-gap: 22px;
+  row-gap: 0;
+}
+.budget-planner-header { grid-area: header; width: 100%; max-width: 860px !important; margin-bottom: 28px !important; }
+.budget-income-card { grid-area: income; min-width: 0; }
+.budget-summary-card { grid-area: summary; min-width: 0; }
+.budget-plan-card { grid-area: plan; min-width: 0; }
+.budget-guide-card { grid-area: guide; min-width: 0; }
+.budget-result-card { grid-area: result; min-width: 0; }
+.budget-howto-card { grid-area: howto; margin-top: 6px; }
+.budget-planner-cta { grid-area: cta; width: 100%; }
+.budget-planner-page > section { align-self: start; }
+.budget-planner-page input:focus-visible,
+.budget-planner-page button:focus-visible {
+  outline: 2px solid var(--info);
+  outline-offset: 2px;
+}
+@media (min-width: 1200px) {
+  .budget-planner-page { column-gap: 26px; }
+  .budget-income-card { padding: 22px !important; }
+  .budget-summary-card { padding: 22px !important; }
+  .budget-plan-card { padding: 22px !important; }
+  .budget-guide-card, .budget-result-card { padding: 20px !important; }
+}
+@media (max-width: 900px) {
+  .budget-planner-page {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "income"
+      "summary"
+      "plan"
+      "guide"
+      "result"
+      "howto"
+      "cta";
+    column-gap: 0;
+  }
+  .budget-planner-header { margin-bottom: 20px !important; }
+  .budget-planner-page > section { width: 100%; }
+}
+@media (max-width: 520px) {
+  .budget-planner-page { padding: 18px 12px 88px !important; }
+  .budget-planner-header h1 { font-size: clamp(1.8rem, 8vw, 2.35rem) !important; }
+  .budget-income-card, .budget-summary-card, .budget-plan-card,
+  .budget-guide-card, .budget-result-card, .budget-howto-card {
+    border-radius: 16px !important;
+  }
+  .budget-summary-card { padding: 15px !important; }
+  .budget-plan-card { padding: 14px 11px !important; }
+  .budget-plan-card > div > button { padding-left: 10px !important; padding-right: 10px !important; }
+  .budget-plan-card label { grid-template-columns: minmax(0, 1fr) minmax(100px, 43%) !important; }
+  .budget-plan-card input { font-size: 14px !important; }
+}

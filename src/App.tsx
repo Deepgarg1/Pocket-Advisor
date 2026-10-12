@@ -7,6 +7,7 @@ const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then(module => ({ default: module.InteractiveDemo })));
 const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then(module => ({ default: module.DownloadSection })));
 const SplitterPage = lazy(() => import('./components/landing/SplitterPage').then(module => ({ default: module.SplitterPage })));
+const MonthlyBudgetPlanner = lazy(() => import('./components/tools/MonthlyBudgetPlanner').then(module => ({ default: module.MonthlyBudgetPlanner })));
 const FaqSection = lazy(() => import('./components/landing/FaqSection').then(module => ({ default: module.FaqSection })));
 const PrivacyPolicyView = lazy(() => import('./components/legal/PrivacyPolicyView').then(module => ({ default: module.PrivacyPolicyView })));
 const TermsConditionsView = lazy(() => import('./components/legal/TermsConditionsView').then(module => ({ default: module.TermsConditionsView })));
@@ -48,6 +49,7 @@ const getRouteFromUrl = (): { view: string; tab?: 'PREPAYMENT' | 'EMI' | 'SIP' }
   if (isRoute('delete-account') || isRoute('delete') || path.includes('delete-account')) return { view: 'delete-account' };
   if (isRoute('contact') || isRoute('contact-us') || isRoute('support')) return { view: 'contact' };
   if (isRoute('features') || isRoute('feature')) return { view: 'features' };
+  if (isRoute('monthly-budget-planner') || isRoute('budget-planner')) return { view: 'monthly-budget-planner' };
 
   if (
     isRoute('how-to-split-rent-unequal-rooms') ||
@@ -272,6 +274,12 @@ export const App: React.FC = () => {
 
           {currentView === 'delete-account' && (
             <DeleteAccountView onBack={() => navigateView('home')} />
+          )}
+
+          {currentView === 'monthly-budget-planner' && (
+            <div className="animate-fade-in">
+              <MonthlyBudgetPlanner onNavigate={navigateView} />
+            </div>
           )}
 
           {currentView === 'features' && (

@@ -43,6 +43,12 @@
     <priority>0.90</priority>
   </url>
   <url>
+    <loc>https://www.pocketadvisor.in/monthly-budget-planner</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://www.pocketadvisor.in/calculators</loc>
     <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>

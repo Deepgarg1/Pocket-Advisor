@@ -217,11 +217,11 @@
         "title": "Supported Transaction Types",
         "items": [
           {
-            "text": "Everyday purchases (groceries, retail, dining)",
+            "text": "Everyday purchases when the bank sends a supported transaction SMS",
             "checked": true
           },
           {
-            "text": "Bank account debits and credits",
+            "text": "Bank account debits and credits included in supported SMS alerts",
             "checked": true
           },
           {
@@ -229,7 +229,7 @@
             "checked": true
           },
           {
-            "text": "Peer-to-peer bank transfers",
+            "text": "Peer-to-peer transfers when represented in a supported bank SMS",
             "checked": true
           },
           {
@@ -237,7 +237,7 @@
             "checked": true
           },
           {
-            "text": "E-commerce and merchant transactions",
+            "text": "E-commerce purchases when the bank sends a supported transaction SMS",
             "checked": true
           }
         ]
@@ -374,6 +374,10 @@
         "content": "Request only the access needed for the features you use. Local-first storage can limit routine data transfer, but review cloud backup, analytics, account services, and online AI processing separately."
       },
       {
+        "type": "paragraph",
+        "text": "For a more India-focused walkthrough, read our guide to [tracking UPI payments automatically](/how-to-track-upi-payments-automatically), including practical limits and missed-alert handling."
+      },
+      {
         "type": "heading2",
         "text": "How Pocket Advisor Can Help",
         "id": "how-pocket-advisor-helps"
@@ -392,7 +396,7 @@
         "description": "Track supported bank SMS alerts with on-device parsing and encrypted local transaction storage. Cloud backup is optional; online AI features may communicate with their service provider when used.",
         "buttonText": "Get Pocket Advisor on Google Play",
         "buttonLink": "https://play.google.com/store/apps/details?id=com.pocketadvisor.app",
-        "badge": "100% On-Device Privacy"
+        "badge": "On-Device SMS Parsing"
       },
       {
         "type": "heading2",

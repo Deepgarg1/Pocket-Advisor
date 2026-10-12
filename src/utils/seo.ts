@@ -17,8 +17,8 @@ const BASE_URL = 'https://www.pocketadvisor.in';
 
 export const ROUTE_SEO: Record<string, PageMetadata> = {
   home: {
-    title: 'Pocket Advisor – Expense Tracker & Bill Splitter App',
-    description: 'Track expenses with supported bank and UPI alerts on Android. Split group bills, manage monthly spending, and plan your finances with Pocket Advisor.',
+    title: 'Expense Tracker App for Android in India | Pocket Advisor',
+    description: 'Looking for an expense tracker app in India? Pocket Advisor helps organize supported bank and UPI transaction alerts, manage spending, and split group bills on Android.',
     canonical: `${BASE_URL}/`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

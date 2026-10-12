@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import './MonthlyBudgetPlanner.css';
 import { ArrowRight, ChevronDown, Download, RotateCcw, ShieldCheck, Wallet, TrendingUp, CircleDollarSign } from 'lucide-react';
 
 type Expense = { id: string; label: string; amount: string; group: 'needs' | 'wants' | 'savings' };

@@ -9,6 +9,10 @@ const prerenderPath = path.join(rootDir, 'scripts/prerender.js');
 const articlesPath = path.join(rootDir, 'src/data/articles.json');
 const canonicalOrigin = 'https://www.pocketadvisor.in';
 
+function escapeHtml(value) {
+  return String(value ?? '').replace(/&/g, '&amp;').replace(/\"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 function fail(message) {
   console.error(`[Sitemap validation] ERROR: ${message}`);
   process.exitCode = 1;

@@ -1285,6 +1285,8 @@ for (const route of routes) {
   route.description = article.excerpt;
   route.h1 = escapeHtml(article.title);
   route.heroDesc = article.subtitle || article.excerpt;
+  route.h1Gradient = '';
+  route.ogImage = BASE_URL + article.coverImage;
   route.schemas = route.schemas.map((schema) => {
     if (schema['@type'] === 'Article') {
       return {
@@ -1344,6 +1346,17 @@ for (const route of routes) {
     `<meta property="og:url" content="${route.canonical}" />`
   );
 
+  if (route.ogImage) {
+    html = html.replace(
+      /<meta\s+property=["']og:image["']\s+content=["'][^"']*["']\s*\/?>/i,
+      '<meta property="og:image" content="' + escapeHtml(route.ogImage) + '" />'
+    );
+    html = html.replace(
+      /<meta\s+name=["']twitter:image["']\s+content=["'][^"']*["']\s*\/?>/i,
+      '<meta name="twitter:image" content="' + escapeHtml(route.ogImage) + '" />'
+    );
+  }
+
   // 5. Replace Twitter Card Tags
   html = html.replace(
     /<meta\s+name=["']twitter:title["']\s+content=["'][^"']*["']\s*\/?>/i,
@@ -1398,8 +1411,7 @@ for (const route of routes) {
           </div>
 
           <h1 class="shell-title">
-            ${route.h1}<br />
-            <span class="shell-gradient-text">${route.h1Gradient}</span>
+            ${route.h1}${route.h1Gradient ? '<br /><span class="shell-gradient-text">' + route.h1Gradient + '</span>' : ''}
           </h1>
 
           <p class="shell-desc">

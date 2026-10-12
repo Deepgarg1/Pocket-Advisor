@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ArrowRight, Download, RotateCcw, ShieldCheck, Wallet } from 'lucide-react';
+import { ArrowRight, ChevronDown, Download, RotateCcw, ShieldCheck, Wallet, TrendingUp, CircleDollarSign } from 'lucide-react';
 
 type Expense = { id: string; label: string; amount: string; group: 'needs' | 'wants' | 'savings' };
 
@@ -21,10 +21,18 @@ const money = (value: number) => new Intl.NumberFormat('en-IN', {
 
 const numberValue = (value: string) => Math.max(0, Number(value) || 0);
 
+const groupConfig = {
+  needs: { title: 'Needs', subtitle: 'Essentials & commitments', color: '#38bdf8', target: 0.5 },
+  wants: { title: 'Wants', subtitle: 'Lifestyle & flexible spending', color: '#a78bfa', target: 0.3 },
+  savings: { title: 'Savings & investing', subtitle: 'Future you will thank you for', color: '#34d399', target: 0.2 },
+};
+
 export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => void }> = ({ onNavigate }) => {
   const [income, setIncome] = useState('45000');
   const [expenses, setExpenses] = useState<Expense[]>(initialExpenses);
-  const [showGuide, setShowGuide] = useState(true);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({ needs: true, wants: true, savings: true });
+  const [showGuide, setShowGuide] = useState(false);
+  const [showBreakdown, setShowBreakdown] = useState(false);
 
   const summary = useMemo(() => {
     const needs = expenses.filter(e => e.group === 'needs').reduce((sum, e) => sum + numberValue(e.amount), 0);
@@ -33,12 +41,8 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
     const monthlyIncome = numberValue(income);
     const planned = needs + wants + savings;
     return {
-      needs, wants, savings, monthlyIncome, planned,
-      remaining: monthlyIncome - planned,
-      needsTarget: monthlyIncome * 0.5,
-      wantsTarget: monthlyIncome * 0.3,
-      savingsTarget: monthlyIncome * 0.2,
-      savingsRate: monthlyIncome > 0 ? savings / monthlyIncome * 100 : 0,
+      needs, wants, savings, monthlyIncome, planned, remaining: monthlyIncome - planned,
+      needsTarget: monthlyIncome * 0.5, wantsTarget: monthlyIncome * 0.3, savingsTarget: monthlyIncome * 0.2,
       budgetUsed: monthlyIncome > 0 ? planned / monthlyIncome * 100 : 0,
     };
   }, [income, expenses]);
@@ -46,7 +50,11 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
   const updateExpense = (id: string, amount: string) =>
     setExpenses(current => current.map(item => item.id === id ? { ...item, amount } : item));
 
-  const reset = () => { setIncome('45000'); setExpenses(initialExpenses); };
+  const reset = () => {
+    setIncome('45000');
+    setExpenses(initialExpenses);
+    setOpenGroups({ needs: true, wants: true, savings: true });
+  };
 
   const exportCsv = () => {
     const rows = [['Monthly Budget Planner'], ['Monthly take-home income', summary.monthlyIncome.toString()], ['Category', 'Budget group', 'Monthly amount']];
@@ -60,114 +68,148 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
   };
 
   const groups = [
-    { key: 'needs' as const, title: 'Needs', subtitle: 'Essentials and commitments', target: summary.needsTarget, total: summary.needs, color: '#38bdf8' },
-    { key: 'wants' as const, title: 'Wants', subtitle: 'Lifestyle and flexible spending', target: summary.wantsTarget, total: summary.wants, color: '#a78bfa' },
-    { key: 'savings' as const, title: 'Savings & investing', subtitle: 'Goals, emergency fund, investments', target: summary.savingsTarget, total: summary.savings, color: '#34d399' },
+    { key: 'needs' as const, ...groupConfig.needs, total: summary.needs, targetAmount: summary.needsTarget },
+    { key: 'wants' as const, ...groupConfig.wants, total: summary.wants, targetAmount: summary.wantsTarget },
+    { key: 'savings' as const, ...groupConfig.savings, total: summary.savings, targetAmount: summary.savingsTarget },
   ];
 
+  const cardStyle: React.CSSProperties = {
+    background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 18,
+  };
+
   return (
-    <div style={{ maxWidth: 1120, margin: '0 auto', padding: '36px 20px 72px', color: 'var(--text-primary)' }}>
-      <header style={{ textAlign: 'center', maxWidth: 820, margin: '0 auto 34px' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', borderRadius: 999, padding: '7px 13px', color: 'var(--text-secondary)', fontSize: 13, marginBottom: 16 }}>
-          <Wallet size={16} /> Free personal finance tool
+    <div style={{ maxWidth: 1080, margin: '0 auto', padding: 'clamp(18px, 3.5vw, 36px) clamp(12px, 3vw, 24px) 64px', color: 'var(--text-primary)' }}>
+      <header style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto 24px' }}>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: 7, border: '1px solid var(--border-subtle)', background: 'var(--bg-surface)', borderRadius: 999, padding: '6px 11px', color: 'var(--text-secondary)', fontSize: 12, marginBottom: 13 }}>
+          <Wallet size={14} /> FREE PERSONAL FINANCE TOOL
         </div>
-        <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.3rem)', lineHeight: 1.1, letterSpacing: '-0.035em', fontWeight: 850, margin: '0 0 16px' }}>
+        <h1 style={{ fontSize: 'clamp(1.75rem, 5vw, 3rem)', lineHeight: 1.08, letterSpacing: '-0.04em', fontWeight: 850, margin: '0 0 11px' }}>
           Monthly Budget Planner <span className="text-gradient">for India</span>
         </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '1.08rem', lineHeight: 1.7, margin: 0 }}>
-          Plan your monthly income, organize expenses, and see how much you can save. Adjust the numbers to build a budget that fits your life.
+        <p style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9rem, 2vw, 1.03rem)', lineHeight: 1.6, margin: 0, maxWidth: 580, marginInline: 'auto' }}>
+          Give every rupee a purpose. Plan your spending, savings and goals in one place.
         </p>
       </header>
 
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 14, marginBottom: 22 }}>
-        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20 }}>
-          <label htmlFor="budget-income" style={{ display: 'block', fontSize: 13, color: 'var(--text-secondary)', marginBottom: 10 }}>Monthly take-home income (₹)</label>
-          <input id="budget-income" type="number" min="0" inputMode="decimal" value={income} onChange={e => setIncome(e.target.value)} style={{ width: '100%', boxSizing: 'border-box', fontSize: 25, fontWeight: 800, color: 'var(--text-primary)', background: 'var(--bg-canvas)', border: '1px solid var(--border-subtle)', borderRadius: 12, padding: '12px 13px' }} />
-          <p style={{ fontSize: 12, color: 'var(--text-muted)', margin: '9px 0 0' }}>Use income after salary deductions.</p>
+      <section style={{ ...cardStyle, padding: '16px', marginBottom: 12 }}>
+        <label htmlFor="budget-income" style={{ display: 'block', fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8 }}>MONTHLY TAKE-HOME INCOME</label>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <span style={{ fontSize: 23, fontWeight: 800, color: 'var(--text-muted)' }}>₹</span>
+          <input id="budget-income" type="number" min="0" inputMode="decimal" value={income} onChange={e => setIncome(e.target.value)} style={{ width: '100%', minWidth: 0, boxSizing: 'border-box', fontSize: 26, fontWeight: 850, color: 'var(--text-primary)', background: 'var(--bg-canvas)', border: '1px solid var(--border-subtle)', borderRadius: 12, padding: '11px 13px' }} />
         </div>
-        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20 }}>
-          <div style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Planned monthly expenses</div>
-          <div style={{ fontSize: 27, fontWeight: 800, marginTop: 9 }}>{money(summary.planned)}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 8 }}>{summary.monthlyIncome > 0 ? summary.budgetUsed.toFixed(0) + '% of income allocated' : 'Enter income to calculate allocation'}</div>
-        </div>
-        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20 }}>
-          <div style={{ color: 'var(--text-secondary)', fontSize: 13 }}>{summary.remaining >= 0 ? 'Money left after plan' : 'Amount over budget'}</div>
-          <div style={{ fontSize: 27, fontWeight: 800, marginTop: 9, color: summary.remaining >= 0 ? '#34d399' : '#fb7185' }}>{money(Math.abs(summary.remaining))}</div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 8 }}>{summary.remaining >= 0 ? 'Assign this to a goal or keep as a buffer.' : 'Reduce planned expenses or revisit your estimates.'}</div>
-        </div>
+        <p style={{ fontSize: 11, color: 'var(--text-muted)', margin: '7px 0 0' }}>Your income after tax and salary deductions</p>
       </section>
 
-      <section style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: 20, padding: 'clamp(18px, 3vw, 28px)', marginBottom: 22 }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 18 }}>
+      <section style={{ ...cardStyle, padding: 17, marginBottom: 18, background: 'linear-gradient(145deg, var(--bg-surface) 0%, rgba(56, 189, 248, 0.07) 100%)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
           <div>
-            <h2 style={{ margin: 0, fontSize: 22, fontWeight: 800 }}>Your monthly plan</h2>
-            <p style={{ margin: '6px 0 0', color: 'var(--text-secondary)', fontSize: 14 }}>Edit any amount. The totals update instantly.</p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-secondary)', fontSize: 12 }}><CircleDollarSign size={15} /> MONEY LEFT TO ASSIGN</div>
+            <div style={{ fontSize: 'clamp(1.65rem, 5vw, 2.15rem)', fontWeight: 850, letterSpacing: '-0.035em', color: summary.remaining >= 0 ? '#34d399' : '#fb7185', marginTop: 6 }}>{money(Math.abs(summary.remaining))}</div>
+            <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginTop: 3 }}>{summary.remaining >= 0 ? 'Available for goals or a buffer' : 'You are over your income plan'}</div>
           </div>
-          <button onClick={reset} type="button" style={{ display: 'inline-flex', gap: 8, alignItems: 'center', background: 'transparent', border: '1px solid var(--border-subtle)', color: 'var(--text-primary)', padding: '9px 12px', borderRadius: 10, cursor: 'pointer' }}><RotateCcw size={15} /> Reset</button>
-        </div>
-
-        {groups.map(group => (
-          <div key={group.key} style={{ marginTop: 22 }}>
-            <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap', marginBottom: 10 }}>
-              <div><h3 style={{ margin: 0, fontSize: 17 }}>{group.title}</h3><p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: 13 }}>{group.subtitle}</p></div>
-              <div style={{ textAlign: 'right' }}><strong>{money(group.total)}</strong><div style={{ color: 'var(--text-muted)', fontSize: 12 }}>50/30/20 guide: {money(group.target)}</div></div>
-            </div>
-            <div style={{ height: 8, borderRadius: 999, background: 'var(--bg-canvas)', overflow: 'hidden', marginBottom: 12 }}>
-              <div style={{ width: summary.monthlyIncome > 0 ? Math.min(100, group.total / summary.monthlyIncome * 100) + '%' : '0%', height: '100%', background: group.color, borderRadius: 999, transition: 'width .2s ease' }} />
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: 10 }}>
-              {expenses.filter(item => item.group === group.key).map(item => (
-                <label key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: 7, fontSize: 13, color: 'var(--text-secondary)' }}>
-                  {item.label}
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-canvas)', border: '1px solid var(--border-subtle)', borderRadius: 10, padding: '0 12px', gap: 8 }}>
-                    <span>₹</span>
-                    <input aria-label={item.label + ' monthly amount'} type="number" min="0" inputMode="decimal" value={item.amount} onChange={e => updateExpense(item.id, e.target.value)} style={{ width: '100%', minWidth: 0, padding: '11px 0', border: 0, outline: 0, background: 'transparent', color: 'var(--text-primary)', fontSize: 15 }} />
-                  </div>
-                </label>
-              ))}
-            </div>
+          <div style={{ width: 54, height: 54, borderRadius: 16, display: 'grid', placeItems: 'center', flexShrink: 0, background: summary.remaining >= 0 ? 'rgba(52, 211, 153, .12)' : 'rgba(251, 113, 133, .12)', color: summary.remaining >= 0 ? '#34d399' : '#fb7185' }}>
+            <TrendingUp size={25} />
           </div>
-        ))}
-
-        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 26 }}>
-          <button onClick={exportCsv} type="button" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 16px', borderRadius: 12, border: 0, background: 'var(--primary-btn)', color: '#fff', fontWeight: 750, cursor: 'pointer' }}><Download size={17} /> Export budget CSV</button>
-          {onNavigate && <button onClick={() => onNavigate('download')} type="button" style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 16px', borderRadius: 12, border: '1px solid var(--border-subtle)', background: 'var(--bg-canvas)', color: 'var(--text-primary)', fontWeight: 700, cursor: 'pointer' }}>Explore Pocket Advisor app <ArrowRight size={16} /></button>}
         </div>
-      </section>
-
-      <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 16, marginBottom: 24 }}>
-        <div style={{ border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20, background: 'var(--bg-surface)' }}>
-          <h2 style={{ margin: '0 0 8px', fontSize: 19 }}>A simple 50/30/20 budget guide</h2>
-          <p style={{ margin: '0 0 14px', color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7 }}>A common starting point is 50% for needs, 30% for wants, and 20% for savings and debt goals. It is a guideline, not a rule—adjust it for rent, family commitments, debt, and income.</p>
-          {groups.map(group => <div key={group.key} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, padding: '9px 0', borderBottom: '1px solid var(--border-subtle)', fontSize: 14 }}><span>{group.title}</span><strong>{money(group.target)}</strong></div>)}
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, marginTop: 17, fontSize: 12 }}>
+          <span style={{ color: 'var(--text-secondary)' }}>Planned: <strong style={{ color: 'var(--text-primary)' }}>{money(summary.planned)}</strong></span>
+          <strong style={{ color: 'var(--text-primary)' }}>{summary.monthlyIncome > 0 ? summary.budgetUsed.toFixed(0) : '0'}% allocated</strong>
         </div>
-        <div style={{ border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20, background: 'var(--bg-surface)' }}>
-          <h2 style={{ margin: '0 0 8px', fontSize: 19 }}>Understand your result</h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.7, margin: 0 }}>{summary.monthlyIncome <= 0 ? 'Enter your monthly take-home income to see the budget breakdown.' : summary.remaining < 0 ? 'Your plan is over income. Start with fixed essentials, then reduce flexible spending or adjust savings targets to fit your current situation.' : summary.remaining === 0 ? 'Your income is fully allocated. Consider whether you need a small buffer for irregular costs.' : 'Your plan leaves ' + money(summary.remaining) + ' unallocated. Consider assigning part of it to emergency savings, upcoming bills, or a specific goal.'}</p>
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 9, marginTop: 18, color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.6 }}><ShieldCheck size={18} style={{ flexShrink: 0, color: '#34d399' }} />This planner runs in your browser. Your entries are not sent to a server or saved automatically.</div>
+        <div style={{ height: 7, background: 'var(--bg-canvas)', borderRadius: 999, overflow: 'hidden', marginTop: 8 }}>
+          <div style={{ width: Math.min(100, Math.max(0, summary.budgetUsed)) + '%', height: '100%', background: summary.remaining < 0 ? '#fb7185' : 'linear-gradient(90deg, #38bdf8, #6366f1)', borderRadius: 999, transition: 'width .2s ease' }} />
         </div>
-      </section>
-
-      <section style={{ border: '1px solid var(--border-subtle)', borderRadius: 18, padding: 20, background: 'var(--bg-surface)', marginBottom: 24 }}>
-        <button type="button" onClick={() => setShowGuide(value => !value)} aria-expanded={showGuide} style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between', gap: 12, background: 'transparent', border: 0, padding: 0, color: 'var(--text-primary)', cursor: 'pointer', textAlign: 'left' }}>
-          <span style={{ fontWeight: 800, fontSize: 19 }}>How to build a monthly budget</span><span aria-hidden="true">{showGuide ? '−' : '+'}</span>
+        <button type="button" onClick={() => setShowBreakdown(v => !v)} aria-expanded={showBreakdown} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 12, padding: '7px 0 0', background: 'transparent', border: 0, color: 'var(--text-secondary)', fontSize: 12, cursor: 'pointer' }}>
+          <span>See budget breakdown</span><ChevronDown size={16} style={{ transform: showBreakdown ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }} />
         </button>
-        {showGuide && <div style={{ color: 'var(--text-secondary)', fontSize: 14, lineHeight: 1.8, marginTop: 14 }}>
-          <ol style={{ paddingLeft: 20 }}>
-            <li>Enter your take-home income after deductions.</li>
-            <li>Estimate essential costs such as housing, groceries, transport, utilities, and healthcare.</li>
-            <li>Add flexible spending such as eating out, entertainment, shopping, and subscriptions.</li>
-            <li>Include savings, investments, and extra debt repayments if they fit your circumstances.</li>
-            <li>Compare the plan with your income and revise estimates until the budget is realistic.</li>
-          </ol>
-          <p>Use actual statements or transaction history where possible. Irregular costs—such as annual insurance, repairs, and festivals—can be divided by 12 to estimate a monthly amount.</p>
+        {showBreakdown && <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 8, marginTop: 12 }}>
+          {groups.map(group => <div key={group.key} style={{ minWidth: 0, padding: 10, borderRadius: 12, background: 'var(--bg-canvas)' }}>
+            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginBottom: 4 }}>{group.title}</div>
+            <strong style={{ fontSize: 13, color: group.color, overflowWrap: 'anywhere' }}>{money(group.total)}</strong>
+          </div>)}
         </div>}
       </section>
 
-      <section style={{ maxWidth: 820, margin: '0 auto', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 25, margin: '0 0 10px' }}>Plan your budget. Track your real expenses.</h2>
-        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, margin: '0 0 18px' }}>A budget is a plan; tracking helps you compare it with what you actually spend. Pocket Advisor helps you organize supported bank and UPI alert transactions on Android, with privacy-focused storage options.</p>
-        {onNavigate && <button type="button" onClick={() => onNavigate('download')} style={{ display: 'inline-flex', alignItems: 'center', gap: 9, padding: '12px 17px', borderRadius: 12, border: 0, background: 'var(--primary-btn)', color: '#fff', fontWeight: 750, cursor: 'pointer' }}>Explore Pocket Advisor <ArrowRight size={16} /></button>}
+      <section style={{ ...cardStyle, padding: '17px clamp(13px, 3vw, 22px)', marginBottom: 18 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, marginBottom: 4 }}>
+          <div>
+            <h2 style={{ margin: 0, fontSize: 20, fontWeight: 820 }}>Your monthly plan</h2>
+            <p style={{ margin: '5px 0 0', color: 'var(--text-secondary)', fontSize: 12 }}>Tap a category to edit amounts.</p>
+          </div>
+          <button onClick={reset} type="button" aria-label="Reset budget" style={{ display: 'inline-flex', gap: 6, alignItems: 'center', background: 'transparent', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)', padding: '8px 10px', borderRadius: 10, cursor: 'pointer', fontSize: 12, flexShrink: 0 }}><RotateCcw size={14} /> Reset</button>
+        </div>
+
+        {groups.map(group => {
+          const open = !!openGroups[group.key];
+          const share = summary.monthlyIncome > 0 ? group.total / summary.monthlyIncome * 100 : 0;
+          const items = expenses.filter(item => item.group === group.key);
+          return <div key={group.key} style={{ marginTop: 14, border: '1px solid var(--border-subtle)', borderRadius: 14, overflow: 'hidden' }}>
+            <button type="button" onClick={() => setOpenGroups(current => ({ ...current, [group.key]: !current[group.key] }))} aria-expanded={open} style={{ display: 'flex', alignItems: 'center', gap: 10, width: '100%', padding: '13px 12px', textAlign: 'left', background: 'var(--bg-canvas)', border: 0, cursor: 'pointer', color: 'var(--text-primary)' }}>
+              <span style={{ width: 9, height: 34, borderRadius: 999, background: group.color, flexShrink: 0 }} />
+              <span style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ display: 'block', fontWeight: 800, fontSize: 14 }}>{group.title}</span>
+                <span style={{ display: 'block', color: 'var(--text-secondary)', fontSize: 11, marginTop: 2 }}>{share.toFixed(0)}% of income · guide {Math.round(group.target * 100)}%</span>
+              </span>
+              <span style={{ textAlign: 'right', flexShrink: 0 }}>
+                <strong style={{ display: 'block', fontSize: 14 }}>{money(group.total)}</strong>
+                <span style={{ display: 'block', color: 'var(--text-muted)', fontSize: 10 }}>target {money(group.targetAmount)}</span>
+              </span>
+              <ChevronDown size={16} style={{ flexShrink: 0, color: 'var(--text-muted)', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }} />
+            </button>
+            <div style={{ height: 3, background: 'var(--bg-canvas)' }}>
+              <div style={{ width: Math.min(100, Math.max(0, share)) + '%', height: '100%', background: group.color, transition: 'width .2s ease' }} />
+            </div>
+            {open && <div style={{ padding: '10px 12px 13px', display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 10 }}>
+              {items.map(item => <label key={item.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(108px, 42%)', alignItems: 'center', gap: 10, fontSize: 12, color: 'var(--text-secondary)' }}>
+                <span style={{ lineHeight: 1.35 }}>{item.label}</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: 5, minWidth: 0, background: 'var(--bg-canvas)', border: '1px solid var(--border-subtle)', borderRadius: 9, padding: '0 9px' }}>
+                  <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>₹</span>
+                  <input aria-label={item.label + ' monthly amount'} type="number" min="0" inputMode="decimal" value={item.amount} onChange={e => updateExpense(item.id, e.target.value)} style={{ width: '100%', minWidth: 0, boxSizing: 'border-box', padding: '10px 0', border: 0, outline: 0, background: 'transparent', color: 'var(--text-primary)', fontSize: 14, fontWeight: 650 }} />
+                </span>
+              </label>)}
+            </div>}
+          </div>;
+        })}
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 190px), 1fr))', gap: 9, marginTop: 17 }}>
+          <button onClick={exportCsv} type="button" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, padding: '12px 14px', borderRadius: 11, border: 0, background: 'var(--primary-btn)', color: '#fff', fontWeight: 750, cursor: 'pointer' }}><Download size={16} /> Export budget CSV</button>
+          {onNavigate && <button onClick={() => onNavigate('download')} type="button" style={{ display: 'inline-flex', justifyContent: 'center', alignItems: 'center', gap: 8, padding: '12px 14px', borderRadius: 11, border: '1px solid var(--border-subtle)', background: 'var(--bg-canvas)', color: 'var(--text-primary)', fontWeight: 700, cursor: 'pointer' }}>Explore the app <ArrowRight size={15} /></button>}
+        </div>
+      </section>
+
+      <section style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
+        <h2 style={{ margin: '0 0 5px', fontSize: 17 }}>Your 50/30/20 guide</h2>
+        <p style={{ margin: '0 0 12px', color: 'var(--text-secondary)', fontSize: 12, lineHeight: 1.55 }}>A flexible starting point—not a rule. Adjust for your rent, family commitments and goals.</p>
+        {groups.map(group => <div key={group.key} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto', gap: 10, alignItems: 'center', padding: '9px 0', borderTop: '1px solid var(--border-subtle)', fontSize: 13 }}>
+          <span style={{ color: 'var(--text-secondary)' }}>{group.title} <span style={{ color: group.color }}>· {Math.round(group.target * 100)}%</span></span>
+          <strong>{money(group.targetAmount)}</strong>
+        </div>)}
+      </section>
+
+      <section style={{ ...cardStyle, padding: 16, marginBottom: 12 }}>
+        <h2 style={{ margin: '0 0 7px', fontSize: 17 }}>Understand your result</h2>
+        <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.65, margin: 0 }}>{summary.monthlyIncome <= 0 ? 'Enter your monthly take-home income to see the budget breakdown.' : summary.remaining < 0 ? 'Your plan is over income. Review flexible spending and adjust estimates to fit your current situation.' : summary.remaining === 0 ? 'Your income is fully allocated. Consider whether you need a small buffer for irregular costs.' : 'Your plan leaves ' + money(summary.remaining) + ' unallocated. Consider assigning some to emergency savings, upcoming bills, or a goal.'}</p>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 8, marginTop: 13, color: 'var(--text-secondary)', fontSize: 11, lineHeight: 1.55 }}><ShieldCheck size={16} style={{ flexShrink: 0, color: '#34d399' }} />Your entries stay in this browser and are not sent to a server or saved automatically.</div>
+      </section>
+
+      <section style={{ ...cardStyle, padding: 16 }}>
+        <button type="button" onClick={() => setShowGuide(value => !value)} aria-expanded={showGuide} style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between', gap: 12, background: 'transparent', border: 0, padding: 0, color: 'var(--text-primary)', cursor: 'pointer', textAlign: 'left' }}>
+          <span style={{ fontWeight: 800, fontSize: 16 }}>How to build a monthly budget</span><ChevronDown size={17} style={{ transform: showGuide ? 'rotate(180deg)' : 'none', transition: 'transform .2s' }} />
+        </button>
+        {showGuide && <div style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.75, marginTop: 12 }}>
+          <ol style={{ paddingLeft: 19 }}>
+            <li>Enter take-home income after deductions.</li>
+            <li>Estimate essential costs like housing, groceries, transport, utilities and healthcare.</li>
+            <li>Add flexible spending, subscriptions, savings and investments.</li>
+            <li>Compare your plan with income and adjust until it feels realistic.</li>
+          </ol>
+          <p>For irregular costs such as annual insurance, repairs or festivals, divide the expected amount by 12 to estimate a monthly budget.</p>
+        </div>}
+      </section>
+
+      <section style={{ maxWidth: 720, margin: '26px auto 0', textAlign: 'center', padding: '0 8px' }}>
+        <h2 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.7rem)', margin: '0 0 8px' }}>Plan your budget. Track your real expenses.</h2>
+        <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: 13, margin: '0 0 15px' }}>A budget is a plan; tracking helps compare it with what you actually spend. Pocket Advisor helps organize supported bank and UPI alert transactions on Android.</p>
+        {onNavigate && <button type="button" onClick={() => onNavigate('download')} style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 16px', borderRadius: 12, border: 0, background: 'var(--primary-btn)', color: '#fff', fontWeight: 750, cursor: 'pointer' }}>Explore Pocket Advisor <ArrowRight size={16} /></button>}
       </section>
     </div>
   );

@@ -1275,6 +1275,45 @@ const routes = [
 
 console.log(`[Prerender] Starting build-time static HTML generation for ${routes.length} routes...`);
 
+const articlesPath = path.resolve(__dirname, '../src/data/articles.json');
+const articleData = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
+
+for (const route of routes) {
+  const article = articleData.find((item) => route.slug === 'news/' + item.slug);
+  if (!article) continue;
+  route.title = article.title + ' | Pocket Advisor';
+  route.description = article.excerpt;
+  route.h1 = escapeHtml(article.title);
+  route.heroDesc = article.subtitle || article.excerpt;
+  route.h1Gradient = '';
+  route.ogImage = BASE_URL + article.coverImage;
+  route.schemas = route.schemas.map((schema) => {
+    if (schema['@type'] === 'Article') {
+      return {
+        ...schema,
+        headline: article.title,
+        description: article.excerpt,
+        image: BASE_URL + article.coverImage,
+        datePublished: article.publishedAt + 'T00:00:00+05:30',
+        dateModified: (article.updatedAt || article.publishedAt) + 'T00:00:00+05:30',
+        author: { '@type': 'Person', name: (article.author && article.author.name) || 'Pocket Advisor', jobTitle: (article.author && article.author.role) || 'Editorial Team', url: BASE_URL },
+        mainEntityOfPage: BASE_URL + '/news/' + article.slug
+      };
+    }
+    if (schema['@type'] === 'FAQPage') {
+      return {
+        ...schema,
+        mainEntity: (article.faqs || []).map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+        }))
+      };
+    }
+    return schema;
+  });
+}
+
 for (const route of routes) {
   let html = templateHtml;
 
@@ -1307,6 +1346,17 @@ for (const route of routes) {
     `<meta property="og:url" content="${route.canonical}" />`
   );
 
+  if (route.ogImage) {
+    html = html.replace(
+      /<meta\s+property=["']og:image["']\s+content=["'][^"']*["']\s*\/?>/i,
+      '<meta property="og:image" content="' + escapeHtml(route.ogImage) + '" />'
+    );
+    html = html.replace(
+      /<meta\s+name=["']twitter:image["']\s+content=["'][^"']*["']\s*\/?>/i,
+      '<meta name="twitter:image" content="' + escapeHtml(route.ogImage) + '" />'
+    );
+  }
+
   // 5. Replace Twitter Card Tags
   html = html.replace(
     /<meta\s+name=["']twitter:title["']\s+content=["'][^"']*["']\s*\/?>/i,
@@ -1332,7 +1382,7 @@ for (const route of routes) {
   const visibleFaqHtml = faqSchema ? getPrerenderFaqHtml(faqSchema) : '';
 
   // 8. Extract Rich Substantive Body Content for this route
-  const bodyContentHtml = getRouteBodyContent(route.slug);
+  const bodyContentHtml = getRouteBodyContent(route.slug, articleData);
 
   // 9. Semantic Footer Shell with crawlable internal links
   const footerShellHtml = getPrerenderFooterHtml();
@@ -1361,8 +1411,7 @@ for (const route of routes) {
           </div>
 
           <h1 class="shell-title">
-            ${route.h1}<br />
-            <span class="shell-gradient-text">${route.h1Gradient}</span>
+            ${route.h1}${route.h1Gradient ? '<br /><span class="shell-gradient-text">' + route.h1Gradient + '</span>' : ''}
           </h1>
 
           <p class="shell-desc">

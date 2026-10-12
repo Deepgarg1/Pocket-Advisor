@@ -326,7 +326,8 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
           <img
             src={currentArticle.coverImage}
             alt={currentArticle.coverImageAlt}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             style={{
               width: '100%',

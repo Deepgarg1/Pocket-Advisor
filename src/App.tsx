@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { Hero } from './components/landing/Hero';
+const Hero = lazy(() => import('./components/landing/Hero').then(module => ({ default: module.Hero })));
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
@@ -173,7 +173,12 @@ export const App: React.FC = () => {
 
   // Dynamically update document.title, OpenGraph, and Meta tags on view change
   useEffect(() => {
-    updatePageSeo(currentView);
+    const isSpecificArticle = typeof window !== 'undefined' &&
+      window.location.pathname.startsWith('/news/') &&
+      window.location.pathname.replace(/\/+$/, '') !== '/news';
+    if (!isSpecificArticle) {
+      updatePageSeo(currentView);
+    }
     if (currentView !== 'admin' && currentView !== 'news') trackPageView();
   }, [currentView]);
 
@@ -214,12 +219,30 @@ export const App: React.FC = () => {
     } else if (view === 'home') {
       urlPath = '/';
     } else if (
-      view === 'how-to-split-rent-unequal-rooms' ||
-      view === 'home-loan-prepayment-vs-mutual-funds' ||
-      view === 'how-to-track-upi-payments-automatically' ||
-      view === 'guides'
+      view === 'best-expense-tracker-apps-india' ||
+      view === 'best-expense-tracker-apps' ||
+      view === 'expense-tracker-apps-india'
     ) {
-      urlPath = `/${view}`;
+      urlPath = '/best-expense-tracker-apps-india';
+    } else if (
+      view === 'how-to-split-rent-unequal-rooms' ||
+      view === 'split-rent-unequal-rooms'
+    ) {
+      urlPath = '/how-to-split-rent-unequal-rooms';
+    } else if (
+      view === 'home-loan-prepayment-vs-mutual-funds' ||
+      view === 'prepay-home-loan-or-invest-mutual-funds'
+    ) {
+      urlPath = '/home-loan-prepayment-vs-mutual-funds';
+    } else if (
+      view === 'how-to-track-upi-payments-automatically' ||
+      view === 'track-upi-payments-android-privacy'
+    ) {
+      urlPath = '/how-to-track-upi-payments-automatically';
+    } else if (view === 'guides' || view === 'guide') {
+      urlPath = '/guides';
+    } else if (view === 'monthly-budget-planner' || view === 'budget-planner') {
+      urlPath = '/monthly-budget-planner';
     } else if (view === 'upi-expense-tracker' || view === 'upi-tracker' || view === 'upi') {
       urlPath = '/upi-expense-tracker';
     } else {

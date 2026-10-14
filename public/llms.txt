@@ -6,6 +6,7 @@
 
 - [Quick Bill Splitter](https://www.pocketadvisor.in/split): Free web bill splitter using a 2-stage greedy bipartite debt minimization algorithm. Collapses tangled group expenses into minimum bilateral payments with 1-tap WhatsApp summary export and zero login required.
 - [Flatmates Rent & Utility Splitter](https://www.pocketadvisor.in/flatmates-rent-splitter): Split roommate rent, maid, WiFi, and electricity with 1-tap UPI deep links.
+- [Monthly Budget Planner India](https://www.pocketadvisor.in/monthly-budget-planner): Interactive 50/30/20 budget planner tailored for India. Categorizes monthly income into Needs (50%), Wants (30%), and Savings/Investments (20%) with live visual breakdown and CSV budget export.
 - [Home Loan Prepayment vs SIP Calculator](https://www.pocketadvisor.in/home-loan-prepayment-vs-sip): Compare home loan interest saved against compounding equity SIP wealth.
 - [SIP Wealth Planner](https://www.pocketadvisor.in/sip-calculator): Compounding investment calculator supporting annual step-up contributions and real purchasing power discounting based on historical inflation rates.
 - [Loan EMI Calculator](https://www.pocketadvisor.in/emi-calculator): Reducing-balance loan installment and amortization schedule planner for home, car, and personal loans in India.
@@ -14,6 +15,7 @@
 ## Mobile Application (Android)
 
 - [Download Pocket Advisor](https://www.pocketadvisor.in/download): Official Android app on Google Play. 100% offline-first tracking for UPI and banking expenses.
+- [UPI Expense Tracker for Android](https://www.pocketadvisor.in/upi-expense-tracker): Automated on-device tracking for Google Pay, PhonePe, Paytm, and BHIM UPI payments via bank SMS parsing under Google Play Financial Exception.
 - [Features & Architecture](https://www.pocketadvisor.in/features): Technical overview of on-device bank & UPI SMS transaction detection (HDFC, SBI, ICICI, Axis, Bandhan, etc.), SQLCipher encrypted local database, and interactive widgets.
 - [Frequently Asked Questions](https://www.pocketadvisor.in/faq): Common queries on security, privacy, bank auto-detection, debt algorithms, and the fair freemium monetization model.
 
@@ -27,6 +29,9 @@
 
 ## Engineering Blog & Guides
 
+- [Best Expense Tracker Apps in India (2026)](https://www.pocketadvisor.in/best-expense-tracker-apps-india): Comprehensive architectural comparison of 4 expense tracking models in India: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual ledgers.
+- [How to Track Spending Automatically on Android](https://www.pocketadvisor.in/news/how-to-track-spending-automatically-android): Complete guide to setting up automated expense tracking on Android, managing OEM battery killers (Xiaomi, Samsung), and evaluating local encryption vs cloud sync.
+- [How to Track UPI Expenses Automatically](https://www.pocketadvisor.in/news/track-upi-expenses-automatically): Step-by-step tutorial on automating UPI expense tracking across Google Pay, PhonePe, Paytm, and CRED using deterministic regex parsing.
 - [Financial Insights & Guides](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.
 - [Financial Guides Knowledge Base](https://www.pocketadvisor.in/guides): Problem-solving personal finance guides.
 - [How to Split Rent Fairly with Unequal Rooms](https://www.pocketadvisor.in/how-to-split-rent-unequal-rooms): Mathematical 50/50 square-footage rent split framework.
@@ -34,4 +39,3 @@
 - [How to Track UPI Payments Automatically](https://www.pocketadvisor.in/how-to-track-upi-payments-automatically): On-device SMS parsing vs cloud trackers.
 - [Diwali 2026: Track UPI Spending and Stay Within Budget](https://www.pocketadvisor.in/news/diwali-2026-how-to-track-upi-spending): Practical guide to festive spending, micro-payment leaks, and group celebration expense planning.
 - [Welcome to Pocket Advisor: Product Announcement](https://www.pocketadvisor.in/news/welcome-to-pocket-advisor): Native Android app launch, privacy-first on-device SMS parsing, and wealth compounding tools.
-

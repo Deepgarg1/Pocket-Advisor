@@ -271,11 +271,15 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
         >
           <Sparkles size={14} /> Zero Login • 100% Free Spending Sandbox
         </div>
-        <h2 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)', fontWeight: 800, letterSpacing: '-0.025em', marginBottom: '8px', color: 'var(--text-primary)' }}>
-          Smart Calculators
-        </h2>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.5 }}>
-          Calculate loan EMIs, plan your SIP investments, or compare home loan prepayment vs SIP returns.
+        <h1 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)', fontWeight: 800, letterSpacing: '-0.025em', marginBottom: '8px', color: 'var(--text-primary)' }}>
+          {activeTab === 'PREPAYMENT' && 'Home Loan Prepayment vs. Equity SIP Calculator'}
+          {activeTab === 'EMI' && 'Loan EMI Calculator & Amortization Schedule'}
+          {activeTab === 'SIP' && 'Step-Up SIP Calculator & Compounding Simulator'}
+        </h1>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
+          {activeTab === 'PREPAYMENT' && 'Compare guaranteed interest saved by prepaying home loan principal against historical wealth generated from equity mutual fund SIPs.'}
+          {activeTab === 'EMI' && 'Calculate exact monthly loan EMI, total interest liability, and amortized repayment schedules for home, car, or personal loans.'}
+          {activeTab === 'SIP' && 'Project compound wealth accumulation for monthly systematic investments with annual step-ups and real inflation discounting.'}
         </p>
       </div>
 

@@ -60,6 +60,7 @@ export function getPrerenderFooterHtml() {
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
             <li><a href="/split" style="color: #cbd5e1; text-decoration: none;">Free Quick Bill Splitter</a></li>
             <li><a href="/flatmates-rent-splitter" style="color: #cbd5e1; text-decoration: none;">Flatmates Rent Splitter</a></li>
+            <li><a href="/monthly-budget-planner" style="color: #cbd5e1; text-decoration: none;">Monthly Budget Planner (50/30/20)</a></li>
             <li><a href="/home-loan-prepayment-vs-sip" style="color: #cbd5e1; text-decoration: none;">Home Loan Prepayment vs SIP</a></li>
             <li><a href="/sip-calculator" style="color: #cbd5e1; text-decoration: none;">Step-Up SIP Calculator</a></li>
             <li><a href="/emi-calculator" style="color: #cbd5e1; text-decoration: none;">Loan EMI Amortization</a></li>
@@ -70,6 +71,7 @@ export function getPrerenderFooterHtml() {
         <div>
           <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Guides &amp; Engineering</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li><a href="/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">Best Expense Tracker Apps (2026)</a></li>
             <li><a href="/guides" style="color: #cbd5e1; text-decoration: none;">Financial Guides Hub</a></li>
             <li><a href="/how-to-split-rent-unequal-rooms" style="color: #cbd5e1; text-decoration: none;">Unequal Room Rent Split</a></li>
             <li><a href="/home-loan-prepayment-vs-mutual-funds" style="color: #cbd5e1; text-decoration: none;">Prepayment vs Mutual Funds</a></li>

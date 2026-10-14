@@ -484,7 +484,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
             <span>Core Architecture &amp; Capabilities</span>
           </div>
 
-          <h2
+          <h1
             style={{
               fontSize: 'clamp(2rem, 4vw, 3rem)',
               fontWeight: 800,
@@ -498,7 +498,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
             <span className="text-gradient-alt">
               Designed for Clarity.
             </span>
-          </h2>
+          </h1>
           <p
             style={{
               color: 'var(--text-secondary)',

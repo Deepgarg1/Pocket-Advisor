@@ -44,9 +44,9 @@ export const SplitterPage: React.FC<SplitterPageProps> = ({ onNavigate }) => {
         >
           <Sparkles size={14} /> Zero Login • Instant Bill Split
         </div>
-        <h2 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)', fontWeight: 800, letterSpacing: '-0.025em', marginBottom: '8px', color: 'var(--text-primary)' }}>
+        <h1 style={{ fontSize: 'clamp(1.7rem, 3.2vw, 2.3rem)', fontWeight: 800, letterSpacing: '-0.025em', marginBottom: '8px', color: 'var(--text-primary)' }}>
           {isRentRoute ? 'Flatmates Rent Splitter' : 'Quick Bill Splitter'}
-        </h2>
+        </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.5 }}>
           {isRentRoute
             ? 'Split rent, utilities & shared expenses fairly among flatmates. Share via WhatsApp with 1-tap UPI payments.'

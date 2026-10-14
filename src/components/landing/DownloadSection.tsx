@@ -56,7 +56,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               />
             </picture>
             <div>
-              <h2
+              <h1
                 style={{
                   fontSize: '1.8rem',
                   fontWeight: 800,
@@ -66,7 +66,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
                 }}
               >
                 Get Pocket Advisor for Android
-              </h2>
+              </h1>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
                 <span
                   style={{

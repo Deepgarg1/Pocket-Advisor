@@ -77,9 +77,9 @@ export const FaqSection: React.FC<FaqSectionProps> = () => {
         >
           <HelpCircle size={15} /> Frequently Asked Questions
         </div>
-        <h2 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 10px 0' }}>
-          Everything You Need to Know
-        </h2>
+        <h1 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 10px 0' }}>
+          Frequently Asked Questions
+        </h1>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', margin: 0 }}>
           Clear answers about permissions, security, and Android capabilities.
         </p>

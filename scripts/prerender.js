@@ -1075,6 +1075,44 @@ const routes = [
             }
           }
         ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Split Rent Fairly for Unequal Rooms',
+        description: 'A step-by-step mathematical guide to split apartment rent fairly based on square footage, master bedrooms, and attached bathrooms.',
+        step: [
+          {
+            '@type': 'HowToStep',
+            name: 'Divide Total Rent into Two 50% Pools',
+            text: 'Split total apartment rent into a 50% Common Area Pool (living room, kitchen, balcony) and a 50% Private Bedroom Pool.',
+            url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-1`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Split Common Area Rent Equally',
+            text: 'Divide the 50% Common Area Pool equally among all roommates by headcount.',
+            url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-2`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Calculate Private Room Square Footage',
+            text: 'Measure individual bedroom square footages and allocate bedroom pool rent proportionally to private room size.',
+            url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-3`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Add Amenity Premiums for Attached Bathrooms',
+            text: 'Add a 10-15% premium to private bedroom share for ensuite bathrooms or private balconies.',
+            url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-4`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Generate 1-Tap WhatsApp UPI Settlements',
+            text: 'Combine common and bedroom pool shares, then use Pocket Advisor to generate 1-tap WhatsApp settlement receipts with UPI deep links.',
+            url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-5`
+          }
+        ]
       }
     ]
   },
@@ -1189,6 +1227,38 @@ const routes = [
               '@type': 'Answer',
               text: 'Yes, 100%. All transaction parsing, database insertion, and analytics run entirely on your phone local CPU with zero cloud transmission.'
             }
+          }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to Track UPI Payments Automatically on Android',
+        description: 'Step-by-step method to track Google Pay, PhonePe, and Paytm transactions automatically on Android without sharing banking passwords.',
+        step: [
+          {
+            '@type': 'HowToStep',
+            name: 'Enable Financial SMS Permission',
+            text: 'Grant SMS reading permissions under Google Play Financial Exception to detect bank and payment alerts locally.',
+            url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-1`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Configure On-Device Regex Parsing',
+            text: 'Allow Pocket Advisor to parse debits, merchants, and balances on-device in under 1ms with immediate OTP memory purge.',
+            url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-2`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Configure OEM Battery Optimization',
+            text: 'Exclude Pocket Advisor from aggressive battery killers (Xiaomi MIUI, Samsung One UI) so background alerts are captured in real-time.',
+            url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-3`
+          },
+          {
+            '@type': 'HowToStep',
+            name: 'Store Encrypted in Local SQLCipher',
+            text: 'Keep transaction history encrypted in local SQLite AES-256 with optional user-controlled cloud backup.',
+            url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-4`
           }
         ]
       }
@@ -1379,6 +1449,13 @@ for (const route of routes) {
   html = html.replace(
     /<meta\s+property=["']og:url["']\s+content=["'][^"']*["']\s*\/?>/i,
     `<meta property="og:url" content="${route.canonical}" />`
+  );
+
+  const isArticle = route.ogType === 'article' || route.schemas.some((s) => s['@type'] === 'Article');
+  const ogTypeValue = isArticle ? 'article' : 'website';
+  html = html.replace(
+    /<meta\s+property=["']og:type["']\s+content=["'][^"']*["']\s*\/?>/i,
+    `<meta property="og:type" content="${ogTypeValue}" />`
   );
 
   if (route.ogImage) {

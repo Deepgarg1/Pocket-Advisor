@@ -173,6 +173,47 @@ export function getRouteBodyContent(slug, articles = []) {
   const cardStyle = `background: rgba(17, 24, 39, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 24px; margin: 24px 0;`;
 
   switch (slug) {
+    case 'monthly-budget-planner':
+      return `
+        <article style="${contentStyle}">
+          <section style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">How to use this monthly budget planner</h2>
+            <p>Start with your monthly take-home income—the amount available after salary deductions. Add realistic estimates for housing, groceries, utilities, transport, healthcare, subscriptions, personal spending and savings. The planner updates the totals as you edit each amount, so you can see whether your plan fits your income.</p>
+            <ol style="padding-left: 22px;">
+              <li>Enter your monthly take-home income in rupees.</li>
+              <li>Estimate essential expenses such as rent, groceries, bills, transport and healthcare.</li>
+              <li>Add flexible expenses, including dining, shopping and subscriptions.</li>
+              <li>Include savings, emergency-fund contributions and investments.</li>
+              <li>Review the remaining balance and export your plan as a CSV file if you want to keep a copy.</li>
+            </ol>
+          </section>
+
+          <h2 style="${headingStyle}">The 50/30/20 budget rule, explained</h2>
+          <p>The 50/30/20 rule is a simple budgeting framework: use around 50% of take-home income for needs, 30% for wants and 20% for savings or financial goals. These percentages are guidelines, not requirements. In cities with high rent, or when supporting family members or repaying debt, essential costs may exceed 50%. Adjust the plan to your circumstances instead of forcing expenses into a fixed ratio.</p>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.1rem; font-weight: 750; color: #f8fafc; margin-top: 0;">Example: monthly take-home income of ₹40,000</h3>
+            <ul style="padding-left: 20px; margin-bottom: 0;">
+              <li><strong>Needs — ₹20,000:</strong> housing, groceries, utilities, transport and essential healthcare.</li>
+              <li><strong>Wants — ₹12,000:</strong> dining out, entertainment, shopping and non-essential subscriptions.</li>
+              <li><strong>Savings and goals — ₹8,000:</strong> emergency savings, investments or planned debt repayment.</li>
+            </ul>
+            <p style="margin-bottom: 0;">This is an illustration, not a recommendation for every household. If your essential costs are higher, reduce flexible spending where possible and set a realistic savings target.</p>
+          </div>
+
+          <h2 style="${headingStyle}">What should your monthly budget include?</h2>
+          <p>Budget for recurring bills and less frequent costs. Alongside rent, food and transport, consider annual insurance premiums, medical expenses, repairs, travel and festival spending. For an irregular expense, estimate the yearly amount and divide it by 12 to create a monthly allowance. This can reduce surprises when the bill arrives.</p>
+          <p>Try to distinguish needs from wants based on your situation. A phone bill may be essential, while a premium plan may include optional spending. Treat investments and emergency savings as separate line items so that money assigned to future goals is visible rather than counted as leftover cash.</p>
+
+          <h2 style="${headingStyle}">How to tell if your budget is realistic</h2>
+          <p>Your planned expenses should not exceed your take-home income. If the total is too high, review flexible categories first, check for duplicate estimates, and make sure irregular expenses have not been ignored. If money remains unassigned, consider keeping a buffer for unexpected costs before increasing discretionary spending.</p>
+          <p>Revisit the plan when rent, income, family responsibilities or financial goals change. A useful budget is one you can maintain—not a perfect percentage split that does not match real life.</p>
+
+          <div style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">From planning to expense tracking</h2>
+            <p>A budget sets a target; tracking shows how your actual spending compares with it. Pocket Advisor for Android can organize supported bank and UPI transaction alerts, helping you review spending alongside your plan. Message support and transaction coverage can vary by bank and message format.</p>
+            <p style="margin-bottom: 0;"><a href="/upi-expense-tracker" style="color: #7dd3fc; text-decoration: underline;">Learn about UPI expense tracking</a> or <a href="/download" style="color: #7dd3fc; text-decoration: underline;">view the Pocket Advisor app</a>.</p>
+          </div>
+        </article>`;
     case 'how-to-split-rent-unequal-rooms':
       return `
         <article style="${contentStyle}">

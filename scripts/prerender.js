@@ -259,8 +259,8 @@ const routes = [
   },
   {
     slug: 'monthly-budget-planner',
-    title: 'Monthly Budget Planner India – Free 50/30/20 Calculator | Pocket Advisor',
-    description: 'Plan your monthly budget in India with an interactive income and expense planner. Compare needs, wants, savings, and export your budget as CSV.',
+    title: 'Monthly Budget Planner India | Free 50/30/20 Tool',
+    description: 'Plan a monthly budget in India with the 50/30/20 rule. Enter take-home income, edit needs, wants and savings, see what remains, and export your plan to CSV.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     badgeCategory: 'Free Budget Tool',
     pillText: 'Monthly Income • Expense Plan • 50/30/20 Guide',
@@ -288,6 +288,36 @@ const routes = [
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Monthly Budget Planner', item: `${BASE_URL}/monthly-budget-planner` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does the 50/30/20 monthly budget rule work?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The 50/30/20 rule is a starting framework that allocates about 50% of take-home income to needs, 30% to wants, and 20% to savings and debt goals. Adjust the percentages to fit your actual costs and priorities.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How do I make a monthly budget in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Enter your monthly take-home income, estimate essential costs such as rent, groceries and transport, add flexible spending and savings, then compare the planned total with your income. Include a monthly allowance for irregular annual expenses.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I export my monthly budget?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. The Pocket Advisor monthly budget planner lets you download your current plan as a CSV file that can be opened in spreadsheet applications.'
+            }
+          }
         ]
       }
     ]

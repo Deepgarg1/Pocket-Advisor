@@ -1,7 +1,7 @@
-/* Monthly Budget Planner — purpose-built desktop and mobile layouts */
+/* Pocket Advisor Monthly Budget Planner — responsive product UI */
 .budget-planner-page {
   display: grid !important;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, .85fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .8fr);
   grid-template-areas:
     "header header"
     "income summary"
@@ -10,33 +10,91 @@
     "howto howto"
     "cta cta";
   align-items: start;
-  column-gap: 22px;
+  column-gap: 24px;
   row-gap: 0;
+  max-width: 1180px !important;
+  padding: 30px 24px 72px !important;
 }
-.budget-planner-header { grid-area: header; width: 100%; max-width: 860px !important; margin-bottom: 28px !important; }
+.budget-planner-header {
+  grid-area: header;
+  width: 100%;
+  max-width: 780px !important;
+  margin: 0 auto 30px !important;
+}
+.budget-planner-header h1 {
+  font-size: clamp(2rem, 4vw, 3.25rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -.055em !important;
+}
+.budget-planner-header p {
+  max-width: 560px !important;
+  margin: 0 auto !important;
+  font-size: 15px !important;
+}
 .budget-income-card { grid-area: income; min-width: 0; }
 .budget-summary-card { grid-area: summary; min-width: 0; }
 .budget-plan-card { grid-area: plan; min-width: 0; }
 .budget-guide-card { grid-area: guide; min-width: 0; }
 .budget-result-card { grid-area: result; min-width: 0; }
-.budget-howto-card { grid-area: howto; margin-top: 6px; }
+.budget-howto-card { grid-area: howto; margin-top: 8px; }
 .budget-planner-cta { grid-area: cta; width: 100%; }
-.budget-planner-page > section { align-self: start; }
+
+.budget-planner-page > section {
+  align-self: start;
+  border-color: rgba(148, 163, 184, .13) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .10);
+}
+.budget-planner-page input,
+.budget-planner-page button { font-family: inherit; }
 .budget-planner-page input:focus-visible,
 .budget-planner-page button:focus-visible {
   outline: 2px solid var(--info);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
+.budget-income-card,
+.budget-summary-card,
+.budget-plan-card,
+.budget-guide-card,
+.budget-result-card,
+.budget-howto-card {
+  border-radius: 20px !important;
+}
+.budget-income-card,
+.budget-summary-card { min-height: 142px; }
+.budget-plan-card { padding: 22px !important; }
+.budget-plan-card > div > div {
+  border-radius: 15px !important;
+}
+.budget-plan-card label {
+  gap: 14px !important;
+  font-size: 13px !important;
+}
+.budget-plan-card label > span:last-child {
+  border-radius: 10px !important;
+  transition: border-color .15s ease, background .15s ease;
+}
+.budget-plan-card label > span:last-child:focus-within {
+  border-color: rgba(56, 189, 248, .65) !important;
+  background: rgba(56, 189, 248, .05) !important;
+}
+.budget-plan-card input { font-variant-numeric: tabular-nums; }
+.budget-guide-card,
+.budget-result-card { padding: 22px !important; }
+.budget-guide-card h2,
+.budget-result-card h2 { letter-spacing: -.025em; }
+.budget-howto-card { padding: 18px 20px !important; }
+.budget-planner-cta { padding-top: 12px !important; }
+.budget-planner-cta h2 { letter-spacing: -.04em; }
+
 @media (min-width: 1200px) {
-  .budget-planner-page { column-gap: 26px; }
-  .budget-income-card { padding: 22px !important; }
-  .budget-summary-card { padding: 22px !important; }
-  .budget-plan-card { padding: 22px !important; }
-  .budget-guide-card, .budget-result-card { padding: 20px !important; }
+  .budget-planner-page { column-gap: 28px; }
+  .budget-income-card, .budget-summary-card { padding: 22px !important; }
 }
-@media (max-width: 900px) {
+
+/* Tablet and mobile: never squeeze the tool into a desktop sidebar layout.
+   1100px also catches mobile browsers using a desktop-site CSS viewport. */
+@media (max-width: 1100px) {
   .budget-planner-page {
-    display: grid !important;
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "header"
@@ -48,20 +106,41 @@
       "howto"
       "cta";
     column-gap: 0;
+    padding: 24px 20px 64px !important;
+    max-width: 760px !important;
   }
-  .budget-planner-header { margin-bottom: 20px !important; }
+  .budget-planner-header { margin-bottom: 22px !important; }
   .budget-planner-page > section { width: 100%; }
+  .budget-income-card, .budget-summary-card { min-height: 0; }
+  .budget-plan-card { padding: 20px !important; }
+  .budget-guide-card, .budget-result-card { padding: 20px !important; }
 }
+
 @media (max-width: 520px) {
-  .budget-planner-page { padding: 18px 12px 88px !important; }
-  .budget-planner-header h1 { font-size: clamp(1.8rem, 8vw, 2.35rem) !important; }
+  .budget-planner-page { padding: 20px 14px 56px !important; }
+  .budget-planner-header { margin-bottom: 18px !important; }
+  .budget-planner-header h1 {
+    font-size: clamp(2rem, 9vw, 2.65rem) !important;
+    line-height: 1.04 !important;
+  }
+  .budget-planner-header p { font-size: 14px !important; line-height: 1.6 !important; }
   .budget-income-card, .budget-summary-card, .budget-plan-card,
   .budget-guide-card, .budget-result-card, .budget-howto-card {
-    border-radius: 16px !important;
+    border-radius: 17px !important;
   }
-  .budget-summary-card { padding: 15px !important; }
-  .budget-plan-card { padding: 14px 11px !important; }
+  .budget-income-card { padding: 16px !important; }
+  .budget-income-card input { font-size: 24px !important; }
+  .budget-summary-card { padding: 17px !important; }
+  .budget-plan-card { padding: 16px 13px !important; }
   .budget-plan-card > div > button { padding-left: 10px !important; padding-right: 10px !important; }
-  .budget-plan-card label { grid-template-columns: minmax(0, 1fr) minmax(100px, 43%) !important; }
+  .budget-plan-card label {
+    grid-template-columns: minmax(0, 1fr) minmax(116px, 44%) !important;
+    gap: 9px !important;
+    font-size: 12px !important;
+  }
   .budget-plan-card input { font-size: 14px !important; }
+  .budget-plan-card label > span:last-child { padding: 0 8px !important; }
+  .budget-guide-card, .budget-result-card { padding: 17px !important; }
+  .budget-howto-card { padding: 16px !important; }
+  .budget-planner-cta { padding: 8px 4px 0 !important; }
 }

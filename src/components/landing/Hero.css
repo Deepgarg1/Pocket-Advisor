@@ -217,3 +217,42 @@
 }
 @media (max-width: 800px) { .pa-phone-stage { max-width: 290px; } }
 @media (max-width: 520px) { .pa-phone-stage { max-width: 270px; } }
+
+
+/* Restore Pocket Advisor's dark finance theme; preserve existing product copy and hierarchy. */
+.pa-home {
+  --pa-ink: #f4f7ff;
+  --pa-muted: #aab8ce;
+  --pa-line: #263248;
+  color: #f4f7ff;
+  background:
+    radial-gradient(ellipse at 78% 25%, rgba(79,70,229,.15), transparent 34%),
+    radial-gradient(ellipse at 91% 65%, rgba(20,184,166,.10), transparent 29%),
+    linear-gradient(135deg,#070d18 0%,#0b1221 58%,#0b1423 100%);
+}
+.pa-home::before {
+  opacity: .12;
+  background-image: radial-gradient(#7b8cab .7px, transparent .7px);
+}
+.pa-home .pa-hero h1 { color:#f5f7fb; }
+.pa-home .pa-hero-subtitle { color:#dbe5f5; }
+.pa-home .pa-hero-description { color:#aab8ce; }
+.pa-home .pa-eyebrow { color:#c3ccff; background:rgba(19,27,48,.88); border-color:rgba(99,102,241,.42); box-shadow:none; }
+.pa-home .pa-eyebrow-icon { background:#202a52; color:#67e8f9; }
+.pa-home .pa-hero-links { color:#91a0b8; }
+.pa-home .pa-hero-links a { color:#c4cfe0; border-color:#29364d; background:rgba(17,26,43,.82); }
+.pa-home .pa-hero-links a:hover { color:#a5b4fc; border-color:#6257e8; background:#151e32; }
+.pa-home .pa-feature-card { background:rgba(17,26,43,.84); border-color:#26344b; box-shadow:0 8px 24px rgba(0,0,0,.12); }
+.pa-home .pa-feature-card:hover { background:#141f33; border-color:#4b4bd1; box-shadow:0 12px 28px rgba(0,0,0,.22); }
+.pa-home .pa-feature-copy strong { color:#eef3ff; }
+.pa-home .pa-feature-copy small { color:#9eacc3; }
+.pa-home .pa-feature-arrow { color:#7786a1; }
+.pa-home .pa-below-note { color:#9aa8bf; }
+.pa-home .pa-float-card { background:rgba(13,21,36,.96); border-color:#26344b; box-shadow:0 12px 32px rgba(0,0,0,.28); }
+.pa-home .pa-float-card small { color:#9baac1; }
+.pa-home .pa-float-card strong { color:#eef3ff; }
+.pa-home .pa-phone-loading { color:#9eacc3; background:linear-gradient(155deg,#111c30,#17263a); border-color:#26344b; }
+@media (min-width: 801px) {
+  .pa-home .pa-hero h1 { font-size:clamp(2.5rem,3.2vw,3.35rem); line-height:1.08; letter-spacing:-.045em; }
+}
+.pa-home .pa-visual-label { display:none !important; }

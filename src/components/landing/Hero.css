@@ -1,20 +1,20 @@
-/* Pocket Advisor — restrained, app-inspired light landing page */
+/* Pocket Advisor — Dark Luxe finance landing page */
 .pa-home {
-  --pa-ink: #121a2d;
-  --pa-muted: #5d6b83;
-  --pa-line: #dce4f0;
+  --pa-ink: #f4f7ff;
+  --pa-muted: #aab8ce;
+  --pa-line: #263248;
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  color: var(--pa-ink);
+  color: #f4f7ff;
   background:
-    radial-gradient(ellipse at 76% 24%, rgba(99,102,241,.10), transparent 33%),
-    radial-gradient(ellipse at 91% 55%, rgba(45,212,191,.12), transparent 28%),
-    linear-gradient(180deg, #f7f9fd 0%, #eef3fb 58%, #f8faff 100%);
+    radial-gradient(ellipse at 78% 25%, rgba(79,70,229,.15), transparent 34%),
+    radial-gradient(ellipse at 91% 65%, rgba(20,184,166,.10), transparent 29%),
+    linear-gradient(135deg, #070d18 0%, #0b1221 58%, #0b1423 100%);
 }
 .pa-home::before {
-  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .32;
-  background-image: radial-gradient(#b7c5dc .7px, transparent .7px);
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .12;
+  background-image: radial-gradient(#7b8cab .7px, transparent .7px);
   background-size: 19px 19px;
   mask-image: linear-gradient(to bottom, #000, transparent 72%);
 }
@@ -149,78 +149,94 @@
   .pa-home *, .pa-home *::before, .pa-home *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
 }
 
-/* Final sizing correction: keep the hero and device proportional on desktop. */
+/* Responsive layout adjustments */
 @media (min-width: 801px) {
-  .pa-hero { padding-top: 38px; padding-bottom: 28px; }
-  .pa-hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(310px, .82fr); gap: 38px; min-height: 430px; }
-  .pa-hero-copy { max-width: 590px; }
-  .pa-hero h1 { font-size: clamp(2.65rem, 3.55vw, 3.65rem); line-height: 1.06; letter-spacing: -.055em; margin-top: 20px; }
-  .pa-hero-subtitle { font-size: 1.08rem; margin-bottom: 10px; }
-  .pa-hero-description { font-size: .96rem; line-height: 1.65; max-width: 510px; margin-bottom: 19px; }
-  .pa-hero-visual { min-height: 420px; }
-  .pa-phone-stage { max-width: 340px; }
-  .pa-float-card-top { right: -3%; top: 24%; }
-  .pa-float-card-bottom { left: -1%; bottom: 8%; }
-  .pa-feature-grid { margin-top: 18px; }
-}
-@media (min-width: 801px) and (max-width: 1200px) {
-  .pa-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr); gap: 20px; }
-  .pa-hero h1 { font-size: clamp(2.5rem, 4vw, 3.25rem); }
-  .pa-phone-stage { max-width: 300px; }
-  .pa-hero-visual { min-height: 390px; }
-  .pa-float-card { transform: scale(.9); }
+  .pa-hero { padding-top: 32px; padding-bottom: 24px; }
+  .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 26px; }
+  .pa-hero-visual { min-width: 0; min-height: 420px; }
+  .pa-home .pa-float-card-top { right: -6%; top: 22%; }
+  .pa-home .pa-float-card-bottom { left: -6%; bottom: 6%; }
 }
 @media (max-width: 800px) {
-  .pa-hero h1 { font-size: clamp(2.35rem, 6.5vw, 3.25rem); line-height: 1.08; }
-  .pa-phone-stage { max-width: 320px; }
+  .pa-home .pa-float-card-top { right: -2%; top: 20%; }
+  .pa-home .pa-float-card-bottom { left: -2%; bottom: 4%; }
 }
 @media (max-width: 520px) {
-  .pa-hero h1 { font-size: clamp(2.15rem, 8.3vw, 2.7rem); }
-  .pa-phone-stage { max-width: 290px; }
+  .pa-home .pa-float-card-top { right: 0%; top: 18%; }
+  .pa-home .pa-float-card-bottom { left: 0%; bottom: 2%; }
 }
 
-/* Fix preview collisions and keep the product mockup secondary to the headline. */
-@media (min-width: 801px) {
-  .pa-hero { padding-top: 30px; padding-bottom: 24px; }
-  .pa-hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(280px, .75fr); gap: 30px; min-height: 390px; }
-  .pa-hero h1 { font-size: clamp(2.45rem, 3.1vw, 3.15rem); line-height: 1.08; margin: 18px 0 10px; }
-  .pa-hero-visual { min-height: 370px; }
-  .pa-phone-stage { max-width: 310px; }
-  .pa-visual-label { display: none; }
-  .pa-float-card-top { right: -4%; top: 29%; }
-  .pa-float-card-bottom { left: -3%; bottom: 7%; }
+/* Modern 3D App Preview Stage & Unclipped Screen Selector Tabs Capsule */
+.pa-phone-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
-@media (min-width: 801px) and (max-width: 1200px) {
-  .pa-phone-stage { max-width: 285px; }
-  .pa-hero h1 { font-size: clamp(2.35rem, 3.4vw, 2.8rem); }
-  .pa-hero-visual { min-height: 345px; }
-  .pa-float-card { transform: scale(.84); }
+.pa-phone-stage > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media (max-width: 800px) {
-  .pa-visual-label { display: none; }
-  .pa-phone-stage { max-width: 300px; }
+.pa-phone-stage .screen-selector-tabs {
+  display: inline-flex !important;
+  width: auto !important;
+  max-width: 100% !important;
+  padding: 4px 6px !important;
+  gap: 3px !important;
+  border-radius: 9999px !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch !important;
+  margin-bottom: 16px !important;
+  box-sizing: border-box !important;
+  justify-content: center !important;
+}
+.pa-phone-stage .screen-selector-tabs::-webkit-scrollbar {
+  display: none !important;
+}
+.pa-phone-stage .screen-selector-tabs button {
+  flex: 0 0 auto !important;
+  min-width: auto !important;
+  width: auto !important;
+  padding: 5px 8px !important;
+  font-size: .69rem !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  border-radius: 9999px !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 @media (max-width: 520px) {
-  .pa-phone-stage { max-width: 270px; }
+  .pa-phone-stage .screen-selector-tabs {
+    width: 100% !important;
+    max-width: calc(100vw - 32px) !important;
+    justify-content: flex-start !important;
+    padding: 3px 5px !important;
+    gap: 2px !important;
+  }
+  .pa-phone-stage .screen-selector-tabs button {
+    padding: 5px 7px !important;
+    font-size: .65rem !important;
+  }
 }
-
-/* Tighten the app preview itself: no clipped dashboard cards or tab labels. */
-.pa-phone-stage { max-width: 300px; }
-.pa-phone-stage > div { width: 100%; }
-.pa-phone-stage .screen-selector-tabs { width: 100% !important; max-width: 100% !important; overflow: hidden !important; gap: 1px !important; }
-.pa-phone-stage .screen-selector-tabs button { min-width: 0 !important; flex: 1 1 0 !important; white-space: nowrap; padding-left: 2px !important; padding-right: 2px !important; font-size: .62rem !important; }
 .pa-visual-label { display: none !important; }
-@media (min-width: 801px) {
-  .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(270px, .72fr); gap: 26px; }
-  .pa-hero-visual { min-width: 0; }
-  .pa-phone-stage { max-width: 300px; }
-}
-@media (max-width: 800px) { .pa-phone-stage { max-width: 290px; } }
-@media (max-width: 520px) { .pa-phone-stage { max-width: 270px; } }
 
-
-/* Restore Pocket Advisor's dark finance theme; preserve existing product copy and hierarchy. */
-.pa-home {
+/* Dark Theme (Default) */
+.pa-home,
+[data-theme='dark'] .pa-home {
   --pa-ink: #f4f7ff;
   --pa-muted: #aab8ce;
   --pa-line: #263248;
@@ -228,63 +244,169 @@
   background:
     radial-gradient(ellipse at 78% 25%, rgba(79,70,229,.15), transparent 34%),
     radial-gradient(ellipse at 91% 65%, rgba(20,184,166,.10), transparent 29%),
-    linear-gradient(135deg,#070d18 0%,#0b1221 58%,#0b1423 100%);
+    linear-gradient(135deg, #070d18 0%, #0b1221 58%, #0b1423 100%);
 }
-.pa-home::before {
+.pa-home::before,
+[data-theme='dark'] .pa-home::before {
   opacity: .12;
   background-image: radial-gradient(#7b8cab .7px, transparent .7px);
 }
-.pa-home .pa-hero h1 { color:#f5f7fb; }
-.pa-home .pa-hero-subtitle { color:#dbe5f5; }
-.pa-home .pa-hero-description { color:#aab8ce; }
-.pa-home .pa-eyebrow { color:#c3ccff; background:rgba(19,27,48,.88); border-color:rgba(99,102,241,.42); box-shadow:none; }
-.pa-home .pa-eyebrow-icon { background:#202a52; color:#67e8f9; }
-.pa-home .pa-hero-links { color:#91a0b8; }
-.pa-home .pa-hero-links a { color:#c4cfe0; border-color:#29364d; background:rgba(17,26,43,.82); }
-.pa-home .pa-hero-links a:hover { color:#a5b4fc; border-color:#6257e8; background:#151e32; }
-.pa-home .pa-feature-card { background:rgba(17,26,43,.84); border-color:#26344b; box-shadow:0 8px 24px rgba(0,0,0,.12); }
-.pa-home .pa-feature-card:hover { background:#141f33; border-color:#4b4bd1; box-shadow:0 12px 28px rgba(0,0,0,.22); }
-.pa-home .pa-feature-copy strong { color:#eef3ff; }
-.pa-home .pa-feature-copy small { color:#9eacc3; }
-.pa-home .pa-feature-arrow { color:#7786a1; }
-.pa-home .pa-below-note { color:#9aa8bf; }
-.pa-home .pa-float-card { background:rgba(13,21,36,.96); border-color:#26344b; box-shadow:0 12px 32px rgba(0,0,0,.28); }
-.pa-home .pa-float-card small { color:#9baac1; }
-.pa-home .pa-float-card strong { color:#eef3ff; }
-.pa-home .pa-phone-loading { color:#9eacc3; background:linear-gradient(155deg,#111c30,#17263a); border-color:#26344b; }
-@media (min-width: 801px) {
-  .pa-home .pa-hero h1 { font-size:clamp(2.5rem,3.2vw,3.35rem); line-height:1.08; letter-spacing:-.045em; }
+.pa-home .pa-hero h1,
+[data-theme='dark'] .pa-home .pa-hero h1 { color: #f5f7fb; }
+.pa-home .pa-hero-subtitle,
+[data-theme='dark'] .pa-home .pa-hero-subtitle { color: #dbe5f5; }
+.pa-home .pa-hero-description,
+[data-theme='dark'] .pa-home .pa-hero-description { color: #aab8ce; }
+.pa-home .pa-eyebrow,
+[data-theme='dark'] .pa-home .pa-eyebrow {
+  color: #c3ccff;
+  background: rgba(19, 27, 48, 0.88);
+  border-color: rgba(99, 102, 241, 0.42);
+  box-shadow: none;
 }
-.pa-home .pa-visual-label { display:none !important; }
+.pa-home .pa-eyebrow-icon,
+[data-theme='dark'] .pa-home .pa-eyebrow-icon {
+  background: #202a52;
+  color: #67e8f9;
+}
+.pa-home .pa-trust-row,
+[data-theme='dark'] .pa-home .pa-trust-row { color: #a5b4cb; }
+.pa-home .pa-hero-links,
+[data-theme='dark'] .pa-home .pa-hero-links { color: #91a0b8; }
+.pa-home .pa-hero-links a,
+[data-theme='dark'] .pa-home .pa-hero-links a {
+  color: #c4cfe0;
+  border-color: #29364d;
+  background: rgba(17, 26, 43, 0.82);
+}
+.pa-home .pa-hero-links a:hover,
+[data-theme='dark'] .pa-home .pa-hero-links a:hover {
+  color: #a5b4fc;
+  border-color: #6257e8;
+  background: #151e32;
+}
+.pa-home .pa-feature-card,
+[data-theme='dark'] .pa-home .pa-feature-card {
+  background: rgba(17, 26, 43, 0.84);
+  border-color: #26344b;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.pa-home .pa-feature-card:hover,
+[data-theme='dark'] .pa-home .pa-feature-card:hover {
+  background: #141f33;
+  border-color: #4b4bd1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+.pa-home .pa-feature-copy strong,
+[data-theme='dark'] .pa-home .pa-feature-copy strong { color: #eef3ff; }
+.pa-home .pa-feature-copy small,
+[data-theme='dark'] .pa-home .pa-feature-copy small { color: #9eacc3; }
+.pa-home .pa-feature-arrow,
+[data-theme='dark'] .pa-home .pa-feature-arrow { color: #7786a1; }
+.pa-home .pa-below-note,
+[data-theme='dark'] .pa-home .pa-below-note { color: #9aa8bf; }
+.pa-home .pa-float-card,
+[data-theme='dark'] .pa-home .pa-float-card {
+  background: rgba(13, 21, 36, 0.96);
+  border-color: #26344b;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+.pa-home .pa-float-card small,
+[data-theme='dark'] .pa-home .pa-float-card small { color: #9baac1; }
+.pa-home .pa-float-card strong,
+[data-theme='dark'] .pa-home .pa-float-card strong { color: #eef3ff; }
+.pa-home .pa-phone-loading,
+[data-theme='dark'] .pa-home .pa-phone-loading { color: #9eacc3; background: linear-gradient(155deg, #111c30, #17263a); border-color: #26344b; }
+
+.pa-phone-stage .screen-selector-tabs,
+[data-theme='dark'] .pa-phone-stage .screen-selector-tabs {
+  background: rgba(13, 21, 38, 0.94) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+.pa-phone-stage .screen-selector-tabs button,
+[data-theme='dark'] .pa-phone-stage .screen-selector-tabs button {
+  color: #94a3b8 !important;
+}
+.pa-phone-stage .screen-selector-tabs button:hover,
+[data-theme='dark'] .pa-phone-stage .screen-selector-tabs button:hover {
+  color: #f1f5f9 !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Light Theme */
+[data-theme='light'] .pa-home {
+  --pa-ink: #121a2d;
+  --pa-muted: #5d6b83;
+  --pa-line: #dce4f0;
+  color: #121a2d;
+  background:
+    radial-gradient(ellipse at 76% 24%, rgba(99,102,241,.10), transparent 33%),
+    radial-gradient(ellipse at 91% 55%, rgba(45,212,191,.12), transparent 28%),
+    linear-gradient(180deg, #f7f9fd 0%, #eef3fb 58%, #f8faff 100%);
+}
+[data-theme='light'] .pa-home::before {
+  opacity: .32;
+  background-image: radial-gradient(#b7c5dc .7px, transparent .7px);
+}
+[data-theme='light'] .pa-home .pa-hero h1 { color: #111a2e; }
+[data-theme='light'] .pa-home .pa-hero-subtitle { color: #273653; }
+[data-theme='light'] .pa-home .pa-hero-description { color: #5d6b83; }
+[data-theme='light'] .pa-home .pa-eyebrow {
+  color: #4d51a8;
+  background: rgba(255, 255, 255, 0.78);
+  border-color: #d9defe;
+  box-shadow: 0 3px 12px rgba(33, 48, 83, 0.035);
+}
+[data-theme='light'] .pa-home .pa-eyebrow-icon {
+  background: #ecebff;
+  color: #5546ed;
+}
+[data-theme='light'] .pa-home .pa-trust-row { color: #5e6b82; }
+[data-theme='light'] .pa-home .pa-hero-links { color: #78859a; }
+[data-theme='light'] .pa-home .pa-hero-links a {
+  color: #46536d;
+  border-color: #dce4f0;
+  background: rgba(255, 255, 255, 0.72);
+}
+[data-theme='light'] .pa-home .pa-hero-links a:hover {
+  color: #4f46e5;
+  border-color: #b9b8fb;
+  background: #fff;
+}
+[data-theme='light'] .pa-home .pa-feature-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #e0e7f1;
+  box-shadow: 0 5px 18px rgba(31, 48, 81, 0.035);
+}
+[data-theme='light'] .pa-home .pa-feature-card:hover {
+  background: #fff;
+  border-color: #c5c7fc;
+  box-shadow: 0 12px 26px rgba(54, 65, 112, 0.08);
+}
+[data-theme='light'] .pa-home .pa-feature-copy strong { color: #202a40; }
+[data-theme='light'] .pa-home .pa-feature-copy small { color: #6c7890; }
+[data-theme='light'] .pa-home .pa-feature-arrow { color: #9aa5b7; }
+[data-theme='light'] .pa-home .pa-below-note { color: #7b879a; }
+[data-theme='light'] .pa-home .pa-float-card {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(219, 227, 240, 0.95);
+  box-shadow: 0 12px 32px rgba(40, 56, 89, 0.12);
+}
+[data-theme='light'] .pa-home .pa-float-card small { color: #78869d; }
+[data-theme='light'] .pa-home .pa-float-card strong { color: #202b42; }
+
+[data-theme='light'] .pa-phone-stage .screen-selector-tabs {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(203, 213, 225, 0.85) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
+}
+[data-theme='light'] .pa-phone-stage .screen-selector-tabs button {
+  color: #475569 !important;
+}
+[data-theme='light'] .pa-phone-stage .screen-selector-tabs button:hover {
+  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.05) !important;
+}
 
 
-/* Targeted fix only: make the tab pill readable and move callout cards off the phone screen. */
-.pa-phone-stage .screen-selector-tabs {
-  width: 360px !important;
-  max-width: calc(100vw - 32px) !important;
-  overflow: visible !important;
-  justify-content: space-between !important;
-  gap: 3px !important;
-}
-.pa-phone-stage .screen-selector-tabs button {
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-  padding: 6px 7px !important;
-  font-size: .68rem !important;
-  line-height: 1.2 !important;
-  white-space: nowrap !important;
-}
-@media (min-width: 801px) {
-  .pa-home .pa-float-card-top { right: -10%; top: 25%; }
-  .pa-home .pa-float-card-bottom { left: -10%; bottom: 7%; }
-}
-@media (max-width: 800px) {
-  .pa-home .pa-float-card-top { right: -4%; top: 24%; }
-  .pa-home .pa-float-card-bottom { left: -4%; bottom: 5%; }
-}
-@media (max-width: 520px) {
-  .pa-phone-stage .screen-selector-tabs { width: 100% !important; gap: 1px !important; }
-  .pa-phone-stage .screen-selector-tabs button { padding: 5px 3px !important; font-size: .61rem !important; }
-  .pa-home .pa-float-card-top { right: -2%; top: 20%; }
-  .pa-home .pa-float-card-bottom { left: -2%; bottom: 3%; }
-}

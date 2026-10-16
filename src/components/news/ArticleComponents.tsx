@@ -177,6 +177,7 @@ export const ArticleTable: React.FC<{
                     whiteSpace: 'normal',
                     verticalAlign: 'bottom',
                     minWidth: i === 0 ? '140px' : i === headers.length - 1 ? '220px' : '160px',
+                    borderRight: i === headers.length - 1 ? 'none' : '1px solid var(--border-subtle)',
                     letterSpacing: '0.01em',
                   }}
                 >
@@ -217,6 +218,7 @@ export const ArticleTable: React.FC<{
                           textAlign: align,
                           verticalAlign: 'middle',
                           minWidth: cIdx === 0 ? '140px' : cIdx === headers.length - 1 ? '220px' : '160px',
+                          borderRight: cIdx === headers.length - 1 ? 'none' : '1px solid var(--border-subtle)',
                           overflowWrap: 'break-word',
                         }}
                       >

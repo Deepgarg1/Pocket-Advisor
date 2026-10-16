@@ -45,15 +45,15 @@ export const PhoneMockup: React.FC = () => {
         className="screen-selector-tabs"
         style={{
           display: 'flex',
-          gap: '2px',
+          gap: '4px',
           padding: '4px',
           backgroundColor: 'var(--bg-surface)',
           borderRadius: 'var(--radius-full)',
           border: '1px solid var(--border-subtle)',
           marginBottom: '14px',
           overflowX: 'auto',
-          width: '300px',
-          maxWidth: '100%',
+          width: '360px',
+          maxWidth: 'calc(100vw - 32px)',
           boxSizing: 'border-box',
           justifyContent: 'space-between',
           WebkitOverflowScrolling: 'touch',
@@ -78,13 +78,13 @@ export const PhoneMockup: React.FC = () => {
         <button
           onClick={() => setActiveTab('history')}
           style={{
-            padding: '8px 16px',
+            padding: '6px 7px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             backgroundColor: activeTab === 'history' ? '#5CF3B6' : 'transparent',
             color: activeTab === 'history' ? '#003822' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.85rem',
+            fontSize: '0.68rem',
             cursor: 'pointer',
             transition: 'all 0.2s ease',
           }}

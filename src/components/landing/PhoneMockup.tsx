@@ -45,27 +45,30 @@ export const PhoneMockup: React.FC = () => {
         className="screen-selector-tabs"
         style={{
           display: 'flex',
-          gap: '8px',
-          padding: '6px',
+          gap: '3px',
+          padding: '4px',
           backgroundColor: 'var(--bg-surface)',
           borderRadius: 'var(--radius-full)',
           border: '1px solid var(--border-subtle)',
-          marginBottom: '28px',
+          marginBottom: '14px',
           overflowX: 'auto',
+          width: '300px',
           maxWidth: '100%',
+          boxSizing: 'border-box',
+          justifyContent: 'space-between',
           WebkitOverflowScrolling: 'touch',
         }}
       >
         <button
           onClick={() => setActiveTab('dashboard')}
           style={{
-            padding: '8px 16px',
+            padding: '5px 6px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             backgroundColor: activeTab === 'dashboard' ? '#5CF3B6' : 'transparent',
             color: activeTab === 'dashboard' ? '#003822' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.85rem',
+            fontSize: '0.72rem',
             cursor: 'pointer',
             transition: 'all 0.2s ease',
           }}
@@ -142,11 +145,11 @@ export const PhoneMockup: React.FC = () => {
       <div
         style={{
           position: 'relative',
-          width: '330px',
+          width: '300px',
           maxWidth: 'calc(100vw - 32px)',
-          height: '700px',
+          height: '640px',
           backgroundColor: '#000000',
-          borderRadius: '38px',
+          borderRadius: '34px',
           border: '8px solid #1e293b',
           boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 0 50px rgba(103, 198, 248, 0.2)',
           overflow: 'hidden',

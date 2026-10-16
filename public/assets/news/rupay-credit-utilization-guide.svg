@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Credit utilization: calculate, don't guess</title>
+<desc id="desc">A reported balance of 12,000 rupees divided by a 40,000 rupee credit limit equals 30 percent utilization. This is an example, not a universal credit-score threshold.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#1e1b4b"/></linearGradient><linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+<rect width="1200" height="675" rx="30" fill="url(#bg)"/>
+<circle cx="1090" cy="55" r="170" fill="#6366f1" opacity=".12"/>
+<text x="64" y="68" fill="#7dd3fc" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="3">POCKET ADVISOR • CREDIT CARD BASICS</text>
+<text x="64" y="124" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">Credit utilization: calculate, don't guess</text>
+<text x="64" y="162" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="22">A balance-to-limit calculation — not a score prediction</text>
+<rect x="64" y="198" width="1072" height="210" rx="22" fill="#fff" opacity=".07" stroke="#64748b" stroke-opacity=".55"/>
+<text x="96" y="242" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Reported card balance</text>
+<text x="96" y="292" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="700">₹12,000</text>
+<text x="436" y="286" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="38">÷</text>
+<text x="500" y="242" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Total credit limit</text>
+<text x="500" y="292" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="700">₹40,000</text>
+<text x="834" y="286" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="38">=</text>
+<text x="894" y="242" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Utilization</text>
+<text x="894" y="292" fill="#7dd3fc" font-family="Arial,Helvetica,sans-serif" font-size="40" font-weight="700">30%</text>
+<text x="96" y="350" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="18">(₹12,000 ÷ ₹40,000) × 100 = 30%</text>
+<rect x="96" y="368" width="1008" height="12" rx="6" fill="#334155"/>
+<rect x="96" y="368" width="302.4" height="12" rx="6" fill="url(#bar)"/>
+<circle cx="398.4" cy="374" r="10" fill="#fff" stroke="#38bdf8" stroke-width="4"/>
+<text x="96" y="400" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="15">0%</text>
+<text x="398" y="400" text-anchor="middle" fill="#bae6fd" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700">30% example</text>
+<text x="1104" y="400" text-anchor="end" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="15">100%</text>
+<rect x="64" y="435" width="1072" height="113" rx="18" fill="#1e3a8a" fill-opacity=".45" stroke="#60a5fa" stroke-opacity=".65"/>
+<text x="96" y="478" fill="#dbeafe" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700">What this number does — and doesn't — tell you</text>
+<text x="96" y="512" fill="#eff6ff" font-family="Arial,Helvetica,sans-serif" font-size="19">Lower reported balances can help keep credit use manageable, but no percentage guarantees</text>
+<text x="96" y="537" fill="#eff6ff" font-family="Arial,Helvetica,sans-serif" font-size="19">a particular CIBIL score. Scoring models and individual credit profiles vary.</text>
+<text x="64" y="593" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="18">Check your issuer's reported balance and pay on time; don't treat 30% as a universal cutoff.</text>
+<rect x="64" y="610" width="1072" height="3" rx="1.5" fill="url(#bar)"/>
+<text x="1136" y="644" text-anchor="end" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="16">pocketadvisor.in</text>
+</svg>

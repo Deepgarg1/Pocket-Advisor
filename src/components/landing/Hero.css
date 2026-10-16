@@ -148,3 +148,33 @@
 @media (prefers-reduced-motion:reduce) {
   .pa-home *, .pa-home *::before, .pa-home *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
 }
+
+/* Final sizing correction: keep the hero and device proportional on desktop. */
+@media (min-width: 801px) {
+  .pa-hero { padding-top: 38px; padding-bottom: 28px; }
+  .pa-hero-grid { grid-template-columns: minmax(0, 1.08fr) minmax(310px, .82fr); gap: 38px; min-height: 430px; }
+  .pa-hero-copy { max-width: 590px; }
+  .pa-hero h1 { font-size: clamp(2.65rem, 3.55vw, 3.65rem); line-height: 1.06; letter-spacing: -.055em; margin-top: 20px; }
+  .pa-hero-subtitle { font-size: 1.08rem; margin-bottom: 10px; }
+  .pa-hero-description { font-size: .96rem; line-height: 1.65; max-width: 510px; margin-bottom: 19px; }
+  .pa-hero-visual { min-height: 420px; }
+  .pa-phone-stage { max-width: 340px; }
+  .pa-float-card-top { right: -3%; top: 24%; }
+  .pa-float-card-bottom { left: -1%; bottom: 8%; }
+  .pa-feature-grid { margin-top: 18px; }
+}
+@media (min-width: 801px) and (max-width: 1200px) {
+  .pa-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr); gap: 20px; }
+  .pa-hero h1 { font-size: clamp(2.5rem, 4vw, 3.25rem); }
+  .pa-phone-stage { max-width: 300px; }
+  .pa-hero-visual { min-height: 390px; }
+  .pa-float-card { transform: scale(.9); }
+}
+@media (max-width: 800px) {
+  .pa-hero h1 { font-size: clamp(2.35rem, 6.5vw, 3.25rem); line-height: 1.08; }
+  .pa-phone-stage { max-width: 320px; }
+}
+@media (max-width: 520px) {
+  .pa-hero h1 { font-size: clamp(2.15rem, 8.3vw, 2.7rem); }
+  .pa-phone-stage { max-width: 290px; }
+}

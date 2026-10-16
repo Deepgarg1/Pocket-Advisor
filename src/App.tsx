@@ -329,7 +329,7 @@ export const App: React.FC = () => {
 
           {currentView === 'faq' && (
             <div className="animate-fade-in">
-              <FaqSection onNavigate={navigateView} />
+              <FaqSection headingLevel="h1" onNavigate={navigateView} />
             </div>
           )}
 
@@ -371,6 +371,8 @@ export const App: React.FC = () => {
             <div className="animate-fade-in">
               {/* 1. Hero & Interactive Android Phone Showcase */}
               <Hero onNavigate={navigateView} />
+              {/* 2. Frequently Asked Questions matching FAQPage schema */}
+              <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
             </div>
           )}
 

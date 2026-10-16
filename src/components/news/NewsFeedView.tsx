@@ -31,7 +31,17 @@ interface NewsFeedViewProps {
 export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, onNavigate }) => {
   const allArticles = getAllArticles();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(initialSlug || null);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('q') || '';
+      }
+    } catch {
+      // ignore
+    }
+    return '';
+  });
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
   // Helper to extract article slug or ID from window.location

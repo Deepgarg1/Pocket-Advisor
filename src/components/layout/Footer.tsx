@@ -150,11 +150,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/features"
-                  onClick={(e) => handleNavClick('features', e)}
+                  href="/monthly-budget-planner"
+                  onClick={(e) => handleNavClick('monthly-budget-planner', e)}
                   className="footer-nav-link"
                 >
-                  Offline Spending Widgets
+                  Monthly Budget Planner (50/30/20)
                 </a>
               </li>
             </ul>
@@ -232,7 +232,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   onClick={(e) => handleNavClick('download', e)}
                   className="footer-nav-link"
                 >
-                  Download for Android (APK)
+                  Download for Android
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-nav-link"
+                >
+                  Google Play Store
                 </a>
               </li>
               <li>
@@ -245,23 +255,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/download"
-                  onClick={(e) => handleNavClick('download', e)}
+                <span
                   className="footer-nav-link"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'default' }}
                 >
-                  Installation Guide &amp; QR Code
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/download"
-                  onClick={(e) => handleNavClick('download', e)}
-                  className="footer-nav-link"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                >
-                  <Smartphone size={13} color="var(--primary)" /> Android 8.0+ Compatibility
-                </a>
+                  <Smartphone size={13} color="var(--primary)" /> Android 8.0+ Compatible
+                </span>
               </li>
             </ul>
           </div>
@@ -313,15 +312,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="footer-nav-link"
                 >
                   Account &amp; Data Deletion
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/how-to-track-upi-payments-automatically"
-                  onClick={(e) => handleNavClick('how-to-track-upi-payments-automatically', e)}
-                  className="footer-nav-link"
-                >
-                  Zero-Trust Architecture
                 </a>
               </li>
               <li>

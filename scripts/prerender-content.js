@@ -164,8 +164,9 @@ function renderArticleFromData(article) {
 }
 
 export function getRouteBodyContent(slug, articles = []) {
-  if (slug === 'news/how-to-track-spending-automatically-android') {
-    const article = articles.find((item) => item.slug === 'how-to-track-spending-automatically-android');
+  if (slug.startsWith('news/')) {
+    const articleSlug = slug.replace(/^news\//, '');
+    const article = articles.find((item) => item.slug === articleSlug || item.id === articleSlug);
     if (article) return renderArticleFromData(article);
   }
   const contentStyle = `max-width: 860px; margin: 0 auto; padding: 0 24px 40px; color: #cbd5e1; line-height: 1.75; font-size: 1rem;`;

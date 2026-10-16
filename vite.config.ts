@@ -429,7 +429,8 @@ const inlineCssPlugin = () => ({
     for (const [fileName, chunk] of Object.entries(ctx.bundle)) {
       if (fileName.endsWith('.css') && (chunk as any).source) {
         const cssContent = (chunk as any).source.toString();
-        const linkRegex = new RegExp(`<link[^>]+href="[^"]*${fileName}"[^>]*>`, 'g');
+        const escapedFileName = fileName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const linkRegex = new RegExp(`<link[^>]+href="[^"]*${escapedFileName}"[^>]*>`, 'g');
         newHtml = newHtml.replace(linkRegex, `<style>${cssContent}</style>`);
       }
     }

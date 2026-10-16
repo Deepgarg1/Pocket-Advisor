@@ -270,8 +270,12 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             <Download size={18} color="#00d2ff" />
             <span>Install on Google Play</span>
           </a>
-          <button
-            onClick={() => handleNav('split')}
+          <a
+            href="/split"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNav('split');
+            }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -284,12 +288,13 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
               fontWeight: 700,
               fontSize: '0.95rem',
               cursor: 'pointer',
+              textDecoration: 'none',
               transition: 'all 0.2s ease',
             }}
           >
             <span>Try Free Web Bill Splitter</span>
             <ArrowRight size={16} />
-          </button>
+          </a>
         </div>
 
         {/* Trust Badges */}
@@ -767,8 +772,12 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             <Download size={18} color="#00d2ff" />
             <span>Download on Google Play</span>
           </a>
-          <button
-            onClick={() => handleNav('split')}
+          <a
+            href="/split"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNav('split');
+            }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -781,6 +790,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
               fontWeight: 700,
               fontSize: '0.95rem',
               cursor: 'pointer',
+              textDecoration: 'none',
               boxShadow: isDark ? 'none' : '0 2px 8px rgba(15, 23, 42, 0.06)',
               transition: 'all 0.2s ease',
             }}
@@ -795,7 +805,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
           >
             <span>Open Web Bill Splitter</span>
             <ArrowRight size={16} />
-          </button>
+          </a>
         </div>
       </section>
     </div>

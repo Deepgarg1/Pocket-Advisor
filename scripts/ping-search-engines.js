@@ -10,16 +10,6 @@ const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim())
 
 console.log(`[SEO Ping] Found ${urls.length} URLs in sitemap.`);
 
-async function pingGoogle() {
-  const pingUrl = `https://www.google.com/ping?sitemap=https://www.pocketadvisor.in/sitemap.xml`;
-  try {
-    const res = await fetch(pingUrl);
-    console.log(`[SEO Ping] Google sitemap ping responded with status: ${res.status}`);
-  } catch (err) {
-    console.warn(`[SEO Ping] Google sitemap ping failed:`, err.message);
-  }
-}
-
 async function pingIndexNow() {
   const host = 'www.pocketadvisor.in';
   const key = 'pocketadvisor2026indexnow';
@@ -51,7 +41,7 @@ async function pingIndexNow() {
 }
 
 async function main() {
-  await Promise.all([pingGoogle(), pingIndexNow()]);
+  await pingIndexNow();
 }
 
 main().catch(console.error);

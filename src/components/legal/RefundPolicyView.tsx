@@ -55,7 +55,16 @@ export const RefundPolicyView: React.FC<RefundPolicyViewProps> = ({ onBack }) =>
         </button>
 
         <nav aria-label="Breadcrumb" style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          <span style={{ cursor: 'pointer' }} onClick={onBack}>Home</span>
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onBack();
+            }}
+            style={{ color: 'inherit', textDecoration: 'none', cursor: 'pointer' }}
+          >
+            Home
+          </a>
           <span style={{ margin: '0 8px' }}>/</span>
           <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Refund Policy</span>
         </nav>

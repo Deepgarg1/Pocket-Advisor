@@ -63,45 +63,54 @@
 }
 
 [data-theme='light'] {
-  --bg-app: #f8fafc;
-  --bg-canvas: #f8fafc;
+  --bg-app: #f4f6fb;
+  --bg-canvas: #edf2f9;
   --bg-surface: #ffffff;
-  --bg-surface-elevated: #f1f5f9;
-  --bg-surface-glass: rgba(255, 255, 255, 0.82);
+  --bg-surface-elevated: #f8fafc;
+  --bg-surface-glass: rgba(255, 255, 255, 0.88);
   --bg-card: #ffffff;
 
-  --border-subtle: #e2e8f0;
-  --border-focus: rgba(79, 70, 229, 0.5);
-  --border-glass: rgba(226, 232, 240, 0.8);
+  --border-subtle: #dbe3ee;
+  --border-focus: rgba(79, 70, 229, 0.6);
+  --border-glass: rgba(219, 227, 238, 0.85);
 
   --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #475569;
+  --text-secondary: #3b4860;
+  --text-muted: #64748b;
 
   --primary: #4f46e5;
   --primary-hover: #4338ca;
   --primary-btn: #4f46e5;
   --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-  --heading-gradient: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #059669 100%);
+  --heading-gradient: linear-gradient(135deg, #4338ca 0%, #0284c7 50%, #059669 100%);
   --heading-gradient-alt: linear-gradient(135deg, #4f46e5 0%, #0284c7 50%, #059669 100%);
   --brand-logo-gradient: linear-gradient(to right, var(--text-primary), var(--primary));
-  --primary-glow: rgba(79, 70, 229, 0.15);
-  --primary-surface: rgba(79, 70, 229, 0.1);
+  --primary-glow: rgba(79, 70, 229, 0.2);
+  --primary-surface: rgba(79, 70, 229, 0.12);
 
-  --income: #047857;
-  --income-surface: rgba(4, 120, 87, 0.1);
-  --expense: #be123c;
-  --expense-btn: #be123c;
-  --expense-surface: rgba(190, 18, 60, 0.1);
-  --warning: #b45309;
-  --warning-surface: rgba(180, 83, 9, 0.1);
-  --info: #0369a1;
-  --info-surface: rgba(3, 105, 161, 0.1);
+  --income: #059669;
+  --income-surface: #ecfdf5;
+  --expense: #e11d48;
+  --expense-btn: #e11d48;
+  --expense-surface: #fff1f2;
+  --warning: #d97706;
+  --warning-surface: #fffbeb;
+  --info: #0284c7;
+  --info-surface: #f0f9ff;
 
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 16px 40px rgba(15, 23, 42, 0.12);
-  --shadow-glow: 0 0 30px rgba(79, 70, 229, 0.15);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --shadow-md: 0 8px 24px -4px rgba(99, 102, 241, 0.09), 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 20px 40px -8px rgba(99, 102, 241, 0.12), 0 4px 16px rgba(15, 23, 42, 0.05);
+  --shadow-glow: 0 0 30px rgba(79, 70, 229, 0.2);
+}
+
+[data-theme='light'] body {
+  background-color: var(--bg-app);
+  background-image: 
+    radial-gradient(at 10% 8%, rgba(99, 102, 241, 0.07) 0px, transparent 48%),
+    radial-gradient(at 88% 12%, rgba(2, 132, 199, 0.07) 0px, transparent 48%),
+    radial-gradient(at 50% 85%, rgba(5, 150, 105, 0.05) 0px, transparent 52%);
+  background-attachment: fixed;
 }
 
 /* Base Reset */

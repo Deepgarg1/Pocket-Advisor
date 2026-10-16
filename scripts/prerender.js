@@ -519,26 +519,50 @@ const routes = [
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'How does Pocket Advisor track bank and UPI expenses automatically?',
+            name: 'Does Pocket Advisor work completely offline?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play\'s financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking.'
+              text: 'Yes! Pocket Advisor is built with an offline-first architecture powered by an on-device encrypted SQLite/SQLCipher database. All transaction logging, budgets, and bill calculations work instantly without any internet connection. When you reconnect, data can seamlessly sync to your private cloud storage.'
             }
           },
           {
             '@type': 'Question',
-            name: 'How does the 2-stage greedy debt minimization bill splitter work?',
+            name: 'How does transaction auto-detection work? Is it secure?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Instead of tangled peer-to-peer transfers where everyone owes each other, Pocket Advisor models all group debts as a bipartite graph and greedily resolves net balances, cutting up to 30 entangled transactions down to the absolute minimum payments.'
+              text: "Pocket Advisor provides optional automatic expense tracking under Google Play's SMS-based financial money management policy. When enabled, our on-device engine parses incoming bank transaction SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, etc.) directly on your phone using deterministic regex. It operates 100% locally with zero cloud uploads, requires zero bank logins or passwords, and strictly drops OTPs and personal chats in memory for complete privacy."
             }
           },
           {
             '@type': 'Question',
-            name: 'Is Pocket Advisor free and safe to use?',
+            name: 'How does the 2-stage bill splitting algorithm work?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data.'
+              text: 'Traditional bill splitting results in messy tangled webs where everyone owes everyone else. Pocket Advisor uses a 2-stage algorithm: first it checks for exact bilateral matches between debtors and creditors, then applies a greedy graph reduction. This compresses dozens of transfers down to the absolute minimum mathematical transactions.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does the AI Budget Copilot analyze my spending?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The AI copilot ingests your monthly category totals, discretionary vs. non-discretionary spending ratios, and budget limits to identify recurring leakages and suggest achievable savings targets. Your data is strictly anonymized before processing.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I backup and export my spending data?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. You have full ownership of your data. You can export your entire ledger to standard CSV spreadsheets or full JSON snapshots at any time from the settings screen.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does Pocket Advisor monetize, and does it show ads?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Pocket Advisor follows a fair freemium model. Free accounts are supported by Google AdMob banner ads to keep all essential tracking, UPI & bank auto-detection, and budgeting tools 100% free forever. Upgrading to Pocket Advisor Pro removes all ads for an entirely ad-free experience, along with unlimited PDF report exports.'
             }
           }
         ]
@@ -1447,6 +1471,18 @@ for (const route of routes) {
     }
     return schema;
   });
+
+  if (article.faqs && article.faqs.length > 0 && !route.schemas.some((s) => s['@type'] === 'FAQPage')) {
+    route.schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: article.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+      }))
+    });
+  }
 }
 
 for (const route of routes) {

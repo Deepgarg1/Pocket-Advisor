@@ -39,11 +39,42 @@ const FAQS: FaqItem[] = [
   },
 ];
 
-interface FaqSectionProps {
+export const HOME_FAQS: FaqItem[] = [
+  {
+    question: 'How does Pocket Advisor track bank and UPI expenses automatically?',
+    answer:
+      "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking.",
+  },
+  {
+    question: 'How does the 2-stage greedy debt minimization bill splitter work?',
+    answer:
+      "Instead of tangled peer-to-peer transfers where everyone owes each other, Pocket Advisor's mathematical engine models all group debts as a bipartite graph and greedily resolves net balances, cutting up to 30 entangled transactions down to the absolute minimum payments.",
+  },
+  {
+    question: 'Can I use the Quick Bill Splitter without downloading the app or creating an account?',
+    answer:
+      'Yes! Pocket Advisor provides a 100% free interactive Web Bill Splitter with zero login required. You can split dinner, travel, or rent bills, calculate taxes and tips, and export clean itemized receipts directly to WhatsApp.',
+  },
+  {
+    question: 'Is Pocket Advisor free and safe to use?',
+    answer:
+      'Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data.',
+  },
+];
+
+export interface FaqSectionProps {
   onNavigate?: (view: string) => void;
+  items?: FaqItem[];
+  useHomeFaqs?: boolean;
+  headingLevel?: 'h1' | 'h2';
 }
 
-export const FaqSection: React.FC<FaqSectionProps> = () => {
+export const FaqSection: React.FC<FaqSectionProps> = ({
+  items,
+  useHomeFaqs = false,
+  headingLevel = 'h2',
+}) => {
+  const faqList = items || (useHomeFaqs ? HOME_FAQS : FAQS);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
@@ -77,16 +108,22 @@ export const FaqSection: React.FC<FaqSectionProps> = () => {
         >
           <HelpCircle size={15} /> Frequently Asked Questions
         </div>
-        <h1 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 10px 0' }}>
-          Frequently Asked Questions
-        </h1>
+        {headingLevel === 'h1' ? (
+          <h1 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 10px 0' }}>
+            Frequently Asked Questions
+          </h1>
+        ) : (
+          <h2 style={{ fontSize: 'clamp(1.7rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.02em', margin: '0 0 10px 0' }}>
+            Frequently Asked Questions
+          </h2>
+        )}
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', margin: 0 }}>
           Clear answers about permissions, security, and Android capabilities.
         </p>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-        {FAQS.map((faq, i) => {
+        {faqList.map((faq, i) => {
           const isOpen = openIndex === i;
           return (
             <div

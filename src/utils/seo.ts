@@ -250,7 +250,6 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   '404': {
     title: 'Page Not Found (404) | Pocket Advisor',
     description: 'The page you are looking for does not exist or may have been moved.',
-    canonical: `${BASE_URL}/404`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
   },
@@ -293,7 +292,7 @@ function setOrCreateJsonLd(id: string, data: object): void {
 }
 
 function getBreadcrumbsForView(view: string, canonical: string, title: string) {
-  if (view === 'home' || !view) {
+  if (view === 'home' || view === '404' || !view) {
     return null;
   }
 
@@ -418,7 +417,12 @@ export function updatePageSeo(view: string, custom?: Partial<PageMetadata>): voi
   // Open Graph
   setOrCreateMetaTag('property', 'og:title', title);
   setOrCreateMetaTag('property', 'og:description', description);
-  setOrCreateMetaTag('property', 'og:url', canonical);
+  if (view !== '404') {
+    setOrCreateMetaTag('property', 'og:url', canonical);
+  } else {
+    const existingOgUrl = document.querySelector('meta[property="og:url"]');
+    if (existingOgUrl) existingOgUrl.remove();
+  }
   setOrCreateMetaTag('property', 'og:type', ogType);
   setOrCreateMetaTag('property', 'og:image', ogImage);
 
@@ -428,7 +432,12 @@ export function updatePageSeo(view: string, custom?: Partial<PageMetadata>): voi
   setOrCreateMetaTag('name', 'twitter:image', ogImage);
 
   // Canonical
-  setOrCreateCanonical(canonical);
+  if (view === '404' || custom?.canonical === '') {
+    const existingCanonical = document.querySelector('link[rel="canonical"]');
+    if (existingCanonical) existingCanonical.remove();
+  } else {
+    setOrCreateCanonical(canonical);
+  }
 
   // Breadcrumb Structured Data
   const breadcrumbSchema = getBreadcrumbsForView(view, canonical, title);

@@ -1595,24 +1595,24 @@
   {
     "id": "rupay-credit-card-on-upi-rules-charges",
     "slug": "rupay-credit-card-on-upi-rules-charges",
-    "title": "RuPay Credit Card on UPI: Hidden Charges, 42% APR Trap & Rules (2026)",
-    "subtitle": "Avoid the revolving interest trap, protect your CIBIL score, and understand sub-₹2,000 merchant MDR rules before linking your card to Google Pay or PhonePe.",
-    "excerpt": "A definitive guide to using RuPay credit cards on UPI safely. Understand 42% annualized interest compounding, minimum amount due pitfalls, the lost 45-day grace period rule, merchant MDR charges, and credit utilization risks.",
+    "title": "RuPay Credit Card on UPI: Rules, Interest and Charges (2026)",
+    "subtitle": "Understand merchant QR eligibility, credit-card interest, billing due dates, and practical ways to keep UPI spending under control.",
+    "excerpt": "A practical guide to RuPay Credit Card on UPI in India: where it works, how interest and the minimum amount due work, how to think about credit utilization, and what to verify with your card issuer.",
     "coverImage": "/assets/news/rupay-credit-card-on-upi-rules-charges.webp",
     "coverImageAlt": "RuPay Credit Card on UPI Scanner and 42% APR Interest Avoidance Guide",
     "publishedAt": "2026-10-16",
     "updatedAt": "2026-10-16",
     "category": "Guides",
-    "readTime": "9 min read",
+    "readTime": "7 min read",
     "tags": [
       "RuPay Credit Card on UPI",
       "UPI Credit Card Rules",
-      "42% APR Credit Card Trap",
+      "RuPay UPI Charges",
+      "Credit Card Interest India",
       "Credit Utilization Ratio",
       "PhonePe RuPay Credit",
       "Google Pay RuPay",
-      "NPCI Credit on UPI",
-      "CIBIL Score Protection"
+      "NPCI Credit on UPI"
     ],
     "fontStyle": "sans",
     "author": {
@@ -1621,44 +1621,48 @@
     },
     "faqs": [
       {
-        "question": "Can I transfer money from RuPay Credit Card to a friend's personal UPI account?",
-        "answer": "No. Under National Payments Corporation of India (NPCI) guidelines, RuPay Credit on UPI is strictly restricted to Person-to-Merchant (P2M) transactions. You cannot send money to friends, family, or personal bank accounts (P2P), nor can you transfer funds directly to your own savings account."
+        "question": "Can I send money to a friend using a RuPay Credit Card on UPI?",
+        "answer": "No. NPCI's RuPay Credit Card on UPI rules do not permit person-to-person (P2P), person-to-person-merchant (P2PM), or card-to-card payments through this facility. It is intended for eligible merchant payments, and issuer or app restrictions may also apply."
       },
       {
-        "question": "Why do some small QR merchants reject RuPay Credit Card payments?",
-        "answer": "Transactions below ₹2,000 to small merchants carry zero Merchant Discount Rate (MDR). However, for transactions above ₹2,000 or at larger commercial merchants, acquiring banks charge an MDR of 1.5% to 2%. Some merchants disable credit-based UPI acceptance in their BharatQR or soundbox app settings to avoid paying these processing fees."
+        "question": "Are all merchant QR payments eligible for RuPay Credit on UPI?",
+        "answer": "No. The QR must be eligible for merchant payments and the transaction category must be permitted by NPCI, the UPI app, and the card issuer. Some merchant categories and payment types are restricted, so a QR that accepts bank-account UPI may not accept a linked credit card."
       },
       {
-        "question": "What happens if I only pay the Minimum Amount Due (MAD) on my RuPay Credit Card?",
-        "answer": "Paying only the Minimum Amount Due triggers severe financial penalties. The standard 45-day interest-free grace period is completely revoked for all past and future purchases. Banks immediately levy revolving interest of 3.0% to 3.75% per month (36% to 45% APR) calculated from the exact day each transaction was made, plus 18% GST on the accrued interest."
+        "question": "Is every RuPay Credit on UPI payment free for the merchant?",
+        "answer": "Do not assume a universal fee rule. NPCI's operating circular specifies nil MDR for qualifying small offline merchants on transactions up to and including ₹2,000; treatment for other merchants depends on the applicable rules and merchant/acquirer classification. This is primarily a merchant-side charge, but acceptance can vary."
       },
       {
-        "question": "Does using RuPay Credit on UPI for small daily scans hurt my CIBIL score?",
-        "answer": "It can if your Credit Utilization Ratio (CUR) exceeds 30%. Because scanning for street food, groceries, and fuel creates dozens of micro-transactions, your card balance can easily consume 40%–70% of a modest credit limit (e.g., ₹30,000 to ₹50,000). Credit bureaus interpret high utilization as credit dependency, dropping your score by 20 to 50 points."
+        "question": "What happens if I pay only the minimum amount due?",
+        "answer": "Paying the minimum amount due does not mean the balance is interest-free. If the full statement amount is not paid by the due date, the issuer may charge interest according to the card's terms, and the interest-free period can be suspended while an amount remains outstanding. Check your card's MITC and statement for the actual rate and calculation."
       },
       {
-        "question": "Do I earn reward points and cashback on RuPay UPI credit scans?",
-        "answer": "Yes, but bank terms vary widely. Most Indian banks (such as HDFC, ICICI, SBI, Axis, and Punjab National Bank) provide 1% to 3% rewards on merchant UPI spends, but frequently exclude categories like fuel, utility bills, government payments, and wallet loads."
+        "question": "Does using RuPay Credit on UPI automatically lower my CIBIL score?",
+        "answer": "Not automatically, and there is no reliable universal number of points a score will fall. Credit-card balances and utilization may affect credit profiles, but scoring impact varies. Keep balances manageable, pay on time, and check how your issuer reports the account."
       },
       {
-        "question": "How can I avoid paying interest while using RuPay Credit on UPI?",
-        "answer": "Follow three non-negotiable rules: always pay 100% of your Total Due (never Minimum Due) before the billing due date, keep total monthly spending below 30% of your credit limit, and monitor spending via an automated expense tracker like Pocket Advisor to prevent invisible overspending."
+        "question": "Do all RuPay Credit Cards on UPI earn the same rewards?",
+        "answer": "No. Rewards, cashback, exclusions, and eligible merchant categories depend on the issuing bank and card variant. Check the latest rewards terms for your own card rather than relying on a generic percentage."
+      },
+      {
+        "question": "How can I avoid credit-card interest?",
+        "answer": "Pay the full statement balance by the due date, where possible, and verify that autopay is set to the total amount due rather than the minimum. Keep enough money reserved to cover planned purchases and check your issuer's statement for the exact due date and terms."
       }
     ],
     "blocks": [
       {
         "type": "paragraph",
-        "text": "Over the past 18 months, the National Payments Corporation of India (NPCI) and the Reserve Bank of India (RBI) transformed digital payments by allowing **RuPay Credit Cards to link directly into UPI apps** like Google Pay, PhonePe, Paytm, and BHIM. On paper, it is the ultimate consumer convenience: you can walk up to a neighborhood tea stall, a vegetable vendor, or a supermarket, scan the BharatQR code, and charge the purchase to credit instead of drawing down your savings account balance."
+        "text": "RuPay Credit Cards can be linked to supported UPI apps and used for eligible merchant payments by scanning a merchant QR code and authenticating with a UPI PIN. Availability depends on the issuing bank, app, merchant QR, and transaction category. A QR that accepts payments from a bank account does not necessarily accept a credit-card-linked UPI payment."
       },
       {
         "type": "paragraph",
-        "text": "Yet behind this seamless convenience lies an invisible behavioral trap. When UPI was purely connected to savings accounts, every scan produced immediate psychological friction: your real bank balance went down. With credit cards embedded into 1-tap QR scanning, that friction vanishes. Millions of young professionals are now accumulating dozens of micro-charges every week—without realizing how credit billing cycles, **revolving interest rates of 42% to 48% APR**, and credit bureau utilization reporting actually work."
+        "text": "The practical risk is not that every QR payment is dangerous; it is that small purchases can be easy to forget when they are charged to a credit line. A few everyday scans can accumulate into a statement balance that is larger than expected. The safest approach is to track spending and treat the linked card as borrowed money that must be repaid."
       },
       {
         "type": "callout",
         "variant": "warning",
-        "title": "The Decoupling Illusion: Spending Tomorrow's Income Today",
-        "content": "Behavioral economics research confirms that decoupling payment from consumption removes the natural 'pain of paying'. When scanning a QR code charges an invisible credit line rather than deducting money from your salary account, average ticket frequency rises by 25% to 40%. If you do not monitor these micro-spends, month-end billing surprises are inevitable."
+        "title": "A simple spending check",
+        "content": "A credit-card UPI payment is still a credit-card purchase—not money deducted immediately from your savings account. Before confirming, ask whether the purchase is planned and whether you can cover it when the statement is due. The examples below are illustrative, not a prediction of how every person will spend."
       },
       {
         "type": "heading2",
@@ -1671,16 +1675,43 @@
       },
       {
         "type": "table",
-        "caption": "Table 1: Technical & Fee Comparison — Bank Debit UPI vs. RuPay Credit on UPI (NPCI 2026 Standards)",
-        "headers": ["Feature", "Bank Savings UPI (Debit)", "RuPay Credit on UPI"],
+        "caption": "Table 1: How bank-account UPI and RuPay Credit on UPI differ",
+        "headers": [
+          "Feature",
+          "Bank Savings UPI (Debit)",
+          "RuPay Credit on UPI"
+        ],
         "rows": [
-          ["Transaction Scope", "P2P (Friends & Family) + P2M (Merchants)", "P2M (Verified Merchants Only) — P2P Blocked"],
-          ["Merchant Discount Rate (MDR)", "0% on all standard consumer transactions", "0% below ₹2,000 for small merchants; up to 2% for larger entities"],
-          ["Funding Mechanism", "Instant debit from your bank account", "Unsecured revolving credit line with issuing bank"],
-          ["Grace Period", "Not applicable (instant settlement)", "Up to 45–50 days if total bill is paid in full"],
-          ["Interest Penalty Rate", "0% (No loan liability)", "3.5% to 3.75% per month (42% to 45% APR annualized)"],
-          ["CIBIL Bureau Reporting", "None (Savings accounts not reported)", "Reported monthly (Total Limit & Utilized Balance)"],
-          ["Cash Withdrawal at ATM", "Standard ATM debit withdrawal", "Strictly blocked or subject to 2.5%–3.5% cash advance fees"]
+          [
+            "Transaction scope",
+            "Eligible person-to-person and merchant payments",
+            "Eligible merchant payments; P2P, P2PM and card-to-card payments are not permitted"
+          ],
+          [
+            "Funding source",
+            "Money is debited from the linked bank account",
+            "Purchase is billed to the linked credit card"
+          ],
+          [
+            "Merchant QR acceptance",
+            "Depends on the UPI payment flow and merchant",
+            "Must be eligible for credit-card-on-UPI payments; acceptance can vary"
+          ],
+          [
+            "Merchant charges",
+            "Applicable rules depend on payment type",
+            "Nil MDR applies to qualifying small offline merchants for transactions up to ₹2,000; other cases depend on applicable rules"
+          ],
+          [
+            "Interest",
+            "No credit-card interest on a normal bank-account debit",
+            "Issuer interest may apply if the card bill is not paid in full by the due date"
+          ],
+          [
+            "Rewards and exclusions",
+            "Depends on bank/payment offer",
+            "Depends on the card issuer, card variant, merchant category and current terms"
+          ]
         ]
       },
       {
@@ -1696,36 +1727,70 @@
       },
       {
         "type": "paragraph",
-        "text": "The greatest financial danger of RuPay Credit on UPI is the **Minimum Amount Due (MAD)**. When your monthly credit card statement arrives, banks prominently highlight a modest number—typically 5% of your outstanding balance. For a statement of ₹20,000, your Minimum Due might appear as just ₹1,000."
+        "text": "One important credit-card term is the Minimum Amount Due (MAD). For example, if a statement shows ₹20,000 total due and ₹1,000 minimum due, paying ₹1,000 may prevent the bill from being treated as wholly unpaid, but it does not clear the remaining ₹19,000 or make that balance interest-free. The exact minimum and interest calculation depend on the issuer's terms."
       },
       {
         "type": "paragraph",
-        "text": "Many first-time cardholders assume that paying the Minimum Due keeps them in good standing with zero penalty. **This is completely false.**"
+        "text": "Paying only the minimum is not the same as paying the bill in full. RBI directs issuers to warn cardholders that minimum-only payments can stretch repayment over months or years and that the interest-free period is suspended when a previous bill balance remains outstanding. Check the card's Most Important Terms and Conditions (MITC) for the applicable rate and method."
       },
       {
         "type": "checklist",
         "title": "What Actually Happens When You Pay Only the Minimum Due",
         "items": [
-          { "text": "The 45-day interest-free grace period is immediately REVOKED on all past transactions.", "checked": true },
-          { "text": "Revolving interest (typically 3.5% per month or 42% APR) begins accruing daily on the unpaid balance.", "checked": true },
-          { "text": "Interest is calculated retroactively from the exact date of each purchase, NOT from the bill due date.", "checked": true },
-          { "text": "Every new UPI scan made after that date incurs immediate daily interest from day one with ZERO grace period.", "checked": true },
-          { "text": "18% Goods & Services Tax (GST) is levied on top of all accumulated interest charges.", "checked": true }
+          {
+            "text": "The unpaid statement balance remains outstanding after the payment.",
+            "checked": true
+          },
+          {
+            "text": "Interest may be charged under the issuer's card terms; the applicable rate is not identical across all cards.",
+            "checked": true
+          },
+          {
+            "text": "The interest-free period can be suspended while a previous statement balance remains outstanding.",
+            "checked": true
+          },
+          {
+            "text": "GST may apply to interest and applicable fees as shown on the card statement.",
+            "checked": true
+          },
+          {
+            "text": "Late-payment charges and credit reporting consequences depend on the amount paid, timing, and applicable rules.",
+            "checked": true
+          }
         ]
       },
       {
         "type": "paragraph",
-        "text": "Consider the real mathematical compounding cost on a modest ₹10,000 balance rolled over at a standard 42% APR (3.5% per month):"
+        "text": "Illustrative example (not a bank quote): suppose a card issuer charges 3.5% interest per month on an eligible outstanding balance of ₹10,000. One month's simple interest on that balance would be about ₹350 before applicable taxes and any other charges. Actual interest can differ because issuers apply their disclosed method to the outstanding amount and transaction dates; check your statement and MITC."
       },
       {
         "type": "table",
-        "caption": "Table 2: Compounded Cost of Revolving RuPay Credit Card Debt (₹10,000 Starting Balance)",
-        "headers": ["Repayment Strategy", "Monthly Outflow", "Months to Freedom", "Total Interest + 18% GST", "Final Amount Paid"],
+        "caption": "Table 2: Illustrative one-month interest example (actual issuer calculations vary)",
+        "headers": [
+          "Illustrative balance",
+          "Assumed monthly rate",
+          "Approx. one-month interest before taxes/fees",
+          "What to do"
+        ],
         "rows": [
-          ["Pay Total Statement Balance (100%)", "₹10,000 on due date", "1 Month", "₹0.00", "₹10,000.00 (Zero Interest)"],
-          ["Aggressive Fixed Repayment", "₹3,500 / month", "3 Months", "₹685.00", "₹10,685.00"],
-          ["Modest Fixed Repayment", "₹1,500 / month", "8 Months", "₹1,620.00", "₹11,620.00"],
-          ["Minimum Amount Due (5% monthly)", "Starts at ₹500, tapers down", "62 Months (5+ Years)", "₹8,490.00", "₹18,490.00 (Nearly 2x!)"]
+          [
+            "₹10,000",
+            "3.5%",
+            "₹350",
+            "Check the issuer's disclosed APR and interest method"
+          ],
+          [
+            "₹20,000",
+            "3.5%",
+            "₹700",
+            "Pay the full statement balance by the due date where possible"
+          ],
+          [
+            "₹10,000",
+            "2.0%",
+            "₹200",
+            "Rates vary by issuer and card terms"
+          ]
         ]
       },
       {
@@ -1737,8 +1802,8 @@
       {
         "type": "callout",
         "variant": "warning",
-        "title": "The Retroactive Interest Clause",
-        "content": "Indian banking regulations dictate that if you carry even a ₹50 unpaid balance past your due date, you forfeit the grace period on everything. A ₹200 grocery scan made 40 days ago starts accumulating interest from 40 days ago, not from yesterday. Always pay the full statement balance—never leave a partial balance."
+        "title": "Check the issuer's interest calculation",
+        "content": "RBI's credit-card directions state that if the total amount due is not cleared by the payment due date, the interest-free period may be lost and interest may be levied on the outstanding amount from transaction dates, adjusted for payments, refunds, or reversals. The exact treatment depends on the applicable rules and card terms. Do not assume every small unpaid amount is treated identically; read the issuer's statement and MITC."
       },
       {
         "type": "heading2",
@@ -1747,19 +1812,19 @@
       },
       {
         "type": "paragraph",
-        "text": "Even if you pay your statement in full every single month, using RuPay Credit on UPI for everyday micro-transactions can silently damage your credit score. The culprit is your **Credit Utilization Ratio (CUR)**."
+        "text": "Credit utilization is the proportion of your reported card balance relative to the available credit limit. A higher reported balance can matter to a credit profile, but no single utilization threshold guarantees a particular CIBIL score change. Issuers report at particular times, so paying in full by the due date does not guarantee that every bureau snapshot will show a zero balance."
       },
       {
         "type": "paragraph",
-        "text": "Credit bureaus like TransUnion CIBIL, Experian, and Equifax calculate utilization using a simple formula: **(Total Outstanding Balance ÷ Total Credit Limit) × 100**."
+        "text": "A simple way to estimate utilization is: (reported outstanding balance ÷ total credit limit) × 100. For example, ₹12,000 reported against a ₹40,000 limit is 30%. This is a budgeting reference, not a universal scoring cutoff or a promise of a specific score outcome."
       },
       {
         "type": "paragraph",
-        "text": "Most introductory virtual RuPay credit cards issued by banks via UPI apps carry modest credit limits—often between **₹25,000 and ₹50,000**. When you use that card for daily lunches (₹250), cab rides (₹350), grocery deliveries (₹1,200), and evening coffee runs, your running balance can easily reach ₹20,000 before statement generation."
+        "text": "Here is a practical example. Assume a ₹40,000 limit and these illustrative purchases during the month: ₹650 at a café, ₹1,200 for groceries, ₹350 for a cab, and ₹2,800 for a planned household purchase. That totals ₹5,000. If other card purchases bring the reported balance to ₹12,000, utilization would be 30% (₹12,000 ÷ ₹40,000). The example shows how to calculate your own ratio; it does not predict a CIBIL score change."
       },
       {
         "type": "paragraph",
-        "text": "• On a **₹40,000 credit limit**, an outstanding balance of ₹24,000 represents a **60% utilization ratio**.\\n• Credit scoring algorithms consider any utilization above **30%** as a sign of financial distress and 'credit hunger'.\\n• Consequently, credit bureaus may dock your CIBIL score by **15 to 45 points**, even if you pay the full amount before the due date."
+        "text": "A lower reported balance can help keep credit use manageable, but scoring models are proprietary and bureau outcomes vary. Avoid claims that a fixed percentage will cause a fixed point drop; pay on time and follow your issuer's reporting and billing terms."
       },
       {
         "type": "image",
@@ -1778,23 +1843,23 @@
         "steps": [
           {
             "stepNumber": 1,
-            "title": "Enable Autopay for 'Total Amount Due' Only",
-            "description": "Log into your card issuer's mobile banking portal and enable mandate auto-debit. Ensure the setting is configured to 'Total Amount Due' rather than 'Minimum Amount Due'. This guarantees you never miss a billing deadline or incur 42% APR."
+            "title": "Pay the total statement amount by the due date",
+            "description": "Where you can, pay the total amount due rather than only the minimum. If you use autopay, confirm that the mandate is set to the total amount due and that sufficient funds are available."
           },
           {
             "stepNumber": 2,
-            "title": "Apply the 30% Safety Ceiling",
-            "description": "Calculate 30% of your RuPay card's total credit limit (e.g., ₹15,000 on a ₹50,000 limit). Set a hard monthly ceiling in your personal budget. Once you hit that threshold, switch back to your bank savings UPI."
+            "title": "Set a personal spending limit",
+            "description": "Choose a limit based on your budget and repayment capacity. A 30% utilization figure can be used as a cautious budgeting reference, not a guaranteed CIBIL-score threshold."
           },
           {
             "stepNumber": 3,
-            "title": "Reserve RuPay Credit for Planned Purchases Above ₹500",
-            "description": "Do not use credit on UPI for ₹20 chai, ₹40 street snacks, or impulse micro-transactions. Micro-swipes blur financial reality. Restrict credit scans to planned utility payments, electronics, fuel, and grocery restocking."
+            "title": "Review the card before confirming each QR payment",
+            "description": "Check that the selected funding source is your RuPay credit card, the merchant and amount are correct, and the transaction is permitted. Keep the receipt or transaction record for reconciliation."
           },
           {
             "stepNumber": 4,
-            "title": "Track Credit Scans On-Device via Automated Expense Ledger",
-            "description": "Because credit card SMS alerts arrive within seconds of scanning a merchant QR, use an automated on-device tracker like Pocket Advisor to track your credit utilization in real time, alerting you before you cross the 30% safety threshold."
+            "title": "Reconcile spending against the card statement",
+            "description": "Review bank/card SMS alerts and your issuer's app or statement. SMS delivery and parsing can vary, so do not treat any third-party expense tracker as a complete or authoritative card ledger."
           }
         ]
       },
@@ -1811,10 +1876,22 @@
         "type": "checklist",
         "title": "Intelligent On-Device Financial Protection",
         "items": [
-          { "text": "Automatic Account Classification: Instantly distinguishes between bank account debits and RuPay credit card authorizations from SMS alerts.", "checked": true },
-          { "text": "Real-Time Credit Utilization Radar: Monitors cumulative credit card spends against your limit and alerts you when crossing 30% CUR.", "checked": true },
-          { "text": "Billing Cycle Countdown: Tracks your statement generation date and payment due date so you never roll over revolving debt.", "checked": true },
-          { "text": "100% On-Device Isolation: All SMS parsing and budget calculations execute in an encrypted SQLCipher SQLite database—zero bank logins required and zero telemetry.", "checked": true }
+          {
+            "text": "Supported bank and UPI transaction alerts may be organized from messages recognized by the app; coverage depends on bank and message format.",
+            "checked": true
+          },
+          {
+            "text": "Review categorized expenses to spot spending patterns, then compare the records with the card issuer's statement.",
+            "checked": true
+          },
+          {
+            "text": "The issuer's own app and statement remain the source of truth for credit limit, total due, interest, and payment due date.",
+            "checked": true
+          },
+          {
+            "text": "Pocket Advisor is designed around local encrypted transaction storage, with optional cloud backup only when enabled by the user; review the current Privacy Policy for details.",
+            "checked": true
+          }
         ]
       },
       {
@@ -1824,14 +1901,40 @@
         "content": "A credit card is a 45-day short-term payment pipeline, not extra income. If you do not have the money in your bank account today to cover your street QR scan, do not swipe your RuPay credit card."
       },
       {
+        "type": "heading2",
+        "text": "6. A practical monthly example",
+        "id": "monthly-example"
+      },
+      {
+        "type": "paragraph",
+        "text": "Imagine you link an eligible RuPay credit card with a ₹40,000 limit. During the month you pay ₹650 at a café, ₹1,200 for groceries, ₹350 for a cab, and ₹2,800 for household items. These purchases total ₹5,000. If other purchases bring the balance reported by your issuer to ₹12,000, the simple utilization estimate is 30%. Set aside money for the statement and confirm the total due and payment date in your card issuer's app. All amounts are illustrative."
+      },
+      {
+        "type": "heading2",
+        "text": "7. Privacy and transaction tracking: what to verify",
+        "id": "privacy-and-tracking"
+      },
+      {
+        "type": "paragraph",
+        "text": "An expense tracker can help organize recognized transaction alerts, but SMS-based tracking is not guaranteed to capture every payment. Compare the app's records with your bank or credit-card statement, correct missed entries, and review permissions and privacy disclosures before granting access. For Pocket Advisor's product details, see the [UPI expense tracker guide](/upi-expense-tracker), [automatic UPI tracking guide](/how-to-track-upi-payments-automatically), and [Privacy Policy](/privacy-policy)."
+      },
+      {
+        "type": "heading2",
+        "text": "8. Official references and further reading",
+        "id": "official-references"
+      },
+      {
+        "type": "paragraph",
+        "text": "Check the primary sources before relying on any fee or interest claim: [NPCI — RuPay Credit Card on UPI](https://www.npci.org.in/product/rupay/credit-card-on-upi), [NPCI operating circular for RuPay Credit Cards linked to UPI](https://www.npci.org.in/PDF/npci/rupay/2022/Operating-circular-for-RuPay-Credit-Cards-linked-to-UPI.pdf), and [RBI — Credit Card and Debit Card Directions](https://rbi.org.in/scripts/FS_Notification.aspx?Id=12620). Rules, issuer rates, rewards and acceptance can change; confirm the current terms with your app and issuing bank."
+      },
+      {
         "type": "cta",
         "badge": "Android Native App",
-        "title": "Master Your UPI Spends & Avoid Credit Traps",
-        "description": "Download Pocket Advisor free on Google Play. Automatic on-device SMS expense tracking, real-time credit utilization monitoring, and 100% private offline encryption.",
+        "title": "Track UPI Spending With More Clarity",
+        "description": "Use Pocket Advisor to organize supported transaction alerts and review spending patterns. Confirm balances, credit limits, interest, and due dates with your card issuer.",
         "buttonText": "Get Pocket Advisor on Google Play",
         "buttonLink": "https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
       }
     ]
   }
 ]
-

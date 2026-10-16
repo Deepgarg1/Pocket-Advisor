@@ -45,7 +45,7 @@ export const PhoneMockup: React.FC = () => {
         className="screen-selector-tabs"
         style={{
           display: 'flex',
-          gap: '3px',
+          gap: '2px',
           padding: '4px',
           backgroundColor: 'var(--bg-surface)',
           borderRadius: 'var(--radius-full)',
@@ -62,13 +62,13 @@ export const PhoneMockup: React.FC = () => {
         <button
           onClick={() => setActiveTab('dashboard')}
           style={{
-            padding: '5px 6px',
+            padding: '5px 4px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             backgroundColor: activeTab === 'dashboard' ? '#5CF3B6' : 'transparent',
             color: activeTab === 'dashboard' ? '#003822' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.72rem',
+            fontSize: '0.66rem',
             cursor: 'pointer',
             transition: 'all 0.2s ease',
           }}
@@ -208,10 +208,10 @@ export const PhoneMockup: React.FC = () => {
           {/* 1. DASHBOARD SCREEN (Matches User Screenshot 1 with Varied Transactions) */}
           {/* ========================================================================= */}
           {activeTab === 'dashboard' && (
-            <div style={{ padding: '12px 16px 95px 16px', display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'left' }}>
+            <div style={{ padding: '10px 12px 80px 12px', display: 'flex', flexDirection: 'column', gap: '6px', textAlign: 'left' }}>
               {/* App Top Bar */}
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', textAlign: 'left' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', minWidth: 0 }}>
                   {/* User circular avatar */}
                   <div
                     style={{
@@ -233,11 +233,14 @@ export const PhoneMockup: React.FC = () => {
                   </div>
                   <span
                     style={{
-                      fontSize: '1.2rem',
+                      fontSize: '0.98rem',
                       fontWeight: 800,
                       color: '#0B132B',
                       whiteSpace: 'nowrap',
-                      letterSpacing: '-0.02em',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      letterSpacing: '-0.03em',
+                      minWidth: 0,
                       textAlign: 'left',
                     }}
                   >
@@ -245,11 +248,11 @@ export const PhoneMockup: React.FC = () => {
                   </span>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '9px', color: '#0B132B', flexShrink: 0 }}>
-                  <RotateCw size={17} style={{ cursor: 'pointer' }} />
+                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#0B132B', flexShrink: 0 }}>
+                  <RotateCw size={14} style={{ cursor: 'pointer' }} />
                   <span style={{ fontSize: '0.78rem', fontWeight: 800, cursor: 'pointer' }}>PDF</span>
-                  <Bell size={17} style={{ cursor: 'pointer' }} />
-                  <Settings size={17} style={{ cursor: 'pointer' }} />
+                  <Bell size={14} style={{ cursor: 'pointer' }} />
+                  <Settings size={14} style={{ cursor: 'pointer' }} />
                 </div>
               </div>
 
@@ -258,7 +261,7 @@ export const PhoneMockup: React.FC = () => {
                 style={{
                   backgroundColor: '#ffffff',
                   borderRadius: '22px',
-                  padding: '16px 18px',
+                  padding: '12px 12px',
                   border: '1px solid rgba(226, 232, 240, 0.7)',
                   boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
                   textAlign: 'left',
@@ -288,7 +291,7 @@ export const PhoneMockup: React.FC = () => {
                 {/* Total Balance Amount (Strictly left aligned) */}
                 <div
                   style={{
-                    fontSize: '2.1rem',
+                    fontSize: '1.8rem',
                     fontWeight: 900,
                     color: '#0B132B',
                     margin: '8px 0 14px 0',

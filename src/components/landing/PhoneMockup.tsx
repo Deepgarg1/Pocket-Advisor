@@ -161,6 +161,7 @@ export const PhoneMockup: React.FC = () => {
           width={576}
           height={1024}
           fetchPriority="high"
+          loading="eager"
           decoding="async"
           style={{
             width: '100%',

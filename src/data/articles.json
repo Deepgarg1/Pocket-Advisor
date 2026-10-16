@@ -1595,9 +1595,9 @@
   {
     "id": "rupay-credit-card-on-upi-rules-charges",
     "slug": "rupay-credit-card-on-upi-rules-charges",
-    "title": "RuPay Credit Card on UPI: Rules, Interest and Charges (2026)",
-    "subtitle": "Understand merchant QR eligibility, credit-card interest, billing due dates, and practical ways to keep UPI spending under control.",
-    "excerpt": "A practical guide to RuPay Credit Card on UPI in India: where it works, how interest and the minimum amount due work, how to think about credit utilization, and what to verify with your card issuer.",
+    "title": "RuPay Credit Card on UPI: Rules, Interest & Charges (2026)",
+    "subtitle": "Understand eligible merchant payments, issuer-specific charges, interest if you carry a balance, and how to calculate credit utilization without relying on score myths.",
+    "excerpt": "A practical guide to RuPay Credit Card on UPI rules, merchant eligibility, issuer-specific interest and fees, minimum-due risks, and credit utilization—using clear examples and official sources.",
     "coverImage": "/assets/news/rupay-credit-card-on-upi-rules-charges.webp",
     "coverImageAlt": "RuPay Credit Card on UPI Scanner and 42% APR Interest Avoidance Guide",
     "publishedAt": "2026-10-16",
@@ -1795,9 +1795,9 @@
       },
       {
         "type": "image",
-        "src": "/assets/news/rupay-42-apr-revolving-debt-trap.webp",
-        "alt": "42% APR Revolving Interest Trap vs Full Balance Settlement Infographic",
-        "caption": "Figure 1: Paying 100% Total Due preserves your 0% interest grace period and boosts credit score, while revolving Minimum Due pulls you into a 42% APR compounding debt spiral."
+        "src": "/assets/news/rupay-interest-cost-guide.svg",
+        "alt": "Illustrative credit-card interest example and the difference between paying the full statement balance and paying only the minimum",
+        "caption": "Figure 1: An illustrative interest calculation and the risks of carrying a balance. Your issuer's actual rate and calculation method may differ."
       },
       {
         "type": "callout",
@@ -1828,9 +1828,9 @@
       },
       {
         "type": "image",
-        "src": "/assets/news/rupay-credit-utilization-cibil-score.webp",
-        "alt": "Credit Utilization Ratio (CUR) Safety Gauge and CIBIL Impact Radar",
-        "caption": "Figure 2: Keeping RuPay on UPI credit utilization below 30% safeguards your CIBIL score against credit hunger penalties."
+        "src": "/assets/news/rupay-credit-utilization-guide.svg",
+        "alt": "Credit utilization calculation example showing ₹12,000 reported balance against a ₹40,000 limit, equal to 30%, without implying a universal score threshold",
+        "caption": "Figure 2: Credit utilization is a balance-to-limit calculation. A 30% example is not a universal cutoff or a guarantee of any CIBIL score outcome."
       },
       {
         "type": "heading2",

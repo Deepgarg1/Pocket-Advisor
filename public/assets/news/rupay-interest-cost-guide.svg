@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Credit card interest: know the cost</title>
+<desc id="desc">Illustrative example: 3.5 percent monthly interest on a 10,000 rupee carried balance is about 350 rupees for one month before taxes and fees. Paying only the minimum may leave a balance that accrues interest.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#172554"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#818cf8"/></linearGradient></defs>
+<rect width="1200" height="675" rx="30" fill="url(#bg)"/>
+<circle cx="1070" cy="65" r="180" fill="#2563eb" opacity=".12"/><circle cx="75" cy="650" r="160" fill="#06b6d4" opacity=".08"/>
+<text x="64" y="68" fill="#7dd3fc" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" letter-spacing="3">POCKET ADVISOR • CREDIT CARD BASICS</text>
+<text x="64" y="124" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="700">Credit card interest: know the cost</text>
+<text x="64" y="162" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="22">Illustrative example only — not a bank quote</text>
+<rect x="64" y="198" width="1072" height="175" rx="22" fill="#fff" opacity=".07" stroke="#64748b" stroke-opacity=".55"/>
+<text x="96" y="244" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Carried balance</text>
+<text x="96" y="302" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700">₹10,000</text>
+<rect x="395" y="230" width="2" height="112" fill="#64748b" opacity=".7"/>
+<text x="435" y="244" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Assumed monthly rate</text>
+<text x="435" y="302" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700">3.5%</text>
+<rect x="715" y="230" width="2" height="112" fill="#64748b" opacity=".7"/>
+<text x="755" y="244" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="20">Approx. one-month simple interest</text>
+<text x="755" y="302" fill="#7dd3fc" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700">₹350</text>
+<text x="96" y="345" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="17">Before applicable taxes, fees, and issuer-specific adjustments</text>
+<rect x="64" y="397" width="520" height="145" rx="18" fill="#064e3b" fill-opacity=".48" stroke="#34d399" stroke-opacity=".65"/>
+<circle cx="100" cy="438" r="13" fill="#34d399"/><path d="M93 438l5 5 10-11" fill="none" stroke="#052e2b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="126" y="445" fill="#a7f3d0" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700">Pay the full statement balance</text>
+<text x="96" y="482" fill="#ecfdf5" font-family="Arial,Helvetica,sans-serif" font-size="19">Pay by the due date to preserve the</text>
+<text x="96" y="510" fill="#ecfdf5" font-family="Arial,Helvetica,sans-serif" font-size="19">interest-free period where terms allow.</text>
+<rect x="616" y="397" width="520" height="145" rx="18" fill="#7f1d1d" fill-opacity=".42" stroke="#fb7185" stroke-opacity=".7"/>
+<circle cx="652" cy="438" r="13" fill="#fb7185"/><path d="M652 431v9m0 5v1" stroke="#4c0519" stroke-width="3" stroke-linecap="round"/>
+<text x="678" y="445" fill="#fecdd3" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700">Paying only the minimum</text>
+<text x="648" y="482" fill="#fff1f2" font-family="Arial,Helvetica,sans-serif" font-size="19">Leaves part of the balance unpaid;</text>
+<text x="648" y="510" fill="#fff1f2" font-family="Arial,Helvetica,sans-serif" font-size="19">interest may apply under card terms.</text>
+<text x="64" y="583" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="18">Actual charges depend on the issuer's disclosed APR, transaction dates, payments, and card terms.</text>
+<rect x="64" y="610" width="1072" height="3" rx="1.5" fill="url(#accent)"/>
+<text x="1136" y="644" text-anchor="end" fill="#94a3b8" font-family="Arial,Helvetica,sans-serif" font-size="16">pocketadvisor.in</text>
+</svg>

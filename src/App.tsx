@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-const Hero = lazy(() => import('./components/landing/Hero').then(module => ({ default: module.Hero })));
+import { Hero } from './components/landing/Hero';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
@@ -8,7 +8,7 @@ const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo'
 const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then(module => ({ default: module.DownloadSection })));
 const SplitterPage = lazy(() => import('./components/landing/SplitterPage').then(module => ({ default: module.SplitterPage })));
 const MonthlyBudgetPlanner = lazy(() => import('./components/tools/MonthlyBudgetPlanner').then(module => ({ default: module.MonthlyBudgetPlanner })));
-const FaqSection = lazy(() => import('./components/landing/FaqSection').then(module => ({ default: module.FaqSection })));
+import { FaqSection } from './components/landing/FaqSection';
 const PrivacyPolicyView = lazy(() => import('./components/legal/PrivacyPolicyView').then(module => ({ default: module.PrivacyPolicyView })));
 const TermsConditionsView = lazy(() => import('./components/legal/TermsConditionsView').then(module => ({ default: module.TermsConditionsView })));
 const DeleteAccountView = lazy(() => import('./components/legal/DeleteAccountView').then(module => ({ default: module.DeleteAccountView })));

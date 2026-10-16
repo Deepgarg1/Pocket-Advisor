@@ -130,6 +130,68 @@ const AuthorCard: React.FC<{ topic: string }> = ({ topic }) => (
   </div>
 );
 
+export interface TocItem {
+  id: string;
+  label: string;
+}
+
+export const TableOfContents: React.FC<{ items: TocItem[] }> = ({ items }) => (
+  <nav
+    aria-label="Table of contents"
+    style={{
+      padding: '16px 20px',
+      backgroundColor: 'var(--bg-surface-elevated)',
+      border: '1px solid var(--border-subtle)',
+      borderRadius: '16px',
+      marginBottom: '32px',
+    }}
+  >
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        fontSize: '0.82rem',
+        fontWeight: 800,
+        textTransform: 'uppercase',
+        letterSpacing: '0.05em',
+        color: 'var(--primary)',
+        marginBottom: '12px',
+      }}
+    >
+      <BookOpen size={16} />
+      <span>Table of Contents (Jump to Section)</span>
+    </div>
+    <ol
+      style={{
+        margin: 0,
+        paddingLeft: '20px',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+        gap: '8px 16px',
+      }}
+    >
+      {items.map((item) => (
+        <li key={item.id} style={{ fontSize: '0.88rem' }}>
+          <a
+            href={`#${item.id}`}
+            style={{
+              color: 'var(--text-secondary)',
+              textDecoration: 'none',
+              fontWeight: 600,
+              transition: 'color 0.2s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--primary)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+          >
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+);
+
 interface GuideViewProps {
   slug: string;
   onNavigate?: (view: string) => void;
@@ -216,8 +278,21 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         {/* E-E-A-T Author Card */}
         <AuthorCard topic="Roommate Rent &amp; Utility Allocation" />
 
+        {/* Table of Contents for Jump Links */}
+        <TableOfContents
+          items={[
+            { id: 'why-not-equal', label: 'Why Dividing Rent Equally Creates Resentment' },
+            { id: 'step-1', label: 'Step 1: Divide Total Rent into Two 50% Pools' },
+            { id: 'step-2', label: 'Step 2: Pool A: Common Space (Headcount Split)' },
+            { id: 'step-3', label: 'Step 3: Measure Private Square Footages' },
+            { id: 'step-4', label: 'Step 4: Attached Bathroom Amenity Premiums' },
+            { id: 'step-5', label: 'Step 5: 1-Tap WhatsApp Settlements' },
+            { id: 'faq', label: 'Frequently Asked Questions: Roommate Splits' },
+          ]}
+        />
+
         {/* Section 1: The Problem */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="why-not-equal" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Why Dividing Rent Equally Creates Resentment
           </h2>
@@ -437,7 +512,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </div>
 
         {/* Section 6: FAQ Accordion */}
-        <section style={{ marginBottom: '40px' }}>
+        <section id="faq" style={{ marginBottom: '40px', scrollMarginTop: '80px' }}>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <BookOpen size={20} color="var(--primary)" /> Frequently Asked Questions: Roommate Splits
           </h3>
@@ -533,8 +608,19 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         {/* E-E-A-T Author Card */}
         <AuthorCard topic="Home Loan Prepayment vs. Equity SIP Modeling" />
 
+        {/* Table of Contents for Jump Links */}
+        <TableOfContents
+          items={[
+            { id: 'dilemma', label: 'Psychological Debt Trap vs. The Compounding Engine' },
+            { id: 'comparison-table', label: 'Side-by-Side Comparison: Prepayment vs. Equity SIP' },
+            { id: 'hybrid-strategy', label: 'The 50:50 Hybrid Strategy: Mathematical Sweet Spot' },
+            { id: 'tax-rules', label: 'Section 24b and Section 80C Tax Realities' },
+            { id: 'prepayment-faq', label: 'Frequently Asked Questions: Loan Prepayment' },
+          ]}
+        />
+
         {/* Section 1: The Dilemma */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="dilemma" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             The Psychological Debt Trap vs. The Compounding Engine
           </h2>
@@ -547,7 +633,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 2: Comparison Matrix Table */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="comparison-table" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Side-by-Side Comparison: Prepayment vs. Equity SIP
           </h2>
@@ -588,7 +674,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 3: The 50:50 Hybrid Strategy */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="hybrid-strategy" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             The 50:50 Hybrid Strategy: The Mathematical Sweet Spot
           </h2>
@@ -636,8 +722,8 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
           </div>
         </section>
 
-        {/* Section 4: Three Golden Rules */}
-        <section style={{ marginBottom: '36px' }}>
+        {/* Section 4: Three Golden Rules & Tax Realities */}
+        <section id="tax-rules" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Three Golden Rules to Decide Your Strategy
           </h2>
@@ -698,7 +784,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </div>
 
         {/* Section 6: FAQ Accordion */}
-        <section style={{ marginBottom: '40px' }}>
+        <section id="prepayment-faq" style={{ marginBottom: '40px', scrollMarginTop: '80px' }}>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <BookOpen size={20} color="var(--primary)" /> Frequently Asked Questions: Loan Prepayment
           </h3>
@@ -801,8 +887,19 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         {/* E-E-A-T Author Card */}
         <AuthorCard topic="Zero-Trust Android Security &amp; SMS Expense Tracking" />
 
+        {/* Table of Contents for Jump Links */}
+        <TableOfContents
+          items={[
+            { id: 'privacy-risks', label: 'Privacy Risks of Cloud & Screen-Scraping Apps' },
+            { id: 'on-device-architecture', label: 'Zero-Trust Architecture: 100% On-Device Parsing' },
+            { id: 'security-matrix', label: 'Security Matrix: Pocket Advisor vs Traditional Apps' },
+            { id: 'setup-guide', label: '4-Step Setup Guide (Under 60 Seconds)' },
+            { id: 'faq', label: 'Frequently Asked Questions: Privacy & Tracking' },
+          ]}
+        />
+
         {/* Section 1: The Privacy Trap */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="privacy-risks" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             The Privacy Trap of Cloud-Based &amp; Credential-Scraping Apps
           </h2>
@@ -832,7 +929,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 2: How Pocket Advisor Does It */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="on-device-architecture" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             The Zero-Trust Architecture: 100% On-Device SMS Parsing
           </h2>
@@ -860,7 +957,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 3: Security Comparison Matrix */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="security-matrix" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Security Matrix: Pocket Advisor vs. Traditional Trackers
           </h2>
@@ -912,7 +1009,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 4: 4-Step Setup Guide */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="setup-guide" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Setting Up Automatic Tracking in Under 60 Seconds
           </h2>
@@ -1018,7 +1115,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </div>
 
         {/* Section 6: FAQ Accordion */}
-        <section style={{ marginBottom: '40px' }}>
+        <section id="faq" style={{ marginBottom: '40px', scrollMarginTop: '80px' }}>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <BookOpen size={20} color="var(--primary)" /> Frequently Asked Questions: Privacy &amp; Tracking
           </h3>
@@ -1114,8 +1211,20 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         {/* E-E-A-T Author Card */}
         <AuthorCard topic="Indian Personal Finance Engineering &amp; Data Architectures" />
 
+        {/* Table of Contents for Jump Links */}
+        <TableOfContents
+          items={[
+            { id: 'summary', label: '30-Second Summary: Which Category Fits You?' },
+            { id: 'architectures', label: 'Four Dominant Personal Finance Architectures' },
+            { id: 'comparison-matrix', label: 'Architectural Comparison Matrix (2026)' },
+            { id: 'in-depth-analysis', label: 'In-Depth Analysis of Each Architecture' },
+            { id: 'decision-framework', label: 'Decision Framework: Which Tracker Matches You?' },
+            { id: 'faq', label: 'Frequently Asked Questions' },
+          ]}
+        />
+
         {/* Section 1: The 30-Second Bottom Line */}
-        <section style={{ marginBottom: '40px' }}>
+        <section id="summary" style={{ marginBottom: '40px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             The 30-Second Summary: Which Category Fits Your Needs?
           </h2>
@@ -1183,7 +1292,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 2: Architectural Breakdown */}
-        <section style={{ marginBottom: '40px' }}>
+        <section id="architectures" style={{ marginBottom: '40px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Why Personal Finance in India is Architecturally Unique
           </h2>
@@ -1234,7 +1343,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 3: Feature Matrix Table */}
-        <section style={{ marginBottom: '44px' }}>
+        <section id="comparison-matrix" style={{ marginBottom: '44px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>
             Architectural Category Comparison Matrix
           </h2>
@@ -1331,7 +1440,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 4: Detailed Category Breakdowns */}
-        <section style={{ marginBottom: '44px' }}>
+        <section id="in-depth-analysis" style={{ marginBottom: '44px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '18px' }}>
             In-Depth Analysis of Each Architecture
           </h2>
@@ -1537,7 +1646,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 5: The Decision Framework */}
-        <section style={{ marginBottom: '44px' }}>
+        <section id="decision-framework" style={{ marginBottom: '44px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
             Decision Framework: Which Architecture Matches You?
           </h2>
@@ -1577,7 +1686,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 6: Frequently Asked Questions */}
-        <section style={{ marginBottom: '44px' }}>
+        <section id="faq" style={{ marginBottom: '44px', scrollMarginTop: '80px' }}>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <BookOpen size={20} color="var(--primary)" /> Frequently Asked Questions
           </h2>

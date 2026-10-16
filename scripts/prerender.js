@@ -184,6 +184,36 @@ const routes = [
           { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
           { '@type': 'ListItem', position: 3, name: 'Flatmates Rent Splitter', item: `${BASE_URL}/flatmates-rent-splitter` }
         ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How do you split rent fairly when bedroom sizes are different?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A proven framework is dividing total rent into two 50% pools: a 50% Common Area Pool (living room, kitchen, balcony) split equally by headcount, and a 50% Private Bedroom Pool split proportionally based on room square footage and attached bathroom amenities.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How should roommates split variable utility bills like electricity with AC?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Split fixed utilities (cook, maid, WiFi, drinking water) equally per person. For variable electricity bills with air conditioning, use non-AC winter months as common baseline consumption, then allocate the summer surge to the AC bedroom.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I export itemized room shares to WhatsApp with direct UPI payment links?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. The Pocket Advisor flatmates splitter generates an itemized WhatsApp receipt showing individual room shares and pre-configured direct UPI payment links so roommates can settle instantly via Google Pay or PhonePe.'
+            }
+          }
+        ]
       }
     ]
   },
@@ -219,6 +249,36 @@ const routes = [
           { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
           { '@type': 'ListItem', position: 3, name: 'SIP Calculator', item: `${BASE_URL}/sip-calculator` }
         ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'What is a Step-Up SIP and how does it compare to a normal SIP?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A Step-Up SIP increases your monthly mutual fund investment annually (e.g. by 10% in line with yearly salary raises). Over a 10 to 15 year investment horizon, stepping up your monthly contributions can more than double your final corpus compared to a fixed SIP.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Why does the Pocket Advisor SIP calculator factor in inflation?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'A ₹1 Crore corpus 20 years from now will have significantly lower purchasing power due to inflation (historically ~6% in India). Pocket Advisor displays both nominal maturity value and inflation-discounted real wealth so you can plan realistic financial targets.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Does the calculator support beginning-of-month and end-of-month compounding?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. You can toggle between annuity due (SIP deposit on the 1st of the month) and ordinary annuity (SIP deposit at month-end) to accurately match your bank auto-debit dates.'
+            }
+          }
+        ]
       }
     ]
   },
@@ -253,6 +313,28 @@ const routes = [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
           { '@type': 'ListItem', position: 3, name: 'EMI Calculator', item: `${BASE_URL}/emi-calculator` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How is reducing balance loan EMI calculated?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Monthly loan EMI is calculated using the formula E = P × r × (1 + r)^n / ((1 + r)^n - 1), where interest is recalculated monthly on the remaining outstanding principal. As monthly payments reduce the principal, less interest is charged in subsequent months.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can I view a year-by-year loan amortization schedule?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. The calculator outputs an annual amortization schedule showing opening balance, EMI paid, principal repaid, interest charged, and closing balance across the complete tenure.'
+            }
+          }
         ]
       }
     ]
@@ -352,6 +434,28 @@ const routes = [
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Are all financial tools and calculators on Pocket Advisor free?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes. All interactive financial tools—including the 2-stage greedy bill splitter, loan EMI calculator, step-up SIP wealth projector, and 50/30/20 monthly budget planner—are 100% free with no login, subscription, or software installation needed.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Are my financial calculations saved or uploaded to external servers?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. All calculations run strictly client-side in your web browser. No loan balances, salaries, or financial figures are uploaded or stored on any server.'
+            }
+          }
         ]
       }
     ]

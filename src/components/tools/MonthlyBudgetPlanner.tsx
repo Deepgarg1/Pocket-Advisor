@@ -17,6 +17,7 @@ import {
   Share2,
   Check,
 } from 'lucide-react';
+import { RelatedToolsNav } from './CalculatorGuides';
 
 export type ExpenseGroup = 'needs' | 'wants' | 'savings';
 
@@ -1016,6 +1017,9 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
             )}
           </div>
         </section>
+
+        {/* Related Calculators & Tools Silo */}
+        <RelatedToolsNav currentTool="budget" onNavigate={onNavigate} />
       </div>
     </div>
   );

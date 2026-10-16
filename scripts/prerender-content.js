@@ -218,7 +218,21 @@ export function getRouteBodyContent(slug, articles = []) {
     case 'how-to-split-rent-unequal-rooms':
       return `
         <article style="${contentStyle}">
-          <div style="${cardStyle}">
+          <nav aria-label="Table of contents" style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px 22px; margin: 24px 0;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #818cf8; margin-bottom: 12px;">
+              Table of Contents (Jump to Section)
+            </div>
+            <ol style="margin: 0; padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 16px;">
+              <li style="font-size: 0.88rem;"><a href="#why-not-equal" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">The Problem: Why Equal Splits Fail</a></li>
+              <li style="font-size: 0.88rem;"><a href="#step-1" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Step 1: Divide Total Rent into Two 50% Pools</a></li>
+              <li style="font-size: 0.88rem;"><a href="#step-2" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Step 2: Headcount vs. Square Footage Split</a></li>
+              <li style="font-size: 0.88rem;"><a href="#step-3" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Step 3: Measure Private Square Footage</a></li>
+              <li style="font-size: 0.88rem;"><a href="#step-4" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Step 4: Add Ensuite Bath Premiums &amp; Calculate</a></li>
+              <li style="font-size: 0.88rem;"><a href="#step-5" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Step 5: Generate 1-Tap WhatsApp Settlements</a></li>
+            </ol>
+          </nav>
+
+          <div id="why-not-equal" style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">The Problem: Why Equal 50/50 Splits Cause Roommate Conflict</h2>
             <p>
               Splitting flat rent 50/50 when one roommate gets a 220 sq ft master bedroom with a private attached bathroom and balcony, while the other gets a 130 sq ft room with a shared hallway bath, is mathematically unfair. Over a 12-month lease, this imbalance builds resentment and damages friendships.
@@ -285,63 +299,79 @@ export function getRouteBodyContent(slug, articles = []) {
     case 'home-loan-prepayment-vs-mutual-funds':
       return `
         <article style="${contentStyle}">
-          <div style="${cardStyle}">
+          <nav aria-label="Table of contents" style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px 22px; margin: 24px 0;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #818cf8; margin-bottom: 12px;">
+              Table of Contents (Jump to Section)
+            </div>
+            <ol style="margin: 0; padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 16px;">
+              <li style="font-size: 0.88rem;"><a href="#dilemma" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">The Dilemma: Prepay Principal vs. Equity SIP</a></li>
+              <li style="font-size: 0.88rem;"><a href="#comparison-table" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Side-by-Side Comparison Matrix</a></li>
+              <li style="font-size: 0.88rem;"><a href="#hybrid-strategy" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">The 50:50 Hybrid Strategy</a></li>
+              <li style="font-size: 0.88rem;"><a href="#tax-rules" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Section 24b and Old vs. New Tax Regime</a></li>
+            </ol>
+          </nav>
+
+          <div id="dilemma" style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">The Dilemma: Prepay Home Loan Principal vs Invest in Mutual Fund SIPs</h2>
             <p>
               When you have surplus savings each month, should you prepay your home loan principal or invest in an equity mutual fund SIP? Prepaying your home loan gives you a <strong>guaranteed, risk-free return</strong> equal to your loan interest rate (8.5% - 9.5%), while equity SIPs historically compound at <strong>12% - 15% CAGR</strong> over 10+ year horizons.
             </p>
           </div>
 
-          <h2 style="${headingStyle}">Comparing Guaranteed Debt Savings vs Market Compounding</h2>
-          <div style="overflow-x: auto; margin: 20px 0;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
-              <thead>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); color: #f8fafc;">
-                  <th style="padding: 12px 10px;">Factor</th>
-                  <th style="padding: 12px 10px;">Home Loan Prepayment</th>
-                  <th style="padding: 12px 10px;">Equity Mutual Fund SIP</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Expected Return</td>
-                  <td style="padding: 10px;">Guaranteed ~8.50% (loan rate)</td>
-                  <td style="padding: 10px;">Market-linked ~12.0% - 14.0%</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Risk Level</td>
-                  <td style="padding: 10px; color: #34d399;">Zero Risk (Guaranteed)</td>
-                  <td style="padding: 10px; color: #fbbf24;">Moderate / Market Volatile</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Liquidity</td>
-                  <td style="padding: 10px;">Low (Tied in real estate)</td>
-                  <td style="padding: 10px; color: #34d399;">High (Redeemable in T+2 days)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Tax Impact (Old Regime)</td>
-                  <td style="padding: 10px;">May reduce Sec 24b deduction</td>
-                  <td style="padding: 10px;">12.5% LTCG above ₹1.25 Lakh</td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Psychological Benefit</td>
-                  <td style="padding: 10px; color: #818cf8;">Peace of mind (debt free)</td>
-                  <td style="padding: 10px;">Wealth creation &amp; milestone growth</td>
-                </tr>
-              </tbody>
-            </table>
+          <div id="comparison-table">
+            <h2 style="${headingStyle}">Comparing Guaranteed Debt Savings vs Market Compounding</h2>
+            <div style="overflow-x: auto; margin: 20px 0;">
+              <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem;">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); color: #f8fafc;">
+                    <th style="padding: 12px 10px;">Factor</th>
+                    <th style="padding: 12px 10px;">Home Loan Prepayment</th>
+                    <th style="padding: 12px 10px;">Equity Mutual Fund SIP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Expected Return</td>
+                    <td style="padding: 10px;">Guaranteed ~8.50% (loan rate)</td>
+                    <td style="padding: 10px;">Market-linked ~12.0% - 14.0%</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Risk Level</td>
+                    <td style="padding: 10px; color: #34d399;">Zero Risk (Guaranteed)</td>
+                    <td style="padding: 10px; color: #fbbf24;">Moderate / Market Volatile</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Liquidity</td>
+                    <td style="padding: 10px;">Low (Tied in real estate)</td>
+                    <td style="padding: 10px; color: #34d399;">High (Redeemable in T+2 days)</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Tax Impact (Old Regime)</td>
+                    <td style="padding: 10px;">May reduce Sec 24b deduction</td>
+                    <td style="padding: 10px;">12.5% LTCG above ₹1.25 Lakh</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Psychological Benefit</td>
+                    <td style="padding: 10px; color: #818cf8;">Peace of mind (debt free)</td>
+                    <td style="padding: 10px;">Wealth creation &amp; milestone growth</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <h2 style="${headingStyle}">The 50:50 Hybrid Strategy: The Optimal Balanced Choice</h2>
-          <p>
-            Rather than making an all-or-nothing choice, financial engineers recommend the <strong>50:50 Hybrid Strategy</strong>:
-          </p>
-          <ul style="padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>50% Surplus towards Loan Principal:</strong> Reduces the outstanding loan tenure, saves lacs of rupees in compounding interest, and insulates you against rising RBI repo interest rate cycles.</li>
-            <li><strong>50% Surplus into Equity Mutual Fund SIP:</strong> Builds an untouchable, liquid multi-crore investment portfolio that outpaces inflation and preserves cash liquidity for medical emergencies or job transitions.</li>
-          </ul>
+          <div id="hybrid-strategy">
+            <h2 style="${headingStyle}">The 50:50 Hybrid Strategy: The Optimal Balanced Choice</h2>
+            <p>
+              Rather than making an all-or-nothing choice, financial engineers recommend the <strong>50:50 Hybrid Strategy</strong>:
+            </p>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+              <li><strong>50% Surplus towards Loan Principal:</strong> Reduces the outstanding loan tenure, saves lacs of rupees in compounding interest, and insulates you against rising RBI repo interest rate cycles.</li>
+              <li><strong>50% Surplus into Equity Mutual Fund SIP:</strong> Builds an untouchable, liquid multi-crore investment portfolio that outpaces inflation and preserves cash liquidity for medical emergencies or job transitions.</li>
+            </ul>
+          </div>
 
-          <div style="${cardStyle}">
+          <div id="tax-rules" style="${cardStyle}">
             <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Tax Reality: Section 24b Under Old vs New Tax Regime</h3>
             <p>
               Under the <strong>Old Tax Regime</strong>, up to ₹2,00,000 per financial year in home loan interest is deductible under Section 24b. If you prepay aggressively, your annual interest may drop below this cap, reducing your tax savings. However, under the <strong>New Tax Regime</strong> (default in India), Section 24b deductions for self-occupied homes are eliminated entirely, meaning your effective borrowing rate is the full nominal loan rate (~8.50% - 9.00%), dramatically increasing the benefit of prepaying.
@@ -357,35 +387,51 @@ export function getRouteBodyContent(slug, articles = []) {
     case 'how-to-track-upi-payments-automatically':
       return `
         <article style="${contentStyle}">
-          <div style="${cardStyle}">
-            <h2 style="${headingStyle} margin-top: 0;">Why 80% of People Abandon Manual Expense Tracking Within 14 Days</h2>
+          <nav aria-label="Table of contents" style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px 22px; margin: 24px 0;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #818cf8; margin-bottom: 12px;">
+              Table of Contents (Jump to Section)
+            </div>
+            <ol style="margin: 0; padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 16px;">
+              <li style="font-size: 0.88rem;"><a href="#privacy-risks" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Privacy Risks of Cloud &amp; Screen-Scraping Trackers</a></li>
+              <li style="font-size: 0.88rem;"><a href="#on-device-architecture" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Zero-Trust 100% On-Device Deterministic Parsing</a></li>
+              <li style="font-size: 0.88rem;"><a href="#setup-guide" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Setting Up Automatic Tracking (Under 60s)</a></li>
+              <li style="font-size: 0.88rem;"><a href="#google-play-compliance" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Google Play Financial Exception Compliance</a></li>
+            </ol>
+          </nav>
+
+          <div id="privacy-risks">
+            <div style="${cardStyle}">
+              <h2 style="${headingStyle} margin-top: 0;">Why 80% of People Abandon Manual Expense Tracking Within 14 Days</h2>
+              <p>
+                Typing every single ₹20 tea, ₹150 auto rickshaw ride, and ₹400 grocery UPI payment into an expense app requires superhuman discipline. Within two weeks, transaction logs fall behind, balances drift, and users give up completely.
+              </p>
+            </div>
+
+            <h2 style="${headingStyle}">The Problem with Cloud-Based Trackers: Privacy and Security Risks</h2>
             <p>
-              Typing every single ₹20 tea, ₹150 auto rickshaw ride, and ₹400 grocery UPI payment into an expense app requires superhuman discipline. Within two weeks, transaction logs fall behind, balances drift, and users give up completely.
+              Many expense tracking apps claim to solve this by requesting your <strong>Netbanking credentials</strong> or by uploading all your incoming text messages to remote cloud servers. This exposes users to serious risks:
             </p>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+              <li>Third-party cloud servers can be breached, exposing your account balances and transaction habits.</li>
+              <li>Screen scraping and credential sharing violate bank terms of service.</li>
+              <li>Uploading financial SMS alerts creates centralized surveillance targets.</li>
+            </ul>
           </div>
 
-          <h2 style="${headingStyle}">The Problem with Cloud-Based Trackers: Privacy and Security Risks</h2>
-          <p>
-            Many expense tracking apps claim to solve this by requesting your <strong>Netbanking credentials</strong> or by uploading all your incoming text messages to remote cloud servers. This exposes users to serious risks:
-          </p>
-          <ul style="padding-left: 20px; margin-bottom: 20px;">
-            <li>Third-party cloud servers can be breached, exposing your account balances and transaction habits.</li>
-            <li>Screen scraping and credential sharing violate bank terms of service.</li>
-            <li>Uploading financial SMS alerts creates centralized surveillance targets.</li>
-          </ul>
+          <div id="on-device-architecture">
+            <h2 style="${headingStyle}">The Pocket Advisor Solution: 100% On-Device Deterministic Parsing</h2>
+            <p>
+              Pocket Advisor was built from the ground up on a <strong>Zero-Trust Architecture</strong>:
+            </p>
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+              <li><strong>Deterministic On-Device Regex:</strong> Ingests incoming SMS alerts from verified banking senders (HDFC, SBI, ICICI, Axis, Kotak, Bandhan, PhonePe, Google Pay, Paytm) directly inside Android process memory.</li>
+              <li><strong>Strict In-Memory OTP Scrubbing:</strong> One-Time Passwords (OTPs), personal conversations, and non-financial text messages are discarded in volatile memory within milliseconds.</li>
+              <li><strong>SQLCipher AES-256 Encryption:</strong> Your transactions and budgets are saved to an offline SQLite database encrypted with 256-bit keys that never leave your device.</li>
+              <li><strong>Zero Cloud Telemetry:</strong> All categorization, charts, and budget limits execute locally on your phone CPU with zero internet connection required.</li>
+            </ul>
+          </div>
 
-          <h2 style="${headingStyle}">The Pocket Advisor Solution: 100% On-Device Deterministic Parsing</h2>
-          <p>
-            Pocket Advisor was built from the ground up on a <strong>Zero-Trust Architecture</strong>:
-          </p>
-          <ul style="padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>Deterministic On-Device Regex:</strong> Ingests incoming SMS alerts from verified banking senders (HDFC, SBI, ICICI, Axis, Kotak, Bandhan, PhonePe, Google Pay, Paytm) directly inside Android process memory.</li>
-            <li><strong>Strict In-Memory OTP Scrubbing:</strong> One-Time Passwords (OTPs), personal conversations, and non-financial text messages are discarded in volatile memory within milliseconds.</li>
-            <li><strong>SQLCipher AES-256 Encryption:</strong> Your transactions and budgets are saved to an offline SQLite database encrypted with 256-bit keys that never leave your device.</li>
-            <li><strong>Zero Cloud Telemetry:</strong> All categorization, charts, and budget limits execute locally on your phone CPU with zero internet connection required.</li>
-          </ul>
-
-          <div style="${cardStyle}">
+          <div id="setup-guide" style="${cardStyle}">
             <h3 style="font-size: 1.2rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Setting Up Automatic Tracking in Under 60 Seconds</h3>
             <ol style="padding-left: 20px; line-height: 1.7;">
               <li id="step-1" style="margin-bottom: 10px;"><strong>Step 1: Install Pocket Advisor for Android:</strong> Download the lightweight app with no mandatory account creation or phone number required.</li>
@@ -395,7 +441,7 @@ export function getRouteBodyContent(slug, articles = []) {
             </ol>
           </div>
 
-          <div style="${cardStyle}">
+          <div id="google-play-compliance" style="${cardStyle}">
             <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Google Play Compliance &amp; Security Verification</h3>
             <p>
               Pocket Advisor complies strictly with Google Play's <strong>Financial Money Management Exception</strong> policy. SMS permissions are strictly restricted to on-device parsing of banking transaction alerts, with no external server transmission.
@@ -411,7 +457,20 @@ export function getRouteBodyContent(slug, articles = []) {
     case 'best-expense-tracker-apps-india':
       return `
         <article style="${contentStyle}">
-          <div style="${cardStyle}">
+          <nav aria-label="Table of contents" style="background: rgba(17, 24, 39, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 18px 22px; margin: 24px 0;">
+            <div style="font-size: 0.82rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #818cf8; margin-bottom: 12px;">
+              Table of Contents (Jump to Section)
+            </div>
+            <ol style="margin: 0; padding-left: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 16px;">
+              <li style="font-size: 0.88rem;"><a href="#summary" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">30-Second Summary: Which Category Fits You?</a></li>
+              <li style="font-size: 0.88rem;"><a href="#architectures" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Four Dominant Personal Finance Architectures</a></li>
+              <li style="font-size: 0.88rem;"><a href="#comparison-matrix" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Architectural Comparison Matrix (2026)</a></li>
+              <li style="font-size: 0.88rem;"><a href="#in-depth-analysis" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">In-Depth Analysis of Each Architecture</a></li>
+              <li style="font-size: 0.88rem;"><a href="#decision-framework" style="color: #cbd5e1; text-decoration: none; font-weight: 600;">Decision Framework: Which Tracker Matches You?</a></li>
+            </ol>
+          </nav>
+
+          <div id="summary" style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">The 30-Second Summary: Which Category Fits Your Needs?</h2>
             <p>
               Tracking everyday personal expenses in India requires a completely different approach than in the US or Europe. With over 15 billion monthly UPI transactions, entering expenses manually becomes unsustainable within two weeks. Picking an expense tracker in India comes down to which underlying technical architecture and business model matches your daily habits:
@@ -424,128 +483,134 @@ export function getRouteBodyContent(slug, articles = []) {
             </ul>
           </div>
 
-          <h2 style="${headingStyle}">Why Personal Finance in India is Architecturally Unique: The 4 Core Models</h2>
-          <p>
-            Because Open Banking APIs like Plaid do not exist in India for consumer apps, expense trackers have evolved into four distinct architectural approaches:
-          </p>
-          <ol style="padding-left: 20px; margin-bottom: 24px;">
-            <li><strong>On-Device Deterministic Regex Parsing (e.g. Pocket Advisor):</strong> Intercepts bank transactional SMS on your Android phone, parses the amount and merchant using local regex patterns, and commits records to an encrypted on-device database (SQLCipher AES-256). Works 100% offline, with optional encrypted cloud backup for multi-device sync.</li>
-            <li><strong>The RBI Account Aggregator (AA) Framework (e.g. Fold):</strong> Connects directly to bank servers using RBI-regulated NBFC-AA intermediaries with explicit user OTP consent. Works on iOS, but relies on bank server uptime and involves recurring API query costs funded via subscriptions.</li>
-            <li><strong>Cloud FinTech &amp; Credit Underwriting Marketplaces (e.g. Moneyview, Axio):</strong> Reads SMS messages and uploads transaction logs to corporate cloud databases to underwrite personal loans, credit cards, and Buy Now Pay Later lines.</li>
-            <li><strong>Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha):</strong> Focuses on deliberate manual logging across desktop web browsers and mobile apps, avoiding permission sensitivities at the cost of manual effort.</li>
-          </ol>
-
-          <h2 style="${headingStyle}">Architectural Category Comparison Matrix (October 2026)</h2>
-          <div style="overflow-x: auto; margin: 24px 0;">
-            <table style="width: 100%; min-width: 760px; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
-              <thead>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); color: #f8fafc;">
-                  <th style="padding: 12px 10px;">Metric</th>
-                  <th style="padding: 12px 10px; color: #818cf8;">Offline-First SMS (e.g. Pocket Advisor)</th>
-                  <th style="padding: 12px 10px;">Account Aggregator (e.g. Fold)</th>
-                  <th style="padding: 12px 10px;">Cloud Credit Hubs (e.g. Moneyview, Axio)</th>
-                  <th style="padding: 12px 10px;">Manual Web Tools (e.g. Mera Kharcha)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Tracking Engine</td>
-                  <td style="padding: 10px; color: #34d399;">On-Device SMS Regex (Android)</td>
-                  <td style="padding: 10px;">RBI Account Aggregator APIs</td>
-                  <td style="padding: 10px;">Cloud-Parsed SMS &amp; Statements</td>
-                  <td style="padding: 10px;">Manual Entry (+ basic SMS)</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Data Storage &amp; Sync</td>
-                  <td style="padding: 10px; color: #34d399;">Local SQLCipher + Optional Cloud Backup</td>
-                  <td style="padding: 10px;">Cloud Database</td>
-                  <td style="padding: 10px; color: #f87171;">Cloud Underwriting DB</td>
-                  <td style="padding: 10px;">Cloud Database</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Bank Login / OTP</td>
-                  <td style="padding: 10px; color: #34d399;">Zero Logins (Local SMS Filter)</td>
-                  <td style="padding: 10px;">Phone OTP + RBI AA Consent</td>
-                  <td style="padding: 10px; color: #fbbf24;">Phone OTP + Cloud SMS Permissions</td>
-                  <td style="padding: 10px;">User Email / Password</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Monetization &amp; Ads</td>
-                  <td style="padding: 10px; color: #818cf8;">Ad-Supported Free / Optional Ad-Free Pro</td>
-                  <td style="padding: 10px;">Paid Subscription (~₹1,500–₹2,500/yr)</td>
-                  <td style="padding: 10px; color: #fbbf24;">Free (Monetized via Personal Loans/Cards)</td>
-                  <td style="padding: 10px;">Free with Ads / Pro Upgrade</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Loan Telemarketing?</td>
-                  <td style="padding: 10px; color: #34d399;">Zero Loan Sales / No NBFC Sharing</td>
-                  <td style="padding: 10px; color: #34d399;">Zero Loan Sales (Subscription model)</td>
-                  <td style="padding: 10px; color: #f87171;">Frequent In-App Loan &amp; Card Prompts</td>
-                  <td style="padding: 10px; color: #34d399;">No Loan Sales</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Group Bill Splitting</td>
-                  <td style="padding: 10px; color: #818cf8;">Built-in 2-Stage Greedy Debt Minimization</td>
-                  <td style="padding: 10px; color: #94a3b8;">Not Available</td>
-                  <td style="padding: 10px; color: #94a3b8;">Basic or Bill Reminders</td>
-                  <td style="padding: 10px;">Basic Group Ledger</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Works Offline?</td>
-                  <td style="padding: 10px; color: #34d399;">100% Functional Without Internet</td>
-                  <td style="padding: 10px; color: #f87171;">No (Requires Active AA Server)</td>
-                  <td style="padding: 10px;">Partial (Requires Cloud Sync)</td>
-                  <td style="padding: 10px;">Partial (Requires Web Connection)</td>
-                </tr>
-                <tr>
-                  <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Supported Platforms</td>
-                  <td style="padding: 10px; color: #818cf8;">Android Native + Free Web Tools</td>
-                  <td style="padding: 10px;">Android + iOS</td>
-                  <td style="padding: 10px;">Android + iOS</td>
-                  <td style="padding: 10px;">Desktop Web + Android + iOS</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2 style="${headingStyle}">In-Depth Analysis of Each Architecture</h2>
-          <div style="${cardStyle}">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: #818cf8; margin-top: 0;">Category 1: Offline-First SMS Trackers with Optional Cloud Sync (e.g. Pocket Advisor)</h3>
+          <div id="architectures">
+            <h2 style="${headingStyle}">Why Personal Finance in India is Architecturally Unique: The 4 Core Models</h2>
             <p>
-              Focuses on data ownership and speed. Pocket Advisor parses transaction SMS alerts from 15+ Indian banks and UPI applications (Google Pay, PhonePe, Paytm, BHIM) locally on-device. Data is stored in a local SQLCipher AES-256 encrypted database. Users who want seamless synchronization across devices or backup protection can enable optional encrypted Cloud Backup (powered by Supabase).
+              Because Open Banking APIs like Plaid do not exist in India for consumer apps, expense trackers have evolved into four distinct architectural approaches:
             </p>
-            <p><strong>Key Strengths:</strong> 100% offline-first functionality, local SQLCipher AES-256 database encryption, optional encrypted cloud backup for multi-device sync, integrated 2-stage greedy debt minimization for group expenses, and zero loan telemarketing calls or NBFC data sharing.</p>
-            <p><strong>Realistic Trade-offs:</strong> Free tier includes standard display ads (removable via optional Pro upgrade); automated SMS parsing is Android-only due to Apple iOS sandbox restrictions.</p>
+            <ol style="padding-left: 20px; margin-bottom: 24px;">
+              <li><strong>On-Device Deterministic Regex Parsing (e.g. Pocket Advisor):</strong> Intercepts bank transactional SMS on your Android phone, parses the amount and merchant using local regex patterns, and commits records to an encrypted on-device database (SQLCipher AES-256). Works 100% offline, with optional encrypted cloud backup for multi-device sync.</li>
+              <li><strong>The RBI Account Aggregator (AA) Framework (e.g. Fold):</strong> Connects directly to bank servers using RBI-regulated NBFC-AA intermediaries with explicit user OTP consent. Works on iOS, but relies on bank server uptime and involves recurring API query costs funded via subscriptions.</li>
+              <li><strong>Cloud FinTech &amp; Credit Underwriting Marketplaces (e.g. Moneyview, Axio):</strong> Reads SMS messages and uploads transaction logs to corporate cloud databases to underwrite personal loans, credit cards, and Buy Now Pay Later lines.</li>
+              <li><strong>Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha):</strong> Focuses on deliberate manual logging across desktop web browsers and mobile apps, avoiding permission sensitivities at the cost of manual effort.</li>
+            </ol>
           </div>
 
-          <div style="${cardStyle}">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-top: 0;">Category 2: RBI Account Aggregator Apps (e.g. Fold Money)</h3>
-            <p>
-              Connects directly to bank accounts via the RBI Account Aggregator framework. Users give OTP consent to fetch account balances and statements directly from participating banks, eliminating the need to read SMS text messages.
-            </p>
-            <p><strong>Key Strengths:</strong> Works on both iOS and Android with identical feature sets; direct bank server connection with zero SMS permissions required; modern, clutter-free user interface with zero advertising.</p>
-            <p><strong>Realistic Trade-offs:</strong> Requires a recurring annual paid subscription (~₹1,500 – ₹2,500/year); dependent on bank API uptimes; does not support group debt minimization.</p>
+          <div id="comparison-matrix">
+            <h2 style="${headingStyle}">Architectural Category Comparison Matrix (October 2026)</h2>
+            <div style="overflow-x: auto; margin: 24px 0;">
+              <table style="width: 100%; min-width: 760px; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+                <thead>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.15); color: #f8fafc;">
+                    <th style="padding: 12px 10px;">Metric</th>
+                    <th style="padding: 12px 10px; color: #818cf8;">Offline-First SMS (e.g. Pocket Advisor)</th>
+                    <th style="padding: 12px 10px;">Account Aggregator (e.g. Fold)</th>
+                    <th style="padding: 12px 10px;">Cloud Credit Hubs (e.g. Moneyview, Axio)</th>
+                    <th style="padding: 12px 10px;">Manual Web Tools (e.g. Mera Kharcha)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Tracking Engine</td>
+                    <td style="padding: 10px; color: #34d399;">On-Device SMS Regex (Android)</td>
+                    <td style="padding: 10px;">RBI Account Aggregator APIs</td>
+                    <td style="padding: 10px;">Cloud-Parsed SMS &amp; Statements</td>
+                    <td style="padding: 10px;">Manual Entry (+ basic SMS)</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Data Storage &amp; Sync</td>
+                    <td style="padding: 10px; color: #34d399;">Local SQLCipher + Optional Cloud Backup</td>
+                    <td style="padding: 10px;">Cloud Database</td>
+                    <td style="padding: 10px; color: #f87171;">Cloud Underwriting DB</td>
+                    <td style="padding: 10px;">Cloud Database</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Bank Login / OTP</td>
+                    <td style="padding: 10px; color: #34d399;">Zero Logins (Local SMS Filter)</td>
+                    <td style="padding: 10px;">Phone OTP + RBI AA Consent</td>
+                    <td style="padding: 10px; color: #fbbf24;">Phone OTP + Cloud SMS Permissions</td>
+                    <td style="padding: 10px;">User Email / Password</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Monetization &amp; Ads</td>
+                    <td style="padding: 10px; color: #818cf8;">Ad-Supported Free / Optional Ad-Free Pro</td>
+                    <td style="padding: 10px;">Paid Subscription (~₹1,500–₹2,500/yr)</td>
+                    <td style="padding: 10px; color: #fbbf24;">Free (Monetized via Personal Loans/Cards)</td>
+                    <td style="padding: 10px;">Free with Ads / Pro Upgrade</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Loan Telemarketing?</td>
+                    <td style="padding: 10px; color: #34d399;">Zero Loan Sales / No NBFC Sharing</td>
+                    <td style="padding: 10px; color: #34d399;">Zero Loan Sales (Subscription model)</td>
+                    <td style="padding: 10px; color: #f87171;">Frequent In-App Loan &amp; Card Prompts</td>
+                    <td style="padding: 10px; color: #34d399;">No Loan Sales</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Group Bill Splitting</td>
+                    <td style="padding: 10px; color: #818cf8;">Built-in 2-Stage Greedy Debt Minimization</td>
+                    <td style="padding: 10px; color: #94a3b8;">Not Available</td>
+                    <td style="padding: 10px; color: #94a3b8;">Basic or Bill Reminders</td>
+                    <td style="padding: 10px;">Basic Group Ledger</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Works Offline?</td>
+                    <td style="padding: 10px; color: #34d399;">100% Functional Without Internet</td>
+                    <td style="padding: 10px; color: #f87171;">No (Requires Active AA Server)</td>
+                    <td style="padding: 10px;">Partial (Requires Cloud Sync)</td>
+                    <td style="padding: 10px;">Partial (Requires Web Connection)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px; font-weight: 600; color: #f8fafc;">Supported Platforms</td>
+                    <td style="padding: 10px; color: #818cf8;">Android Native + Free Web Tools</td>
+                    <td style="padding: 10px;">Android + iOS</td>
+                    <td style="padding: 10px;">Android + iOS</td>
+                    <td style="padding: 10px;">Desktop Web + Android + iOS</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
 
-          <div style="${cardStyle}">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: #fbbf24; margin-top: 0;">Category 3: Cloud FinTech &amp; Credit Marketplaces (e.g. Moneyview, Axio)</h3>
-            <p>
-              Pairs SMS and statement expense tracking with credit line services. Provides real-time balance overviews, credit card due date alerts, and free monthly credit bureau score checks, funded primarily through digital lending products.
-            </p>
-            <p><strong>Key Strengths:</strong> Free monthly CIBIL/Experian credit score tracking; fast pre-approved personal loans; mature credit card statement cycle tracking.</p>
-            <p><strong>Realistic Trade-offs:</strong> Financial records hosted on corporate cloud databases for credit underwriting; frequent in-app loan banners and telemarketing notifications.</p>
+          <div id="in-depth-analysis">
+            <h2 style="${headingStyle}">In-Depth Analysis of Each Architecture</h2>
+            <div style="${cardStyle}">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #818cf8; margin-top: 0;">Category 1: Offline-First SMS Trackers with Optional Cloud Sync (e.g. Pocket Advisor)</h3>
+              <p>
+                Focuses on data ownership and speed. Pocket Advisor parses transaction SMS alerts from 15+ Indian banks and UPI applications (Google Pay, PhonePe, Paytm, BHIM) locally on-device. Data is stored in a local SQLCipher AES-256 encrypted database. Users who want seamless synchronization across devices or backup protection can enable optional encrypted Cloud Backup (powered by Supabase).
+              </p>
+              <p><strong>Key Strengths:</strong> 100% offline-first functionality, local SQLCipher AES-256 database encryption, optional encrypted cloud backup for multi-device sync, integrated 2-stage greedy debt minimization for group expenses, and zero loan telemarketing calls or NBFC data sharing.</p>
+              <p><strong>Realistic Trade-offs:</strong> Free tier includes standard display ads (removable via optional Pro upgrade); automated SMS parsing is Android-only due to Apple iOS sandbox restrictions.</p>
+            </div>
+
+            <div style="${cardStyle}">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-top: 0;">Category 2: RBI Account Aggregator Apps (e.g. Fold Money)</h3>
+              <p>
+                Connects directly to bank accounts via the RBI Account Aggregator framework. Users give OTP consent to fetch account balances and statements directly from participating banks, eliminating the need to read SMS text messages.
+              </p>
+              <p><strong>Key Strengths:</strong> Works on both iOS and Android with identical feature sets; direct bank server connection with zero SMS permissions required; modern, clutter-free user interface with zero advertising.</p>
+              <p><strong>Realistic Trade-offs:</strong> Requires a recurring annual paid subscription (~₹1,500 – ₹2,500/year); dependent on bank API uptimes; does not support group debt minimization.</p>
+            </div>
+
+            <div style="${cardStyle}">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #fbbf24; margin-top: 0;">Category 3: Cloud FinTech &amp; Credit Marketplaces (e.g. Moneyview, Axio)</h3>
+              <p>
+                Pairs SMS and statement expense tracking with credit line services. Provides real-time balance overviews, credit card due date alerts, and free monthly credit bureau score checks, funded primarily through digital lending products.
+              </p>
+              <p><strong>Key Strengths:</strong> Free monthly CIBIL/Experian credit score tracking; fast pre-approved personal loans; mature credit card statement cycle tracking.</p>
+              <p><strong>Realistic Trade-offs:</strong> Financial records hosted on corporate cloud databases for credit underwriting; frequent in-app loan banners and telemarketing notifications.</p>
+            </div>
+
+            <div style="${cardStyle}">
+              <h3 style="font-size: 1.15rem; font-weight: 700; color: #a78bfa; margin-top: 0;">Category 4: Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha)</h3>
+              <p>
+                Focuses on deliberate manual logging across desktop web browsers and mobile apps. Ideal for users who prefer doing their budgeting at an office desk or laptop browser without installing mobile applications.
+              </p>
+              <p><strong>Key Strengths:</strong> Accessible on any desktop browser without mobile device dependency; zero mobile SMS permissions required; intuitive interface for manual household accounting.</p>
+              <p><strong>Realistic Trade-offs:</strong> Requires ongoing manual entry discipline; financial records hosted on remote cloud databases; free tier displays banner ads.</p>
+            </div>
           </div>
 
-          <div style="${cardStyle}">
-            <h3 style="font-size: 1.15rem; font-weight: 700; color: #a78bfa; margin-top: 0;">Category 4: Manual Web &amp; Desktop Ledgers (e.g. Mera Kharcha)</h3>
-            <p>
-              Focuses on deliberate manual logging across desktop web browsers and mobile apps. Ideal for users who prefer doing their budgeting at an office desk or laptop browser without installing mobile applications.
-            </p>
-            <p><strong>Key Strengths:</strong> Accessible on any desktop browser without mobile device dependency; zero mobile SMS permissions required; intuitive interface for manual household accounting.</p>
-            <p><strong>Realistic Trade-offs:</strong> Requires ongoing manual entry discipline; financial records hosted on remote cloud databases; free tier displays banner ads.</p>
-          </div>
-
-          <div style="${cardStyle}">
+          <div id="decision-framework" style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">Decision Framework: Which Architecture Matches You?</h2>
             <ul style="padding-left: 20px; line-height: 1.8;">
               <li><strong>Offline-First SMS Tracker (e.g. Pocket Advisor):</strong> Best if you want automated UPI tracking, zero loan telemarketing calls, on-device encryption, optional cloud backup, and group bill splitting.</li>

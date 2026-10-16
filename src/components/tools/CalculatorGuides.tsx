@@ -81,9 +81,17 @@ export const FaqAccordionItem: React.FC<{ question: string; answer: string | Rea
 
 // Inter-Tool Navigation for SEO & Crawl Architecture
 export const RelatedToolsNav: React.FC<{
-  currentTool: 'split' | 'emi' | 'sip' | 'prepayment' | 'rent';
-}> = ({ currentTool }) => {
+  currentTool: 'split' | 'emi' | 'sip' | 'prepayment' | 'rent' | 'budget';
+  onNavigate?: (view: string) => void;
+}> = ({ currentTool, onNavigate }) => {
   const tools = [
+    {
+      id: 'budget',
+      href: '/monthly-budget-planner',
+      title: 'Plan 50/30/20 Monthly Budget & Track Take-Home Salary',
+      shortTitle: 'Monthly Budget Planner',
+      badge: '50/30/20',
+    },
     {
       id: 'prepayment',
       href: '/home-loan-prepayment-vs-sip',
@@ -148,6 +156,12 @@ export const RelatedToolsNav: React.FC<{
           <a
             key={t.id}
             href={t.href}
+            onClick={(e) => {
+              if (onNavigate) {
+                e.preventDefault();
+                onNavigate(t.href.replace(/^\//, ''));
+              }
+            }}
             style={{
               display: 'flex',
               flexDirection: 'column',

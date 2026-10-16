@@ -1179,6 +1179,96 @@ const routes = [
     ]
   },
   {
+    slug: 'news/rupay-credit-card-on-upi-rules-charges',
+    title: 'RuPay Credit Card on UPI: Hidden Charges, 42% APR Trap & Rules (2026) | Pocket Advisor',
+    description: 'Learn how to use RuPay Credit Cards on UPI safely. Understand 42% annualized interest compounding, minimum amount due pitfalls, the lost 45-day grace period rule, merchant MDR charges, and credit utilization risks.',
+    canonical: `${BASE_URL}/news/rupay-credit-card-on-upi-rules-charges`,
+    badgeCategory: 'Credit & UPI Guide',
+    pillText: 'NPCI RuPay on UPI • 42% APR Trap Protection',
+    h1: 'RuPay Credit Card on UPI: Hidden Charges &amp; 42% APR Trap',
+    h1Gradient: 'Avoid Revolving Interest &amp; Protect Your CIBIL Score',
+    heroDesc: 'Understand sub-₹2,000 merchant MDR rules, the minimum amount due trap, and how to safely link RuPay cards to Google Pay or PhonePe.',
+    ctaText: 'Get Pocket Advisor on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'RuPay Credit Card on UPI: Hidden Charges, 42% APR Trap & Rules (2026)',
+        description: 'A definitive guide to using RuPay credit cards on UPI safely. Understand 42% annualized interest compounding, minimum amount due pitfalls, the lost 45-day grace period rule, merchant MDR charges, and credit utilization risks.',
+        image: `${BASE_URL}/assets/news/rupay-credit-card-on-upi-rules-charges.webp`,
+        datePublished: '2026-10-16T00:00:00+05:30',
+        dateModified: '2026-10-16T00:00:00+05:30',
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Systems Architecture Desk', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/news/rupay-credit-card-on-upi-rules-charges`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: 'RuPay Credit Card on UPI Rules & Charges', item: `${BASE_URL}/news/rupay-credit-card-on-upi-rules-charges` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Can I transfer money from RuPay Credit Card to a friend\'s personal UPI account?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. Under National Payments Corporation of India (NPCI) guidelines, RuPay Credit on UPI is strictly restricted to Person-to-Merchant (P2M) transactions. You cannot send money to friends, family, or personal bank accounts (P2P), nor can you transfer funds directly to your own savings account.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Why do some small QR merchants reject RuPay Credit Card payments?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Transactions below ₹2,000 to small merchants carry zero Merchant Discount Rate (MDR). However, for transactions above ₹2,000 or at larger commercial merchants, acquiring banks charge an MDR of 1.5% to 2%. Some merchants disable credit-based UPI acceptance in their BharatQR or soundbox app settings to avoid paying these processing fees.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What happens if I only pay the Minimum Amount Due (MAD) on my RuPay Credit Card?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Paying only the Minimum Amount Due triggers severe financial penalties. The standard 45-day interest-free grace period is completely revoked for all past and future purchases. Banks immediately levy revolving interest of 3.0% to 3.75% per month (36% to 45% APR) calculated from the exact day each transaction was made, plus 18% GST on the accrued interest.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Does using RuPay Credit on UPI for small daily scans hurt my CIBIL score?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'It can if your Credit Utilization Ratio (CUR) exceeds 30%. Because scanning for street food, groceries, and fuel creates dozens of micro-transactions, your card balance can easily consume 40%–70% of a modest credit limit (e.g., ₹30,000 to ₹50,000). Credit bureaus interpret high utilization as credit dependency, dropping your score by 20 to 50 points.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Do I earn reward points and cashback on RuPay UPI credit scans?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Yes, but bank terms vary widely. Most Indian banks (such as HDFC, ICICI, SBI, Axis, and Punjab National Bank) provide 1% to 3% rewards on merchant UPI spends, but frequently exclude categories like fuel, utility bills, government payments, and wallet loads.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'How can I avoid paying interest while using RuPay Credit on UPI?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Follow three non-negotiable rules: always pay 100% of your Total Due (never Minimum Due) before the billing due date, keep total monthly spending below 30% of your credit limit, and monitor spending via an automated expense tracker like Pocket Advisor to prevent invisible overspending.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'how-to-split-rent-unequal-rooms',
     title: 'How to Split Rent Fairly for Unequal Rooms (2026 Formula & Calculator) | Pocket Advisor',
     description: 'Master bedroom with ensuite bath vs compact room: the exact mathematical 50/50 formula to split flat rent fairly without conflict. Includes free interactive calculator.',

@@ -31,6 +31,8 @@ import {
   Coffee,
   Building2,
   Check,
+  CreditCard,
+  ShieldAlert,
 } from 'lucide-react';
 
 export const PhoneMockup: React.FC = () => {
@@ -938,6 +940,46 @@ export const PhoneMockup: React.FC = () => {
 
               <div style={{ fontSize: '1rem', fontWeight: 800, color: '#0B132B', textAlign: 'left' }}>
                 Budget & Pattern Analysis
+              </div>
+
+              {/* RuPay Credit on UPI vs Bank Debit Radar */}
+              <div
+                style={{
+                  backgroundColor: '#ffffff',
+                  borderRadius: '20px',
+                  padding: '14px 16px',
+                  border: '1px solid rgba(226, 232, 240, 0.7)',
+                  boxShadow: '0 4px 16px rgba(0, 0, 0, 0.03)',
+                  textAlign: 'left',
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#0B132B', fontWeight: 800, fontSize: '0.86rem' }}>
+                    <CreditCard size={15} color="#0284C7" /> RuPay Credit on UPI Radar
+                  </div>
+                  <span style={{ fontSize: '0.66rem', backgroundColor: '#ecfdf5', color: '#059669', padding: '2px 7px', borderRadius: '6px', fontWeight: 700 }}>
+                    Safe Zone &bull; 28% CUR
+                  </span>
+                </div>
+                
+                {/* Visual Utilization Bar */}
+                <div style={{ margin: '8px 0 10px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: '#64748b', marginBottom: '4px' }}>
+                    <span>Credit Utilized: <strong style={{ color: '#0B132B' }}>₹14,200</strong> / ₹50,000</span>
+                    <span style={{ color: '#059669', fontWeight: 700 }}>28.4% (Cap 30%)</span>
+                  </div>
+                  <div style={{ width: '100%', height: '7px', background: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', display: 'flex' }}>
+                    <div style={{ width: '28.4%', background: 'linear-gradient(90deg, #0284c7 0%, #10b981 100%)', borderRadius: '4px' }} />
+                  </div>
+                </div>
+
+                {/* Split Insight & Warning */}
+                <div style={{ background: '#FFFBEB', border: '1px solid #FDE68A', borderRadius: '12px', padding: '9px 12px', display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
+                  <ShieldAlert size={14} color="#D97706" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <p style={{ margin: 0, fontSize: '0.69rem', color: '#92400E', lineHeight: 1.4 }}>
+                    <strong>42% APR Guard:</strong> Pay ₹14,200 full balance by Nov 4. Avoid Minimum Due (₹710) to preserve zero-interest grace period.
+                  </p>
+                </div>
               </div>
 
               {/* Top Expense Category Card */}

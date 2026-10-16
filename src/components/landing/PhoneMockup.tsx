@@ -142,11 +142,11 @@ export const PhoneMockup: React.FC = () => {
       <div
         style={{
           position: 'relative',
-          width: '385px',
+          width: '330px',
           maxWidth: 'calc(100vw - 32px)',
-          height: '810px',
+          height: '700px',
           backgroundColor: '#000000',
-          borderRadius: '44px',
+          borderRadius: '38px',
           border: '8px solid #1e293b',
           boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 0 50px rgba(103, 198, 248, 0.2)',
           overflow: 'hidden',

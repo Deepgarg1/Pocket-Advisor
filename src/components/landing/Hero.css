@@ -203,3 +203,17 @@
 @media (max-width: 520px) {
   .pa-phone-stage { max-width: 270px; }
 }
+
+/* Tighten the app preview itself: no clipped dashboard cards or tab labels. */
+.pa-phone-stage { max-width: 300px; }
+.pa-phone-stage > div { width: 100%; }
+.pa-phone-stage .screen-selector-tabs { width: 100% !important; max-width: 100% !important; overflow: hidden !important; gap: 1px !important; }
+.pa-phone-stage .screen-selector-tabs button { min-width: 0 !important; flex: 1 1 0 !important; white-space: nowrap; padding-left: 2px !important; padding-right: 2px !important; font-size: .62rem !important; }
+.pa-visual-label { display: none !important; }
+@media (min-width: 801px) {
+  .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(270px, .72fr); gap: 26px; }
+  .pa-hero-visual { min-width: 0; }
+  .pa-phone-stage { max-width: 300px; }
+}
+@media (max-width: 800px) { .pa-phone-stage { max-width: 290px; } }
+@media (max-width: 520px) { .pa-phone-stage { max-width: 270px; } }

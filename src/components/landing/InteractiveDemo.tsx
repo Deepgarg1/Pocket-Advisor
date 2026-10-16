@@ -431,9 +431,9 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '32px',
-              alignItems: 'center',
+              gridTemplateColumns: 'minmax(0, 0.92fr) minmax(0, 1.08fr)',
+              gap: '28px',
+              alignItems: 'start',
             }}
           >
             {/* Input Controls */}
@@ -523,7 +523,8 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
             {/* Results Card */}
             <div
               style={{
-                padding: '28px',
+                padding: 'clamp(18px, 2vw, 28px)',
+                minWidth: 0,
                 borderRadius: 'var(--radius-lg)',
                 backgroundColor: 'var(--bg-surface-elevated)',
                 border: '1px solid var(--border-subtle)',
@@ -579,18 +580,18 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
                     <button type="button" onClick={() => downloadCsv(yearlySummaryToCsv(yearlyRepayment), 'pocket-advisor-yearly-summary.csv')} style={{ border: '1px solid var(--border-subtle)', borderRadius: '9px', padding: '7px 10px', background: 'var(--bg-surface)', color: 'var(--text-primary)', cursor: 'pointer', fontWeight: 700 }}>Yearly CSV</button>
                   </div>
                 </div>
-                <div style={{ overflowX: 'auto', border: '1px solid var(--border-subtle)', borderRadius: '12px' }}>
-                  <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '650px', fontSize: '0.78rem', textAlign: 'right' }}>
+                <div style={{ overflowX: 'auto', maxWidth: '100%', border: '1px solid var(--border-subtle)', borderRadius: '12px' }}>
+                  <table style={{ width: '100%', tableLayout: 'fixed', borderCollapse: 'collapse', minWidth: '0', fontSize: 'clamp(0.64rem, 0.75vw, 0.76rem)', textAlign: 'right' }}>
                     <thead><tr style={{ background: 'var(--bg-surface-elevated)', color: 'var(--text-secondary)' }}>
-                      {(scheduleView === 'yearly' ? ['Year', 'Opening balance', 'Payments', 'Principal', 'Interest', 'Closing balance'] : ['Month', 'Opening balance', 'EMI', 'Interest', 'Principal', 'Closing balance']).map(label => <th key={label} scope="col" style={{ padding: '10px 12px', fontWeight: 700, borderBottom: '1px solid var(--border-subtle)', borderRight: '1px solid var(--border-subtle)', whiteSpace: 'nowrap' }}>{label}</th>)}
+                      {(scheduleView === 'yearly' ? ['Year', 'Opening balance', 'Payments', 'Principal', 'Interest', 'Closing balance'] : ['Month', 'Opening balance', 'EMI', 'Interest', 'Principal', 'Closing balance']).map(label => <th key={label} scope="col" style={{ padding: '9px 5px', fontWeight: 700, borderBottom: '1px solid var(--border-subtle)', borderRight: '1px solid var(--border-subtle)', whiteSpace: 'normal', overflowWrap: 'anywhere' }}>{label}</th>)}
                     </tr></thead>
                     <tbody>
                       {(scheduleView === 'yearly' ? yearlyRepayment : repayment.schedule).map((row: any) => <tr key={scheduleView === 'yearly' ? row.year : row.month} style={{ borderBottom: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}>
-                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{scheduleView === 'yearly' ? row.year : row.month}</td>
-                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(row.openingBalance), currencySymbol, 0)}</td>
-                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.totalPayment : row.scheduledPayment), currencySymbol, 0)}</td>
-                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.principalPaid : row.principalPaid), currencySymbol, 0)}</td>
-                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.interestPaid : row.interest), currencySymbol, 0)}</td>
+                        <td style={{ padding: '8px 5px', borderRight: '1px solid var(--border-subtle)', overflowWrap: 'anywhere' }}>{scheduleView === 'yearly' ? row.year : row.month}</td>
+                        <td style={{ padding: '8px 5px', borderRight: '1px solid var(--border-subtle)', overflowWrap: 'anywhere' }}>{formatMoney(Math.round(row.openingBalance), currencySymbol, 0)}</td>
+                        <td style={{ padding: '8px 5px', borderRight: '1px solid var(--border-subtle)', overflowWrap: 'anywhere' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.totalPayment : row.scheduledPayment), currencySymbol, 0)}</td>
+                        <td style={{ padding: '8px 5px', borderRight: '1px solid var(--border-subtle)', overflowWrap: 'anywhere' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.principalPaid : row.principalPaid), currencySymbol, 0)}</td>
+                        <td style={{ padding: '8px 5px', borderRight: '1px solid var(--border-subtle)', overflowWrap: 'anywhere' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.interestPaid : row.interest), currencySymbol, 0)}</td>
                         <td style={{ padding: '9px 12px' }}>{formatMoney(Math.round(row.closingBalance), currencySymbol, 0)}</td>
                       </tr>)}
                     </tbody>

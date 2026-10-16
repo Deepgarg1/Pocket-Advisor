@@ -18,6 +18,7 @@ import {
   PrepaymentVsSipGuide,
 } from '../tools/CalculatorGuides';
 import { updatePageSeo } from '../../utils/seo';
+import { calculateRepayment, summarizeByYear, repaymentScheduleToCsv, yearlySummaryToCsv } from '../../utils/emiCalculator';
 
 export type DemoTab = 'PREPAYMENT' | 'EMI' | 'SIP';
 
@@ -128,6 +129,7 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
 
   // Clipboard copy state flags
   const [copiedEmi, setCopiedEmi] = useState(false);
+  const [scheduleView, setScheduleView] = useState<'monthly' | 'yearly'>('yearly');
   const [copiedSip, setCopiedSip] = useState(false);
 
   // Sync EMI parameters to URL address bar
@@ -176,29 +178,30 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
     return `https://www.pocketadvisor.in/sip-calculator?${params.toString()}`;
   }, [monthlyInvestment, expectedReturn, investmentYears, annualStepUp, inflationRate]);
 
-  // Calculate EMI
-  const emiRes = React.useMemo(() => {
-    const principal = Math.max(0, loanAmount || 0);
-    const months = Math.max(0, (tenureYears || 0) * 12);
-    if (principal <= 0 || months <= 0) {
-      return { emi: 0, totalPayment: 0, totalInterest: 0, principalPct: 100, interestPct: 0 };
-    }
-    const monthlyRate = Math.max(0, interestRate || 0) / 12 / 100;
-    if (monthlyRate === 0) {
-      const emi = principal / months;
-      return { emi, totalPayment: principal, totalInterest: 0, principalPct: 100, interestPct: 0 };
-    }
-    const rateFactor = Math.pow(1 + monthlyRate, months);
-    if (!Number.isFinite(rateFactor) || rateFactor <= 1) {
-      return { emi: 0, totalPayment: 0, totalInterest: 0, principalPct: 100, interestPct: 0 };
-    }
-    const emi = (principal * monthlyRate * rateFactor) / (rateFactor - 1);
-    const totalPayment = emi * months;
-    const totalInterest = Math.max(0, totalPayment - principal);
+  // Canonical EMI calculation and amortization schedule.
+  const repayment = useMemo(() => calculateRepayment({
+    principal: loanAmount,
+    annualInterestRate: interestRate,
+    tenureMonths: Math.round(tenureYears * 12),
+  }), [loanAmount, interestRate, tenureYears]);
+  const emiRes = useMemo(() => {
+    const totalPayment = repayment.summary.totalPayment;
+    const principal = repayment.summary.totalPrincipal;
+    const totalInterest = repayment.summary.totalInterest;
     const principalPct = totalPayment > 0 ? Math.min(100, Math.max(0, Math.round((principal / totalPayment) * 100))) : 100;
-    const interestPct = Math.max(0, 100 - principalPct);
-    return { emi, totalPayment, totalInterest, principalPct, interestPct };
-  }, [loanAmount, interestRate, tenureYears]);
+    return { emi: repayment.summary.monthlyEmi, totalPayment, totalInterest, principalPct, interestPct: Math.max(0, 100 - principalPct) };
+  }, [repayment]);
+  const yearlyRepayment = useMemo(() => summarizeByYear(repayment.schedule), [repayment]);
+  const downloadCsv = (csv: string, filename: string) => {
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
 
   // Calculate SIP with Step-Up & Inflation
   const sipRes = React.useMemo(() => {
@@ -561,6 +564,39 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
                   <div style={{ width: `${emiRes.principalPct}%`, background: 'var(--primary)' }} title="Principal" />
                   <div style={{ width: `${emiRes.interestPct}%`, background: 'var(--expense)' }} title="Interest" />
                 </div>
+              </div>
+
+              <div style={{ marginTop: '12px', borderTop: '1px solid var(--border-subtle)', paddingTop: '18px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '12px' }}>
+                  <div>
+                    <h4 style={{ margin: 0, color: 'var(--text-primary)', fontSize: '1rem', fontWeight: 800 }}>Repayment schedule</h4>
+                    <p style={{ margin: '4px 0 0', color: 'var(--text-secondary)', fontSize: '0.78rem' }}>{repayment.schedule.length} installments · reducing-balance estimate</p>
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                    <button type="button" onClick={() => setScheduleView('yearly')} aria-pressed={scheduleView === 'yearly'} style={{ border: '1px solid var(--border-subtle)', borderRadius: '9px', padding: '7px 10px', background: scheduleView === 'yearly' ? 'var(--primary)' : 'var(--bg-surface)', color: scheduleView === 'yearly' ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontWeight: 700 }}>Yearly</button>
+                    <button type="button" onClick={() => setScheduleView('monthly')} aria-pressed={scheduleView === 'monthly'} style={{ border: '1px solid var(--border-subtle)', borderRadius: '9px', padding: '7px 10px', background: scheduleView === 'monthly' ? 'var(--primary)' : 'var(--bg-surface)', color: scheduleView === 'monthly' ? '#fff' : 'var(--text-primary)', cursor: 'pointer', fontWeight: 700 }}>Monthly</button>
+                    <button type="button" onClick={() => downloadCsv(repaymentScheduleToCsv(repayment.schedule), 'pocket-advisor-repayment-schedule.csv')} style={{ border: '1px solid var(--border-subtle)', borderRadius: '9px', padding: '7px 10px', background: 'var(--bg-surface)', color: 'var(--text-primary)', cursor: 'pointer', fontWeight: 700 }}>Export CSV</button>
+                    <button type="button" onClick={() => downloadCsv(yearlySummaryToCsv(yearlyRepayment), 'pocket-advisor-yearly-summary.csv')} style={{ border: '1px solid var(--border-subtle)', borderRadius: '9px', padding: '7px 10px', background: 'var(--bg-surface)', color: 'var(--text-primary)', cursor: 'pointer', fontWeight: 700 }}>Yearly CSV</button>
+                  </div>
+                </div>
+                <div style={{ overflowX: 'auto', border: '1px solid var(--border-subtle)', borderRadius: '12px' }}>
+                  <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '650px', fontSize: '0.78rem', textAlign: 'right' }}>
+                    <thead><tr style={{ background: 'var(--bg-surface-elevated)', color: 'var(--text-secondary)' }}>
+                      {(scheduleView === 'yearly' ? ['Year', 'Opening balance', 'Payments', 'Principal', 'Interest', 'Closing balance'] : ['Month', 'Opening balance', 'EMI', 'Interest', 'Principal', 'Closing balance']).map(label => <th key={label} scope="col" style={{ padding: '10px 12px', fontWeight: 700, borderBottom: '1px solid var(--border-subtle)', borderRight: '1px solid var(--border-subtle)', whiteSpace: 'nowrap' }}>{label}</th>)}
+                    </tr></thead>
+                    <tbody>
+                      {(scheduleView === 'yearly' ? yearlyRepayment : repayment.schedule).map((row: any) => <tr key={scheduleView === 'yearly' ? row.year : row.month} style={{ borderBottom: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}>
+                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{scheduleView === 'yearly' ? row.year : row.month}</td>
+                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(row.openingBalance), currencySymbol, 0)}</td>
+                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.totalPayment : row.scheduledPayment), currencySymbol, 0)}</td>
+                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.principalPaid : row.principalPaid), currencySymbol, 0)}</td>
+                        <td style={{ padding: '9px 12px', borderRight: '1px solid var(--border-subtle)' }}>{formatMoney(Math.round(scheduleView === 'yearly' ? row.interestPaid : row.interest), currencySymbol, 0)}</td>
+                        <td style={{ padding: '9px 12px' }}>{formatMoney(Math.round(row.closingBalance), currencySymbol, 0)}</td>
+                      </tr>)}
+                    </tbody>
+                  </table>
+                </div>
+                <p style={{ margin: '10px 0 0', color: 'var(--text-muted)', fontSize: '0.75rem', lineHeight: 1.5 }}>Estimates use monthly reducing-balance interest and rounded installment ledger entries. Actual lender schedules may differ due to payment dates, daily interest, fees, and lender-specific rounding.</p>
               </div>
 
               {/* Action Buttons: WhatsApp Share & Copy Link */}

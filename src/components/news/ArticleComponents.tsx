@@ -136,7 +136,12 @@ export const ArticleTable: React.FC<{
       )}
       <div
         style={{
+          width: '100%',
+          maxWidth: '100%',
           overflowX: 'auto',
+          overflowY: 'hidden',
+          WebkitOverflowScrolling: 'touch',
+          overscrollBehaviorX: 'contain',
           borderRadius: '16px',
           border: '1px solid var(--border-subtle)',
           backgroundColor: 'var(--bg-surface)',
@@ -146,10 +151,13 @@ export const ArticleTable: React.FC<{
         <table
           style={{
             width: '100%',
-            borderCollapse: 'collapse',
+            minWidth: headers.length >= 4 ? '820px' : '560px',
+            tableLayout: 'auto',
+            borderCollapse: 'separate',
+            borderSpacing: 0,
             textAlign: 'left',
             fontSize: '0.92rem',
-            lineHeight: 1.5,
+            lineHeight: 1.55,
           }}
         >
           <thead>
@@ -166,7 +174,9 @@ export const ArticleTable: React.FC<{
                     padding: '14px 18px',
                     fontWeight: 700,
                     color: 'var(--text-primary)',
-                    whiteSpace: 'nowrap',
+                    whiteSpace: 'normal',
+                    verticalAlign: 'bottom',
+                    minWidth: i === 0 ? '140px' : i === headers.length - 1 ? '220px' : '160px',
                     letterSpacing: '0.01em',
                   }}
                 >
@@ -201,11 +211,13 @@ export const ArticleTable: React.FC<{
                       <td
                         key={cIdx}
                         style={{
-                          padding: '14px 18px',
+                          padding: '16px 18px',
                           color: highlight ? 'var(--text-primary)' : 'var(--text-secondary)',
                           fontWeight: highlight ? 700 : 400,
                           textAlign: align,
                           verticalAlign: 'middle',
+                          minWidth: cIdx === 0 ? '140px' : cIdx === headers.length - 1 ? '220px' : '160px',
+                          overflowWrap: 'break-word',
                         }}
                       >
                         <div
@@ -220,9 +232,10 @@ export const ArticleTable: React.FC<{
                                 : 'flex-start',
                             gap: '8px',
                             flexWrap: 'wrap',
+                            minWidth: 0,
                           }}
                         >
-                          <span>{cellText}</span>
+                          <span style={{ overflowWrap: 'anywhere' }}>{cellText}</span>
                           {badge && (
                             <span
                               style={{

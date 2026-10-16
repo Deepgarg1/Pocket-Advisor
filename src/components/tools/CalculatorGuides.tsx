@@ -260,7 +260,7 @@ export const AppConversionBanner: React.FC = () => {
           <CheckCircle2 size={16} color="#10b981" /> No OTP or Netbanking Passwords
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <CheckCircle2 size={16} color="#10b981" /> 4.9 ★ Rating on Android
+          <CheckCircle2 size={16} color="#10b981" /> Free Forever &amp; 100% Local
         </span>
       </div>
     </div>

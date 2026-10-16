@@ -230,26 +230,34 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
         </section>
 
         {/* Section 2: The Golden 50/50 Framework */}
-        <section style={{ marginBottom: '36px' }}>
+        <section id="step-1" style={{ marginBottom: '36px', scrollMarginTop: '80px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', fontWeight: 800, padding: '3px 8px', borderRadius: '6px', backgroundColor: 'rgba(99, 102, 241, 0.15)', color: 'var(--primary)', marginBottom: '8px' }}>
+            STEP 1 OF 5
+          </div>
           <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
-            The 50/50 Common vs. Private Space Formula
+            Divide Total Rent into Two 50% Pools
           </h2>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.96rem', marginBottom: '18px' }}>
             Top real estate economists and tenant associations recommend dividing the total monthly rent into two equal pools:
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '20px' }}>
-            <Card style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(99, 102, 241, 0.3)' }}>
-              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: '6px' }}>
-                Pool A: 50% Common Space
-              </div>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
-                Living room, kitchen, shared balconies, dining area, and hallway. Everyone has equal access to these areas, so this 50% is divided <strong>equally by headcount</strong>.
-              </p>
-            </Card>
+            <div id="step-2" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(99, 102, 241, 0.3)', height: '100%' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 800, padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(99, 102, 241, 0.2)', color: 'var(--primary)', marginBottom: '6px' }}>
+                  STEP 2
+                </div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: '6px' }}>
+                  Pool A: 50% Common Space (Split Equally by Headcount)
+                </div>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
+                  Living room, kitchen, shared balconies, dining area, and hallway. Everyone has equal access to these areas, so this 50% is divided <strong>equally by headcount</strong>.
+                </p>
+              </Card>
+            </div>
 
             <Card style={{ padding: '20px', borderRadius: '16px', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '6px' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: '6px' }}>
                 Pool B: 50% Private Bedroom Space
               </div>
               <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
@@ -282,6 +290,36 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.96rem', marginBottom: '18px' }}>
             Let's calculate the exact rent breakdown for 3 roommates (Aman, Priya, and Rohan) sharing a 3BHK apartment in Bengaluru:
           </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px', marginBottom: '18px' }}>
+            <div id="step-3" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '16px', borderRadius: '14px', border: '1px solid var(--border-subtle)', height: '100%' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 800, padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(99, 102, 241, 0.15)', color: 'var(--primary)', marginBottom: '6px' }}>
+                  STEP 3
+                </div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                  Measure Private Bedroom Square Footages
+                </div>
+                <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  Aman: 180 sq ft, Priya: 130 sq ft, Rohan: 100 sq ft. Calculate each tenant's bedroom percentage share.
+                </p>
+              </Card>
+            </div>
+
+            <div id="step-4" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '16px', borderRadius: '14px', border: '1px solid var(--border-subtle)', height: '100%' }}>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.72rem', fontWeight: 800, padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(16, 185, 129, 0.15)', color: '#10b981', marginBottom: '6px' }}>
+                  STEP 4
+                </div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                  Add Amenity Premiums for Attached Bathrooms
+                </div>
+                <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  Apply a 10%–15% weighted premium to the master bedroom private share for ensuite bathroom luxury.
+                </p>
+              </Card>
+            </div>
+          </div>
 
           <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', textAlign: 'left' }}>
@@ -355,7 +393,9 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
 
         {/* Section 5: Interactive Tool Call-to-Action */}
         <div
+          id="step-5"
           style={{
+            scrollMarginTop: '80px',
             padding: '32px',
             borderRadius: '24px',
             background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%)',
@@ -365,7 +405,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
           }}
         >
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', marginBottom: '10px' }}>
-            <Sparkles size={16} /> Free Online Tool • Zero Login
+            <Sparkles size={16} /> STEP 5: Generate 1-Tap WhatsApp UPI Settlements
           </div>
           <h3 style={{ fontSize: '1.55rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
             Calculate Your Roommate Split in 30 Seconds
@@ -877,30 +917,38 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             Setting Up Automatic Tracking in Under 60 Seconds
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px' }}>
-            <Card style={{ padding: '18px', borderRadius: '16px' }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '6px' }}>STEP 1</div>
-              <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                Install Pocket Advisor for Android. No mandatory account creation or phone number required.
-              </p>
-            </Card>
-            <Card style={{ padding: '18px', borderRadius: '16px' }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#10b981', marginBottom: '6px' }}>STEP 2</div>
-              <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                Enable automatic SMS expense tracking after reviewing the transparent in-app disclosure dialog.
-              </p>
-            </Card>
-            <Card style={{ padding: '18px', borderRadius: '16px' }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#38bdf8', marginBottom: '6px' }}>STEP 3</div>
-              <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                Pay using UPI (Google Pay, PhonePe, Paytm), debit/credit card, or netbanking as you normally do.
-              </p>
-            </Card>
-            <Card style={{ padding: '18px', borderRadius: '16px' }}>
-              <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#f59e0b', marginBottom: '6px' }}>STEP 4</div>
-              <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                When your bank sends an SMS confirmation, Pocket Advisor parses the amount and merchant locally, instantly updating your budget.
-              </p>
-            </Card>
+            <div id="step-1" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '18px', borderRadius: '16px', height: '100%' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '6px' }}>STEP 1</div>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  Install Pocket Advisor for Android. No mandatory account creation or phone number required.
+                </p>
+              </Card>
+            </div>
+            <div id="step-2" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '18px', borderRadius: '16px', height: '100%' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#10b981', marginBottom: '6px' }}>STEP 2</div>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  Enable automatic SMS expense tracking after reviewing the transparent in-app disclosure dialog.
+                </p>
+              </Card>
+            </div>
+            <div id="step-3" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '18px', borderRadius: '16px', height: '100%' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#38bdf8', marginBottom: '6px' }}>STEP 3</div>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  Pay using UPI (Google Pay, PhonePe, Paytm), debit/credit card, or netbanking as you normally do.
+                </p>
+              </Card>
+            </div>
+            <div id="step-4" style={{ scrollMarginTop: '80px' }}>
+              <Card style={{ padding: '18px', borderRadius: '16px', height: '100%' }}>
+                <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#f59e0b', marginBottom: '6px' }}>STEP 4</div>
+                <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
+                  When your bank sends an SMS confirmation, Pocket Advisor parses the amount and merchant locally, instantly updating your budget.
+                </p>
+              </Card>
+            </div>
           </div>
         </section>
 

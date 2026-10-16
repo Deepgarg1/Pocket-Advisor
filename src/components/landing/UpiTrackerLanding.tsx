@@ -746,7 +746,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
           Start Tracking UPI &amp; Bank Expenses Today
         </h2>
         <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: '640px', margin: '0 auto 28px', lineHeight: 1.6 }}>
-          Join thousands of smart Indians managing their money with complete privacy. Available now on Google Play Store.
+          Manage your expenses with 100% on-device privacy. Coming soon to Google Play — stay tuned for our official launch on October 20, 2026.
         </p>
 
         <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>

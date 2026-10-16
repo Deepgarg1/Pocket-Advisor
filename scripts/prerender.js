@@ -27,8 +27,8 @@ const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 const routes = [
   {
     slug: 'split',
-    title: 'Bill Splitter App | Split Group Expenses Fairly | Pocket Advisor',
-    description: 'Split restaurant bills, group trips, and rent with 2-stage greedy debt minimization. Eliminate tangled debts, calculate tax/tips, and export receipts to WhatsApp for free.',
+    title: 'Free Bill Splitter India (No Login) — Export to WhatsApp | Pocket Advisor',
+    description: 'Split restaurant bills, group trips, and flatmate rent with 2-stage greedy debt minimization. Eliminate tangled debts, calculate tax/tips, and export receipts to WhatsApp for free without creating an account.',
     canonical: `${BASE_URL}/split`,
     badgeCategory: 'Free Web Tool',
     pillText: '2-Stage Greedy Debt Minimization • No Login Required',
@@ -91,7 +91,7 @@ const routes = [
   },
   {
     slug: 'home-loan-prepayment-vs-sip',
-    title: 'Home Loan Prepayment vs. SIP Calculator | Pocket Advisor',
+    title: 'Home Loan Prepayment vs SIP Calculator (2026) — Compare Tax & Returns | Pocket Advisor',
     description: 'Should you prepay your home loan or invest in equity SIP? Compare compounded interest saved with mutual fund returns, Sec 24b tax deductions, and 50:50 hybrid strategies online.',
     canonical: `${BASE_URL}/home-loan-prepayment-vs-sip`,
     badgeCategory: 'Financial Strategy',
@@ -154,8 +154,8 @@ const routes = [
   },
   {
     slug: 'flatmates-rent-splitter',
-    title: 'Flatmates Rent & Utility Bill Splitter | Pocket Advisor',
-    description: 'Split apartment rent, maid, WiFi, and electricity bills fairly with roommates. Generate WhatsApp receipts with 1-tap UPI deep links and 2-stage greedy debt minimization.',
+    title: 'Flatmates Rent Splitter (No Login) — Unequal Rooms & WhatsApp Receipts | Pocket Advisor',
+    description: 'Split apartment rent, maid, WiFi, and electricity bills fairly with roommates. Factors in unequal bedroom sizes. Generate instant WhatsApp receipts with 1-tap UPI deep links.',
     canonical: `${BASE_URL}/flatmates-rent-splitter`,
     badgeCategory: 'Roommate Utility',
     pillText: 'Fair Roommate Splits • 1-Tap UPI Deep Links',
@@ -189,8 +189,8 @@ const routes = [
   },
   {
     slug: 'sip-calculator',
-    title: 'SIP Calculator India | Step-Up & Wealth Growth | Pocket Advisor',
-    description: 'Calculate compounding mutual fund returns in India with annual step-ups and real inflation discounting. Plan long-term financial goals with accurate wealth projections.',
+    title: 'SIP Calculator India (2026) — Step-Up SIP & Inflation Adjusted Wealth | Pocket Advisor',
+    description: 'Calculate compounding mutual fund returns in India with annual step-ups and real inflation discounting. Plan long-term financial goals with accurate wealth projections. 100% free with no login required.',
     canonical: `${BASE_URL}/sip-calculator`,
     badgeCategory: 'Wealth Calculator',
     pillText: 'Compounding Projections • Real Purchasing Power',
@@ -224,8 +224,8 @@ const routes = [
   },
   {
     slug: 'emi-calculator',
-    title: 'Loan EMI Calculator India & Amortization | Pocket Advisor',
-    description: 'Calculate exact monthly loan EMIs, interest payable, and payment schedules for personal, car, or home loans with reducing balance interest in India.',
+    title: 'Loan EMI Calculator India (2026) — Home, Car & Personal Loan Amortization | Pocket Advisor',
+    description: 'Calculate exact monthly loan EMI, total interest payable, and amortization schedules. Accurate reducing balance calculations for home, car, and personal loans. 100% free with zero signup.',
     canonical: `${BASE_URL}/emi-calculator`,
     badgeCategory: 'Loan Calculator',
     pillText: 'Accurate Monthly Installments • Principal vs Interest',
@@ -259,8 +259,8 @@ const routes = [
   },
   {
     slug: 'monthly-budget-planner',
-    title: 'Monthly Budget Planner India | Free 50/30/20 Tool',
-    description: 'Plan a monthly budget in India with the 50/30/20 rule. Enter take-home income, edit needs, wants and savings, see what remains, and export your plan to CSV.',
+    title: 'Free Monthly Budget Planner India (No Login) — 50/30/20 Rule & CSV Export | Pocket Advisor',
+    description: 'Plan a monthly budget in India with the 50/30/20 rule. Enter take-home income, edit needs, wants and savings, see what remains, and export your plan to CSV with zero signup.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     badgeCategory: 'Free Budget Tool',
     pillText: 'Monthly Income • Expense Plan • 50/30/20 Guide',
@@ -324,8 +324,8 @@ const routes = [
   },
   {
     slug: 'calculators',
-    title: 'Free Bill Splitter, EMI & SIP Calculators | Pocket Advisor',
-    description: 'Calculate fair group bill splits with 2-stage greedy debt minimization, export itemized receipts to WhatsApp, and project compounding SIP wealth growth online.',
+    title: 'Free Financial Calculators India (No Login) — Bill Splitter, EMI & SIP | Pocket Advisor',
+    description: 'Suite of free interactive financial tools: 2-stage greedy bill splitter, reducing balance loan EMI calculator, step-up SIP wealth projector, and 50/30/20 budget planner. No signup.',
     canonical: `${BASE_URL}/calculators`,
     badgeCategory: 'Financial Tools',
     pillText: 'Free Web Spending Tools • Zero Registration',
@@ -1076,8 +1076,8 @@ const routes = [
   },
   {
     slug: 'how-to-split-rent-unequal-rooms',
-    title: 'Split Rent Fairly for Unequal Rooms | Pocket Advisor',
-    description: 'Learn how to split apartment rent fairly when room sizes are different. Master vs small bedroom 50/50 square footage math and 1-tap WhatsApp UPI settlements.',
+    title: 'How to Split Rent Fairly for Unequal Rooms (2026 Formula & Calculator) | Pocket Advisor',
+    description: 'Master bedroom with ensuite bath vs compact room: the exact mathematical 50/50 formula to split flat rent fairly without conflict. Includes free interactive calculator.',
     canonical: `${BASE_URL}/how-to-split-rent-unequal-rooms`,
     badgeCategory: 'Roommate Rent Guide',
     pillText: 'Mathematical 50/50 Square Footage Framework',
@@ -1135,33 +1135,44 @@ const routes = [
         '@type': 'HowTo',
         name: 'How to Split Rent Fairly for Unequal Rooms',
         description: 'A step-by-step mathematical guide to split apartment rent fairly based on square footage, master bedrooms, and attached bathrooms.',
+        totalTime: 'PT10M',
+        estimatedCost: {
+          '@type': 'MonetaryAmount',
+          currency: 'INR',
+          value: '0'
+        },
         step: [
           {
             '@type': 'HowToStep',
+            position: 1,
             name: 'Divide Total Rent into Two 50% Pools',
             text: 'Split total apartment rent into a 50% Common Area Pool (living room, kitchen, balcony) and a 50% Private Bedroom Pool.',
             url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-1`
           },
           {
             '@type': 'HowToStep',
-            name: 'Split Common Area Rent Equally',
+            position: 2,
+            name: 'Split Common Area Rent Equally by Headcount',
             text: 'Divide the 50% Common Area Pool equally among all roommates by headcount.',
             url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-2`
           },
           {
             '@type': 'HowToStep',
-            name: 'Calculate Private Room Square Footage',
+            position: 3,
+            name: 'Measure Private Bedroom Square Footages',
             text: 'Measure individual bedroom square footages and allocate bedroom pool rent proportionally to private room size.',
             url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-3`
           },
           {
             '@type': 'HowToStep',
+            position: 4,
             name: 'Add Amenity Premiums for Attached Bathrooms',
             text: 'Add a 10-15% premium to private bedroom share for ensuite bathrooms or private balconies.',
             url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-4`
           },
           {
             '@type': 'HowToStep',
+            position: 5,
             name: 'Generate 1-Tap WhatsApp UPI Settlements',
             text: 'Combine common and bedroom pool shares, then use Pocket Advisor to generate 1-tap WhatsApp settlement receipts with UPI deep links.',
             url: `${BASE_URL}/how-to-split-rent-unequal-rooms#step-5`
@@ -1172,8 +1183,8 @@ const routes = [
   },
   {
     slug: 'home-loan-prepayment-vs-mutual-funds',
-    title: 'Home Loan Prepayment vs Mutual Funds | Pocket Advisor',
-    description: 'Should you prepay your home loan or invest in mutual funds? Discover the 50:50 hybrid strategy, Section 24b tax reality, and historical compounding math.',
+    title: 'Home Loan Prepayment vs Mutual Funds (2026): The 50:50 Strategy | Pocket Advisor',
+    description: 'Should you prepay your home loan or invest in mutual funds? Discover the 50:50 hybrid strategy, Section 24b tax reality, and compounding wealth comparison.',
     canonical: `${BASE_URL}/home-loan-prepayment-vs-mutual-funds`,
     badgeCategory: 'Wealth Engineering Guide',
     pillText: 'Debt Freedom vs Equity Compounding',
@@ -1230,8 +1241,8 @@ const routes = [
   },
   {
     slug: 'how-to-track-upi-payments-automatically',
-    title: 'Track UPI Payments Automatically on Android | Pocket Advisor',
-    description: 'How to track UPI and bank expenses automatically on Android without netbanking passwords or cloud data leaks. Discover on-device SMS parsing privacy.',
+    title: 'How to Track UPI Payments Automatically (100% On-Device, No Netbanking) | Pocket Advisor',
+    description: 'Step-by-step guide to tracking Google Pay, PhonePe, Paytm, and bank SMS transactions automatically on Android without netbanking passwords or cloud data leaks.',
     canonical: `${BASE_URL}/how-to-track-upi-payments-automatically`,
     badgeCategory: 'Security & Privacy Guide',
     pillText: '100% On-Device • Zero Cloud Tracking',
@@ -1289,27 +1300,37 @@ const routes = [
         '@type': 'HowTo',
         name: 'How to Track UPI Payments Automatically on Android',
         description: 'Step-by-step method to track Google Pay, PhonePe, and Paytm transactions automatically on Android without sharing banking passwords.',
+        totalTime: 'PT5M',
+        estimatedCost: {
+          '@type': 'MonetaryAmount',
+          currency: 'INR',
+          value: '0'
+        },
         step: [
           {
             '@type': 'HowToStep',
+            position: 1,
             name: 'Enable Financial SMS Permission',
             text: 'Grant SMS reading permissions under Google Play Financial Exception to detect bank and payment alerts locally.',
             url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-1`
           },
           {
             '@type': 'HowToStep',
+            position: 2,
             name: 'Configure On-Device Regex Parsing',
             text: 'Allow Pocket Advisor to parse debits, merchants, and balances on-device in under 1ms with immediate OTP memory purge.',
             url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-2`
           },
           {
             '@type': 'HowToStep',
+            position: 3,
             name: 'Configure OEM Battery Optimization',
             text: 'Exclude Pocket Advisor from aggressive battery killers (Xiaomi MIUI, Samsung One UI) so background alerts are captured in real-time.',
             url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-3`
           },
           {
             '@type': 'HowToStep',
+            position: 4,
             name: 'Store Encrypted in Local SQLCipher',
             text: 'Keep transaction history encrypted in local SQLite AES-256 with optional user-controlled cloud backup.',
             url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-4`

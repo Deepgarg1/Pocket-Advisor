@@ -225,48 +225,56 @@ export function getRouteBodyContent(slug, articles = []) {
             </p>
           </div>
 
-          <h2 style="${headingStyle}">The 2-Pool Mathematical Solution: 50% Common Space + 50% Private Space</h2>
-          <p>
-            Professional property managers and financial engineers use the <strong>Two-Pool Framework</strong>:
-          </p>
-          <ul style="padding-left: 20px; margin-bottom: 20px;">
-            <li><strong>Pool 1: Shared Common Space (50% of Rent)</strong> — The living room, kitchen, dining area, utility balcony, and shared hallways are used equally by everyone. Split this 50% pool strictly by headcount.</li>
-            <li><strong>Pool 2: Private Bedroom Space (50% of Rent)</strong> — The private quarters. Split this pool proportionally based on measured bedroom square footage, plus an attached bathroom premium.</li>
-          </ul>
+          <div id="step-1">
+            <h2 style="${headingStyle}">Step 1: Divide Total Rent into Two 50% Pools</h2>
+            <p>
+              Professional property managers and financial engineers use the <strong>Two-Pool Framework</strong>:
+            </p>
+          </div>
+
+          <div id="step-2">
+            <ul style="padding-left: 20px; margin-bottom: 20px;">
+              <li><strong>Step 2 — Pool 1: Shared Common Space (50% of Rent)</strong> — The living room, kitchen, dining area, utility balcony, and shared hallways are used equally by everyone. Split this 50% pool strictly by headcount.</li>
+              <li><strong>Pool 2: Private Bedroom Space (50% of Rent)</strong> — The private quarters. Split this pool proportionally based on measured bedroom square footage, plus an attached bathroom premium.</li>
+            </ul>
+          </div>
 
           <div style="${cardStyle}">
             <h3 style="font-size: 1.2rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Step-by-Step 2BHK Walkthrough: Total Rent ₹30,000</h3>
-            <p><strong>Apartment Specifications:</strong></p>
-            <ul style="padding-left: 20px;">
-              <li><strong>Room A (Master Bedroom):</strong> 200 sq ft + Attached Ensuite Bath (weighted as +30 sq ft) = 230 weighted sq ft</li>
-              <li><strong>Room B (Smaller Bedroom):</strong> 130 sq ft + Shared Hallway Bath = 130 sq ft</li>
-              <li><strong>Total Weighted Private Space:</strong> 360 sq ft</li>
-            </ul>
-            <p style="margin-top: 14px;"><strong>Calculation:</strong></p>
-            <ol style="padding-left: 20px;">
-              <li><strong>Common Space Pool (₹15,000):</strong> Split equally = ₹7,500 each.</li>
-              <li><strong>Private Space Pool (₹15,000):</strong>
-                <ul style="padding-left: 20px; margin-top: 6px;">
-                  <li>Room A Share: (230 / 360) &times; ₹15,000 = <strong>₹9,583</strong></li>
-                  <li>Room B Share: (130 / 360) &times; ₹15,000 = <strong>₹5,417</strong></li>
-                </ul>
-              </li>
-              <li><strong>Final Fair Rent:</strong>
-                <ul style="padding-left: 20px; margin-top: 6px;">
-                  <li><strong>Roommate A (Master):</strong> ₹7,500 + ₹9,583 = <strong style="color: #818cf8;">₹17,083 (56.9%)</strong></li>
-                  <li><strong>Roommate B (Small):</strong> ₹7,500 + ₹5,417 = <strong style="color: #34d399;">₹12,917 (43.1%)</strong></li>
-                </ul>
-              </li>
-            </ol>
+            <div id="step-3">
+              <p><strong>Step 3: Measure Private Bedroom Square Footages:</strong></p>
+              <ul style="padding-left: 20px;">
+                <li><strong>Room A (Master Bedroom):</strong> 200 sq ft + Attached Ensuite Bath (weighted as +30 sq ft) = 230 weighted sq ft</li>
+                <li><strong>Room B (Smaller Bedroom):</strong> 130 sq ft + Shared Hallway Bath = 130 sq ft</li>
+                <li><strong>Total Weighted Private Space:</strong> 360 sq ft</li>
+              </ul>
+            </div>
+            <div id="step-4">
+              <p style="margin-top: 14px;"><strong>Step 4: Add Amenity Premiums for Ensuite Bathrooms &amp; Calculate:</strong></p>
+              <ol style="padding-left: 20px;">
+                <li><strong>Common Space Pool (₹15,000):</strong> Split equally = ₹7,500 each.</li>
+                <li><strong>Private Space Pool (₹15,000):</strong>
+                  <ul style="padding-left: 20px; margin-top: 6px;">
+                    <li>Room A Share: (230 / 360) &times; ₹15,000 = <strong>₹9,583</strong></li>
+                    <li>Room B Share: (130 / 360) &times; ₹15,000 = <strong>₹5,417</strong></li>
+                  </ul>
+                </li>
+                <li><strong>Final Fair Rent:</strong>
+                  <ul style="padding-left: 20px; margin-top: 6px;">
+                    <li><strong>Roommate A (Master):</strong> ₹7,500 + ₹9,583 = <strong style="color: #818cf8;">₹17,083 (56.9%)</strong></li>
+                    <li><strong>Roommate B (Small):</strong> ₹7,500 + ₹5,417 = <strong style="color: #34d399;">₹12,917 (43.1%)</strong></li>
+                  </ul>
+                </li>
+              </ol>
+            </div>
           </div>
 
-          <h2 style="${headingStyle}">4 Golden Rules for Flatmate Harmony</h2>
-          <ol style="padding-left: 20px; margin-bottom: 24px;">
-            <li><strong>Shared Utility Bills:</strong> Electricity, WiFi, maid salaries, water, and cooking gas should always be split 100% equally per capita, regardless of bedroom size.</li>
-            <li><strong>Guest Policies:</strong> If a roommate hosts a partner or family member for more than 10 days in a month, prorate their utility share.</li>
-            <li><strong>1-Tap UPI Settlements:</strong> Avoid delays by using Pocket Advisor's Flatmates Rent Splitter to generate WhatsApp receipts with direct UPI links.</li>
-            <li><strong>Re-Evaluate Semi-Annually:</strong> Review utility spikes (AC during summer) to adjust budgets transparently.</li>
-          </ol>
+          <div id="step-5" style="${cardStyle} margin-top: 24px;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Step 5: Generate 1-Tap WhatsApp UPI Settlements</h3>
+            <p>
+              Avoid payment delays by using Pocket Advisor's free web rent splitter to generate WhatsApp receipts with direct UPI payment links. Roommates tap once to pay directly via Google Pay or PhonePe.
+            </p>
+          </div>
 
           <div style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 14px; padding: 20px; margin: 30px 0;">
             <div style="font-weight: 700; color: #818cf8; margin-bottom: 6px;">Author Attribution</div>
@@ -376,6 +384,16 @@ export function getRouteBodyContent(slug, articles = []) {
             <li><strong>SQLCipher AES-256 Encryption:</strong> Your transactions and budgets are saved to an offline SQLite database encrypted with 256-bit keys that never leave your device.</li>
             <li><strong>Zero Cloud Telemetry:</strong> All categorization, charts, and budget limits execute locally on your phone CPU with zero internet connection required.</li>
           </ul>
+
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Setting Up Automatic Tracking in Under 60 Seconds</h3>
+            <ol style="padding-left: 20px; line-height: 1.7;">
+              <li id="step-1" style="margin-bottom: 10px;"><strong>Step 1: Install Pocket Advisor for Android:</strong> Download the lightweight app with no mandatory account creation or phone number required.</li>
+              <li id="step-2" style="margin-bottom: 10px;"><strong>Step 2: Enable Financial SMS Permission:</strong> Grant SMS reading permissions under Google Play's Financial Exception to detect bank transaction alerts locally.</li>
+              <li id="step-3" style="margin-bottom: 10px;"><strong>Step 3: Pay Normally via Any UPI App:</strong> Pay using Google Pay, PhonePe, Paytm, or debit/credit cards as you normally do.</li>
+              <li id="step-4" style="margin-bottom: 0;"><strong>Step 4: Instant Local Regex Parsing &amp; Encrypted Storage:</strong> When your bank sends an SMS confirmation, Pocket Advisor parses the amount and merchant locally in memory, immediately updating your budget without cloud uploads.</li>
+            </ol>
+          </div>
 
           <div style="${cardStyle}">
             <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Google Play Compliance &amp; Security Verification</h3>

@@ -67,19 +67,19 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="pa-hero-copy">
             <div className="pa-eyebrow">
               <span className="pa-eyebrow-icon"><Sparkles size={14} /></span>
-              Pocket Advisor for Android <span className="pa-eyebrow-dot">•</span> Everyday money, made clearer
+              OFFICIAL ANDROID APP <span className="pa-eyebrow-dot">•</span> BUILT FOR EVERYDAY MONEY
             </div>
 
             <h1 id="pa-hero-title">
-              Your money,
-              <span className="pa-title-line pa-gradient-text">made clearer.</span>
+              Pocket Advisor: Expense Tracker App for Android
+              <span className="pa-title-line pa-gradient-text">Track Spending &amp; Split Bills</span>
             </h1>
             <p className="pa-hero-subtitle">Track spending. Split bills. Plan smarter.</p>
 
             <p className="pa-hero-description">
-              Organize supported bank and UPI transaction alerts, understand your spending,
-              and split group bills from one simple Android app. Transaction coverage varies;
-              optional cloud backup is available.
+              Know where your money goes. Pocket Advisor helps you organize supported bank
+              and UPI transaction alerts, review spending, and split group bills on Android.
+              Transaction coverage varies, and optional cloud backup is available.
             </p>
 
             <div className="pa-hero-actions">

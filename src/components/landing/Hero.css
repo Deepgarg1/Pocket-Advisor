@@ -256,3 +256,35 @@
   .pa-home .pa-hero h1 { font-size:clamp(2.5rem,3.2vw,3.35rem); line-height:1.08; letter-spacing:-.045em; }
 }
 .pa-home .pa-visual-label { display:none !important; }
+
+
+/* Targeted fix only: make the tab pill readable and move callout cards off the phone screen. */
+.pa-phone-stage .screen-selector-tabs {
+  width: 360px !important;
+  max-width: calc(100vw - 32px) !important;
+  overflow: visible !important;
+  justify-content: space-between !important;
+  gap: 3px !important;
+}
+.pa-phone-stage .screen-selector-tabs button {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  padding: 6px 7px !important;
+  font-size: .68rem !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+}
+@media (min-width: 801px) {
+  .pa-home .pa-float-card-top { right: -10%; top: 25%; }
+  .pa-home .pa-float-card-bottom { left: -10%; bottom: 7%; }
+}
+@media (max-width: 800px) {
+  .pa-home .pa-float-card-top { right: -4%; top: 24%; }
+  .pa-home .pa-float-card-bottom { left: -4%; bottom: 5%; }
+}
+@media (max-width: 520px) {
+  .pa-phone-stage .screen-selector-tabs { width: 100% !important; gap: 1px !important; }
+  .pa-phone-stage .screen-selector-tabs button { padding: 5px 3px !important; font-size: .61rem !important; }
+  .pa-home .pa-float-card-top { right: -2%; top: 20%; }
+  .pa-home .pa-float-card-bottom { left: -2%; bottom: 3%; }
+}

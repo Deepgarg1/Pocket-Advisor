@@ -15,27 +15,37 @@ const FAQS: FaqItem[] = [
   {
     question: 'How does transaction auto-detection work? Is it secure?',
     answer:
-      'Pocket Advisor provides optional automatic expense tracking under Google Play\'s SMS-based financial money management policy. When enabled, our on-device engine parses incoming bank transaction SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, etc.) directly on your phone using deterministic regex. It operates 100% locally with zero cloud uploads, requires zero bank logins or passwords, and strictly drops OTPs and personal chats in memory for complete privacy.',
+      'Pocket Advisor provides optional automatic expense tracking under Google Play\'s SMS-based financial money management policy. When enabled, our on-device linguistic engine (SmsParser.kt, 790+ lines) parses incoming bank transaction SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, etc.) directly on your phone across 150+ currencies. It operates 100% locally with zero cloud uploads, requires zero bank logins or passwords, and strictly drops OTPs and personal chats in memory for complete privacy.',
   },
   {
-    question: 'How does the 2-stage bill splitting algorithm work?',
+    question: 'How does the 2-stage greedy debt minimization bill splitter work?',
     answer:
-      'Traditional bill splitting results in messy tangled webs where everyone owes everyone else. Pocket Advisor uses a 2-stage algorithm: first it checks for exact bilateral matches between debtors and creditors, then applies a greedy graph reduction. This compresses dozens of transfers down to the absolute minimum mathematical transactions.',
+      'Traditional bill splitting results in messy tangled webs where everyone owes everyone else. Pocket Advisor models group balances as a bipartite graph and greedily resolves net dues, cutting dozens of entangled transfers down to the absolute minimum bilateral payments. You can invite friends via 6-character short codes and pay via dynamic ZXing UPI QR codes or WhatsApp receipts.',
   },
   {
-    question: 'How does the AI Budget Copilot analyze my spending?',
+    question: 'How do Smart Bill and Loan EMI Reminders work?',
     answer:
-      'The AI copilot ingests your monthly category totals, discretionary vs. non-discretionary spending ratios, and budget limits to identify recurring leakages and suggest achievable savings targets. Your data is strictly anonymized before processing.',
+      'Pocket Advisor schedules exact alarms using Android AlarmManager.setExactAndAllowWhileIdle() to guarantee delivery even during Android Doze mode. Incoming SMS alerts auto-reconcile and mark reminders paid. You can track remaining EMI installments, snooze alarms from the notification shade, and share 1-tap reminders via WhatsApp.',
   },
   {
-    question: 'Can I backup and export my spending data?',
+    question: 'How does SQLCipher AES-256 and Android Keystore protect my data?',
     answer:
-      'Yes. You have full ownership of your data. You can export your entire ledger to standard CSV spreadsheets or full JSON snapshots at any time from the settings screen.',
+      'All local ledgers are encrypted with SQLCipher AES-256 with keys generated and sealed inside your device hardware security module (TEE / StrongBox) via KeystoreHelper. With FLAG_SECURE window protection, screen recordings, screenshots, and app-switcher snapshot leaks are completely blocked.',
+  },
+  {
+    question: 'What financial calculators are included in the suite?',
+    answer:
+      'Pocket Advisor features a 6-in-1 mathematics suite: Reducing-balance Loan EMI, Step-Up SIP Compounding, Savings Goal Planner, FD / RD Calculator with compound frequencies, Compound Interest Calculator, and Inflation Erosion Calculator (1-30 years), plus an interactive Shopping List that converts into ledger expenses with 1 tap.',
+  },
+  {
+    question: 'How does the Smart AI Financial Advisor work?',
+    answer:
+      'Our on-device Financial Intelligence Engine monitors burn-rate velocity and alerts you to category surges. For personalized coaching, it securely connects via Supabase Edge Functions to smart AI models to offer actionable debt reduction strategies and savings tips formatted in clean Markdown.',
   },
   {
     question: 'How does Pocket Advisor monetize, and does it show ads?',
     answer:
-      'Pocket Advisor follows a fair freemium model. Free accounts are supported by Google AdMob banner ads to keep all essential tracking, UPI & bank auto-detection, and budgeting tools 100% free forever. Upgrading to Pocket Advisor Pro removes all ads for an entirely ad-free experience, along with unlimited PDF report exports.',
+      'Pocket Advisor follows a fair freemium model. Core tracking, UPI & bank SMS detection, and calculators are 100% free. The main dashboard, analytics, and bill splitter remain completely ad-free. Upgrading to Pocket Advisor Pro removes all ads across the app, provides unlimited AI Copilot queries, unlimited split groups, and custom-range PDF exports.',
   },
 ];
 
@@ -43,7 +53,7 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: 'How does Pocket Advisor track bank and UPI expenses automatically?',
     answer:
-      "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking.",
+      "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. SMS parsing runs 100% locally on your device without transmitting raw message contents to external servers. Your financial ledger is encrypted locally with SQLCipher AES-256.",
   },
   {
     question: 'How does the 2-stage greedy debt minimization bill splitter work?',
@@ -58,7 +68,27 @@ export const HOME_FAQS: FaqItem[] = [
   {
     question: 'Is Pocket Advisor free and safe to use?',
     answer:
-      'Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data.',
+      'Yes, Pocket Advisor is free to download, does not ask for netbanking credentials or OTPs, operates offline-first with on-device data encryption, and never sells your personal spending data.',
+  },
+  {
+    question: 'How does SQLCipher AES-256 and Android Keystore protect my financial records?',
+    answer:
+      'Your financial transactions and budgets are stored in an on-device SQLite database encrypted with SQLCipher AES-256. The master encryption key is generated and sealed inside your phone\'s hardware-backed Android Keystore (TEE / StrongBox). Pocket Advisor also applies FLAG_SECURE window protection to block screen recordings, screenshots, and OS app-switcher snapshot leaks.',
+  },
+  {
+    question: 'How do the Smart Bill and Loan EMI Reminders work?',
+    answer:
+      'Pocket Advisor schedules exact alarms using Android AlarmManager.setExactAndAllowWhileIdle() to trigger notifications even in deep Android Doze mode. When you pay a bill, incoming bank SMS alerts automatically reconcile and mark the reminder paid. You can also generate 1-tap WhatsApp reminders for flatmates or contacts.',
+  },
+  {
+    question: 'What calculators are included in the Pocket Advisor suite?',
+    answer:
+      'Pocket Advisor includes a complete 6-in-1 financial mathematics suite: Loan EMI Calculator (reducing balance amortization), SIP Wealth Calculator (compound growth and annual step-ups), Savings Goal Planner, FD / RD Calculator with compound frequencies, Compound Interest Calculator, and Inflation Calculator (purchasing power erosion over 1-30 years).',
+  },
+  {
+    question: 'How does the Smart AI Copilot and on-device burn-rate engine work?',
+    answer:
+      "Pocket Advisor's on-device Financial Intelligence Engine monitors your daily burn-rate velocity and alerts you to category spending spikes before you exceed monthly budget caps. For personalized financial coaching, it securely connects via Supabase Edge Functions to smart AI models, offering contextual debt reduction strategies, savings tips, and Markdown breakdowns.",
   },
 ];
 

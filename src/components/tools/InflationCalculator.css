@@ -1,0 +1,556 @@
+/* ==============================================================================
+   Inflation & Purchasing Power Calculator — 2-Card Balanced Luxe Architecture
+   ============================================================================== */
+
+.inflation-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inflation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .inflation-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Individual Card Styling (Matches Prepay vs SIP architecture) */
+.inflation-card {
+  padding: clamp(20px, 3.2vw, 30px);
+  border-radius: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  justify-content: flex-start;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-theme='light'] .inflation-card {
+  background: #ffffff;
+  border-color: #dce4f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.inflation-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+  flex-wrap: wrap;
+}
+
+.inflation-card-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  background: var(--primary-surface);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+[data-theme='light'] .inflation-card-badge {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4338ca;
+}
+
+.inflation-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* ================= Left Card: Controls ================= */
+
+.inflation-controls-card {
+  gap: 28px;
+}
+
+.inflation-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inflation-field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.inflation-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inflation-input-badge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .inflation-input-badge {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.inflation-input-badge:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-surface);
+}
+
+.inflation-unit {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.inflation-num-input {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-weight: 800;
+  text-align: right;
+  outline: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.inflation-num-input::-webkit-outer-spin-button,
+.inflation-num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Range Slider */
+.inflation-slider-track {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.inflation-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+  background: var(--bg-surface-elevated);
+  transition: background 0.15s ease;
+}
+
+[data-theme='light'] .inflation-range {
+  background: #e2e8f0;
+}
+
+.inflation-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inflation-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 6px var(--primary-surface);
+}
+
+.inflation-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+/* Preset Chips */
+.inflation-presets {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 2px;
+}
+
+.inflation-chip {
+  appearance: none;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-size: 0.74rem;
+  font-weight: 650;
+  padding: 5px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+[data-theme='light'] .inflation-chip {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.inflation-chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.inflation-chip.active {
+  background: var(--primary-surface);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 800;
+  box-shadow: 0 2px 8px var(--primary-glow);
+}
+
+/* ================= Right Card: Results ================= */
+
+.inflation-results-card {
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.inflation-hero-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inflation-surge-pill {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(225, 29, 72, 0.12);
+  color: #f43f5e;
+  border: 1px solid rgba(225, 29, 72, 0.22);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+[data-theme='light'] .inflation-surge-pill {
+  background: #fff1f2;
+  color: #e11d48;
+  border-color: #fecdd3;
+}
+
+.inflation-hero-val {
+  font-size: clamp(2.1rem, 4.4vw, 2.85rem);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #e11d48;
+  margin: 0;
+}
+
+[data-theme='dark'] .inflation-hero-val {
+  color: #fb7185;
+}
+
+.inflation-hero-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+/* Progress / Visual Erosion Bar */
+.inflation-gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+}
+
+[data-theme='light'] .inflation-gauge {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.inflation-gauge-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.inflation-gauge-track {
+  height: 8px;
+  width: 100%;
+  border-radius: 999px;
+  background: rgba(225, 29, 72, 0.2);
+  overflow: hidden;
+  display: flex;
+}
+
+[data-theme='light'] .inflation-gauge-track {
+  background: #fecdd3;
+}
+
+.inflation-gauge-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: #10b981;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Metric Rows */
+.inflation-metrics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 0;
+}
+
+.inflation-metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+}
+
+.inflation-metric-key {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inflation-metric-val {
+  font-weight: 750;
+  color: var(--text-primary);
+}
+
+/* Banner Card */
+.inflation-outflow-box {
+  padding: 13px 16px;
+  border-radius: 14px;
+  background: rgba(225, 29, 72, 0.06);
+  border: 1px solid rgba(225, 29, 72, 0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+[data-theme='light'] .inflation-outflow-box {
+  background: #fff5f6;
+  border-color: #fed7dc;
+}
+
+.inflation-outflow-title {
+  font-size: 0.74rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #e11d48;
+}
+
+.inflation-outflow-num {
+  font-size: 1.05rem;
+  font-weight: 850;
+  color: var(--text-primary);
+}
+
+.inflation-outflow-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* Accordion Button */
+.inflation-accordion-btn {
+  padding: 11px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .inflation-accordion-btn {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.inflation-accordion-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--bg-surface);
+}
+
+/* Action Buttons */
+.inflation-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+.inflation-share-btn {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #ffffff;
+  font-weight: 750;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.inflation-share-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(5, 150, 105, 0.35);
+}
+
+.inflation-copy-btn {
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-elevated);
+  color: var(--text-secondary);
+  font-weight: 750;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s ease;
+}
+
+[data-theme='light'] .inflation-copy-btn {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.inflation-copy-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.inflation-copy-btn.copied {
+  color: #10b981;
+  border-color: #10b981;
+}
+
+/* Year by Year Table Card */
+.inflation-schedule-card {
+  gap: 16px;
+}
+
+.inflation-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--bg-surface);
+}
+
+[data-theme='light'] .inflation-table-container {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.inflation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.inflation-table th {
+  padding: 12px 16px;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-weight: 750;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+[data-theme='light'] .inflation-table th {
+  background: #f1f5f9;
+  border-bottom-color: #e2e8f0;
+  color: #334155;
+}
+
+.inflation-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+[data-theme='light'] .inflation-table td {
+  border-bottom-color: #f1f5f9;
+}
+
+.inflation-table tr:last-child td {
+  border-bottom: none;
+}

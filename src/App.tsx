@@ -1,11 +1,14 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Hero } from './components/landing/Hero';
+import { HomeFeaturesShowcase } from './components/landing/HomeFeaturesShowcase';
 import { FaqSection } from './components/landing/FaqSection';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { trackPageView } from './utils/analytics';
+
+import { ErrorBoundary } from './components/common/ErrorBoundary';
 
 const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then((m) => ({ default: m.FeaturesGrid })));
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then((m) => ({ default: m.InteractiveDemo })));
@@ -21,6 +24,7 @@ const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvi
 const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then((m) => ({ default: m.UpiTrackerLanding })));
 const ContactView = lazy(() => import('./components/support/ContactView').then((m) => ({ default: m.ContactView })));
 const NotFoundView = lazy(() => import('./components/common/NotFoundView').then((m) => ({ default: m.NotFoundView })));
+const DeepLinkLandingView = lazy(() => import('./components/common/DeepLinkLandingView').then((m) => ({ default: m.DeepLinkLandingView })));
 
 // Localhost-only dynamic studio import
 const adminModules = import.meta.glob('./components/admin/ArticleStudio.tsx');
@@ -49,6 +53,14 @@ const VIEW_MAP: Record<string, string> = {
   'sip-calculator': 'sip-calculator',
   'home-loan-prepayment-vs-sip': 'home-loan-prepayment-vs-sip',
   'prepayment-vs-sip': 'home-loan-prepayment-vs-sip',
+  'savings-goal-calculator': 'savings-goal-calculator',
+  'goal-calculator': 'savings-goal-calculator',
+  'fd-rd-calculator': 'fd-rd-calculator',
+  'fd-calculator': 'fd-rd-calculator',
+  'rd-calculator': 'fd-rd-calculator',
+  'compound-interest-calculator': 'compound-interest-calculator',
+  'compound-calculator': 'compound-interest-calculator',
+  'inflation-calculator': 'inflation-calculator',
   faq: 'faq',
   download: 'download',
   contact: 'contact',
@@ -67,6 +79,10 @@ const VIEW_MAP: Record<string, string> = {
   'home-loan-prepayment-vs-mutual-funds': 'home-loan-prepayment-vs-mutual-funds',
   'how-to-track-upi-payments-automatically': 'how-to-track-upi-payments-automatically',
   'best-expense-tracker-apps-india': 'best-expense-tracker-apps-india',
+  '50-30-20-budget-rule-india': '50-30-20-budget-rule-india',
+  'emi-vs-total-interest-loan-guide': 'emi-vs-total-interest-loan-guide',
+  invite: 'invite',
+  ref: 'ref',
   admin: 'admin',
 };
 
@@ -130,13 +146,14 @@ export const App: React.FC = () => {
 
       {/* Main Content Area */}
       <main className={currentView === 'admin' ? '' : 'content-with-bottom-nav'} style={{ flex: 1 }}>
-        <Suspense
-          fallback={
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', color: 'var(--text-secondary)' }}>
-              Loading...
-            </div>
-          }
-        >
+        <ErrorBoundary onReset={() => navigateView('home')}>
+          <Suspense
+            fallback={
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', color: 'var(--text-secondary)' }}>
+                Loading...
+              </div>
+            }
+          >
           <Routes>
             {/* Home */}
             <Route
@@ -144,6 +161,7 @@ export const App: React.FC = () => {
               element={
                 <div>
                   <Hero onNavigate={navigateView} />
+                  <HomeFeaturesShowcase onNavigate={navigateView} />
                   <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
                 </div>
               }
@@ -234,6 +252,46 @@ export const App: React.FC = () => {
             />
             <Route path="/prepayment-vs-sip" element={<Navigate to="/home-loan-prepayment-vs-sip" replace />} />
 
+            <Route
+              path="/savings-goal-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="GOAL" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/goal-calculator" element={<Navigate to="/savings-goal-calculator" replace />} />
+
+            <Route
+              path="/fd-rd-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="FD_RD" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/fd-calculator" element={<Navigate to="/fd-rd-calculator" replace />} />
+            <Route path="/rd-calculator" element={<Navigate to="/fd-rd-calculator" replace />} />
+
+            <Route
+              path="/compound-interest-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="COMPOUND" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/compound-calculator" element={<Navigate to="/compound-interest-calculator" replace />} />
+
+            <Route
+              path="/inflation-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="INFLATION" onNavigate={navigateView} />
+                </div>
+              }
+            />
+
             {/* Guides */}
             <Route
               path="/guides"
@@ -272,6 +330,22 @@ export const App: React.FC = () => {
               element={
                 <div className="animate-fade-in">
                   <ProblemSolvingGuides slug="best-expense-tracker-apps-india" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/50-30-20-budget-rule-india"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="50-30-20-budget-rule-india" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/emi-vs-total-interest-loan-guide"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="emi-vs-total-interest-loan-guide" onNavigate={navigateView} />
                 </div>
               }
             />
@@ -347,6 +421,12 @@ export const App: React.FC = () => {
               }
             />
 
+            {/* App Deep Links & Universal Web Fallbacks */}
+            <Route path="/invite/:id" element={<DeepLinkLandingView type="invite" onNavigate={navigateView} />} />
+            <Route path="/invite" element={<DeepLinkLandingView type="invite" onNavigate={navigateView} />} />
+            <Route path="/ref/:code" element={<DeepLinkLandingView type="ref" onNavigate={navigateView} />} />
+            <Route path="/ref" element={<DeepLinkLandingView type="ref" onNavigate={navigateView} />} />
+
             {/* 404 Fallback */}
             <Route
               path="*"
@@ -358,6 +438,7 @@ export const App: React.FC = () => {
             />
           </Routes>
         </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Persistent Mobile Bottom Navigation Bar */}

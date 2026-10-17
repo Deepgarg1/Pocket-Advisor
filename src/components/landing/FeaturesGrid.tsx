@@ -16,6 +16,8 @@ import {
   ArrowRight,
   CheckCircle2,
   Check,
+  Bell,
+  Clock,
 } from 'lucide-react';
 
 interface FeaturesGridProps {
@@ -34,7 +36,7 @@ interface FeatureItem {
   badgeColor: string;
   title: string;
   description: string;
-  previewType: 'notification' | 'split' | 'widget' | 'copilot' | 'shopping' | 'security' | 'sip' | 'export' | 'biometrics';
+  previewType: 'notification' | 'split' | 'widget' | 'copilot' | 'shopping' | 'security' | 'sip' | 'export' | 'biometrics' | 'reminders';
   actionLabel?: string;
   actionView?: string;
 }
@@ -60,11 +62,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <MessageSquareText size={24} />,
       iconBg: 'rgba(99, 102, 241, 0.15)',
       iconColor: '#818cf8',
-      badge: 'Play Store Financial Exception',
+      badge: '790+ Line Regex Engine • 150+ Currencies',
       badgeColor: '#818cf8',
-      title: 'Automatic Bank & UPI SMS Tracking',
+      title: 'Linguistic SMS & UPI Expense Parser',
       description:
-        'Intelligently detects real-time transaction SMS alerts from HDFC, SBI, ICICI, Axis, Bandhan, and all major Indian banks. 100% on-device regex parsing under Google Play financial rules, with zero cloud uploads and instant OTP filtering.',
+        'On-device linguistic engine (SmsParser.kt) parses incoming bank and UPI debit alerts (HDFC, SBI, ICICI, Axis, Bandhan & 150+ global currencies). Strict OTP & spam rejection, merchant isolation (Swiggy, Uber, Amazon, Zomato, Starbucks, Netflix), and zero cloud transmission of raw SMS under Google Play Financial Policy.',
       previewType: 'notification',
     },
     {
@@ -73,14 +75,27 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <Users size={24} />,
       iconBg: 'rgba(139, 92, 246, 0.15)',
       iconColor: '#a78bfa',
-      badge: 'Graph Optimization Algorithm',
+      badge: 'Bipartite Graph Algorithm • ZXing Engine',
       badgeColor: '#a78bfa',
-      title: '2-Stage Debt Minimization',
+      title: '2-Stage Greedy Debt Splitter & UPI QR',
       description:
-        'Split group dining, vacations, and rent bills equally, by exact sum, or by percentage. Bilateral exact-match + greedy reduction cuts tangled debts down to the absolute fewest payments.',
+        'Collapse tangled group bills into minimum bilateral payments with bipartite greedy graph reduction. Generate 6-character short code invites, export audit-ready group PDF statements, and initiate 1-tap app-to-app UPI transfers (GPay, PhonePe, Paytm, CRED) or on-screen dynamic ZXing QR codes.',
       previewType: 'split',
       actionLabel: 'Split Group Bills & Minimize Debts',
       actionView: 'split',
+    },
+    {
+      id: 'smart-reminders',
+      category: 'automation',
+      icon: <Bell size={24} />,
+      iconBg: 'rgba(56, 189, 248, 0.15)',
+      iconColor: '#38bdf8',
+      badge: 'AlarmManager Exact Scheduling',
+      badgeColor: '#38bdf8',
+      title: 'Smart Bill & Loan EMI Reminders',
+      description:
+        'Schedule utility bills, subscriptions (Netflix, Spotify), and loan EMIs with exact AlarmManager alarms resilient to Android Doze mode. Incoming SMS alerts auto-reconcile and mark bills paid. Share 1-tap reminders via WhatsApp.',
+      previewType: 'reminders',
     },
     {
       id: 'home-widgets',
@@ -88,11 +103,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <Smartphone size={24} />,
       iconBg: 'rgba(16, 185, 129, 0.15)',
       iconColor: '#34d399',
-      badge: 'Glanceable Android UI',
+      badge: '4x2 / 3x2 RemoteViews • Privacy Eye',
       badgeColor: '#34d399',
-      title: '1-Tap Android Home Screen Widgets',
+      title: 'Android Home Screen Widgets & Privacy Eye',
       description:
-        'Log recurring expenses or inspect your remaining monthly allowance in under 2 seconds right from your Android home screen without even needing to launch the application.',
+        'Check monthly burn-rate and remaining budget in under 2 seconds. Tap the privacy eye icon to instantly mask sensitive rupee totals on your launcher screen, or tap "+" to launch instant quick-add transaction activities.',
       previewType: 'widget',
     },
     {
@@ -101,11 +116,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <Sparkles size={24} />,
       iconBg: 'rgba(245, 158, 11, 0.15)',
       iconColor: '#fbbf24',
-      badge: 'Gemini Pro Intelligence',
+      badge: 'Smart AI Copilot • Anomaly Engine',
       badgeColor: '#fbbf24',
-      title: 'AI Budget Copilot & Diagnostics',
+      title: 'Smart AI Advisor & Burn-Rate Engine',
       description:
-        'A personalized budget copilot right in your pocket. Analyzes your real spending distributions to highlight sneaky subscription creep, impulse surges, and high-impact savings targets.',
+        'Combines our on-device statistical momentum engine for real-time burn-rate projection and budget overrun alarms with private AI copilot insights for personalized financial coaching, debt reduction, and Markdown breakdowns.',
       previewType: 'copilot',
     },
     {
@@ -114,11 +129,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <ShoppingBag size={24} />,
       iconBg: 'rgba(236, 72, 153, 0.15)',
       iconColor: '#f472b6',
-      badge: 'Real-Time Overrun Warning',
+      badge: 'Real-Time Estimator • Ledger Convert',
       badgeColor: '#f472b6',
-      title: 'Shopping Budget Guard',
+      title: 'Interactive Shopping List & Ledger Convert',
       description:
-        'Plan upcoming grocery or electronics purchases with live budget overrun warnings. Turn purchased items into ledger expense entries with a single tap once checked off.',
+        'Build grocery or electronics checklists with real-time budget projection. Tapping "Convert to Expense" seamlessly logs checked items into your permanent ledger. Features an interactive home screen widget to check off items without opening the app.',
       previewType: 'shopping',
     },
     {
@@ -127,11 +142,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <ShieldCheck size={24} />,
       iconBg: 'rgba(56, 189, 248, 0.15)',
       iconColor: '#38bdf8',
-      badge: 'Military Grade Encryption',
+      badge: 'Hardware Keystore • FLAG_SECURE',
       badgeColor: '#38bdf8',
-      title: 'SQLCipher AES-256 On-Device Vault',
+      title: 'SQLCipher AES-256 Vault & Keystore',
       description:
-        'Your spending database is protected by military-grade AES-256 SQLCipher encryption. Offline-first architecture guarantees your personal ledger never leaves your private custody.',
+        'Your local Room database is protected with SQLCipher AES-256 encryption. Master keys are sealed in the hardware-backed Android Keystore. Includes FLAG_SECURE window protection to block screenshot capture, screen recordings, and app-switcher snapshot leaks.',
       previewType: 'security',
     },
     {
@@ -140,11 +155,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <TrendingUp size={24} />,
       iconBg: 'rgba(16, 185, 129, 0.15)',
       iconColor: '#10b981',
-      badge: 'Wealth Compounding Engine',
+      badge: '6-in-1 Financial Mathematics Suite',
       badgeColor: '#10b981',
-      title: 'Step-Up SIP & Loan EMI Simulators',
+      title: '6-in-1 Financial Calculators Suite',
       description:
-        'Model long-term compounding growth with inflation discounting and annual step-up adjustments. Run reducing-balance loan EMI amortization schedules in real time.',
+        'Comprehensive interactive mathematics suite: Reducing-balance Loan EMI, Step-Up SIP compounding, Savings Goal Planner, FD / RD simulator with compound frequencies, Compound Interest calculator, and 1-30 Year Inflation purchasing power erosion.',
       previewType: 'sip',
       actionLabel: 'Calculate Step-Up SIP Compounding',
       actionView: 'sip-calculator',
@@ -155,11 +170,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <FileText size={24} />,
       iconBg: 'rgba(99, 102, 241, 0.15)',
       iconColor: '#818cf8',
-      badge: 'Audit & CA Ready',
+      badge: 'Integer-Cent Math • CA Ready',
       badgeColor: '#818cf8',
-      title: 'Itemized PDF & Excel Statements',
+      title: 'Itemized Tax PDF Reports & Integer-Cent Math',
       description:
-        'Generate cleanly formatted, tax-ready PDF statements with category analytics charts, and export CSV spreadsheets for your chartered accountant or income tax documentation.',
+        'Standardizes financial operations with integer-cent precision math (MoneyUtils) to eliminate IEEE 754 floating-point rounding errors. Export formatted, audit-ready PDF statements with category charts and CSV files for tax filing.',
       previewType: 'export',
     },
     {
@@ -168,11 +183,11 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
       icon: <Lock size={24} />,
       iconBg: 'rgba(239, 68, 68, 0.15)',
       iconColor: '#f87171',
-      badge: 'Zero-Tracker Architecture',
+      badge: 'BiometricPrompt & RootBeer Scanner',
       badgeColor: '#f87171',
-      title: 'Biometric Lock & Zero Telemetry',
+      title: 'Biometric App Lock & Root Detection',
       description:
-        'Hardware-backed fingerprint and face authentication shields your money records from prying eyes. Zero third-party ad trackers, zero analytics trackers, and zero telemetry.',
+        'Hardware-backed fingerprint, face unlock, or device PIN/pattern with a 30-second auto-lock inactivity timer. Integrated RootBeer device integrity checks actively warn against compromised or rooted execution environments.',
       previewType: 'biometrics',
     },
   ];
@@ -427,6 +442,39 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
             <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '9999px', backgroundColor: isDark ? 'rgba(239, 68, 68, 0.2)' : 'rgba(239, 68, 68, 0.15)', color: isDark ? '#f87171' : '#dc2626', fontWeight: 700 }}>
               Secured
             </span>
+          </div>
+        );
+
+      case 'reminders':
+        return (
+          <div
+            style={{
+              marginTop: '18px',
+              padding: '12px 14px',
+              borderRadius: '12px',
+              backgroundColor: snippetBg,
+              border: snippetBorder,
+              fontSize: '0.82rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                <Clock size={14} color="#38bdf8" />
+                HDFC Home Loan EMI • Due in 2 Days
+              </span>
+              <span style={{ fontSize: '0.72rem', color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 700 }}>EMI 18/180</span>
+            </div>
+            <div style={{ color: 'var(--text-secondary)', display: 'flex', justifyContent: 'space-between' }}>
+              <span>Auto-Reconcile via SMS</span>
+              <span style={{ fontWeight: 700, color: 'var(--text-primary)' }}>₹38,500.00</span>
+            </div>
+            <div style={{ display: 'flex', gap: '6px', marginTop: '4px' }}>
+              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: 'rgba(16, 185, 129, 0.12)', color: isDark ? '#34d399' : '#059669', textAlign: 'center', fontSize: '0.72rem', fontWeight: 700 }}>Mark as Paid</span>
+              <span style={{ flex: 1, padding: '4px 6px', borderRadius: '6px', backgroundColor: isDark ? 'rgba(255, 255, 255, 0.05)' : '#ffffff', border: snippetBorder, textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-secondary)', fontWeight: 600 }}>WhatsApp Reminder</span>
+            </div>
           </div>
         );
 

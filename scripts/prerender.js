@@ -340,6 +340,234 @@ const routes = [
     ]
   },
   {
+    slug: 'savings-goal-calculator',
+    title: 'Savings Goal Calculator India (2026) — Target Corpus & Reverse SIP | Pocket Advisor',
+    description: 'Calculate exact monthly savings and reverse SIP investments needed to achieve your target down payment, car, or emergency corpus. 100% free with annuity due math.',
+    canonical: `${BASE_URL}/savings-goal-calculator`,
+    badgeCategory: 'Goal Planner',
+    pillText: 'Target Corpus • Reverse SIP Annuity • Down Payment',
+    h1: 'Savings Goal &amp; Reverse SIP Calculator',
+    h1Gradient: 'Target Corpus &amp; Down Payment Planner',
+    heroDesc: 'Calculate the exact monthly systematic savings required to hit target milestones like a home down payment, emergency fund, wedding, or higher education.',
+    ctaText: 'Calculate Monthly Savings',
+    ctaHref: '/savings-goal-calculator',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Savings Goal & Reverse SIP Calculator',
+        url: `${BASE_URL}/savings-goal-calculator`,
+        image: DEFAULT_IMAGE,
+        description: 'Calculate exact monthly savings required using annuity due formulas to achieve target financial milestones with seed savings.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
+          { '@type': 'ListItem', position: 3, name: 'Savings Goal Calculator', item: `${BASE_URL}/savings-goal-calculator` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does the Reverse SIP calculation work for savings goals?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Instead of projecting final wealth from a fixed deposit, the reverse SIP formula calculates the exact monthly contribution required at a given expected annual return rate (accounting for existing seed savings compounding from day 1) to hit an exact future financial milestone.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Why does the goal planner use annuity due rather than ordinary annuity?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Mutual fund SIP auto-debits and recurring deposit transfers occur on the 1st or scheduled start of the monthly cycle (annuity due), compounding for the full month rather than at month-end.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'fd-rd-calculator',
+    title: 'FD & RD Calculator India (2026) — Fixed & Recurring Deposit Maturity | Pocket Advisor',
+    description: 'Simulate maturity values, total interest, and effective annual yields with quarterly compounding for Indian bank FDs and RDs. Free online tool with TDS guidance.',
+    canonical: `${BASE_URL}/fd-rd-calculator`,
+    badgeCategory: 'Bank Deposits',
+    pillText: 'Quarterly Compounding • SBI, HDFC, ICICI Standards • TDS Guide',
+    h1: 'Fixed Deposit (FD) &amp; Recurring Deposit (RD) Calculator',
+    h1Gradient: 'Quarterly Bank Compounding &amp; Yield Simulation',
+    heroDesc: 'Simulate maturity value, interest earned, and effective annual yield (AER) for bank Fixed Deposits and monthly Recurring Deposits using standard Indian quarterly compounding.',
+    ctaText: 'Calculate Deposit Returns',
+    ctaHref: '/fd-rd-calculator',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Fixed Deposit & Recurring Deposit Calculator',
+        url: `${BASE_URL}/fd-rd-calculator`,
+        image: DEFAULT_IMAGE,
+        description: 'Simulate maturity values, interest earned, and effective annual yields (AER) for Indian bank FDs and RDs with quarterly compounding.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
+          { '@type': 'ListItem', position: 3, name: 'FD & RD Calculator', item: `${BASE_URL}/fd-rd-calculator` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How often do Indian banks compound interest on Fixed Deposits and Recurring Deposits?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Under Reserve Bank of India (RBI) guidelines, Indian public and private commercial banks compound interest on term deposits on a quarterly basis (every 90 days), resulting in an effective annual rate (AER) higher than the nominal rate.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the TDS threshold on bank fixed deposits?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Under Section 194A, banks deduct 10% TDS if total annual interest across all bank branches exceeds ₹40,000 for regular individuals or ₹50,000 for senior citizens under Section 80TTB.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'compound-interest-calculator',
+    title: 'Compound Interest Calculator India (2026) — Daily to Annual Frequencies | Pocket Advisor',
+    description: 'Simulate compound interest with daily, monthly, quarterly, and annual compounding schedules. Model recurring monthly deposits and visualize exponential wealth growth.',
+    canonical: `${BASE_URL}/compound-interest-calculator`,
+    badgeCategory: 'Compounding Engine',
+    pillText: 'Daily to Annual Frequencies • Recurring Deposits • Rule of 72',
+    h1: 'Compound Interest Calculator',
+    h1Gradient: 'Multi-Frequency Compounding Simulator',
+    heroDesc: 'Model exponential wealth growth across daily, monthly, quarterly, semi-annual, and annual compounding cycles with periodic contributions.',
+    ctaText: 'Simulate Compounding Growth',
+    ctaHref: '/compound-interest-calculator',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Compound Interest Calculator',
+        url: `${BASE_URL}/compound-interest-calculator`,
+        image: DEFAULT_IMAGE,
+        description: 'Simulate multi-frequency compound interest growth across daily, monthly, quarterly, semi-annual, and annual periods with recurring contributions.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
+          { '@type': 'ListItem', position: 3, name: 'Compound Interest Calculator', item: `${BASE_URL}/compound-interest-calculator` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does compounding frequency impact returns?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The more frequently interest is compounded and credited to principal, the greater the final corpus because accumulated interest begins earning interest sooner. Daily compounding generates higher effective yield than annual compounding.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the Rule of 72 in personal finance?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The Rule of 72 estimates how many years it will take to double an investment by dividing 72 by the annual return rate. For example, at 12% equity return, money doubles in approximately 72 / 12 = 6 years.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'inflation-calculator',
+    title: 'Inflation Calculator India (2026) — Future Living Costs & Purchasing Power | Pocket Advisor',
+    description: 'Calculate future cost of living and purchasing power erosion based on historical Indian CPI inflation. Project college fees, retirement expenses, and lifestyle costs.',
+    canonical: `${BASE_URL}/inflation-calculator`,
+    badgeCategory: 'Inflation Modeler',
+    pillText: 'Purchasing Power Erosion • Historical CPI • Milestone Cost',
+    h1: 'Inflation &amp; Purchasing Power Calculator',
+    h1Gradient: 'Forecast Future Living Costs &amp; Value Erosion',
+    heroDesc: 'Understand how rising living costs erode currency purchasing power over 5 to 30 years and calculate the future value required to maintain your current lifestyle.',
+    ctaText: 'Forecast Inflation Impact',
+    ctaHref: '/inflation-calculator',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Inflation & Purchasing Power Calculator',
+        url: `${BASE_URL}/inflation-calculator`,
+        image: DEFAULT_IMAGE,
+        description: 'Calculate future cost of living and purchasing power erosion based on historical Indian CPI inflation over 5 to 30 year horizons.',
+        applicationCategory: 'FinanceApplication',
+        operatingSystem: 'All',
+        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' }
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${BASE_URL}/calculators` },
+          { '@type': 'ListItem', position: 3, name: 'Inflation Calculator', item: `${BASE_URL}/inflation-calculator` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How does inflation affect future living costs in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'At an average historical CPI inflation rate of 6%, general cost of living doubles roughly every 12 years. Milestone expenses like higher education (10-12%) and private healthcare (12-14%) inflate even faster.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What does purchasing power erosion mean?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Purchasing power erosion measures the percentage loss in the real goods and services a fixed quantity of money can buy over time. At 6% inflation, ₹1,00,000 in cash loses over 58% of its purchasing value in 15 years.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'monthly-budget-planner',
     title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
     description: 'Plan your monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs, wants and savings, see your remaining balance, and export to CSV for free.',
@@ -607,13 +835,13 @@ const routes = [
   {
     slug: 'faq',
     title: 'Frequently Asked Questions (FAQ) | Pocket Advisor',
-    description: 'Learn how Pocket Advisor detects bank and UPI SMS transactions securely on-device, how debt minimization cuts group transfers, and why zero server tracking protects your privacy.',
+    description: 'Learn how Pocket Advisor detects bank and UPI SMS transactions securely on-device, how debt minimization cuts group transfers, and how encrypted local storage protects your privacy.',
     canonical: `${BASE_URL}/faq`,
     badgeCategory: 'Support & Knowledge Base',
     pillText: 'Everything You Need to Know',
     h1: 'Frequently Asked Questions',
     h1Gradient: 'Transparency, Security &amp; Features',
-    heroDesc: 'Learn how Pocket Advisor detects bank and UPI SMS transactions securely on-device, how greedy debt minimization works, and how our zero-cloud policy ensures privacy.',
+    heroDesc: 'Learn how Pocket Advisor detects bank and UPI SMS transactions securely on-device, how greedy debt minimization works, and how our local-first encrypted architecture ensures privacy.',
     ctaText: 'Read FAQs',
     ctaHref: '/faq',
     schemas: [
@@ -1641,6 +1869,122 @@ const routes = [
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
           { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` }
+        ]
+      }
+    ]
+  },
+  {
+    slug: '50-30-20-budget-rule-india',
+    title: '50/30/20 Budget Rule India (2026 Guide & Salary Calculator) | Pocket Advisor',
+    description: 'How to create a monthly budget using the 50/30/20 rule for Indian salaries. Breakdown for ₹30K, ₹50K, ₹1L & ₹2L incomes across Needs, Wants, and Investments.',
+    canonical: `${BASE_URL}/50-30-20-budget-rule-india`,
+    badgeCategory: 'Monthly Budgeting Guide',
+    pillText: 'Indian Household Cashflow Framework',
+    h1: 'How to Create a Monthly Budget Using the 50/30/20 Rule: Indian Salary Guide',
+    h1Gradient: 'From ₹30,000 to ₹2,00,000 Salaries',
+    heroDesc: 'How to divide Indian take-home pay across Needs, Wants, and Investments without feeling financially restricted. Real breakdowns for Mumbai, Bengaluru, and Tier-2 cities.',
+    ctaText: 'Launch 50/30/20 Planner',
+    ctaHref: '/monthly-budget-planner',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'How to Create a Monthly Budget Using the 50/30/20 Rule: Indian Salary Guide',
+        description: 'How to create a monthly budget using the 50/30/20 rule for Indian salaries across Needs, Wants, and Investments.',
+        image: DEFAULT_IMAGE,
+        datePublished: '2026-10-17T00:00:00+05:30',
+        dateModified: '2026-10-17T00:00:00+05:30',
+        author: { '@type': 'Organization', name: 'Pocket Advisor Financial Engineering Team', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/50-30-20-budget-rule-india`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
+          { '@type': 'ListItem', position: 3, name: '50/30/20 Budget Rule India', item: `${BASE_URL}/50-30-20-budget-rule-india` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'Does my home loan EMI count as a Need or Savings?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'The interest is a Need while the principal builds home equity (Savings). For day-to-day cashflow safety, treat your monthly EMI as a Need so your bank account never defaults.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What if rent alone takes 40% of my salary in Indian metros?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Adopt the Indian Adaptive 60/20/20 rule: 60% Needs, 20% Wants, and 20% Savings. Never cut savings below 15-20% because inflation will erode your wealth.'
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'emi-vs-total-interest-loan-guide',
+    title: 'EMI vs Total Interest: Reducing Balance Loan Calculator & Hacks | Pocket Advisor',
+    description: 'Understand how reducing balance loan interest works in India. Discover 3 mathematical hacks (1 extra EMI/year, 5% step-up prepayment) to save lakhs in interest.',
+    canonical: `${BASE_URL}/emi-vs-total-interest-loan-guide`,
+    badgeCategory: 'Retail Debt Amortization',
+    pillText: 'Reducing Balance Loan Engineering',
+    h1: 'EMI vs Total Interest: How Reducing Balance Loans Work and How to Save Lakhs',
+    h1Gradient: 'Save ₹15+ Lakhs on Home Loans',
+    heroDesc: 'Why a ₹50 Lakh home loan can cost you ₹54 Lakhs in interest alone, and 3 proven mathematical strategies to slash your tenure by 8+ years.',
+    ctaText: 'Launch Loan EMI Calculator',
+    ctaHref: '/emi-calculator',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'EMI vs Total Interest: How Reducing Balance Loans Work and How to Save Lakhs',
+        description: 'Why a ₹50 Lakh home loan can cost you ₹54 Lakhs in interest alone, and 3 proven strategies to slash loan tenure.',
+        image: DEFAULT_IMAGE,
+        datePublished: '2026-10-17T00:00:00+05:30',
+        dateModified: '2026-10-17T00:00:00+05:30',
+        author: { '@type': 'Organization', name: 'Pocket Advisor Financial Engineering Team', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/emi-vs-total-interest-loan-guide`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
+          { '@type': 'ListItem', position: 3, name: 'EMI vs Total Interest Guide', item: `${BASE_URL}/emi-vs-total-interest-loan-guide` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'When prepaying, should I choose Tenure Reduction or EMI Reduction?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Always choose Tenure Reduction. Keeping your monthly payment the same rapidly extinguishes remaining principal and maximizes compound interest savings.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Can banks charge a penalty if I prepay my home loan early in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. Under RBI guidelines, commercial banks and HFCs cannot levy any prepayment charges or foreclosure penalties on floating-rate individual retail loans.'
+            }
+          }
         ]
       }
     ]

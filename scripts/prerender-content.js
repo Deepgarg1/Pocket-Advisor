@@ -64,6 +64,10 @@ export function getPrerenderFooterHtml() {
             <li><a href="/home-loan-prepayment-vs-sip" style="color: #cbd5e1; text-decoration: none;">Home Loan Prepayment vs SIP</a></li>
             <li><a href="/sip-calculator" style="color: #cbd5e1; text-decoration: none;">Step-Up SIP Calculator</a></li>
             <li><a href="/emi-calculator" style="color: #cbd5e1; text-decoration: none;">Loan EMI Amortization</a></li>
+            <li><a href="/savings-goal-calculator" style="color: #cbd5e1; text-decoration: none;">Savings Goal Planner</a></li>
+            <li><a href="/fd-rd-calculator" style="color: #cbd5e1; text-decoration: none;">FD &amp; RD Calculator</a></li>
+            <li><a href="/compound-interest-calculator" style="color: #cbd5e1; text-decoration: none;">Compound Interest Simulator</a></li>
+            <li><a href="/inflation-calculator" style="color: #cbd5e1; text-decoration: none;">Inflation Erosion Calculator</a></li>
             <li><a href="/calculators" style="color: #cbd5e1; text-decoration: none;">All Financial Tools</a></li>
           </ul>
         </div>
@@ -427,7 +431,7 @@ export function getRouteBodyContent(slug, articles = []) {
               <li><strong>Deterministic On-Device Regex:</strong> Ingests incoming SMS alerts from verified banking senders (HDFC, SBI, ICICI, Axis, Kotak, Bandhan, PhonePe, Google Pay, Paytm) directly inside Android process memory.</li>
               <li><strong>Strict In-Memory OTP Scrubbing:</strong> One-Time Passwords (OTPs), personal conversations, and non-financial text messages are discarded in volatile memory within milliseconds.</li>
               <li><strong>SQLCipher AES-256 Encryption:</strong> Your transactions and budgets are saved to an offline SQLite database encrypted with 256-bit keys that never leave your device.</li>
-              <li><strong>Zero Cloud Telemetry:</strong> All categorization, charts, and budget limits execute locally on your phone CPU with zero internet connection required.</li>
+              <li><strong>Local-First Computation:</strong> All categorization, charts, and budget limits execute locally on your phone CPU with zero internet connection required.</li>
             </ul>
           </div>
 
@@ -1493,6 +1497,234 @@ export function getRouteBodyContent(slug, articles = []) {
             <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 16px 0;">Start tracking your spending automatically without sacrificing your financial privacy.</p>
             <a href="/download" style="display: inline-block; background: #6366f1; color: #ffffff; padding: 12px 24px; border-radius: 12px; font-weight: 700; text-decoration: none;">Download Android App &rarr;</a>
           </div>
+        </article>`;
+
+    case 'savings-goal-calculator':
+      return `
+        <article style="${contentStyle}">
+          <section style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">How to Calculate Monthly Savings for Any Target Goal</h2>
+            <p>A savings goal calculation works in reverse of a traditional SIP: instead of asking <em>"How much will ₹10,000 become in 5 years?"</em>, it solves <em>"How much must I invest each month starting today to have exactly ₹10,00,000 in 3 years?"</em>.</p>
+            <p>Because mutual fund SIPs and bank auto-debits transfer money at the beginning of each monthly billing cycle, money compounded from day 1 earns an additional month of compound interest (an <strong>Annuity Due</strong> structure).</p>
+          </section>
+
+          <h2 style="${headingStyle}">The Reverse SIP Annuity Due Formula</h2>
+          <div style="${cardStyle}">
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 16px; border-radius: 10px; overflow-x: auto; color: #38bdf8; font-family: monospace; font-size: 0.95rem; line-height: 1.6; margin: 0 0 12px 0;">
+Remaining Target = Target - [Current Savings × (1 + r)^n]
+Monthly Savings (M) = [Remaining Target × r] / [(1 + r) × ((1 + r)^n - 1)]</pre>
+            <p style="margin: 0; font-size: 0.88rem; color: #94a3b8;">Where <strong>r</strong> is the monthly expected return rate (Annual Rate / 12 / 100) and <strong>n</strong> is total duration in months (Years × 12).</p>
+          </div>
+
+          <h2 style="${headingStyle}">Worked Example: ₹10,00,000 Down Payment in 3 Years</h2>
+          <div style="${cardStyle}">
+            <ul style="padding-left: 20px; margin: 0 0 14px 0;">
+              <li><strong>Target Milestone:</strong> ₹10,00,000</li>
+              <li><strong>Current Seed Savings:</strong> ₹1,00,000</li>
+              <li><strong>Time Horizon:</strong> 3 Years (36 Months)</li>
+              <li><strong>Expected Annual Return:</strong> 10% p.a. (Balanced Advantage / Aggressive Hybrid)</li>
+              <li><strong>Current Savings Future Value:</strong> ₹1,00,000 × (1 + 0.10)^3 = ₹1,33,100</li>
+              <li><strong>Required Monthly Deposit:</strong> ₹20,771 / month</li>
+              <li><strong>Total Self Invested:</strong> ₹1,00,000 (initial) + ₹7,47,756 (deposits) = ₹8,47,756</li>
+              <li><strong>Estimated Wealth Gain from Compounding:</strong> ₹1,52,244</li>
+            </ul>
+            <p style="margin: 0; color: #34d399; font-weight: 700;">By investing systematically rather than keeping cash in a standard 3% savings account, compounding pays for over ₹1.5 Lakhs of the down payment.</p>
+          </div>
+
+          <h2 style="${headingStyle}">Asset Allocation Guide by Time Horizon</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Goal Tenure</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Recommended Vehicle</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Realistic Return Expectation</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Capital Risk</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">&lt; 1 Year</td><td style="padding: 12px 16px;">Liquid Mutual Funds, High-Yield Savings, FDs</td><td style="padding: 12px 16px;">6.0% - 7.0%</td><td style="padding: 12px 16px; color: #34d399;">Near Zero</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">1 to 3 Years</td><td style="padding: 12px 16px;">Short Duration Debt, Bank Recurring Deposits, Arbitrage Funds</td><td style="padding: 12px 16px;">7.0% - 8.0%</td><td style="padding: 12px 16px; color: #60a5fa;">Very Low</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">3 to 5 Years</td><td style="padding: 12px 16px;">Equity Savings Funds, Conservative/Balanced Advantage Funds</td><td style="padding: 12px 16px;">9.0% - 11.0%</td><td style="padding: 12px 16px; color: #fbbf24;">Moderate</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">5+ Years</td><td style="padding: 12px 16px;">Flexi-Cap Equity, Large &amp; Mid-Cap Mutual Funds, Index Funds</td><td style="padding: 12px 16px;">12.0% - 13.5%</td><td style="padding: 12px 16px; color: #f87171;">Volatile in short term, high long-term return</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside style="${cardStyle} border-left: 4px solid #f59e0b;">
+            <strong style="color: #f59e0b; display: block; margin-bottom: 8px;">Regulatory Disclaimer &amp; Simulation Assumptions</strong>
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #94a3b8;">
+              This calculator provides mathematical projections assuming a constant annualized rate of return compounded monthly at the start of each period. Actual mutual fund returns are subject to market risks, NAV volatility, fund manager expense ratios (TER), and capital gains taxes (LTCG / STCG under Section 112A). This simulator does not constitute certified investment advice or SEBI-registered portfolio management services.
+            </p>
+          </aside>
+        </article>`;
+
+    case 'fd-rd-calculator':
+      return `
+        <article style="${contentStyle}">
+          <section style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">Understanding Indian Bank Fixed &amp; Recurring Deposit Compounding</h2>
+            <p>Unlike simple interest or monthly compounding, Indian commercial banks (including SBI, HDFC, ICICI, and Axis Bank) compound term deposit interest on a <strong>quarterly basis</strong> (every 90 days), adhering to Reserve Bank of India (RBI) master directives.</p>
+            <p>This means a 1-year Fixed Deposit at 7.00% nominal interest actually yields an <strong>Effective Annual Rate (AER) of 7.19%</strong> because interest credited in Q1 compounds in Q2, Q3, and Q4.</p>
+          </section>
+
+          <h2 style="${headingStyle}">Formulas for Bank Term Deposits</h2>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">1. Fixed Deposit (FD) Lump Sum:</h3>
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.95rem; margin-bottom: 16px;">A = P × (1 + r / n)^(n × t)</pre>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">2. Recurring Deposit (RD) Monthly Auto-Debit:</h3>
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.95rem; margin-bottom: 12px;">M = Sum over each monthly installment (P) compounded quarterly for its remaining tenure:
+M_i = P × (1 + r / 4)^(4 × (n - i + 1) / 12)</pre>
+            <p style="margin: 0; font-size: 0.88rem; color: #94a3b8;">Where <strong>P</strong> is deposit amount, <strong>r</strong> is nominal annual interest rate as a decimal, <strong>n</strong> is compounding frequency per year (4 for Indian banks), and <strong>t</strong> is tenure in years.</p>
+          </div>
+
+          <h2 style="${headingStyle}">Fixed Deposit vs. Recurring Deposit: Side-by-Side Comparison</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Parameter</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Fixed Deposit (FD)</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Recurring Deposit (RD)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Deposit Mechanism</td><td style="padding: 12px 16px;">Lump-sum upfront investment</td><td style="padding: 12px 16px;">Equal monthly installments</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Ideal Investor</td><td style="padding: 12px 16px;">Individuals with idle cash (bonus, proceeds)</td><td style="padding: 12px 16px;">Salaried professionals saving monthly surplus</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Interest Rate Guarantee</td><td style="padding: 12px 16px;">Locked for entire tenure at booking</td><td style="padding: 12px 16px;">Locked for entire tenure from 1st installment</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Premature Withdrawal</td><td style="padding: 12px 16px;">Allowed with 0.5% - 1.0% penal interest cut</td><td style="padding: 12px 16px;">Allowed with interest reduction</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">Senior Citizen Bonus</td><td style="padding: 12px 16px;">Additional 0.50% to 0.75% p.a.</td><td style="padding: 12px 16px;">Additional 0.50% to 0.75% p.a.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">Tax Deducted at Source (TDS) under Section 194A</h2>
+          <p>Interest earned on bank deposits is fully taxable under <em>Income from Other Sources</em> at your applicable slab rate. Banks deduct 10% TDS (or 20% if PAN is not linked) under the following thresholds:</p>
+          <ul style="padding-left: 20px; margin-bottom: 24px;">
+            <li><strong>Non-Senior Citizens:</strong> TDS applies if total annual deposit interest across all branches exceeds <strong>₹40,000</strong>.</li>
+            <li><strong>Senior Citizens (60+ years):</strong> TDS exemption limit is <strong>₹50,000</strong> under Section 80TTB.</li>
+            <li><strong>Tax Avoidance via Form 15G/15H:</strong> If your total estimated taxable annual income is below the basic exemption limit, you can submit Form 15G (below 60) or Form 15H (senior citizens) to prevent TDS deduction.</li>
+          </ul>
+
+          <aside style="${cardStyle} border-left: 4px solid #f59e0b;">
+            <strong style="color: #f59e0b; display: block; margin-bottom: 8px;">Regulatory Notice</strong>
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #94a3b8;">
+              Calculations assume standard quarterly compounding per Indian banking guidelines. Pre-mature liquidation penalties, TDS deductions, and specific bank compounding round-offs are not deducted from gross figures shown. Refer to your respective bank's terms and conditions before opening a deposit account.
+            </p>
+          </aside>
+        </article>`;
+
+    case 'compound-interest-calculator':
+      return `
+        <article style="${contentStyle}">
+          <section style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">The Power of Compounding Frequencies Explained</h2>
+            <p>Compound interest is interest calculated on the initial principal plus all accumulated interest from prior periods. Albert Einstein famously called it the <em>eighth wonder of the world</em>: he who understands it, earns it; he who doesn't, pays it.</p>
+            <p>The more frequently interest is calculated and added to the principal (daily vs annual), the higher the final maturity corpus will be due to continuous interest-on-interest accumulation.</p>
+          </section>
+
+          <h2 style="${headingStyle}">Compounding Math Formula with Periodic Deposits</h2>
+          <div style="${cardStyle}">
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.95rem; margin: 0 0 12px 0;">
+A = P × (1 + r / n)^(n × t) + PMT × [((1 + r / n)^(n × t) - 1) / (r / n)]</pre>
+            <p style="margin: 0; font-size: 0.88rem; color: #94a3b8;">Where <strong>P</strong> is initial principal, <strong>r</strong> is annual interest rate (decimal), <strong>n</strong> is compounding frequency per year, <strong>t</strong> is tenure in years, and <strong>PMT</strong> is recurring contribution per period.</p>
+          </div>
+
+          <h2 style="${headingStyle}">Impact of Compounding Frequency on ₹5,00,000 at 12% over 10 Years</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Compounding Frequency</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Times / Year</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Final Maturity Corpus</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Effective Annual Rate (AER)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Annually</td><td style="padding: 12px 16px;">1</td><td style="padding: 12px 16px;">₹15,52,924</td><td style="padding: 12px 16px;">12.00%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Semi-Annually</td><td style="padding: 12px 16px;">2</td><td style="padding: 12px 16px;">₹16,03,568</td><td style="padding: 12px 16px;">12.36%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Quarterly</td><td style="padding: 12px 16px;">4</td><td style="padding: 12px 16px;">₹16,31,019</td><td style="padding: 12px 16px;">12.55%</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">Monthly</td><td style="padding: 12px 16px;">12</td><td style="padding: 12px 16px;">₹16,50,193</td><td style="padding: 12px 16px;">12.68%</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">Daily</td><td style="padding: 12px 16px;">365</td><td style="padding: 12px 16px; color: #34d399; font-weight: 700;">₹16,59,796</td><td style="padding: 12px 16px; color: #34d399; font-weight: 700;">12.75%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">The Rule of 72: Mental Math for Doubling Money</h2>
+          <p>The Rule of 72 is an accurate mental shortcut to estimate how many years it takes for an investment to double at a given compound interest rate:</p>
+          <div style="${cardStyle}">
+            <p style="font-weight: 700; color: #f8fafc; margin-top: 0;">Years to Double ≈ 72 / Annual Interest Rate (%)</p>
+            <ul style="padding-left: 20px; margin-bottom: 0;">
+              <li>At <strong>6% (Bank FD):</strong> 72 / 6 = <strong>12 Years</strong> to double.</li>
+              <li>At <strong>12% (Nifty 50 Index SIP):</strong> 72 / 12 = <strong>6 Years</strong> to double.</li>
+              <li>At <strong>18% (High Growth Small Cap):</strong> 72 / 18 = <strong>4 Years</strong> to double.</li>
+            </ul>
+          </div>
+
+          <aside style="${cardStyle} border-left: 4px solid #f59e0b;">
+            <strong style="color: #f59e0b; display: block; margin-bottom: 8px;">Illustrative Simulation Disclaimer</strong>
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #94a3b8;">
+              Projections illustrate mathematical compound growth based on fixed annual assumptions. Real-world financial instruments experience return fluctuations, periodic interest adjustments, and taxation. No projection constitutes a guaranteed rate of return.
+            </p>
+          </aside>
+        </article>`;
+
+    case 'inflation-calculator':
+      return `
+        <article style="${contentStyle}">
+          <section style="${cardStyle}">
+            <h2 style="${headingStyle} margin-top: 0;">Why Inflation Is the Silent Destroyer of Cash Savings</h2>
+            <p>Inflation is the sustained increase in general prices over time, causing each unit of currency to buy fewer goods and services. If ₹100 today buys a basket of groceries, and annual inflation averages 6%, that identical basket will cost ₹179 in 10 years and ₹321 in 20 years.</p>
+            <p>Leaving surplus funds in low-yield savings accounts (earning 2.5% to 3.0%) guarantees real wealth destruction after factoring in India's historical Consumer Price Index (CPI) trends.</p>
+          </section>
+
+          <h2 style="${headingStyle}">Mathematical Formulas for Inflation &amp; Purchasing Power</h2>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">1. Future Cost of an Item / Lifestyle:</h3>
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.95rem; margin-bottom: 16px;">Future Cost = Present Cost × (1 + i)^t</pre>
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">2. Purchasing Power of Fiat Cash:</h3>
+            <pre style="background: rgba(0, 0, 0, 0.4); padding: 14px; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 0.95rem; margin-bottom: 12px;">Real Purchasing Power = Present Value / (1 + i)^t
+Purchasing Power Erosion (%) = [1 - (1 / (1 + i)^t)] × 100</pre>
+            <p style="margin: 0; font-size: 0.88rem; color: #94a3b8;">Where <strong>i</strong> is expected annual inflation rate (as a decimal) and <strong>t</strong> is elapsed time in years.</p>
+          </div>
+
+          <h2 style="${headingStyle}">Purchasing Power Decay of ₹1,00,000 at 6% Average Indian Inflation</h2>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Time Horizon</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Future Cost of ₹1,00,000 Goods</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Real Value of ₹1,00,000 Cash</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Purchasing Power Lost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">5 Years</td><td style="padding: 12px 16px;">₹1,33,823</td><td style="padding: 12px 16px;">₹74,726</td><td style="padding: 12px 16px; color: #fbbf24;">25.3% Lost</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">10 Years</td><td style="padding: 12px 16px;">₹1,79,085</td><td style="padding: 12px 16px;">₹55,839</td><td style="padding: 12px 16px; color: #fbbf24;">44.2% Lost</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">15 Years</td><td style="padding: 12px 16px;">₹2,39,656</td><td style="padding: 12px 16px;">₹41,727</td><td style="padding: 12px 16px; color: #f87171;">58.3% Lost</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">20 Years</td><td style="padding: 12px 16px;">₹3,20,714</td><td style="padding: 12px 16px;">₹31,180</td><td style="padding: 12px 16px; color: #f87171;">68.8% Lost</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">25 Years</td><td style="padding: 12px 16px;">₹4,29,187</td><td style="padding: 12px 16px;">₹23,300</td><td style="padding: 12px 16px; color: #ef4444;">76.7% Lost</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">30 Years</td><td style="padding: 12px 16px;">₹5,74,349</td><td style="padding: 12px 16px; color: #ef4444; font-weight: 700;">₹17,411</td><td style="padding: 12px 16px; color: #ef4444; font-weight: 700;">82.6% Lost</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">Sector-Specific Inflation in India</h2>
+          <p>While government headline Consumer Price Index (CPI) inflation hovers around 5% to 6%, specific lifestyle expenditures experience much steeper price increases:</p>
+          <ul style="padding-left: 20px; margin-bottom: 24px;">
+            <li><strong>Higher Education &amp; Engineering/Medical Degrees:</strong> 10% to 12% annual inflation. An MBA costing ₹25 Lakhs today will cost ₹65 Lakhs in 10 years.</li>
+            <li><strong>Private Healthcare &amp; Hospitalization:</strong> 12% to 14% medical inflation. Requires comprehensive private health insurance with super top-ups rather than reliance on savings.</li>
+            <li><strong>Urban Metro Housing &amp; Rentals:</strong> 7% to 9% annual inflation in Bengaluru, Mumbai, NCR, and Hyderabad tech corridors.</li>
+          </ul>
+
+          <aside style="${cardStyle} border-left: 4px solid #f59e0b;">
+            <strong style="color: #f59e0b; display: block; margin-bottom: 8px;">Macroeconomic Disclaimer</strong>
+            <p style="margin: 0; font-size: 0.88rem; line-height: 1.6; color: #94a3b8;">
+              Future inflation rates cannot be predicted with mathematical certainty. Historical CPI data from the Ministry of Statistics and Programme Implementation (MOSPI) and Reserve Bank of India are utilized for indicative simulation purposes only. Past inflationary trends do not guarantee future economic conditions.
+            </p>
+          </aside>
         </article>`;
 
     default:

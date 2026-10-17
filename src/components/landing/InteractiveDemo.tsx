@@ -8,18 +8,30 @@ import {
   Copy,
   Check,
   Smartphone,
+  Target,
+  Landmark,
+  Flame,
 } from 'lucide-react';
 import { useSettings } from '../../context/SettingsContext';
 import { formatMoney } from '../../utils/formatters';
 import { PrepaymentVsSipCalculator } from '../tools/PrepaymentVsSipCalculator';
+import { SavingsGoalCalculator } from '../tools/SavingsGoalCalculator';
+import { FdRdCalculator } from '../tools/FdRdCalculator';
+import { CompoundInterestCalculator } from '../tools/CompoundInterestCalculator';
+import { InflationCalculator } from '../tools/InflationCalculator';
+import '../tools/CalculatorCard.css';
 import {
   EmiCalculatorGuide,
   SipCalculatorGuide,
   PrepaymentVsSipGuide,
+  SavingsGoalGuide,
+  FdRdGuide,
+  CompoundInterestGuide,
+  InflationGuide,
 } from '../tools/CalculatorGuides';
 import { updatePageSeo } from '../../utils/seo';
 
-export type DemoTab = 'PREPAYMENT' | 'EMI' | 'SIP';
+export type DemoTab = 'PREPAYMENT' | 'EMI' | 'SIP' | 'GOAL' | 'FD_RD' | 'COMPOUND' | 'INFLATION';
 
 interface InteractiveDemoProps {
   initialTab?: DemoTab;
@@ -39,6 +51,10 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
     if (initialTab) return initialTab;
     const full = `${window.location.pathname} ${window.location.hash}`.toLowerCase();
     if (full.includes('prepayment') || full.includes('vs-sip') || full.includes('prepay')) return 'PREPAYMENT';
+    if (full.includes('savings-goal') || full.includes('goal')) return 'GOAL';
+    if (full.includes('fd-rd') || full.includes('fixed-deposit') || full.includes('fdrd')) return 'FD_RD';
+    if (full.includes('compound')) return 'COMPOUND';
+    if (full.includes('inflation')) return 'INFLATION';
     if (full.includes('sip')) return 'SIP';
     if (full.includes('emi') || full.includes('loan')) return 'EMI';
     return 'EMI';
@@ -54,6 +70,10 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
     const handleLocation = () => {
       const full = `${window.location.pathname} ${window.location.hash}`.toLowerCase();
       if (full.includes('prepayment') || full.includes('vs-sip') || full.includes('prepay')) setActiveTab('PREPAYMENT');
+      else if (full.includes('savings-goal') || full.includes('goal')) setActiveTab('GOAL');
+      else if (full.includes('fd-rd') || full.includes('fixed-deposit') || full.includes('fdrd')) setActiveTab('FD_RD');
+      else if (full.includes('compound')) setActiveTab('COMPOUND');
+      else if (full.includes('inflation')) setActiveTab('INFLATION');
       else if (full.includes('sip')) setActiveTab('SIP');
       else if (full.includes('emi') || full.includes('loan')) setActiveTab('EMI');
     };
@@ -80,6 +100,22 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
       viewSlug = 'sip-calculator';
       window.history.replaceState(null, '', '/sip-calculator');
       updatePageSeo('sip-calculator');
+    } else if (tab === 'GOAL') {
+      viewSlug = 'savings-goal-calculator';
+      window.history.replaceState(null, '', '/savings-goal-calculator');
+      updatePageSeo('savings-goal-calculator');
+    } else if (tab === 'FD_RD') {
+      viewSlug = 'fd-rd-calculator';
+      window.history.replaceState(null, '', '/fd-rd-calculator');
+      updatePageSeo('fd-rd-calculator');
+    } else if (tab === 'COMPOUND') {
+      viewSlug = 'compound-interest-calculator';
+      window.history.replaceState(null, '', '/compound-interest-calculator');
+      updatePageSeo('compound-interest-calculator');
+    } else if (tab === 'INFLATION') {
+      viewSlug = 'inflation-calculator';
+      window.history.replaceState(null, '', '/inflation-calculator');
+      updatePageSeo('inflation-calculator');
     }
     if (onNavigate) {
       onNavigate(viewSlug, false);
@@ -121,7 +157,7 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
     const val = Number(initialParams.get('stepup'));
     return Number.isFinite(val) && val >= 0 ? val : 5;
   });
-  const [inflationRate, setInflationRate] = useState<number>(() => {
+  const [inflationRate] = useState<number>(() => {
     const val = Number(initialParams.get('inflation'));
     return Number.isFinite(val) && val >= 0 ? val : 6;
   });
@@ -275,11 +311,19 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           {activeTab === 'PREPAYMENT' && 'Home Loan Prepayment vs. Equity SIP Calculator'}
           {activeTab === 'EMI' && 'Loan EMI Calculator & Amortization Schedule'}
           {activeTab === 'SIP' && 'Step-Up SIP Calculator & Compounding Simulator'}
+          {activeTab === 'GOAL' && 'Target Savings Goal & Reverse SIP Planner'}
+          {activeTab === 'FD_RD' && 'Fixed Deposit (FD) & Recurring Deposit (RD) Calculator'}
+          {activeTab === 'COMPOUND' && 'Compound Interest Calculator & Frequency Modeler'}
+          {activeTab === 'INFLATION' && 'Inflation & Purchasing Power Erosion Calculator'}
         </h1>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', maxWidth: '680px', margin: '0 auto', lineHeight: 1.5 }}>
+        <p style={{ color: 'var(--text-secondary)', fontSize: '0.98rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.5 }}>
           {activeTab === 'PREPAYMENT' && 'Compare guaranteed interest saved by prepaying home loan principal against historical wealth generated from equity mutual fund SIPs.'}
           {activeTab === 'EMI' && 'Calculate exact monthly loan EMI, total interest liability, and amortized repayment schedules for home, car, or personal loans.'}
           {activeTab === 'SIP' && 'Project compound wealth accumulation for monthly systematic investments with annual step-ups and real inflation discounting.'}
+          {activeTab === 'GOAL' && 'Calculate exact monthly savings required using annuity due formulas to reach a target down payment, emergency fund, or corpus.'}
+          {activeTab === 'FD_RD' && 'Simulate maturity amounts and effective annual yields with quarterly compounding standard in Indian public and private banks.'}
+          {activeTab === 'COMPOUND' && 'Model exponential wealth growth across daily, monthly, quarterly, and annual compounding frequencies with recurring deposits.'}
+          {activeTab === 'INFLATION' && 'Forecast future living costs and project the erosion of fiat purchasing power over 5 to 30 years based on historical CPI trends.'}
         </p>
       </div>
 
@@ -300,7 +344,6 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           margin: '0 auto 32px auto',
         }}
       >
-
         <a
           href="/home-loan-prepayment-vs-sip"
           onClick={(e) => {
@@ -309,29 +352,29 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           }}
           title="Home Loan Prepayment vs Equity SIP Calculator"
           style={{
-            padding: '9px 20px',
+            padding: '8px 16px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             background: activeTab === 'PREPAYMENT' ? 'var(--primary-gradient)' : 'transparent',
             color: activeTab === 'PREPAYMENT' ? '#ffffff' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.9rem',
+            fontSize: '0.86rem',
             cursor: 'pointer',
             transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             boxShadow: activeTab === 'PREPAYMENT' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
             textDecoration: 'none',
           }}
         >
-          <Scale size={16} />
+          <Scale size={15} />
           <span>Prepay vs SIP</span>
           <span
             style={{
               fontSize: '0.62rem',
               fontWeight: 800,
-              padding: '2px 6px',
+              padding: '2px 5px',
               borderRadius: '6px',
               backgroundColor: activeTab === 'PREPAYMENT' ? 'rgba(255, 255, 255, 0.25)' : 'rgba(245, 158, 11, 0.15)',
               color: activeTab === 'PREPAYMENT' ? '#ffffff' : '#f59e0b',
@@ -351,24 +394,24 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           }}
           title="Loan EMI Calculator with Amortization Schedule"
           style={{
-            padding: '9px 20px',
+            padding: '8px 16px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             background: activeTab === 'EMI' ? 'var(--primary-gradient)' : 'transparent',
             color: activeTab === 'EMI' ? '#ffffff' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.9rem',
+            fontSize: '0.86rem',
             cursor: 'pointer',
             transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             boxShadow: activeTab === 'EMI' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
             textDecoration: 'none',
           }}
         >
-          <Calculator size={16} />
-          <span>Loan EMI Calculator</span>
+          <Calculator size={15} />
+          <span>Loan EMI</span>
         </a>
 
         <a
@@ -379,194 +422,390 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
           }}
           title="Step-Up SIP Wealth Compounding Calculator"
           style={{
-            padding: '9px 20px',
+            padding: '8px 16px',
             borderRadius: 'var(--radius-full)',
             border: 'none',
             background: activeTab === 'SIP' ? 'var(--primary-gradient)' : 'transparent',
             color: activeTab === 'SIP' ? '#ffffff' : 'var(--text-secondary)',
             fontWeight: 700,
-            fontSize: '0.9rem',
+            fontSize: '0.86rem',
             cursor: 'pointer',
             transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '6px',
             boxShadow: activeTab === 'SIP' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
             textDecoration: 'none',
           }}
         >
-          <TrendingUp size={16} />
-          <span>SIP Wealth Planner</span>
+          <TrendingUp size={15} />
+          <span>SIP Wealth</span>
+        </a>
+
+        <a
+          href="/savings-goal-calculator"
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelectTab('GOAL');
+          }}
+          title="Target Savings Goal & Reverse SIP Planner"
+          style={{
+            padding: '8px 16px',
+            borderRadius: 'var(--radius-full)',
+            border: 'none',
+            background: activeTab === 'GOAL' ? 'var(--primary-gradient)' : 'transparent',
+            color: activeTab === 'GOAL' ? '#ffffff' : 'var(--text-secondary)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            boxShadow: activeTab === 'GOAL' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
+            textDecoration: 'none',
+          }}
+        >
+          <Target size={15} />
+          <span>Goal Planner</span>
+        </a>
+
+        <a
+          href="/fd-rd-calculator"
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelectTab('FD_RD');
+          }}
+          title="Fixed Deposit & Recurring Deposit Calculator"
+          style={{
+            padding: '8px 16px',
+            borderRadius: 'var(--radius-full)',
+            border: 'none',
+            background: activeTab === 'FD_RD' ? 'var(--primary-gradient)' : 'transparent',
+            color: activeTab === 'FD_RD' ? '#ffffff' : 'var(--text-secondary)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            boxShadow: activeTab === 'FD_RD' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
+            textDecoration: 'none',
+          }}
+        >
+          <Landmark size={15} />
+          <span>FD &amp; RD</span>
+        </a>
+
+        <a
+          href="/compound-interest-calculator"
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelectTab('COMPOUND');
+          }}
+          title="Compound Interest Calculator & Frequency Modeler"
+          style={{
+            padding: '8px 16px',
+            borderRadius: 'var(--radius-full)',
+            border: 'none',
+            background: activeTab === 'COMPOUND' ? 'var(--primary-gradient)' : 'transparent',
+            color: activeTab === 'COMPOUND' ? '#ffffff' : 'var(--text-secondary)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            boxShadow: activeTab === 'COMPOUND' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
+            textDecoration: 'none',
+          }}
+        >
+          <Sparkles size={15} />
+          <span>Compound</span>
+        </a>
+
+        <a
+          href="/inflation-calculator"
+          onClick={(e) => {
+            e.preventDefault();
+            handleSelectTab('INFLATION');
+          }}
+          title="Inflation & Purchasing Power Erosion Calculator"
+          style={{
+            padding: '8px 16px',
+            borderRadius: 'var(--radius-full)',
+            border: 'none',
+            background: activeTab === 'INFLATION' ? 'var(--primary-gradient)' : 'transparent',
+            color: activeTab === 'INFLATION' ? '#ffffff' : 'var(--text-secondary)',
+            fontWeight: 700,
+            fontSize: '0.86rem',
+            cursor: 'pointer',
+            transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            boxShadow: activeTab === 'INFLATION' ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
+            textDecoration: 'none',
+          }}
+        >
+          <Flame size={15} />
+          <span>Inflation</span>
         </a>
       </div>
 
-      {activeTab === 'PREPAYMENT' ? (
-        <>
-          <PrepaymentVsSipCalculator
-            onExploreOther={(tab) => {
-              if (tab === 'SPLIT') {
-                if (onNavigate) onNavigate('split');
-              } else {
-                handleSelectTab(tab);
-              }
-            }}
-          />
-          <PrepaymentVsSipGuide />
-        </>
-      ) : (
-        <>
-          <div
-            style={{
-              padding: 'clamp(24px, 4vw, 36px)',
-              borderRadius: '26px',
-              backgroundColor: 'var(--bg-surface)',
-              border: '1px solid var(--border-subtle)',
-              boxShadow: 'var(--shadow-md)',
-            }}
-          >
-          {activeTab === 'EMI' ? (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '32px',
-              alignItems: 'center',
-            }}
-          >
-            {/* Input Controls */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Loan Amount
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginRight: '4px' }}>{currencySymbol}</span>
+      {activeTab === 'PREPAYMENT' && (
+        <PrepaymentVsSipCalculator
+          onExploreOther={(tab) => {
+            if (tab === 'SPLIT') {
+              if (onNavigate) onNavigate('split');
+            } else {
+              handleSelectTab(tab);
+            }
+          }}
+        />
+      )}
+      {activeTab === 'EMI' && (
+        <div className="calc-2col-container">
+          <div className="calc-2col-grid">
+            {/* CARD 1: Loan & Tenure Parameters */}
+            <div className="calc-card">
+              <div className="calc-card-header">
+                <div className="calc-card-badge">
+                  <Calculator size={14} /> Loan EMI Calculator
+                </div>
+                <h4 className="calc-card-title">Borrowing Parameters</h4>
+              </div>
+
+              <div className="calc-controls">
+                {/* Loan Amount */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-loan-amount">
+                      <Calculator size={16} color="var(--primary)" />
+                      Loan Amount
+                    </label>
+                    <div className="calc-input-badge">
+                      <span className="calc-unit" style={{ marginRight: '5px' }}>{currencySymbol}</span>
+                      <input
+                        id="demo-loan-amount"
+                        type="number"
+                        value={loanAmount || (loanAmount === 0 ? 0 : '')}
+                        onChange={(e) => setLoanAmount(Math.max(0, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '105px' }}
+                      />
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={loanAmount || (loanAmount === 0 ? 0 : '')}
+                      type="range"
+                      min="10000"
+                      max="5000000"
+                      step="10000"
+                      value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '90px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, var(--primary) 0%, var(--primary) ${Math.min(100, Math.max(0, ((loanAmount - 10000) / (5000000 - 10000)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((loanAmount - 10000) / (5000000 - 10000)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Loan amount slider"
                     />
                   </div>
+                  <div className="calc-presets">
+                    {[
+                      { label: '₹5 Lakh', val: 500000 },
+                      { label: '₹10 Lakh', val: 1000000 },
+                      { label: '₹25 Lakh', val: 2500000 },
+                      { label: '₹50 Lakh', val: 5000000 },
+                    ].map((p) => (
+                      <button
+                        key={p.val}
+                        type="button"
+                        className={`calc-chip ${loanAmount === p.val ? 'active' : ''}`}
+                        onClick={() => setLoanAmount(p.val)}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="10000"
-                  max="5000000"
-                  step="10000"
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--primary)' }}
-                />
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Interest Rate (Annual)
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
+                {/* Interest Rate */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-loan-rate">
+                      <TrendingUp size={16} color="#0284c7" />
+                      Interest Rate (Annual)
+                    </label>
+                    <div className="calc-input-badge">
+                      <input
+                        id="demo-loan-rate"
+                        type="number"
+                        step="0.1"
+                        min="1"
+                        max="25"
+                        value={interestRate || (interestRate === 0 ? 0 : '')}
+                        onChange={(e) => setInterestRate(Math.max(0, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '48px' }}
+                      />
+                      <span className="calc-unit" style={{ marginLeft: '4px' }}>%</span>
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={interestRate || (interestRate === 0 ? 0 : '')}
+                      type="range"
+                      min="1"
+                      max="25"
+                      step="0.1"
+                      value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '50px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, #0284c7 0%, #0284c7 ${Math.min(100, Math.max(0, ((interestRate - 1) / (25 - 1)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((interestRate - 1) / (25 - 1)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Interest rate slider"
                     />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>%</span>
+                  </div>
+                  <div className="calc-presets">
+                    {[
+                      { label: '8.5% Home Loan', val: 8.5 },
+                      { label: '9.0% Car Loan', val: 9.0 },
+                      { label: '10.5% Personal', val: 10.5 },
+                      { label: '12.0% High', val: 12.0 },
+                    ].map((p) => (
+                      <button
+                        key={p.val}
+                        type="button"
+                        className={`calc-chip ${interestRate === p.val ? 'active' : ''}`}
+                        onClick={() => setInterestRate(p.val)}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="25"
-                  step="0.1"
-                  value={interestRate}
-                  onChange={(e) => setInterestRate(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--primary)' }}
-                />
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Tenure (Years)
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
+                {/* Tenure */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-loan-tenure">
+                      <Smartphone size={16} color="var(--primary)" />
+                      Tenure (Years)
+                    </label>
+                    <div className="calc-input-badge">
+                      <input
+                        id="demo-loan-tenure"
+                        type="number"
+                        min="1"
+                        max="30"
+                        value={tenureYears || (tenureYears === 0 ? 0 : '')}
+                        onChange={(e) => setTenureYears(Math.max(1, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '45px' }}
+                      />
+                      <span className="calc-unit" style={{ marginLeft: '4px' }}>Yrs</span>
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={tenureYears || (tenureYears === 0 ? 0 : '')}
+                      type="range"
+                      min="1"
+                      max="30"
+                      step="1"
+                      value={tenureYears}
                       onChange={(e) => setTenureYears(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '40px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, var(--primary) 0%, var(--primary) ${Math.min(100, Math.max(0, ((tenureYears - 1) / (30 - 1)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((tenureYears - 1) / (30 - 1)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Tenure slider"
                     />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>Yrs</span>
+                  </div>
+                  <div className="calc-presets">
+                    {[3, 5, 10, 15, 20, 25].map((yr) => (
+                      <button
+                        key={yr}
+                        type="button"
+                        className={`calc-chip ${tenureYears === yr ? 'active' : ''}`}
+                        onClick={() => setTenureYears(yr)}
+                      >
+                        {yr} Years
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="30"
-                  step="1"
-                  value={tenureYears}
-                  onChange={(e) => setTenureYears(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--primary)' }}
-                />
               </div>
             </div>
 
-            {/* Results Card */}
-            <div
-              style={{
-                padding: '28px',
-                borderRadius: 'var(--radius-lg)',
-                backgroundColor: 'var(--bg-surface-elevated)',
-                border: '1px solid var(--border-subtle)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '18px',
-              }}
-            >
+            {/* CARD 2: Monthly EMI Results */}
+            <div className="calc-card calc-results-card">
               <div>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>MONTHLY EMI</p>
-                <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--primary)' }} className="num-tabular">
-                  {formatMoney(Math.round(emiRes.emi), currencySymbol, 0)}
-                </h3>
-              </div>
-
-              <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Principal Amount:</span>
-                <span style={{ fontWeight: 700, color: 'var(--primary)' }} className="num-tabular">{formatMoney(Math.round(loanAmount), currencySymbol, 0)}</span>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Total Interest Payable:</span>
-                <span style={{ fontWeight: 700, color: 'var(--expense)' }} className="num-tabular">{formatMoney(Math.round(emiRes.totalInterest), currencySymbol, 0)}</span>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Total Payment:</span>
-                <span style={{ fontWeight: 700 }} className="num-tabular">{formatMoney(Math.round(emiRes.totalPayment), currencySymbol, 0)}</span>
-              </div>
-              
-              {/* Visual Breakdown Bar */}
-              <div style={{ marginTop: '8px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.75rem', fontWeight: 600 }}>
-                  <span style={{ color: 'var(--primary)' }}>{emiRes.principalPct}% Principal</span>
-                  <span style={{ color: 'var(--expense)' }}>{emiRes.interestPct}% Interest</span>
+                <div className="calc-card-header" style={{ marginBottom: '16px' }}>
+                  <div className="calc-card-badge">
+                    <Calculator size={14} /> Monthly EMI Breakdown
+                  </div>
+                  <span className="calc-pill calc-pill-indigo">
+                    Reducing Balance
+                  </span>
                 </div>
-                <div style={{ display: 'flex', height: '8px', borderRadius: '4px', overflow: 'hidden', background: 'var(--bg-surface)' }}>
-                  <div style={{ width: `${emiRes.principalPct}%`, background: 'var(--primary)' }} title="Principal" />
-                  <div style={{ width: `${emiRes.interestPct}%`, background: 'var(--expense)' }} title="Interest" />
+
+                <div className="calc-hero-metric">
+                  <h3 className="calc-hero-val num-tabular">
+                    {formatMoney(Math.round(emiRes.emi), currencySymbol, 0)}
+                    <span style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-muted)', marginLeft: '8px' }}>/ month</span>
+                  </h3>
+                  <span className="calc-hero-sub">
+                    Monthly debt commitment for {tenureYears * 12} installments at {interestRate}% p.a.
+                  </span>
                 </div>
               </div>
 
-              {/* Action Buttons: WhatsApp Share & Copy Link */}
-              <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+              {/* Visual Breakdown Gauge */}
+              <div className="calc-gauge">
+                <div className="calc-gauge-header">
+                  <span style={{ color: 'var(--primary)' }}>
+                    Principal: {emiRes.principalPct}%
+                  </span>
+                  <span style={{ color: 'var(--expense)' }}>
+                    Interest: {emiRes.interestPct}%
+                  </span>
+                </div>
+                <div className="calc-gauge-track" title="Principal vs Total Interest">
+                  <div style={{ width: `${emiRes.principalPct}%`, background: 'var(--primary)', height: '100%' }} />
+                  <div style={{ width: `${emiRes.interestPct}%`, background: 'var(--expense)', height: '100%' }} />
+                </div>
+              </div>
+
+              {/* Key Metrics */}
+              <div className="calc-metrics-list">
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Principal Amount:</span>
+                  <span className="calc-metric-val num-tabular" style={{ color: 'var(--primary)' }}>
+                    {formatMoney(Math.round(loanAmount), currencySymbol, 0)}
+                  </span>
+                </div>
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Total Interest Payable:</span>
+                  <span className="calc-metric-val num-tabular" style={{ color: 'var(--expense)' }}>
+                    +{formatMoney(Math.round(emiRes.totalInterest), currencySymbol, 0)}
+                  </span>
+                </div>
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Total Repayment Amount:</span>
+                  <span className="calc-metric-val num-tabular">
+                    {formatMoney(Math.round(emiRes.totalPayment), currencySymbol, 0)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="calc-actions">
                 <button
                   type="button"
+                  className="calc-share-btn"
                   onClick={() => {
                     const text = `💵 *Loan EMI Calculation*
 🏠 *Loan Amount:* ${formatMoney(loanAmount, currencySymbol, 0)}
@@ -584,27 +823,14 @@ ${emiShareUrl}`;
                     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}
-                  style={{
-                    flex: 1,
-                    padding: '10px 14px',
-                    borderRadius: '12px',
-                    border: 'none',
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.82rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
-                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
-                  }}
                 >
-                  <MessageCircle size={15} /> Share EMI
+                  <MessageCircle size={16} />
+                  <span>Share EMI</span>
                 </button>
+
                 <button
                   type="button"
+                  className={`calc-copy-btn ${copiedEmi ? 'copied' : ''}`}
                   onClick={async () => {
                     try {
                       if (navigator?.clipboard?.writeText) {
@@ -616,282 +842,330 @@ ${emiShareUrl}`;
                       // ignore
                     }
                   }}
-                  style={{
-                    padding: '10px 14px',
-                    borderRadius: '12px',
-                    border: '1px solid var(--border-subtle)',
-                    backgroundColor: 'var(--bg-surface)',
-                    color: copiedEmi ? '#10b981' : 'var(--text-secondary)',
-                    fontWeight: 700,
-                    fontSize: '0.82rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
                 >
-                  {copiedEmi ? <Check size={15} /> : <Copy size={15} />}
+                  {copiedEmi ? <Check size={16} /> : <Copy size={16} />}
                   <span>{copiedEmi ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
             </div>
           </div>
-        ) : (
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '32px',
-              alignItems: 'center',
-            }}
-          >
-            {/* SIP Inputs */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '22px' }}>
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Monthly Investment
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginRight: '4px' }}>{currencySymbol}</span>
+        </div>
+      )}
+
+      {activeTab === 'SIP' && (
+        <div className="calc-2col-container">
+          <div className="calc-2col-grid">
+            {/* CARD 1: SIP Parameters */}
+            <div className="calc-card">
+              <div className="calc-card-header">
+                <div className="calc-card-badge calc-card-badge-success">
+                  <TrendingUp size={14} /> Step-Up SIP Wealth Planner
+                </div>
+                <h4 className="calc-card-title">Investment &amp; Growth Terms</h4>
+              </div>
+
+              <div className="calc-controls">
+                {/* Monthly Investment */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-sip-amount">
+                      <TrendingUp size={16} color="#10b981" />
+                      Monthly Investment
+                    </label>
+                    <div className="calc-input-badge">
+                      <span className="calc-unit" style={{ marginRight: '5px' }}>{currencySymbol}</span>
+                      <input
+                        id="demo-sip-amount"
+                        type="number"
+                        value={monthlyInvestment || (monthlyInvestment === 0 ? 0 : '')}
+                        onChange={(e) => setMonthlyInvestment(Math.max(0, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '95px' }}
+                      />
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={monthlyInvestment || (monthlyInvestment === 0 ? 0 : '')}
+                      type="range"
+                      min="500"
+                      max="100000"
+                      step="500"
+                      value={monthlyInvestment}
                       onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '90px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, #10b981 0%, #10b981 ${Math.min(100, Math.max(0, ((monthlyInvestment - 500) / (100000 - 500)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((monthlyInvestment - 500) / (100000 - 500)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Monthly SIP investment slider"
                     />
                   </div>
+                  <div className="calc-presets">
+                    {[
+                      { label: '₹2,500', val: 2500 },
+                      { label: '₹5,000', val: 5000 },
+                      { label: '₹10,000', val: 10000 },
+                      { label: '₹25,000', val: 25000 },
+                    ].map((p) => (
+                      <button
+                        key={p.val}
+                        type="button"
+                        className={`calc-chip ${monthlyInvestment === p.val ? 'active' : ''}`}
+                        onClick={() => setMonthlyInvestment(p.val)}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <input
-                  type="range"
-                  min="500"
-                  max="100000"
-                  step="500"
-                  value={monthlyInvestment}
-                  onChange={(e) => setMonthlyInvestment(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--income)' }}
-                />
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Expected Return Rate (p.a.)
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
+                {/* Expected Return Rate */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-sip-return">
+                      <TrendingUp size={16} color="#0284c7" />
+                      Expected Return Rate (p.a.)
+                    </label>
+                    <div className="calc-input-badge">
+                      <input
+                        id="demo-sip-return"
+                        type="number"
+                        step="0.5"
+                        min="1"
+                        max="30"
+                        value={expectedReturn || (expectedReturn === 0 ? 0 : '')}
+                        onChange={(e) => setExpectedReturn(Math.max(0, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '48px' }}
+                      />
+                      <span className="calc-unit" style={{ marginLeft: '4px' }}>%</span>
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={expectedReturn || (expectedReturn === 0 ? 0 : '')}
+                      type="range"
+                      min="1"
+                      max="30"
+                      step="0.5"
+                      value={expectedReturn}
                       onChange={(e) => setExpectedReturn(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '50px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, #0284c7 0%, #0284c7 ${Math.min(100, Math.max(0, ((expectedReturn - 1) / (30 - 1)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((expectedReturn - 1) / (30 - 1)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Expected return rate slider"
                     />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>%</span>
+                  </div>
+                  <div className="calc-presets">
+                    {[
+                      { label: 'Conservative (10%)', val: 10.0 },
+                      { label: 'Nifty 50 (12%)', val: 12.0 },
+                      { label: 'Flexi Cap (14%)', val: 14.0 },
+                      { label: 'Mid/Small (16%)', val: 16.0 },
+                    ].map((p) => (
+                      <button
+                        key={p.val}
+                        type="button"
+                        className={`calc-chip ${expectedReturn === p.val ? 'active' : ''}`}
+                        onClick={() => setExpectedReturn(p.val)}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="30"
-                  step="0.5"
-                  value={expectedReturn}
-                  onChange={(e) => setExpectedReturn(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--income)' }}
-                />
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Time Period (Years)
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
+                {/* Time Period */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-sip-period">
+                      <Smartphone size={16} color="var(--primary)" />
+                      Time Period (Years)
+                    </label>
+                    <div className="calc-input-badge">
+                      <input
+                        id="demo-sip-period"
+                        type="number"
+                        min="1"
+                        max="35"
+                        value={investmentYears || (investmentYears === 0 ? 0 : '')}
+                        onChange={(e) => setInvestmentYears(Math.max(1, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '45px' }}
+                      />
+                      <span className="calc-unit" style={{ marginLeft: '4px' }}>Yrs</span>
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={investmentYears || (investmentYears === 0 ? 0 : '')}
+                      type="range"
+                      min="1"
+                      max="35"
+                      step="1"
+                      value={investmentYears}
                       onChange={(e) => setInvestmentYears(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '40px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, var(--primary) 0%, var(--primary) ${Math.min(100, Math.max(0, ((investmentYears - 1) / (35 - 1)) * 100))}%, var(--bg-surface-elevated) ${Math.min(100, Math.max(0, ((investmentYears - 1) / (35 - 1)) * 100))}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Investment tenure slider"
                     />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>Yrs</span>
+                  </div>
+                  <div className="calc-presets">
+                    {[5, 10, 15, 20, 25].map((yr) => (
+                      <button
+                        key={yr}
+                        type="button"
+                        className={`calc-chip ${investmentYears === yr ? 'active' : ''}`}
+                        onClick={() => setInvestmentYears(yr)}
+                      >
+                        {yr} Years
+                      </button>
+                    ))}
                   </div>
                 </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="35"
-                  step="1"
-                  value={investmentYears}
-                  onChange={(e) => setInvestmentYears(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--income)' }}
-                />
-              </div>
 
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Annual Step-Up
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
+                {/* Annual Step-Up */}
+                <div className="calc-field">
+                  <div className="calc-field-header">
+                    <label className="calc-label" htmlFor="demo-sip-stepup">
+                      <Sparkles size={16} color="#0284c7" />
+                      Annual Step-Up
+                    </label>
+                    <div className="calc-input-badge">
+                      <input
+                        id="demo-sip-stepup"
+                        type="number"
+                        min="0"
+                        max="25"
+                        value={annualStepUp || (annualStepUp === 0 ? 0 : '')}
+                        onChange={(e) => setAnnualStepUp(Math.max(0, Number(e.target.value)))}
+                        className="calc-num-input num-tabular"
+                        style={{ width: '45px' }}
+                      />
+                      <span className="calc-unit" style={{ marginLeft: '4px' }}>%</span>
+                    </div>
+                  </div>
+                  <div className="calc-slider-track">
                     <input
-                      type="number"
-                      value={annualStepUp || (annualStepUp === 0 ? 0 : '')}
+                      type="range"
+                      min="0"
+                      max="25"
+                      step="1"
+                      value={annualStepUp}
                       onChange={(e) => setAnnualStepUp(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '50px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
+                      className="calc-range"
+                      style={{
+                        background: `linear-gradient(to right, #0284c7 0%, #0284c7 ${(annualStepUp / 25) * 100}%, var(--bg-surface-elevated) ${(annualStepUp / 25) * 100}%, var(--bg-surface-elevated) 100%)`,
+                      }}
+                      aria-label="Annual step up slider"
                     />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>%</span>
                   </div>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="25"
-                  step="1"
-                  value={annualStepUp}
-                  onChange={(e) => setAnnualStepUp(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--info)' }}
-                />
-              </div>
-              
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', alignItems: 'center' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Expected Inflation
-                  </label>
-                  <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', borderRadius: '6px', padding: '4px 8px' }}>
-                    <input
-                      type="number"
-                      value={inflationRate || (inflationRate === 0 ? 0 : '')}
-                      onChange={(e) => setInflationRate(Number(e.target.value))}
-                      style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', fontWeight: 700, width: '50px', textAlign: 'right', outline: 'none', fontSize: '0.9rem' }}
-                      className="num-tabular"
-                    />
-                    <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', marginLeft: '4px' }}>%</span>
+                  <div className="calc-presets">
+                    {[
+                      { label: '0% None', val: 0 },
+                      { label: '5% Moderate', val: 5 },
+                      { label: '10% Salary Hike Match', val: 10 },
+                      { label: '15% Aggressive', val: 15 },
+                    ].map((p) => (
+                      <button
+                        key={p.val}
+                        type="button"
+                        className={`calc-chip ${annualStepUp === p.val ? 'active' : ''}`}
+                        onClick={() => setAnnualStepUp(p.val)}
+                      >
+                        {p.label}
+                      </button>
+                    ))}
                   </div>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="12"
-                  step="0.5"
-                  value={inflationRate}
-                  onChange={(e) => setInflationRate(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: 'var(--warning)' }}
-                />
-              </div>
-
-              <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-secondary)' }}>
-                    Installment Timing
-                  </label>
-                  <span style={{ fontSize: '0.75rem', color: 'var(--income)', fontWeight: 600 }}>
-                    {sipTiming === 'beginning' ? 'Compounded Annuity Due' : 'Ordinary Annuity'}
-                  </span>
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-                  <button
-                    type="button"
-                    onClick={() => setSipTiming('beginning')}
-                    style={{
-                      padding: '8px 12px',
-                      fontSize: '0.78rem',
-                      fontWeight: 600,
-                      borderRadius: '8px',
-                      border: sipTiming === 'beginning' ? '1px solid #10b981' : '1px solid var(--border-subtle)',
-                      background: sipTiming === 'beginning' ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-surface-elevated)',
-                      color: sipTiming === 'beginning' ? '#10b981' : 'var(--text-secondary)',
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease',
-                    }}
-                  >
-                    Month Start (Standard)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSipTiming('end')}
-                    style={{
-                      padding: '8px 12px',
-                      fontSize: '0.78rem',
-                      fontWeight: 600,
-                      borderRadius: '8px',
-                      border: sipTiming === 'end' ? '1px solid #10b981' : '1px solid var(--border-subtle)',
-                      background: sipTiming === 'end' ? 'rgba(16, 185, 129, 0.15)' : 'var(--bg-surface-elevated)',
-                      color: sipTiming === 'end' ? '#10b981' : 'var(--text-secondary)',
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease',
-                    }}
-                  >
-                    Month End
-                  </button>
                 </div>
               </div>
             </div>
 
-            {/* SIP Output */}
-            <div
-              style={{
-                padding: '28px',
-                borderRadius: 'var(--radius-lg)',
-                backgroundColor: 'var(--bg-surface-elevated)',
-                border: '1px solid var(--border-subtle)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '18px',
-              }}
-            >
+            {/* CARD 2: SIP Maturity Wealth Results */}
+            <div className="calc-card calc-results-card">
               <div>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 600 }}>ESTIMATED MATURITY WEALTH</p>
-                <h3 style={{ fontSize: '2.4rem', fontWeight: 800, color: 'var(--income)' }} className="num-tabular">
-                  {formatMoney(Math.round(sipRes.totalWealth), currencySymbol, 0)}
-                </h3>
-              </div>
-
-              <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Invested Capital:</span>
-                <span style={{ fontWeight: 700, color: 'var(--info)' }} className="num-tabular">{formatMoney(Math.round(sipRes.investedAmount), currencySymbol, 0)}</span>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Estimated Returns:</span>
-                <span style={{ fontWeight: 700, color: 'var(--income)' }} className="num-tabular">{formatMoney(Math.round(sipRes.estReturns), currencySymbol, 0)}</span>
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '4px' }}>Real Wealth <span style={{ fontSize: '0.7rem' }}>(Inflation Adj):</span></span>
-                <span style={{ fontWeight: 700, color: 'var(--warning)' }} className="num-tabular">{formatMoney(Math.round(sipRes.realWealth), currencySymbol, 0)}</span>
-              </div>
-              
-              {/* Visual Breakdown Bar */}
-              <div style={{ marginTop: '4px', marginBottom: '8px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px', fontSize: '0.75rem', fontWeight: 600 }}>
-                  <span style={{ color: 'var(--info)' }}>{sipRes.investedPct}% Invested</span>
-                  <span style={{ color: 'var(--income)' }}>{sipRes.returnsPct}% Returns</span>
+                <div className="calc-card-header" style={{ marginBottom: '16px' }}>
+                  <div className="calc-card-badge calc-card-badge-success">
+                    <TrendingUp size={14} /> Projected Maturity Corpus
+                  </div>
+                  <span className="calc-pill calc-pill-emerald">
+                    {sipTiming === 'beginning' ? 'Compounded Annuity Due' : 'Ordinary Annuity'}
+                  </span>
                 </div>
-                <div style={{ display: 'flex', height: '8px', borderRadius: '4px', overflow: 'hidden', background: 'var(--bg-surface)' }}>
-                  <div style={{ width: `${sipRes.investedPct}%`, background: 'var(--info)' }} title="Invested Capital" />
-                  <div style={{ width: `${sipRes.returnsPct}%`, background: 'var(--income)' }} title="Estimated Returns" />
+
+                <div className="calc-hero-metric">
+                  <h3 className="calc-hero-val calc-hero-val-success num-tabular">
+                    {formatMoney(Math.round(sipRes.totalWealth), currencySymbol, 0)}
+                  </h3>
+                  <span className="calc-hero-sub">
+                    Accumulated maturity wealth with {annualStepUp}% annual step-up compounding over {investmentYears} years.
+                  </span>
                 </div>
               </div>
 
-              <div style={{ marginTop: '2px', padding: '10px 12px', borderRadius: '8px', background: 'var(--bg-surface)', border: '1px solid var(--border-subtle)', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: '1.45' }}>
-                {sipTiming === 'beginning' ? (
-                  <span>
-                    <strong style={{ color: '#10b981' }}>Model:</strong> Annuity Due (start of month). Annual step-up applied at end of year. Real wealth assumes {inflationRate}% constant inflation.
+              {/* Visual Breakdown Gauge */}
+              <div className="calc-gauge">
+                <div className="calc-gauge-header">
+                  <span style={{ color: 'var(--info)' }}>
+                    Invested Capital: {sipRes.investedPct}%
                   </span>
-                ) : (
-                  <span>
-                    <strong style={{ color: 'var(--text-secondary)' }}>Model:</strong> Ordinary Annuity (end of month). Annual step-up applied at end of year. Real wealth assumes {inflationRate}% constant inflation.
+                  <span style={{ color: '#10b981' }}>
+                    Compounded Returns: {sipRes.returnsPct}%
                   </span>
-                )}
+                </div>
+                <div className="calc-gauge-track" title="Invested Capital vs Compounded Returns">
+                  <div style={{ width: `${sipRes.investedPct}%`, background: 'var(--info)', height: '100%' }} />
+                  <div style={{ width: `${sipRes.returnsPct}%`, background: '#10b981', height: '100%' }} />
+                </div>
               </div>
 
-              {/* Action Buttons: WhatsApp Share & Copy Link */}
-              <div style={{ display: 'flex', gap: '8px', marginTop: '6px' }}>
+              {/* Metric Rows */}
+              <div className="calc-metrics-list">
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Total Capital Invested:</span>
+                  <span className="calc-metric-val num-tabular" style={{ color: 'var(--info)' }}>
+                    {formatMoney(Math.round(sipRes.investedAmount), currencySymbol, 0)}
+                  </span>
+                </div>
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Estimated Returns Generated:</span>
+                  <span className="calc-metric-val num-tabular" style={{ color: '#10b981' }}>
+                    +{formatMoney(Math.round(sipRes.estReturns), currencySymbol, 0)}
+                  </span>
+                </div>
+                <div className="calc-metric-row">
+                  <span className="calc-metric-key">Real Wealth (Inflation-Adjusted):</span>
+                  <span className="calc-metric-val num-tabular" style={{ color: 'var(--warning)' }}>
+                    {formatMoney(Math.round(sipRes.realWealth), currencySymbol, 0)}
+                  </span>
+                </div>
+              </div>
+
+              {/* Timing Selector */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                 <button
                   type="button"
+                  onClick={() => setSipTiming('beginning')}
+                  className={`calc-chip ${sipTiming === 'beginning' ? 'active' : ''}`}
+                  style={{ padding: '8px 12px', textAlign: 'center', width: '100%' }}
+                >
+                  Month Start (Standard)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSipTiming('end')}
+                  className={`calc-chip ${sipTiming === 'end' ? 'active' : ''}`}
+                  style={{ padding: '8px 12px', textAlign: 'center', width: '100%' }}
+                >
+                  Month End
+                </button>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="calc-actions">
+                <button
+                  type="button"
+                  className="calc-share-btn"
                   onClick={() => {
                     const text = `📈 *Step-Up SIP Wealth Plan*
 💰 *Monthly Investment:* ${formatMoney(monthlyInvestment, currencySymbol, 0)}/mo
@@ -910,27 +1184,14 @@ ${sipShareUrl}`;
                     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
                     window.open(url, '_blank', 'noopener,noreferrer');
                   }}
-                  style={{
-                    flex: 1,
-                    padding: '10px 14px',
-                    borderRadius: '12px',
-                    border: 'none',
-                    background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
-                    color: '#ffffff',
-                    fontWeight: 700,
-                    fontSize: '0.82rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '6px',
-                    boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)',
-                  }}
                 >
-                  <MessageCircle size={15} /> Share Wealth Plan
+                  <MessageCircle size={16} />
+                  <span>Share SIP</span>
                 </button>
+
                 <button
                   type="button"
+                  className={`calc-copy-btn ${copiedSip ? 'copied' : ''}`}
                   onClick={async () => {
                     try {
                       if (navigator?.clipboard?.writeText) {
@@ -942,28 +1203,20 @@ ${sipShareUrl}`;
                       // ignore
                     }
                   }}
-                  style={{
-                    padding: '10px 14px',
-                    borderRadius: '12px',
-                    border: '1px solid var(--border-subtle)',
-                    backgroundColor: 'var(--bg-surface)',
-                    color: copiedSip ? '#10b981' : 'var(--text-secondary)',
-                    fontWeight: 700,
-                    fontSize: '0.82rem',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
                 >
-                  {copiedSip ? <Check size={15} /> : <Copy size={15} />}
+                  {copiedSip ? <Check size={16} /> : <Copy size={16} />}
                   <span>{copiedSip ? 'Copied' : 'Copy'}</span>
                 </button>
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+
+      {activeTab === 'GOAL' && <SavingsGoalCalculator />}
+      {activeTab === 'FD_RD' && <FdRdCalculator />}
+      {activeTab === 'COMPOUND' && <CompoundInterestCalculator />}
+      {activeTab === 'INFLATION' && <InflationCalculator />}
 
       {/* Contextual Android App Bridge Banner */}
       <div
@@ -986,12 +1239,22 @@ ${sipShareUrl}`;
             <Sparkles size={14} /> Bridge to Automated Money Management
           </div>
           <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 6px 0' }}>
-            {activeTab === 'EMI' ? 'Never Miss an EMI or Loan Auto-Debit' : 'Keep Your Monthly SIPs on Auto-Pilot'}
+            {activeTab === 'EMI' && 'Never Miss an EMI or Loan Auto-Debit'}
+            {activeTab === 'SIP' && 'Keep Your Monthly SIPs on Auto-Pilot'}
+            {activeTab === 'PREPAYMENT' && 'Balance Debt Prepayment with Monthly Cash Flow'}
+            {activeTab === 'GOAL' && 'Track Every Rupee Toward Your Savings Goal'}
+            {activeTab === 'FD_RD' && 'Auto-Log Term Deposit Debits & Interest Credits'}
+            {activeTab === 'COMPOUND' && 'Harness the Compounding Power of Small Daily Savings'}
+            {activeTab === 'INFLATION' && 'Protect Your Purchasing Power from Stealth Inflation'}
           </h4>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.55, margin: 0 }}>
-            {activeTab === 'EMI'
-              ? 'Tracking loan installments manually is stressful. Pocket Advisor on Android tracks debit SMS alerts directly on your device with 100% offline encryption, predicts upcoming EMIs, and ensures your bank balance is always ready.'
-              : 'Consistent investing requires keeping lifestyle spending in check. Pocket Advisor detects income credits, calculates your disposable surplus, and helps you fund your monthly SIPs without dipping into emergency savings.'}
+            {activeTab === 'EMI' && 'Tracking loan installments manually is stressful. Pocket Advisor on Android tracks debit SMS alerts directly on your device with 100% offline encryption, predicts upcoming EMIs, and ensures your bank balance is always ready.'}
+            {activeTab === 'SIP' && 'Consistent investing requires keeping lifestyle spending in check. Pocket Advisor detects income credits, calculates your disposable surplus, and helps you fund your monthly SIPs without dipping into emergency savings.'}
+            {activeTab === 'PREPAYMENT' && 'Deciding whether to prepay your loan or invest in equity requires disciplined budgeting. Pocket Advisor tracks your real spending vs budget to find extra principal prepayment capital.'}
+            {activeTab === 'GOAL' && 'Hitting ambitious targets like a down payment or car fund demands predictable monthly savings. Pocket Advisor helps you find cash leaks and ring-fence money for goals.'}
+            {activeTab === 'FD_RD' && 'Pocket Advisor automatically parses bank SMS alerts for recurring deposit debits and fixed deposit interest payouts directly on your phone with SQLCipher AES-256.'}
+            {activeTab === 'COMPOUND' && 'Saving ₹150 daily on impulse food delivery compounds into lakhs over a decade. Pocket Advisor gives you instant category breakdowns so you keep more money compounding.'}
+            {activeTab === 'INFLATION' && 'Lifestyle inflation creeps up silently. Pocket Advisor gives you real-time category spending inflation trends and Smart AI budget optimizations to stay ahead.'}
           </p>
         </div>
 
@@ -1021,10 +1284,13 @@ ${sipShareUrl}`;
         </div>
       </div>
 
+      {activeTab === 'PREPAYMENT' && <PrepaymentVsSipGuide />}
       {activeTab === 'EMI' && <EmiCalculatorGuide />}
       {activeTab === 'SIP' && <SipCalculatorGuide />}
-    </>
-    )}
+      {activeTab === 'GOAL' && <SavingsGoalGuide />}
+      {activeTab === 'FD_RD' && <FdRdGuide />}
+      {activeTab === 'COMPOUND' && <CompoundInterestGuide />}
+      {activeTab === 'INFLATION' && <InflationGuide />}
     </section>
   );
 };

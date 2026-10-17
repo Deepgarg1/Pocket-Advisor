@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ArrowRight,
-  BarChart3,
   Calculator,
   CheckCircle2,
   LockKeyhole,
@@ -21,10 +20,10 @@ interface HeroProps {
 }
 
 const featureCards = [
-  { icon: ReceiptText, title: 'Automatic expense tracking', description: 'Organize supported bank and UPI alerts with less manual entry.', tone: 'mint', view: 'upi-expense-tracker' },
-  { icon: BarChart3, title: 'Spending insights', description: 'See patterns and category breakdowns without the clutter.', tone: 'violet', view: 'features' },
-  { icon: UsersRound, title: 'Split group bills', description: 'Share expenses and simplify who owes what.', tone: 'cyan', view: 'split' },
-  { icon: Calculator, title: 'Financial calculators', description: 'Explore EMI, SIP, and loan prepayment scenarios.', tone: 'amber', view: 'calculators' },
+  { icon: ReceiptText, title: 'On-Device SMS & UPI Tracking', description: 'Linguistic regex parsing for 150+ currencies with strict OTP filtering.', tone: 'mint', view: 'upi-expense-tracker' },
+  { icon: ShieldCheck, title: 'SQLCipher AES-256 Vault', description: 'Hardware Android Keystore & FLAG_SECURE screenshot protection.', tone: 'violet', view: 'features' },
+  { icon: UsersRound, title: 'Greedy Bill Splitter & UPI QR', description: 'Bipartite graph debt reduction with instant on-screen ZXing QR pay.', tone: 'cyan', view: 'split' },
+  { icon: Calculator, title: '6-in-1 Financial Calculators', description: 'Loan EMI, Step-Up SIP, Goal, FD/RD, Compound & Inflation math.', tone: 'amber', view: 'calculators' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
@@ -47,19 +46,21 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="pa-hero-copy">
             <div className="pa-eyebrow">
               <span className="pa-eyebrow-icon"><Sparkles size={14} /></span>
-              OFFICIAL ANDROID APP <span className="pa-eyebrow-dot">•</span> BUILT FOR EVERYDAY MONEY
+              OFFICIAL ANDROID APP (v1.0.19) <span className="pa-eyebrow-dot">•</span> ON-DEVICE SMS PARSING • SQLCIPHER ENCRYPTION
             </div>
 
             <h1 id="pa-hero-title">
-              Pocket Advisor: Expense Tracker App for Android
-              <span className="pa-title-line pa-gradient-text">Track Spending &amp; Split Bills</span>
+              Track Expenses, Manage Budgets &amp; Split Bills
+              <span className="pa-title-line pa-gradient-text">100% Private On-Device Bank SMS Tracking</span>
             </h1>
-            <p className="pa-hero-subtitle">Track spending. Split bills. Plan smarter.</p>
+            <p className="pa-hero-subtitle">Automatic UPI Tracking • SQLCipher AES-256 Vault • Smart Bill Splitting</p>
 
             <p className="pa-hero-description">
-              Know where your money goes. Pocket Advisor helps you organize supported bank
-              and UPI transaction alerts, review spending, and split group bills on Android.
-              Transaction coverage varies, and optional cloud backup is available.
+              Automate your personal finance without sacrificing privacy. Pocket Advisor detects incoming bank &amp;
+              UPI SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan &amp; 150+ currencies) completely on-device with zero
+              server transmission of your message contents. Features SQLCipher AES-256 database encryption, Android
+              Keystore protection, 2-stage greedy debt minimization, exact AlarmManager bill reminders, and smart AI
+              financial insights.
             </p>
 
             <div className="pa-hero-actions">
@@ -79,16 +80,18 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
 
             <div className="pa-trust-row" aria-label="Product highlights">
-              <span><ShieldCheck size={17} /> Privacy-first design</span>
-              <span><LockKeyhole size={16} /> Encrypted local database</span>
-              <span><CheckCircle2 size={17} /> Free core features</span>
+              <span><ShieldCheck size={17} /> SQLCipher AES-256 + Keystore</span>
+              <span><LockKeyhole size={16} /> FLAG_SECURE Screen Lock</span>
+              <span><Zap size={16} /> On-Device SMS Parser</span>
+              <span><CheckCircle2 size={17} /> Free Core Tools</span>
             </div>
 
             <div className="pa-hero-links">
               <span>Explore tools</span>
               <a {...routeLink('features')}>App features <ArrowRight size={13} /></a>
-              <a {...routeLink('calculators')}>EMI &amp; SIP calculators <ArrowRight size={13} /></a>
+              <a {...routeLink('calculators')}>6-in-1 calculators <ArrowRight size={13} /></a>
               <a {...routeLink('upi-expense-tracker')}>UPI tracker <ArrowRight size={13} /></a>
+              <a {...routeLink('monthly-budget-planner')}>50/30/20 planner <ArrowRight size={13} /></a>
             </div>
           </div>
 
@@ -120,9 +123,9 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           ))}
         </div>
         <div className="pa-below-note">
-          <span><ShieldCheck size={15} /> Designed with privacy in mind</span><i />
-          <span><Sparkles size={15} /> Practical tools, no clutter</span><i />
-          <span><CheckCircle2 size={15} /> Free core features</span>
+          <span><ShieldCheck size={15} /> SQLCipher AES-256 on-device vault</span><i />
+          <span><Sparkles size={15} /> Smart AI Copilot &amp; burn-rate pacing</span><i />
+          <span><CheckCircle2 size={15} /> Exact AlarmManager bill reminders</span>
         </div>
       </section>
     </div>

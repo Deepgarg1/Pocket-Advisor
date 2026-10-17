@@ -20,14 +20,16 @@ import {
   Smartphone,
   Download,
 } from 'lucide-react';
+import { Budget503020Guide } from './Budget503020Guide';
+import { EmiVsTotalInterestGuide } from './EmiVsTotalInterestGuide';
 
-interface GuideFaqProps {
+export interface GuideFaqProps {
   question: string;
   answer: string | React.ReactNode;
   defaultOpen?: boolean;
 }
 
-const GuideFaqItem: React.FC<GuideFaqProps> = ({ question, answer, defaultOpen = false }) => {
+export const GuideFaqItem: React.FC<GuideFaqProps> = ({ question, answer, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
@@ -84,7 +86,7 @@ const GuideFaqItem: React.FC<GuideFaqProps> = ({ question, answer, defaultOpen =
   );
 };
 
-const AuthorCard: React.FC<{ topic: string }> = ({ topic }) => (
+export const AuthorCard: React.FC<{ topic: string }> = ({ topic }) => (
   <div
     style={{
       display: 'flex',
@@ -204,6 +206,14 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
       onNavigate(target);
     }
   };
+
+  if (slug === '50-30-20-budget-rule-india') {
+    return <Budget503020Guide onNavigate={onNavigate} />;
+  }
+
+  if (slug === 'emi-vs-total-interest-loan-guide') {
+    return <EmiVsTotalInterestGuide onNavigate={onNavigate} />;
+  }
 
   // -------------------------------------------------------------
   // GUIDE 1: Rent Splitting for Unequal Rooms
@@ -2053,6 +2063,106 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             }}
           >
             <span>Read Architectural Comparison</span>
+            <ArrowRight size={15} />
+          </a>
+        </Card>
+
+        {/* Guide Card 5: 50/30/20 Budgeting Rule for India */}
+        <Card
+          style={{
+            padding: '28px',
+            borderRadius: '22px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            border: '1px solid var(--border-subtle)',
+            transition: 'all 0.25s ease',
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '4px 10px', borderRadius: '8px', backgroundColor: 'rgba(99, 102, 241, 0.15)', color: 'var(--primary)', textTransform: 'uppercase' }}>
+                Budgeting
+              </span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>7 min read</span>
+            </div>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '12px', lineHeight: 1.35 }}>
+              <a
+                href="/50-30-20-budget-rule-india"
+                onClick={(e) => handleNav('50-30-20-budget-rule-india', e)}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                How to Create a Monthly Budget Using the 50/30/20 Rule: Indian Salary Guide
+              </a>
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px' }}>
+              From ₹30K entry salaries to ₹2L executive pay: how to balance Needs, Wants, and Investments without feeling financially restricted.
+            </p>
+          </div>
+          <a
+            href="/50-30-20-budget-rule-india"
+            onClick={(e) => handleNav('50-30-20-budget-rule-india', e)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: 'var(--primary)',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            <span>Read 50/30/20 Salary Guide</span>
+            <ArrowRight size={15} />
+          </a>
+        </Card>
+
+        {/* Guide Card 6: EMI vs Total Interest */}
+        <Card
+          style={{
+            padding: '28px',
+            borderRadius: '22px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            border: '1px solid var(--border-subtle)',
+            transition: 'all 0.25s ease',
+          }}
+        >
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 800, padding: '4px 10px', borderRadius: '8px', backgroundColor: 'rgba(99, 102, 241, 0.15)', color: 'var(--primary)', textTransform: 'uppercase' }}>
+                Debt Optimization
+              </span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>8 min read</span>
+            </div>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '12px', lineHeight: 1.35 }}>
+              <a
+                href="/emi-vs-total-interest-loan-guide"
+                onClick={(e) => handleNav('emi-vs-total-interest-loan-guide', e)}
+                style={{ color: 'inherit', textDecoration: 'none' }}
+              >
+                EMI vs Total Interest: How Reducing Balance Loans Work and How to Save Lakhs
+              </a>
+            </h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '20px' }}>
+              Why a ₹50L loan costs ₹54L in interest alone, and 3 proven mathematical strategies to slash loan tenure by 8+ years.
+            </p>
+          </div>
+          <a
+            href="/emi-vs-total-interest-loan-guide"
+            onClick={(e) => handleNav('emi-vs-total-interest-loan-guide', e)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              color: 'var(--primary)',
+              fontWeight: 700,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            <span>Read EMI vs Interest Guide</span>
             <ArrowRight size={15} />
           </a>
         </Card>

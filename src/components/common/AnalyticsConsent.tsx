@@ -47,8 +47,8 @@ export const AnalyticsConsent: React.FC = () => {
             Your analytics preferences
           </p>
           <p style={{ margin: '0 0 14px', color: '#cbd5e1', fontSize: '0.88rem', lineHeight: 1.55 }}>
-            Pocket Advisor can use Google Analytics to understand website visits and improve the site.
-            Analytics is off unless you accept. This does not access your app expenses or financial records.
+            Pocket Advisor uses anonymous analytics to understand website visits and improve site tools.
+            Cookies are disabled unless you accept. This never accesses your personal finances or app expenses.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
             <button

@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#818cf8' }}>
                 <Lock size={15} />
-                <span>100% Private Ledger • Zero Cloud Telemetry</span>
+                <span>Encrypted Local Ledger • Optional Cloud Sync</span>
               </div>
             </div>
           </div>

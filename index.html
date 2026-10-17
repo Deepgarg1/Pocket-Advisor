@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Expense Tracker App for Android in India | Pocket Advisor</title>
-    <meta name="description" content="Track eligible bank and UPI SMS alerts on Android, review spending, plan budgets, set bill reminders, and split group expenses with Pocket Advisor.." />
+    <title>Pocket Advisor: Expense Tracker &amp; Budget Planner India</title>
+    <meta name="description" content="Track expenses automatically from bank SMS alerts, manage budgets, split bills, set payment reminders and explore financial calculators with Pocket Advisor." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0a0e1a" />
     <link rel="canonical" href="https://www.pocketadvisor.in/" />
@@ -18,22 +18,42 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Pocket Advisor" />
     <meta property="og:url" content="https://www.pocketadvisor.in/" />
-    <meta property="og:title" content="Expense Tracker App for Android in India | Pocket Advisor" />
-    <meta property="og:description" content="Track eligible bank and UPI SMS alerts on Android, review spending, plan budgets, set bill reminders, and split group expenses with Pocket Advisor." />
+    <meta property="og:title" content="Pocket Advisor: Expense Tracker &amp; Budget Planner India" />
+    <meta property="og:description" content="Track expenses automatically from bank SMS alerts, manage budgets, split bills, set payment reminders and explore financial calculators with Pocket Advisor." />
     <meta property="og:image" content="https://www.pocketadvisor.in/logo.png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Expense Tracker App for Android in India | Pocket Advisor" />
-    <meta name="twitter:description" content="Organize supported bank and UPI transaction alerts, review spending, and split group bills with Pocket Advisor on Android. Optional cloud backup is available." />
+    <meta name="twitter:title" content="Pocket Advisor: Expense Tracker &amp; Budget Planner India" />
+    <meta name="twitter:description" content="Track expenses automatically from bank SMS alerts, manage budgets, split bills, set payment reminders and explore financial calculators with Pocket Advisor." />
     <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
 
     <!-- Preload Critical Above-The-Fold LCP Image for 0ms Discovery -->
     <link rel="preload" href="/assets/mockup/phone-dashboard.webp" as="image" type="image/webp" fetchpriority="high" />
 
-    <!-- Preconnect for Google Fonts -->
+    <!-- Preconnect for Google Analytics & Fonts -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Analytics Consent Mode v2 -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      (function() {
+        var consent = null;
+        try { consent = localStorage.getItem('pocketadvisor_analytics_consent'); } catch(e){}
+        gtag('consent', 'default', {
+          'analytics_storage': consent === 'granted' ? 'granted' : 'denied',
+          'ad_storage': 'denied',
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied'
+        });
+        gtag('js', new Date());
+        gtag('config', 'G-FP96084QTY', { send_page_view: false });
+      })();
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP96084QTY"></script>
 
     <!-- Non-render-blocking font stylesheet with display=optional to eliminate font swap layout shifts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'" />
@@ -150,10 +170,11 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Pocket Advisor",
-      "operatingSystem": "Android",
+      "operatingSystem": "Android 7.0 and up (Min SDK 24, Target SDK 36, Android 14/15/16 Ready)",
       "applicationCategory": "FinanceApplication",
+      "softwareVersion": "1.0.19",
       "image": "https://www.pocketadvisor.in/logo.png",
-      "screenshot": "https://www.pocketadvisor.in/logo.png",
+      "screenshot": "https://www.pocketadvisor.in/assets/mockup/phone-dashboard.webp",
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -162,7 +183,19 @@
       "author": {
         "@id": "https://www.pocketadvisor.in/#organization"
       },
-      "description": "Pocket Advisor is an Android expense tracker app with supported bank and UPI SMS transaction detection, group bill splitting, home screen widgets, and financial calculators. Supported message formats and availability vary."
+      "description": "Pocket Advisor is an all-in-one personal finance, automated bank & UPI SMS expense tracker, 2-stage greedy bill splitter, and Smart AI financial copilot for Android. Features 100% on-device SQLCipher AES-256 database encryption, hardware-backed Android Keystore, biometric app lock with FLAG_SECURE window protection, exact AlarmManager bill reminders, and 6 financial mathematics calculators.",
+      "featureList": [
+        "100% On-Device Linguistic Bank & UPI SMS Transaction Parsing (150+ Currencies, Anti-OTP Filter)",
+        "SQLCipher AES-256 Room Database Encryption with Hardware Android Keystore",
+        "Biometric App Lock & FLAG_SECURE Window Protection (Blocks Screenshots/Recordings)",
+        "2-Stage Greedy Debt Minimization Bill Splitter with Dynamic ZXing UPI QR Codes",
+        "Smart Bill, Subscription & Loan EMI Reminders with AlarmManager Exact Scheduling",
+        "On-Device Real-Time Burn-Rate Velocity Projection & Smart AI Copilot",
+        "6-in-1 Financial Mathematics Calculators Suite (EMI, SIP, Savings Goal, FD/RD, Compound Interest, Inflation)",
+        "Interactive Shopping Checklist with 1-Tap Convert to Expense Ledger",
+        "Glanceable Android Home Screen Widgets with Privacy Masking Toggle",
+        "Offline-First Architecture with Encrypted Local Storage & Optional Cloud Sync"
+      ]
     }
     </script>
 
@@ -190,7 +223,7 @@
           "name": "How does Pocket Advisor track bank and UPI expenses automatically?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking."
+            "text": "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. SMS parsing is 100% on-device and message contents are never transmitted to external servers. Your financial ledger is encrypted locally with SQLCipher AES-256."
           }
         },
         {
@@ -214,7 +247,39 @@
           "name": "Is Pocket Advisor free and safe to use?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data."
+            "text": "Yes, Pocket Advisor is free to download, does not ask for netbanking credentials or OTPs, operates offline-first with on-device data encryption, and never sells your personal spending data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SQLCipher AES-256 and Android Keystore protect my financial records?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your financial transactions and budgets are stored in an on-device SQLite database encrypted with SQLCipher AES-256. The master encryption key is generated and sealed inside your phone's hardware-backed Android Keystore (TEE / StrongBox). Pocket Advisor also applies FLAG_SECURE window protection to block screen recordings, screenshots, and OS app-switcher snapshot leaks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do the Smart Bill and Loan EMI Reminders work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pocket Advisor schedules exact alarms using Android AlarmManager.setExactAndAllowWhileIdle() to trigger notifications even in deep Android Doze mode. When you pay a bill, incoming bank SMS alerts automatically reconcile and mark the reminder paid. You can also generate 1-tap WhatsApp reminders for flatmates or contacts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What calculators are included in the Pocket Advisor suite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pocket Advisor includes a complete 6-in-1 financial mathematics suite: Loan EMI Calculator (reducing balance amortization), SIP Wealth Calculator (compound growth and annual step-ups), Savings Goal Planner, FD / RD Calculator with compound frequencies, Compound Interest Calculator, and Inflation Calculator (purchasing power erosion over 1-30 years)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Smart AI Copilot and on-device burn-rate engine work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pocket Advisor's on-device Financial Intelligence Engine monitors your daily burn-rate velocity and alerts you to category spending spikes before you exceed monthly budget caps. For personalized financial coaching, it securely connects via Supabase Edge Functions to smart AI models, offering contextual debt reduction strategies, savings tips, and Markdown breakdowns."
           }
         }
       ]
@@ -246,19 +311,19 @@
                   <span class="pa-eyebrow-icon">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
                   </span>
-                  OFFICIAL ANDROID APP <span class="pa-eyebrow-dot">•</span> BUILT FOR EVERYDAY MONEY
+                  OFFICIAL ANDROID APP (v1.0.19) <span class="pa-eyebrow-dot">•</span> ON-DEVICE SMS PARSING • SQLCIPHER ENCRYPTION
                 </div>
 
                 <!-- Primary Headline -->
                 <h1 id="pa-hero-title">
-                  Pocket Advisor: Expense Tracker App for Android
-                  <span class="pa-title-line pa-gradient-text">Track Spending &amp; Split Bills</span>
+                  Track Expenses, Manage Budgets &amp; Split Bills
+                  <span class="pa-title-line pa-gradient-text">100% Private On-Device Bank SMS Tracking</span>
                 </h1>
-                <p class="pa-hero-subtitle">Track spending. Split bills. Plan smarter.</p>
+                <p class="pa-hero-subtitle">Automatic UPI Tracking • SQLCipher AES-256 Vault • Smart Bill Splitting</p>
 
                 <!-- Value Proposition Description -->
                 <p class="pa-hero-description">
-                  Know where your money goes. Pocket Advisor helps you organize supported bank and UPI transaction alerts, review spending, and split group bills on Android. Transaction coverage varies, and optional cloud backup is available.
+                  Automate your personal finance without sacrificing privacy. Pocket Advisor detects incoming bank &amp; UPI SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan &amp; 150+ currencies) completely on-device with zero server transmission of your message contents. Features SQLCipher AES-256 database encryption, Android Keystore protection, 2-stage greedy debt minimization, exact AlarmManager bill reminders, and smart AI financial insights.
                 </p>
 
                 <!-- Action Button Shell -->
@@ -278,16 +343,18 @@
                 </div>
 
                 <div class="pa-trust-row" aria-label="Product highlights">
-                  <span>🛡️ Privacy-first design</span>
-                  <span>🔒 Encrypted local database</span>
-                  <span>✅ Free core features</span>
+                  <span>🛡️ SQLCipher AES-256 + Keystore</span>
+                  <span>🔒 FLAG_SECURE Screen Lock</span>
+                  <span>⚡ On-Device SMS Parser</span>
+                  <span>✅ Free Core Tools</span>
                 </div>
 
                 <div class="pa-hero-links">
                   <span>Explore tools</span>
                   <a href="/features">App features →</a>
-                  <a href="/calculators">EMI &amp; SIP calculators →</a>
+                  <a href="/calculators">6-in-1 calculators →</a>
                   <a href="/upi-expense-tracker">UPI tracker →</a>
+                  <a href="/monthly-budget-planner">50/30/20 planner →</a>
                 </div>
               </div>
 
@@ -348,29 +415,29 @@
             <div class="pa-feature-grid" aria-label="Pocket Advisor features" style="margin-top: 10px; width: 100%;">
               <a href="/upi-expense-tracker" class="pa-feature-card pa-tone-mint" style="text-decoration: none;">
                 <span class="pa-feature-icon" style="font-size: 1.3rem;">📝</span>
-                <span class="pa-feature-copy"><strong>Automatic expense tracking</strong><small>Organize supported bank and UPI alerts with less manual entry.</small></span>
+                <span class="pa-feature-copy"><strong>On-Device SMS &amp; UPI Tracking</strong><small>Linguistic regex parsing for 150+ currencies with strict OTP filtering.</small></span>
               </a>
               <a href="/features" class="pa-feature-card pa-tone-violet" style="text-decoration: none;">
-                <span class="pa-feature-icon" style="font-size: 1.3rem;">📊</span>
-                <span class="pa-feature-copy"><strong>Spending insights</strong><small>See patterns and category breakdowns without the clutter.</small></span>
+                <span class="pa-feature-icon" style="font-size: 1.3rem;">🛡️</span>
+                <span class="pa-feature-copy"><strong>SQLCipher AES-256 Vault</strong><small>Hardware Android Keystore &amp; FLAG_SECURE screenshot protection.</small></span>
               </a>
               <a href="/split" class="pa-feature-card pa-tone-cyan" style="text-decoration: none;">
                 <span class="pa-feature-icon" style="font-size: 1.3rem;">👥</span>
-                <span class="pa-feature-copy"><strong>Split group bills</strong><small>Share expenses and simplify who owes what.</small></span>
+                <span class="pa-feature-copy"><strong>Greedy Bill Splitter &amp; UPI QR</strong><small>Bipartite graph debt reduction with instant on-screen ZXing QR pay.</small></span>
               </a>
               <a href="/calculators" class="pa-feature-card pa-tone-amber" style="text-decoration: none;">
                 <span class="pa-feature-icon" style="font-size: 1.3rem;">🧮</span>
-                <span class="pa-feature-copy"><strong>Financial calculators</strong><small>Explore EMI, SIP, and loan prepayment scenarios.</small></span>
+                <span class="pa-feature-copy"><strong>6-in-1 Financial Calculators</strong><small>Loan EMI, Step-Up SIP, Goal, FD/RD, Compound &amp; Inflation math.</small></span>
               </a>
             </div>
 
             <!-- Trust highlights row -->
             <div class="pa-below-note" style="margin-top: 23px;">
-              <span>🛡️ Designed with privacy in mind</span>
+              <span>🛡️ SQLCipher AES-256 on-device vault</span>
               <i></i>
-              <span>✨ Practical tools, no clutter</span>
+              <span>🤖 Smart AI Copilot &amp; burn-rate pacing</span>
               <i></i>
-              <span>✅ Free core features</span>
+              <span>⏰ Exact AlarmManager bill reminders</span>
             </div>
           </section>
         </div>
@@ -381,7 +448,7 @@
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
               <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does Pocket Advisor track bank and UPI expenses automatically?</h3>
-              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. All data stays 100% encrypted and local on your phone with zero server tracking.</p>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. SMS parsing runs 100% locally on your device without transmitting raw message contents to external servers. Your financial ledger is encrypted locally with SQLCipher AES-256.</p>
             </div>
             <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
               <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does the 2-stage greedy debt minimization bill splitter work?</h3>
@@ -393,7 +460,23 @@
             </div>
             <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
               <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">Is Pocket Advisor free and safe to use?</h3>
-              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Yes, Pocket Advisor is completely free, does not ask for netbanking passwords or OTPs, operates 100% offline, and never sells your spending data.</p>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Yes, Pocket Advisor is free to download, does not ask for netbanking credentials or OTPs, operates offline-first with on-device data encryption, and never sells your personal spending data.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does SQLCipher AES-256 and Android Keystore protect my financial records?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Your financial transactions and budgets are stored in an on-device SQLite database encrypted with SQLCipher AES-256. The master encryption key is generated and sealed inside your phone's hardware-backed Android Keystore (TEE / StrongBox). Pocket Advisor also applies FLAG_SECURE window protection to block screen recordings, screenshots, and OS app-switcher snapshot leaks.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How do the Smart Bill and Loan EMI Reminders work?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor schedules exact alarms using Android AlarmManager.setExactAndAllowWhileIdle() to trigger notifications even in deep Android Doze mode. When you pay a bill, incoming bank SMS alerts automatically reconcile and mark the reminder paid. You can also generate 1-tap WhatsApp reminders for flatmates or contacts.</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">What calculators are included in the Pocket Advisor suite?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor includes a complete 6-in-1 financial mathematics suite: Loan EMI Calculator (reducing balance amortization), SIP Wealth Calculator (compound growth and annual step-ups), Savings Goal Planner, FD / RD Calculator with compound frequencies, Compound Interest Calculator, and Inflation Calculator (purchasing power erosion over 1-30 years).</p>
+            </div>
+            <div style="background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 20px;">
+              <h3 style="font-size: 1rem; font-weight: 700; color: #f8fafc; margin: 0 0 8px 0;">How does the Smart AI Copilot and on-device burn-rate engine work?</h3>
+              <p style="margin: 0; color: #cbd5e1; line-height: 1.6; font-size: 0.92rem;">Pocket Advisor's on-device Financial Intelligence Engine monitors your daily burn-rate velocity and alerts you to category spending spikes before you exceed monthly budget caps. For personalized financial coaching, it securely connects via Supabase Edge Functions to smart AI models, offering contextual debt reduction strategies, savings tips, and Markdown breakdowns.</p>
             </div>
           </div>
         </section>
@@ -419,7 +502,7 @@
                   <span>SQLCipher On-Device Encryption</span>
                 </div>
                 <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #818cf8;">
-                  <span>100% Private Ledger • Zero Cloud Telemetry</span>
+                  <span>Encrypted Local Ledger • Optional Cloud Sync</span>
                 </div>
               </div>
             </div>

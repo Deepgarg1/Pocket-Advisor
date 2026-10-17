@@ -1580,7 +1580,7 @@
         "type": "callout",
         "variant": "warning",
         "title": "Why On-Device Isolation Matters",
-        "content": "• **Zero Cloud Telemetry by Default:** Your transaction history is stored locally in an encrypted SQLCipher SQLite database protected with AES-256 bit encryption.\\n• **Zero OTP Reading:** Verification codes, banking OTPs, and personal security messages are immediately identified and purged from memory in under 1 millisecond.\\n• **Transparent Monetization:** Pocket Advisor features a clean, ad-supported free tier with standard mobile display ads, alongside an optional ad-free Pro upgrade. We never sell your data or partner with NBFC lenders.\\n• **Optional Encrypted Cloud Backup:** If you wish to sync across devices or restore data on a new phone, you can voluntarily enable encrypted Cloud Backup powered by Supabase with Row-Level Security (RLS)."
+        "content": "• **Local-First Storage by Default:** Your transaction history is stored locally in an encrypted SQLCipher SQLite database protected with AES-256 bit encryption.\\n• **Zero OTP Reading:** Verification codes, banking OTPs, and personal security messages are immediately identified and purged from memory in under 1 millisecond.\\n• **Transparent Monetization:** Pocket Advisor features a clean, ad-supported free tier with standard mobile display ads, alongside an optional ad-free Pro upgrade. We never sell your data or partner with NBFC lenders.\\n• **Optional Encrypted Cloud Backup:** If you wish to sync across devices or restore data on a new phone, you can voluntarily enable encrypted Cloud Backup powered by Supabase with Row-Level Security (RLS)."
       },
       {
         "type": "cta",

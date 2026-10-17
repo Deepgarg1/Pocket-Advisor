@@ -31,8 +31,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   calculators: {
-    title: 'Free Financial Calculators India (No Login) — Bill Splitter, EMI & SIP | Pocket Advisor',
-    description: 'Suite of free interactive financial tools: 2-stage greedy bill splitter, reducing balance loan EMI calculator, step-up SIP wealth projector, and 50/30/20 budget planner. No signup.',
+    title: 'Free Financial Calculators India | EMI, SIP & Budget',
+    description: 'Use free financial calculators in India for loan EMI, SIP returns, monthly budgeting, bill splitting and home-loan prepayment comparisons. No account required.',
     canonical: `${BASE_URL}/calculators`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

@@ -111,7 +111,7 @@ if (!fs.existsSync(budgetPlannerPath)) {
   if (!budgetHtml.includes('<link rel="canonical" href="' + budgetCanonical + '" />')) {
     fail('Monthly budget planner canonical URL is incorrect.');
   }
-  if ((budgetHtml.match(/<h1\\b/gi) || []).length !== 1) {
+  if ((budgetHtml.match(/<h1\b/gi) || []).length !== 1) {
     fail('Monthly budget planner should have exactly one H1 heading in prerendered HTML.');
   }
   if (!budgetHtml.includes('Monthly Budget Planner') || !budgetHtml.includes('50/30/20 rule')) {
@@ -137,7 +137,7 @@ if (!fs.existsSync(budgetPlannerPath)) {
   }
 
   const seoSource = fs.readFileSync(path.join(rootDir, 'src', 'utils', 'seo.ts'), 'utf8');
-  const seoBudgetBlock = seoSource.match(/'monthly-budget-planner': \\{([\\s\\S]*?)\\n  \\},/);
+  const seoBudgetBlock = seoSource.match(/'monthly-budget-planner': \{([\s\S]*?)\n  \},/);
   if (!seoBudgetBlock || !seoBudgetBlock[1].includes("title: '" + expectedTitle + "'") ||
       !seoBudgetBlock[1].includes("description: '" + expectedDescription + "'")) {
     fail('Monthly budget planner route metadata in src/utils/seo.ts is out of sync with prerendered HTML.');

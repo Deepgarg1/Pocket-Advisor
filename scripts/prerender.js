@@ -406,8 +406,8 @@ const routes = [
   },
   {
     slug: 'calculators',
-    title: 'Free Financial Calculators India (No Login) — Bill Splitter, EMI & SIP | Pocket Advisor',
-    description: 'Suite of free interactive financial tools: 2-stage greedy bill splitter, reducing balance loan EMI calculator, step-up SIP wealth projector, and 50/30/20 budget planner. No signup.',
+    title: 'Free Financial Calculators India | EMI, SIP & Budget',
+    description: 'Use free financial calculators in India for loan EMI, SIP returns, monthly budgeting, bill splitting and home-loan prepayment comparisons. No account required.',
     canonical: `${BASE_URL}/calculators`,
     badgeCategory: 'Financial Tools',
     pillText: 'Free Web Spending Tools • Zero Registration',
@@ -442,18 +442,18 @@ const routes = [
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'Are all financial tools and calculators on Pocket Advisor free?',
+            name: 'Do I need an account to use Pocket Advisor web calculators?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes. All interactive financial tools—including the 2-stage greedy bill splitter, loan EMI calculator, step-up SIP wealth projector, and 50/30/20 monthly budget planner—are 100% free with no login, subscription, or software installation needed.'
+              text: 'No account is required to use the listed web tools. They are available directly in your browser without installing the Android app.'
             }
           },
           {
             '@type': 'Question',
-            name: 'Are my financial calculations saved or uploaded to external servers?',
+            name: 'Should I treat calculator results as financial advice?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No. All calculations run strictly client-side in your web browser. No loan balances, salaries, or financial figures are uploaded or stored on any server.'
+              text: 'No. Calculator results are estimates based on the inputs, rates, and assumptions you provide. Actual loan terms, investment returns, taxes, fees, and outcomes can differ. Verify important figures with your lender or a qualified financial professional before making a decision.'
             }
           }
         ]

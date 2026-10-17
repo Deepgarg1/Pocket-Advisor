@@ -29,16 +29,16 @@
     <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
 
     <!-- Preload Critical Above-The-Fold LCP Image for 0ms Discovery -->
-    <link rel="preload" href="/assets/mockup/phone-dashboard.webp" as="image" type="image/webp" fetchpriority="high" />
+    <link rel="preload" href="/assets/mockup/phone-dashboard.webp" as="image" type="image/webp" />
 
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Non-render-blocking font stylesheet with display=swap for sub-1s FCP -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'" />
+    <!-- Non-render-blocking font stylesheet with display=optional to eliminate font swap layout shifts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'" />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" />
     </noscript>
 
     <!-- Critical Inline Styles for Sub-500ms First Contentful Paint (FCP) -->
@@ -346,6 +346,39 @@
             <!-- Pre-rendered Phone Visual (Instant LCP Candidate) -->
             <div class="pa-hero-visual">
               <div class="pa-phone-stage">
+                <!-- Screen Selector Tabs Shell (prevents 0.017 visual layout shift) -->
+                <div
+                  class="screen-selector-tabs"
+                  role="tablist"
+                  aria-label="App screen previews"
+                  style="display: inline-flex; gap: 2px; padding: 4px 6px; border-radius: 9999px; margin-bottom: 16px; background: rgba(13, 21, 38, 0.94); border: 1px solid rgba(255, 255, 255, 0.12); box-sizing: border-box; overflow-x: auto; scrollbar-width: none;"
+                >
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; background: #5CF3B6; color: #003822; font-weight: 750; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 10px rgba(92, 243, 182, 0.4);">
+                    <span style="font-size: 0.74rem;">📊</span>
+                    <span>Dashboard</span>
+                  </span>
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; color: #94a3b8; font-weight: 550; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 0.74rem;">📝</span>
+                    <span>History</span>
+                  </span>
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; color: #94a3b8; font-weight: 550; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 0.74rem;">📈</span>
+                    <span>Analytics</span>
+                  </span>
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; color: #94a3b8; font-weight: 550; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 0.74rem;">👥</span>
+                    <span>Splits</span>
+                  </span>
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; color: #94a3b8; font-weight: 550; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 0.74rem;">🎯</span>
+                    <span>Planner</span>
+                  </span>
+                  <span style="flex: 0 0 auto; padding: 5px 8px; border-radius: 9999px; color: #94a3b8; font-weight: 550; font-size: 0.69rem; display: inline-flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 0.74rem;">🧰</span>
+                    <span>Tools</span>
+                  </span>
+                </div>
+
                 <img
                   src="/assets/mockup/phone-dashboard.webp"
                   alt="Pocket Advisor Android Dashboard: Total Balance, Category Alerts, and Recent Transactions"
@@ -354,10 +387,39 @@
                   fetchpriority="high"
                   loading="eager"
                   decoding="async"
-                  style="width: 100%; max-width: 310px; height: auto; display: block;"
+                  style="width: 100%; max-width: 310px; height: auto; display: block; filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18));"
                 />
               </div>
             </div>
+          </div>
+
+          <!-- Feature Cards Grid (Pre-rendered to eliminate 0.311 footer layout shift) -->
+          <div class="pa-feature-grid" aria-label="Pocket Advisor features" style="margin-top: 36px; width: 100%;">
+            <a href="/upi-expense-tracker" class="pa-feature-card pa-tone-mint" style="text-decoration: none;">
+              <span class="pa-feature-icon" style="font-size: 1.3rem;">📝</span>
+              <span class="pa-feature-copy"><strong>Automatic expense tracking</strong><small>Organize supported bank and UPI alerts with less manual entry.</small></span>
+            </a>
+            <a href="/features" class="pa-feature-card pa-tone-violet" style="text-decoration: none;">
+              <span class="pa-feature-icon" style="font-size: 1.3rem;">📊</span>
+              <span class="pa-feature-copy"><strong>Spending insights</strong><small>See patterns and category breakdowns without the clutter.</small></span>
+            </a>
+            <a href="/split" class="pa-feature-card pa-tone-cyan" style="text-decoration: none;">
+              <span class="pa-feature-icon" style="font-size: 1.3rem;">👥</span>
+              <span class="pa-feature-copy"><strong>Split group bills</strong><small>Share expenses and simplify who owes what.</small></span>
+            </a>
+            <a href="/calculators" class="pa-feature-card pa-tone-amber" style="text-decoration: none;">
+              <span class="pa-feature-icon" style="font-size: 1.3rem;">🧮</span>
+              <span class="pa-feature-copy"><strong>Financial calculators</strong><small>Explore EMI, SIP, and loan prepayment scenarios.</small></span>
+            </a>
+          </div>
+
+          <!-- Trust highlights row -->
+          <div class="pa-below-note" style="margin-top: 24px;">
+            <span>🛡️ Designed with privacy in mind</span>
+            <i></i>
+            <span>✨ Practical tools, no clutter</span>
+            <i></i>
+            <span>✅ Free core features</span>
           </div>
         </section>
 
@@ -384,6 +446,84 @@
           </div>
         </section>
       </main>
+
+      <!-- Pre-rendered Footer Shell (eliminates 0.311 layout shift) -->
+      <footer
+        class="footer-shell"
+        style="border-top: 1px solid rgba(255, 255, 255, 0.08); background-color: #111827; padding: 60px 24px 32px; color: #cbd5e1; font-size: 0.9rem;"
+      >
+        <div style="max-width: 1280px; margin: 0 auto;">
+          <div class="footer-main-grid">
+            <div class="footer-brand-col">
+              <a href="/" style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px; text-decoration: none;" aria-label="Pocket Advisor Home">
+                <img src="/logo-80.webp" alt="Pocket Advisor" width="34" height="34" style="border-radius: 8px; display: block;" />
+                <span style="font-size: 1.2rem; font-weight: 800; color: #f8fafc;">Pocket Advisor</span>
+              </a>
+              <p style="line-height: 1.6; margin-bottom: 18px; font-size: 0.875rem; color: #cbd5e1;">
+                Minimal, intelligent personal expense and budget tracking, bank &amp; UPI automatic transaction detection, and mathematical 2-stage group bill splitting — natively designed for Android.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #10b981;">
+                  <span>SQLCipher On-Device Encryption</span>
+                </div>
+                <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #818cf8;">
+                  <span>100% Private Ledger • Zero Cloud Telemetry</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="footer-col-title">Features &amp; Tools</h3>
+              <ul class="footer-nav-list">
+                <li><a href="/features" class="footer-nav-link">App Features &amp; Security</a></li>
+                <li><a href="/upi-expense-tracker" class="footer-nav-link">UPI Expense Tracker (India)</a></li>
+                <li><a href="/split" class="footer-nav-link">Free Bill Splitter &amp; Debt Minimizer</a></li>
+                <li><a href="/flatmates-rent-splitter" class="footer-nav-link">Flatmates Rent &amp; Room Splitter</a></li>
+                <li><a href="/home-loan-prepayment-vs-sip" class="footer-nav-link">Home Loan Prepayment vs. SIP</a></li>
+                <li><a href="/calculators" class="footer-nav-link">Loan EMI &amp; SIP Wealth Tools</a></li>
+                <li><a href="/monthly-budget-planner" class="footer-nav-link">Monthly Budget Planner (50/30/20)</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-col-title">Financial Guides</h3>
+              <ul class="footer-nav-list">
+                <li><a href="/how-to-split-rent-unequal-rooms" class="footer-nav-link">Split Rent for Unequal Rooms (50/50)</a></li>
+                <li><a href="/home-loan-prepayment-vs-mutual-funds" class="footer-nav-link">Home Loan Prepayment vs. Mutual Funds</a></li>
+                <li><a href="/how-to-track-upi-payments-automatically" class="footer-nav-link">Private On-Device SMS Tracking</a></li>
+                <li><a href="/best-expense-tracker-apps-india" class="footer-nav-link">Best Expense Tracker Apps (2026)</a></li>
+                <li><a href="/news" class="footer-nav-link">Spending Intelligence Blog</a></li>
+                <li><a href="/guides" class="footer-nav-link" style="color: #818cf8; font-weight: 700;">All Problem-Solving Guides →</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-col-title">Get the App</h3>
+              <ul class="footer-nav-list">
+                <li><a href="/download" class="footer-nav-link">Download for Android</a></li>
+                <li><a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" class="footer-nav-link">Google Play Store</a></li>
+                <li><a href="/faq" class="footer-nav-link">Frequently Asked Questions (FAQ)</a></li>
+                <li><span class="footer-nav-link">Android 8.0+ Compatible</span></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-col-title">Legal &amp; Security</h3>
+              <ul class="footer-nav-list">
+                <li><a href="/privacy" class="footer-nav-link">Privacy Policy</a></li>
+                <li><a href="/terms" class="footer-nav-link">Terms of Service</a></li>
+                <li><a href="/refund" class="footer-nav-link">Cancellation &amp; Refund Policy</a></li>
+                <li><a href="/contact" class="footer-nav-link">Contact &amp; Support</a></li>
+                <li><a href="/delete-account" class="footer-nav-link">Data Deletion Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; text-align: center; font-size: 0.8rem; color: #94a3b8;">
+            <div>&copy; 2026 Pocket Advisor. Built with privacy-first engineering. All rights reserved.</div>
+          </div>
+        </div>
+      </footer>
       <!-- SHELL_ROOT_END -->
     </div>
     <script type="module" src="/src/main.tsx"></script>

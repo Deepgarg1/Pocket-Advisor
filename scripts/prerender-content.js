@@ -42,7 +42,7 @@ export function getPrerenderFaqHtml(faqSchema) {
 
 export function getPrerenderFooterHtml() {
   return `
-    <footer style="border-top: 1px solid rgba(255, 255, 255, 0.08); background: #0c121e; padding: 50px 24px 36px; margin-top: auto; font-size: 0.9rem; color: #94a3b8;">
+    <footer class="footer-shell" style="border-top: 1px solid rgba(255, 255, 255, 0.08); background: #0c121e; padding: 50px 24px 36px; margin-top: auto; font-size: 0.9rem; color: #94a3b8;">
       <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 36px;">
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">

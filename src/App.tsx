@@ -142,7 +142,7 @@ export const App: React.FC = () => {
             <Route
               path="/"
               element={
-                <div className="animate-fade-in">
+                <div>
                   <Hero onNavigate={navigateView} />
                   <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
                 </div>

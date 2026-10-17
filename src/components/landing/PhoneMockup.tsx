@@ -66,12 +66,26 @@ export const PhoneMockup: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabKey>('dashboard');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
-  // Preload all 5 high-res WebP screens on mount for instantaneous switching
+  // Defer preloading secondary mockup screens until browser is completely idle
   useEffect(() => {
-    SCREENS.forEach((screen) => {
-      const img = new Image();
-      img.src = screen.image;
-    });
+    const preloadSecondaryScreens = () => {
+      SCREENS.slice(1).forEach((screen) => {
+        const img = new Image();
+        img.src = screen.image;
+      });
+    };
+
+    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+      const handle = (window as any).requestIdleCallback(preloadSecondaryScreens, { timeout: 3500 });
+      return () => {
+        if ('cancelIdleCallback' in window) {
+          (window as any).cancelIdleCallback(handle);
+        }
+      };
+    } else {
+      const timer = setTimeout(preloadSecondaryScreens, 3500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleTabChange = (key: TabKey) => {

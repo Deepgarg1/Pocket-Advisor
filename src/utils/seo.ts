@@ -18,7 +18,7 @@ const BASE_URL = 'https://www.pocketadvisor.in';
 export const ROUTE_SEO: Record<string, PageMetadata> = {
   home: {
     title: 'Expense Tracker App for Android in India | Pocket Advisor',
-    description: 'Looking for an expense tracker app in India? Pocket Advisor helps organize supported bank and UPI transaction alerts, manage spending, and split group bills on Android.',
+    description: 'Track eligible bank and UPI SMS alerts on Android, review spending, plan budgets, set bill reminders, and split group expenses with Pocket Advisor.',
     canonical: `${BASE_URL}/`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
@@ -137,8 +137,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   },
   admin: {
     title: 'Pocket Advisor Studio | Visual Article Editor',
-    description: 'Zero-limitation visual publishing studio for Pocket Advisor articles and guides.',
-    canonical: `${BASE_URL}/admin`,
+    description: 'Internal article publishing interface.',
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
   },
@@ -292,7 +291,7 @@ function setOrCreateJsonLd(id: string, data: object): void {
 }
 
 function getBreadcrumbsForView(view: string, canonical: string, title: string) {
-  if (view === 'home' || view === '404' || !view) {
+  if (view === 'home' || view === '404' || view === 'admin' || !view) {
     return null;
   }
 
@@ -506,7 +505,9 @@ export function updatePageSeo(view: string, custom?: Partial<PageMetadata>): voi
   document.title = title;
 
   // Robots indexing tag
-  if (view === '404') {
+  if (view === 'admin') {
+    setOrCreateMetaTag('name', 'robots', 'noindex, nofollow');
+  } else if (view === '404') {
     setOrCreateMetaTag('name', 'robots', 'noindex, follow');
   } else {
     setOrCreateMetaTag('name', 'robots', 'index, follow');
@@ -518,7 +519,7 @@ export function updatePageSeo(view: string, custom?: Partial<PageMetadata>): voi
   // Open Graph
   setOrCreateMetaTag('property', 'og:title', title);
   setOrCreateMetaTag('property', 'og:description', description);
-  if (view !== '404') {
+  if (view !== '404' && view !== 'admin') {
     setOrCreateMetaTag('property', 'og:url', canonical);
   } else {
     const existingOgUrl = document.querySelector('meta[property="og:url"]');
@@ -533,7 +534,7 @@ export function updatePageSeo(view: string, custom?: Partial<PageMetadata>): voi
   setOrCreateMetaTag('name', 'twitter:image', ogImage);
 
   // Canonical
-  if (view === '404' || custom?.canonical === '') {
+  if (view === '404' || view === 'admin' || custom?.canonical === '') {
     const existingCanonical = document.querySelector('link[rel="canonical"]');
     if (existingCanonical) existingCanonical.remove();
   } else {

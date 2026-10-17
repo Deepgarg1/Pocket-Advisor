@@ -72,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView = 'home', onNavigate
           aria-label="Pocket Advisor Homepage"
         >
           <picture>
-            <source srcSet="/logo.webp" type="image/webp" />
+            <source srcSet="/logo-80.webp" type="image/webp" />
             <img
               src="/logo.png"
               alt="Pocket Advisor Logo"

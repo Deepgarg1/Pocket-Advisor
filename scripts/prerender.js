@@ -1785,7 +1785,7 @@ for (const route of routes) {
       <!-- Pre-rendered Static Shell: Visible in <250ms for users & search crawlers -->
       <header class="shell-header">
         <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-          <img src="/logo.webp" alt="Pocket Advisor Logo" width="40" height="40" style="border-radius: 10px; display: block;" />
+          <img src="/logo-80.webp" alt="Pocket Advisor Logo" width="40" height="40" style="border-radius: 10px; display: block;" />
           <span style="font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; color: #f8fafc;">Pocket Advisor</span>
         </a>
         <div style="display: flex; align-items: center; gap: 8px;">

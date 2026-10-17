@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import {
   ArrowRight,
   BarChart3,
@@ -13,9 +13,8 @@ import {
   Zap,
 } from 'lucide-react';
 import { prefetchRoute } from '../../utils/prefetch';
+import { PhoneMockup } from './PhoneMockup';
 import './Hero.css';
-
-const PhoneMockup = lazy(() => import('./PhoneMockup').then((m) => ({ default: m.PhoneMockup })));
 
 interface HeroProps {
   onNavigate?: (view: string) => void;
@@ -29,25 +28,6 @@ const featureCards = [
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
-  const [showDemo, setShowDemo] = useState(false);
-  const demoRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const node = demoRef.current;
-    if (!node) return;
-    if (typeof IntersectionObserver === 'undefined') {
-      setShowDemo(true);
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0]?.isIntersecting) {
-        setShowDemo(true);
-        observer.disconnect();
-      }
-    }, { rootMargin: '260px' });
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
 
   const navigate = (view: string) => onNavigate?.(view);
   const routeLink = (view: string) => ({
@@ -112,17 +92,11 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          <div className="pa-hero-visual" ref={demoRef}>
+          <div className="pa-hero-visual">
             <div className="pa-visual-glow" />
             <div className="pa-visual-label"><span className="pa-live-dot" /> A clearer view of your money</div>
             <div className="pa-phone-stage">
-              {showDemo ? (
-                <Suspense fallback={<div className="pa-phone-loading"><span className="pa-loader" />Loading app preview…</div>}>
-                  <PhoneMockup />
-                </Suspense>
-              ) : (
-                <div className="pa-phone-loading"><span className="pa-loader" />Interactive app preview</div>
-              )}
+              <PhoneMockup />
             </div>
             <div className="pa-float-card pa-float-card-top">
               <span className="pa-float-icon pa-float-mint"><WalletCards size={18} /></span>

@@ -28,6 +28,9 @@
     <meta name="twitter:description" content="Organize supported bank and UPI transaction alerts, review spending, and split group bills with Pocket Advisor on Android. Optional cloud backup is available." />
     <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
 
+    <!-- Preload Critical Above-The-Fold LCP Image for 0ms Discovery -->
+    <link rel="preload" href="/assets/mockup/phone-dashboard.webp" as="image" type="image/webp" fetchpriority="high" />
+
     <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -152,6 +155,40 @@
         border: 1px solid rgba(99, 102, 241, 0.4);
         color: #ffffff;
       }
+      .pa-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.02fr) minmax(320px, .98fr);
+        align-items: center;
+        gap: clamp(28px, 4.2vw, 66px);
+        min-height: 500px;
+        width: 100%;
+      }
+      @media (max-width: 980px) {
+        .pa-hero-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .pa-hero-visual {
+          order: 2;
+          margin: 24px auto 0;
+        }
+      }
+      .pa-hero-visual {
+        position: relative;
+        min-width: 0;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pa-phone-stage {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 310px;
+        display: flex;
+        justify-content: center;
+      }
     </style>
 
     <!-- STRUCTURED_DATA_START -->
@@ -264,7 +301,7 @@
       <!-- Instant App Shell: Paints in <300ms on mobile before React JS bundle executes -->
       <header class="shell-header">
         <div style="display: flex; align-items: center; gap: 12px;">
-          <img src="/logo.webp" alt="Pocket Advisor Logo" width="40" height="40" style="border-radius: 10px; display: block;" />
+          <img src="/logo-80.webp" alt="Pocket Advisor Logo" width="40" height="40" style="border-radius: 10px; display: block;" />
           <span style="font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em; color: #f8fafc;">Pocket Advisor</span>
         </div>
         <div style="display: flex; align-items: center; gap: 8px;">
@@ -274,33 +311,53 @@
 
       <main style="flex: 1;">
         <section class="shell-hero">
-          <!-- Pill Eyebrow Badge -->
-          <div class="shell-eyebrow">
-            <span>OFFICIAL ANDROID APP • BUILT FOR EVERYDAY MONEY</span>
-          </div>
+          <div class="pa-hero-grid">
+            <div class="pa-hero-copy">
+              <!-- Pill Eyebrow Badge -->
+              <div class="shell-eyebrow">
+                <span>OFFICIAL ANDROID APP • BUILT FOR EVERYDAY MONEY</span>
+              </div>
 
-          <!-- Primary Headline (Instant LCP Candidate) -->
-          <h1 class="shell-title">
-            Pocket Advisor: Expense Tracker App for Android<br />
-            <span class="shell-gradient-text">Track Spending &amp; Split Bills</span>
-          </h1>
+              <!-- Primary Headline -->
+              <h1 class="shell-title">
+                Pocket Advisor: Expense Tracker App for Android<br />
+                <span class="shell-gradient-text">Track Spending &amp; Split Bills</span>
+              </h1>
 
-          <!-- Value Proposition Description -->
-          <p class="shell-desc">
-            Know where your money goes. Pocket Advisor helps you organize supported bank and UPI transaction alerts, review spending, and split group bills on Android. Transaction coverage varies, and optional cloud backup is available.
-          </p>
+              <!-- Value Proposition Description -->
+              <p class="shell-desc">
+                Know where your money goes. Pocket Advisor helps you organize supported bank and UPI transaction alerts, review spending, and split group bills on Android. Transaction coverage varies, and optional cloud backup is available.
+              </p>
 
-          <!-- Action Button Shell -->
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px;">
-            <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" class="shell-btn">
-              <span>Get on Google Play</span>
-            </a>
-            <a href="/split" class="shell-btn shell-btn-primary">
-              <span>Try Bill Splitter</span>
-            </a>
-            <a href="/calculators" class="shell-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);">
-              <span>Financial Calculators</span>
-            </a>
+              <!-- Action Button Shell -->
+              <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px;">
+                <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" class="shell-btn">
+                  <span>Get on Google Play</span>
+                </a>
+                <a href="/split" class="shell-btn shell-btn-primary">
+                  <span>Try Bill Splitter</span>
+                </a>
+                <a href="/calculators" class="shell-btn" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);">
+                  <span>Financial Calculators</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Pre-rendered Phone Visual (Instant LCP Candidate) -->
+            <div class="pa-hero-visual">
+              <div class="pa-phone-stage">
+                <img
+                  src="/assets/mockup/phone-dashboard.webp"
+                  alt="Pocket Advisor Android Dashboard: Total Balance, Category Alerts, and Recent Transactions"
+                  width="576"
+                  height="1024"
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="async"
+                  style="width: 100%; max-width: 310px; height: auto; display: block;"
+                />
+              </div>
+            </div>
           </div>
         </section>
 

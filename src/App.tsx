@@ -1,12 +1,12 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Hero } from './components/landing/Hero';
+import { FaqSection } from './components/landing/FaqSection';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { trackPageView } from './utils/analytics';
 
-const FaqSection = lazy(() => import('./components/landing/FaqSection').then((m) => ({ default: m.FaqSection })));
 const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then((m) => ({ default: m.FeaturesGrid })));
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then((m) => ({ default: m.InteractiveDemo })));
 const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then((m) => ({ default: m.DownloadSection })));

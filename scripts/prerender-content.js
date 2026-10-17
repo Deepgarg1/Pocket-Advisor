@@ -739,7 +739,7 @@ export function getRouteBodyContent(slug, articles = []) {
         <div style="${contentStyle}">
           <h2 style="${headingStyle} text-align: center; margin-top: 0;">Free Financial Calculators &amp; Group Expense Tools</h2>
           <p style="text-align: center; margin-bottom: 32px;">
-            Interactive, mathematically verified financial decision tools. 100% free with zero login or personal data collection.
+            Free browser-based tools to estimate loan repayments, compare investment scenarios, plan monthly spending, and settle shared expenses. No account is required to use these web tools. Results are estimates based on the inputs and assumptions you enter; review each calculator's methodology before making financial decisions.
           </p>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">

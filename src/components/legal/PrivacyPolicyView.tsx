@@ -24,7 +24,7 @@ export const PrivacyPolicyView: React.FC<PrivacyPolicyViewProps> = ({ onBack }) 
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', borderRadius: '9999px', backgroundColor: 'var(--primary-surface)', color: 'var(--primary)', fontSize: '0.8rem', fontWeight: 700, marginBottom: '12px' }}>
           <ShieldCheck size={14} /> Official Privacy &amp; Data Policy
         </div>
-        <p style={{ color: 'var(--text-secondary)', margin: 0, lineHeight: 1.6 }}>Transparent information about local storage, optional cloud sync, SMS processing, AI services, advertising, and your privacy choices.</p>
+        <p style={{ color: 'var(--text-secondary)', margin: 0, lineHeight: 1.6 }}>This Privacy Policy explains how Pocket Advisor collects, uses, stores, and shares information when you use our app and services, and describes the choices available to you.</p>
       </header>
       <article className="privacy-policy-markdown" style={{ backgroundColor: 'var(--bg-surface)', borderRadius: '24px', border: '1px solid var(--border-subtle)', padding: 'clamp(20px, 5vw, 40px)', color: 'var(--text-secondary)', lineHeight: 1.75, fontSize: '0.95rem', overflowWrap: 'anywhere' }} dangerouslySetInnerHTML={{ __html: privacyPolicyHtml }} />
       <style>{`

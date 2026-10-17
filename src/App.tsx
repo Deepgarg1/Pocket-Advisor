@@ -1,271 +1,119 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useEffect, Suspense, lazy } from 'react';
+import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Hero } from './components/landing/Hero';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { MobileBottomNav } from './components/layout/MobileBottomNav';
-const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then(module => ({ default: module.FeaturesGrid })));
-const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then(module => ({ default: module.InteractiveDemo })));
-const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then(module => ({ default: module.DownloadSection })));
-const SplitterPage = lazy(() => import('./components/landing/SplitterPage').then(module => ({ default: module.SplitterPage })));
-const MonthlyBudgetPlanner = lazy(() => import('./components/tools/MonthlyBudgetPlanner').then(module => ({ default: module.MonthlyBudgetPlanner })));
-import { FaqSection } from './components/landing/FaqSection';
-const PrivacyPolicyView = lazy(() => import('./components/legal/PrivacyPolicyView').then(module => ({ default: module.PrivacyPolicyView })));
-const TermsConditionsView = lazy(() => import('./components/legal/TermsConditionsView').then(module => ({ default: module.TermsConditionsView })));
-const DeleteAccountView = lazy(() => import('./components/legal/DeleteAccountView').then(module => ({ default: module.DeleteAccountView })));
-const RefundPolicyView = lazy(() => import('./components/legal/RefundPolicyView').then(module => ({ default: module.RefundPolicyView })));
-const NewsFeedView = lazy(() => import('./components/news/NewsFeedView').then(module => ({ default: module.NewsFeedView })));
-const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvingGuides').then(module => ({ default: module.ProblemSolvingGuides })));
-const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then(module => ({ default: module.UpiTrackerLanding })));
-const ContactView = lazy(() => import('./components/support/ContactView').then(module => ({ default: module.ContactView })));
-const NotFoundView = lazy(() => import('./components/common/NotFoundView').then(module => ({ default: module.NotFoundView })));
+import { trackPageView } from './utils/analytics';
 
-// Localhost-only dynamic studio import (falls back to NotFoundView if admin folder is excluded from Git)
+const FaqSection = lazy(() => import('./components/landing/FaqSection').then((m) => ({ default: m.FaqSection })));
+const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then((m) => ({ default: m.FeaturesGrid })));
+const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then((m) => ({ default: m.InteractiveDemo })));
+const DownloadSection = lazy(() => import('./components/landing/DownloadSection').then((m) => ({ default: m.DownloadSection })));
+const SplitterPage = lazy(() => import('./components/landing/SplitterPage').then((m) => ({ default: m.SplitterPage })));
+const MonthlyBudgetPlanner = lazy(() => import('./components/tools/MonthlyBudgetPlanner').then((m) => ({ default: m.MonthlyBudgetPlanner })));
+const PrivacyPolicyView = lazy(() => import('./components/legal/PrivacyPolicyView').then((m) => ({ default: m.PrivacyPolicyView })));
+const TermsConditionsView = lazy(() => import('./components/legal/TermsConditionsView').then((m) => ({ default: m.TermsConditionsView })));
+const DeleteAccountView = lazy(() => import('./components/legal/DeleteAccountView').then((m) => ({ default: m.DeleteAccountView })));
+const RefundPolicyView = lazy(() => import('./components/legal/RefundPolicyView').then((m) => ({ default: m.RefundPolicyView })));
+const NewsFeedView = lazy(() => import('./components/news/NewsFeedView').then((m) => ({ default: m.NewsFeedView })));
+const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvingGuides').then((m) => ({ default: m.ProblemSolvingGuides })));
+const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then((m) => ({ default: m.UpiTrackerLanding })));
+const ContactView = lazy(() => import('./components/support/ContactView').then((m) => ({ default: m.ContactView })));
+const NotFoundView = lazy(() => import('./components/common/NotFoundView').then((m) => ({ default: m.NotFoundView })));
+
+// Localhost-only dynamic studio import
 const adminModules = import.meta.glob('./components/admin/ArticleStudio.tsx');
 const adminLoader = adminModules['./components/admin/ArticleStudio.tsx'] as (() => Promise<{ ArticleStudio: React.ComponentType<any> }>) | undefined;
 const ArticleStudio = adminLoader
-  ? lazy(() => adminLoader().then(m => ({ default: m.ArticleStudio })))
+  ? lazy(() => adminLoader().then((m) => ({ default: m.ArticleStudio })))
   : NotFoundView;
 
-import { updatePageSeo } from './utils/seo';
-import { trackPageView } from './utils/analytics';
+const isLocalhost = typeof window !== 'undefined' && (
+  window.location.hostname === 'localhost' ||
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname.endsWith('.local')
+);
 
-const getRouteFromUrl = (): { view: string; tab?: 'PREPAYMENT' | 'EMI' | 'SIP' } => {
-  const path = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
-  const rawHash = window.location.hash.toLowerCase();
-  const hash = rawHash.split('?')[0].replace(/\/+$/, '') || '';
-
-  const isRoute = (slug: string) => {
-    return path === `/${slug}` ||
-      path.startsWith(`/${slug}/`) ||
-      hash === `#/${slug}` ||
-      hash === `#${slug}` ||
-      hash.startsWith(`#/${slug}/`) ||
-      hash.startsWith(`#${slug}/`);
-  };
-
-  if (isRoute('privacy') || path.includes('privacy-policy')) return { view: 'privacy' };
-  if (isRoute('terms') || path.includes('terms-and-conditions')) return { view: 'terms' };
-  if (isRoute('refund') || isRoute('refund-policy') || isRoute('cancellation') || isRoute('cancellation-and-refund') || path.includes('refund')) return { view: 'refund' };
-  if (isRoute('delete-account') || isRoute('delete') || path.includes('delete-account')) return { view: 'delete-account' };
-  if (isRoute('contact') || isRoute('contact-us') || isRoute('support')) return { view: 'contact' };
-  if (isRoute('features') || isRoute('feature')) return { view: 'features' };
-  if (isRoute('monthly-budget-planner') || isRoute('budget-planner')) return { view: 'monthly-budget-planner' };
-
-  if (
-    isRoute('how-to-split-rent-unequal-rooms') ||
-    isRoute('split-rent-unequal-rooms') ||
-    path.includes('unequal-room') ||
-    hash.includes('unequal-room')
-  ) {
-    return { view: 'how-to-split-rent-unequal-rooms' };
-  }
-
-  if (
-    isRoute('home-loan-prepayment-vs-mutual-funds') ||
-    isRoute('prepay-home-loan-or-invest-mutual-funds') ||
-    path.includes('vs-mutual-funds') ||
-    hash.includes('vs-mutual-funds')
-  ) {
-    return { view: 'home-loan-prepayment-vs-mutual-funds' };
-  }
-
-  if (
-    isRoute('how-to-track-upi-payments-automatically') ||
-    isRoute('track-upi-payments-android-privacy') ||
-    path.includes('track-upi-payments') ||
-    hash.includes('track-upi-payments')
-  ) {
-    return { view: 'how-to-track-upi-payments-automatically' };
-  }
-
-  if (
-    isRoute('best-expense-tracker-apps-india') ||
-    isRoute('best-expense-tracker-apps') ||
-    isRoute('expense-tracker-apps-india') ||
-    path.includes('best-expense-tracker') ||
-    hash.includes('best-expense-tracker')
-  ) {
-    return { view: 'best-expense-tracker-apps-india' };
-  }
-
-  if (
-    isRoute('upi-expense-tracker') ||
-    isRoute('upi-tracker') ||
-    isRoute('upi') ||
-    path.includes('upi-expense-tracker') ||
-    hash.includes('upi-expense-tracker')
-  ) {
-    return { view: 'upi-expense-tracker' };
-  }
-
-  if (isRoute('guides') || isRoute('guide')) {
-    return { view: 'guides' };
-  }
-
-  if (
-    isRoute('home-loan-prepayment-vs-sip') ||
-    isRoute('prepayment-vs-sip') ||
-    isRoute('prepayment') ||
-    path.includes('prepayment') ||
-    path.includes('vs-sip') ||
-    hash.includes('prepayment') ||
-    hash.includes('vs-sip')
-  ) {
-    return { view: 'home-loan-prepayment-vs-sip', tab: 'PREPAYMENT' };
-  }
-
-  if (
-    isRoute('flatmates-rent-splitter') ||
-    isRoute('rent-splitter') ||
-    path.includes('flatmates') ||
-    path.includes('rent-splitter') ||
-    hash.includes('flatmates') ||
-    hash.includes('rent-splitter')
-  ) {
-    return { view: 'flatmates-rent-splitter' };
-  }
-
-  if (
-    isRoute('sip-step-up-calculator') ||
-    isRoute('sip-calculator') ||
-    (isRoute('calculator') && (path.includes('sip') || hash.includes('sip')))
-  ) {
-    return { view: 'sip-calculator', tab: 'SIP' };
-  }
-  if (isRoute('emi-calculator') || isRoute('loan') || (isRoute('calculator') && (path.includes('emi') || hash.includes('emi')))) {
-    return { view: 'emi-calculator', tab: 'EMI' };
-  }
-  if (isRoute('split') || isRoute('bill-splitter')) {
-    return { view: 'split' };
-  }
-  if (isRoute('calculators') || isRoute('calculator') || isRoute('tools') || isRoute('tool')) {
-    return { view: 'calculators', tab: 'EMI' };
-  }
-  if (isRoute('faq')) return { view: 'faq' };
-  if (isRoute('download')) return { view: 'download' };
-  if (isRoute('news')) return { view: 'news' };
-  if (isRoute('admin') || isRoute('studio') || path.includes('/admin') || hash.includes('/admin')) {
-    // Only accessible on localhost / local development for 100% security
-    const isLocalhost = typeof window !== 'undefined' && (
-      window.location.hostname === 'localhost' ||
-      window.location.hostname === '127.0.0.1' ||
-      window.location.hostname.endsWith('.local')
-    );
-    if (import.meta.env.DEV || isLocalhost) {
-      return { view: 'admin' };
-    }
-    return { view: '404' };
-  }
-  if (isRoute('404')) return { view: '404' };
-
-  // Exact root or empty hash is homepage
-  if (path === '/' && (!hash || !hash.startsWith('#/') || hash === '#/' || hash === '#/home')) {
-    return { view: 'home' };
-  }
-
-  // Any unmatched route falls back to 404
-  return { view: '404' };
+const VIEW_MAP: Record<string, string> = {
+  '': 'home',
+  features: 'features',
+  'upi-expense-tracker': 'upi-expense-tracker',
+  split: 'split',
+  'flatmates-rent-splitter': 'flatmates-rent-splitter',
+  'rent-splitter': 'flatmates-rent-splitter',
+  'monthly-budget-planner': 'monthly-budget-planner',
+  'budget-planner': 'monthly-budget-planner',
+  calculators: 'calculators',
+  'emi-calculator': 'emi-calculator',
+  'sip-calculator': 'sip-calculator',
+  'home-loan-prepayment-vs-sip': 'home-loan-prepayment-vs-sip',
+  'prepayment-vs-sip': 'home-loan-prepayment-vs-sip',
+  faq: 'faq',
+  download: 'download',
+  contact: 'contact',
+  'contact-us': 'contact',
+  support: 'contact',
+  privacy: 'privacy',
+  'privacy-policy': 'privacy',
+  terms: 'terms',
+  'terms-and-conditions': 'terms',
+  refund: 'refund',
+  'refund-policy': 'refund',
+  'delete-account': 'delete-account',
+  news: 'news',
+  guides: 'guides',
+  'how-to-split-rent-unequal-rooms': 'how-to-split-rent-unequal-rooms',
+  'home-loan-prepayment-vs-mutual-funds': 'home-loan-prepayment-vs-mutual-funds',
+  'how-to-track-upi-payments-automatically': 'how-to-track-upi-payments-automatically',
+  'best-expense-tracker-apps-india': 'best-expense-tracker-apps-india',
+  admin: 'admin',
 };
 
 export const App: React.FC = () => {
-  const [routeState, setRouteState] = useState(getRouteFromUrl);
-  const currentView = routeState.view;
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Dynamically update document.title, OpenGraph, and Meta tags on view change
+  // Derive current view slug from location pathname
+  const rawSlug = location.pathname.replace(/^\/+/, '').replace(/\/+$/, '').toLowerCase();
+  const currentView = VIEW_MAP[rawSlug] || (rawSlug.startsWith('news/') ? 'news' : rawSlug || 'home');
+
+  // Handle legacy hash navigation migration (e.g. /#/split -> /split)
   useEffect(() => {
-    const isSpecificArticle = typeof window !== 'undefined' &&
-      window.location.pathname.startsWith('/news/') &&
-      window.location.pathname.replace(/\/+$/, '') !== '/news';
-    if (!isSpecificArticle) {
-      updatePageSeo(currentView);
+    const rawHash = window.location.hash.toLowerCase();
+    if (rawHash.startsWith('#/') || rawHash.startsWith('#')) {
+      const hashPath = rawHash.replace(/^#\/?/, '').split('?')[0];
+      const targetPath = VIEW_MAP[hashPath] ? `/${VIEW_MAP[hashPath]}` : `/${hashPath}`;
+      const search = window.location.hash.includes('?') ? window.location.hash.split('?')[1] : '';
+      navigate(search ? `${targetPath}?${search}` : targetPath, { replace: true });
     }
-    if (currentView !== 'admin' && currentView !== 'news') trackPageView();
-  }, [currentView]);
+  }, [navigate]);
 
-  // Listen to popstate (browser back/forward) and hashchange
+  // Sync SEO & Analytics asynchronously on route change (off-critical-path)
   useEffect(() => {
-    const handleNavigation = () => {
-      setRouteState(getRouteFromUrl());
-    };
-
-    window.addEventListener('popstate', handleNavigation);
-    window.addEventListener('hashchange', handleNavigation);
-    return () => {
-      window.removeEventListener('popstate', handleNavigation);
-      window.removeEventListener('hashchange', handleNavigation);
-    };
-  }, []);
+    const isSpecificArticle = location.pathname.startsWith('/news/') && location.pathname !== '/news';
+    if (!isSpecificArticle) {
+      import('./utils/seo').then(({ updatePageSeo }) => {
+        updatePageSeo(currentView);
+      });
+    }
+    if (currentView !== 'admin' && currentView !== 'news') {
+      trackPageView();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname, currentView]);
 
   const navigateView = (view: string, shouldScroll: boolean = true) => {
-    let tab: 'PREPAYMENT' | 'EMI' | 'SIP' | undefined;
-    let urlPath = '';
-
-    if (view === 'split') {
-      urlPath = '/split';
-    } else if (view === 'flatmates-rent-splitter' || view === 'rent-splitter') {
-      urlPath = '/flatmates-rent-splitter';
-    } else if (view === 'home-loan-prepayment-vs-sip' || view === 'prepayment-vs-sip') {
-      tab = 'PREPAYMENT';
-      urlPath = '/home-loan-prepayment-vs-sip';
-    } else if (view === 'emi-calculator') {
-      tab = 'EMI';
-      urlPath = '/emi-calculator';
-    } else if (view === 'sip-calculator' || view === 'sip-step-up-calculator') {
-      tab = 'SIP';
-      urlPath = '/sip-calculator';
-    } else if (view === 'calculators') {
-      tab = 'EMI';
-      urlPath = '/calculators';
-    } else if (view === 'home') {
-      urlPath = '/';
-    } else if (
-      view === 'best-expense-tracker-apps-india' ||
-      view === 'best-expense-tracker-apps' ||
-      view === 'expense-tracker-apps-india'
-    ) {
-      urlPath = '/best-expense-tracker-apps-india';
-    } else if (
-      view === 'how-to-split-rent-unequal-rooms' ||
-      view === 'split-rent-unequal-rooms'
-    ) {
-      urlPath = '/how-to-split-rent-unequal-rooms';
-    } else if (
-      view === 'home-loan-prepayment-vs-mutual-funds' ||
-      view === 'prepay-home-loan-or-invest-mutual-funds'
-    ) {
-      urlPath = '/home-loan-prepayment-vs-mutual-funds';
-    } else if (
-      view === 'how-to-track-upi-payments-automatically' ||
-      view === 'track-upi-payments-android-privacy'
-    ) {
-      urlPath = '/how-to-track-upi-payments-automatically';
-    } else if (view === 'guides' || view === 'guide') {
-      urlPath = '/guides';
-    } else if (view === 'monthly-budget-planner' || view === 'budget-planner') {
-      urlPath = '/monthly-budget-planner';
-    } else if (view === 'upi-expense-tracker' || view === 'upi-tracker' || view === 'upi') {
-      urlPath = '/upi-expense-tracker';
-    } else {
-      urlPath = `/${view}`;
-    }
-
-    setRouteState({ view, tab });
-
-    try {
-      window.history.pushState(null, '', urlPath);
-    } catch {
-      if (view === 'home') {
-        window.location.hash = '';
-      } else {
-        window.location.hash = `#/${view}`;
-      }
-    }
+    const targetPath = view === 'home' ? '/' : `/${view}`;
+    navigate(targetPath);
     if (shouldScroll) {
       requestAnimationFrame(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     }
   };
+
+  const isAdminAccessAllowed = import.meta.env.DEV || isLocalhost;
 
   return (
     <div
@@ -277,126 +125,246 @@ export const App: React.FC = () => {
         color: 'var(--text-primary)',
       }}
     >
-      {/* Top Navigation Bar (Hidden in Admin Studio) */}
+      {/* Top Navigation Bar */}
       {currentView !== 'admin' && <Navbar currentView={currentView} onNavigate={navigateView} />}
 
-      {/* Main Content Area - padded at bottom on mobile to accommodate bottom nav */}
+      {/* Main Content Area */}
       <main className={currentView === 'admin' ? '' : 'content-with-bottom-nav'} style={{ flex: 1 }}>
-        <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', color: 'var(--text-secondary)' }}>Loading...</div>}>
-          {currentView === 'privacy' && (
-            <PrivacyPolicyView onBack={() => navigateView('home')} />
-          )}
-
-          {currentView === 'terms' && (
-            <TermsConditionsView onBack={() => navigateView('home')} />
-          )}
-
-          {currentView === 'refund' && (
-            <RefundPolicyView onBack={() => navigateView('home')} />
-          )}
-
-          {currentView === 'delete-account' && (
-            <DeleteAccountView onBack={() => navigateView('home')} />
-          )}
-
-          {currentView === 'monthly-budget-planner' && (
-            <div className="animate-fade-in">
-              <MonthlyBudgetPlanner onNavigate={navigateView} />
+        <Suspense
+          fallback={
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50vh', color: 'var(--text-secondary)' }}>
+              Loading...
             </div>
-          )}
+          }
+        >
+          <Routes>
+            {/* Home */}
+            <Route
+              path="/"
+              element={
+                <div className="animate-fade-in">
+                  <Hero onNavigate={navigateView} />
+                  <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {currentView === 'features' && (
-            <div className="animate-fade-in">
-              <FeaturesGrid onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Features */}
+            <Route
+              path="/features"
+              element={
+                <div className="animate-fade-in">
+                  <FeaturesGrid onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {(currentView === 'split' ||
-            currentView === 'flatmates-rent-splitter') && (
-            <div className="animate-fade-in" style={{ padding: '40px 0' }}>
-              <SplitterPage onNavigate={navigateView} />
-            </div>
-          )}
+            {/* UPI Tracker */}
+            <Route
+              path="/upi-expense-tracker"
+              element={
+                <div className="animate-fade-in">
+                  <UpiTrackerLanding onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {(currentView === 'calculators' ||
-            currentView === 'home-loan-prepayment-vs-sip' ||
-            currentView === 'emi-calculator' ||
-            currentView === 'sip-calculator') && (
-            <div className="animate-fade-in" style={{ padding: '40px 0' }}>
-              <InteractiveDemo initialTab={routeState.tab} onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Bill Splitter Routes */}
+            <Route
+              path="/split"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <SplitterPage onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/flatmates-rent-splitter"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <SplitterPage onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/rent-splitter" element={<Navigate to="/flatmates-rent-splitter" replace />} />
+            <Route path="/bill-splitter" element={<Navigate to="/split" replace />} />
 
-          {currentView === 'faq' && (
-            <div className="animate-fade-in">
-              <FaqSection headingLevel="h1" onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Financial Tools & Calculators */}
+            <Route
+              path="/monthly-budget-planner"
+              element={
+                <div className="animate-fade-in">
+                  <MonthlyBudgetPlanner onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/budget-planner" element={<Navigate to="/monthly-budget-planner" replace />} />
 
-          {currentView === 'news' && (
-            <div className="animate-fade-in">
-              <NewsFeedView onNavigate={navigateView} />
-            </div>
-          )}
+            <Route
+              path="/calculators"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="EMI" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/emi-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="EMI" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/sip-calculator"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="SIP" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/home-loan-prepayment-vs-sip"
+              element={
+                <div className="animate-fade-in" style={{ padding: '40px 0' }}>
+                  <InteractiveDemo initialTab="PREPAYMENT" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/prepayment-vs-sip" element={<Navigate to="/home-loan-prepayment-vs-sip" replace />} />
 
-          {(currentView === 'how-to-split-rent-unequal-rooms' ||
-            currentView === 'home-loan-prepayment-vs-mutual-funds' ||
-            currentView === 'how-to-track-upi-payments-automatically' ||
-            currentView === 'best-expense-tracker-apps-india' ||
-            currentView === 'guides') && (
-            <div className="animate-fade-in">
-              <ProblemSolvingGuides slug={currentView} onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Guides */}
+            <Route
+              path="/guides"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="guides" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/how-to-split-rent-unequal-rooms"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="how-to-split-rent-unequal-rooms" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/home-loan-prepayment-vs-mutual-funds"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="home-loan-prepayment-vs-mutual-funds" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/how-to-track-upi-payments-automatically"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="how-to-track-upi-payments-automatically" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/best-expense-tracker-apps-india"
+              element={
+                <div className="animate-fade-in">
+                  <ProblemSolvingGuides slug="best-expense-tracker-apps-india" onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {currentView === 'upi-expense-tracker' && (
-            <div className="animate-fade-in">
-              <UpiTrackerLanding onNavigate={navigateView} />
-            </div>
-          )}
+            {/* News */}
+            <Route
+              path="/news"
+              element={
+                <div className="animate-fade-in">
+                  <NewsFeedView onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/news/:id"
+              element={
+                <div className="animate-fade-in">
+                  <NewsFeedView onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {currentView === 'download' && (
-            <div className="animate-fade-in">
-              <DownloadSection onNavigate={navigateView} />
-            </div>
-          )}
+            {/* FAQ & Download */}
+            <Route
+              path="/faq"
+              element={
+                <div className="animate-fade-in">
+                  <FaqSection headingLevel="h1" onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route
+              path="/download"
+              element={
+                <div className="animate-fade-in">
+                  <DownloadSection onNavigate={navigateView} />
+                </div>
+              }
+            />
 
-          {currentView === 'contact' && (
-            <div className="animate-fade-in">
-              <ContactView onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Support / Contact */}
+            <Route
+              path="/contact"
+              element={
+                <div className="animate-fade-in">
+                  <ContactView onNavigate={navigateView} />
+                </div>
+              }
+            />
+            <Route path="/contact-us" element={<Navigate to="/contact" replace />} />
+            <Route path="/support" element={<Navigate to="/contact" replace />} />
 
-          {currentView === 'home' && (
-            <div className="animate-fade-in">
-              {/* 1. Hero & Interactive Android Phone Showcase */}
-              <Hero onNavigate={navigateView} />
-              {/* 2. Frequently Asked Questions matching FAQPage schema */}
-              <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Legal */}
+            <Route path="/privacy" element={<PrivacyPolicyView onBack={() => navigateView('home')} />} />
+            <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+            <Route path="/terms" element={<TermsConditionsView onBack={() => navigateView('home')} />} />
+            <Route path="/terms-and-conditions" element={<Navigate to="/terms" replace />} />
+            <Route path="/refund" element={<RefundPolicyView onBack={() => navigateView('home')} />} />
+            <Route path="/refund-policy" element={<Navigate to="/refund" replace />} />
+            <Route path="/delete-account" element={<DeleteAccountView onBack={() => navigateView('home')} />} />
 
-          {currentView === 'admin' && (
-            <div className="animate-fade-in">
-              <ArticleStudio onNavigate={navigateView} />
-            </div>
-          )}
+            {/* Admin Studio */}
+            <Route
+              path="/admin"
+              element={
+                isAdminAccessAllowed ? (
+                  <div className="animate-fade-in">
+                    <ArticleStudio onNavigate={navigateView} />
+                  </div>
+                ) : (
+                  <NotFoundView onNavigate={navigateView} />
+                )
+              }
+            />
 
-          {currentView === '404' && (
-            <div className="animate-fade-in">
-              <NotFoundView onNavigate={navigateView} />
-            </div>
-          )}
+            {/* 404 Fallback */}
+            <Route
+              path="*"
+              element={
+                <div className="animate-fade-in">
+                  <NotFoundView onNavigate={navigateView} />
+                </div>
+              }
+            />
+          </Routes>
         </Suspense>
       </main>
 
-
-      {/* Persistent Mobile Bottom Navigation Bar (Hidden on Desktop & Admin) */}
+      {/* Persistent Mobile Bottom Navigation Bar */}
       {currentView !== 'admin' && <MobileBottomNav currentView={currentView} onNavigate={navigateView} />}
 
-      {/* Footer with Legal Compliance Links (Hidden in Admin) */}
+      {/* Footer */}
       {currentView !== 'admin' && <Footer onNavigate={navigateView} />}
     </div>
   );
 };
-

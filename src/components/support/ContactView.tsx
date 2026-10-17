@@ -42,6 +42,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigate }) => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [honeypot, setHoneypot] = useState('');
+  const formLoadedAtRef = useRef<number>(Date.now());
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -101,6 +102,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigate }) => {
           subject: subject.trim() || undefined,
           message: message.trim(),
           honeypot: honeypot.trim() || undefined,
+          formLoadedAt: formLoadedAtRef.current,
         }),
       });
 
@@ -125,6 +127,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigate }) => {
   };
 
   const handleResetForm = () => {
+    formLoadedAtRef.current = Date.now();
     setName('');
     setEmail('');
     setCategory('general');

@@ -12,8 +12,6 @@ import {
   Link2,
   CheckCircle2,
   Zap,
-  Smartphone,
-  Sparkles,
   Edit2,
   Share2,
   Eye,
@@ -21,6 +19,14 @@ import {
 } from 'lucide-react';
 import { formatMoney } from '../../utils/formatters';
 import { useSettings } from '../../context/SettingsContext';
+import {
+  calculateGrandTotal,
+  calculateSplitResults,
+  calculateSettlements,
+  buildUpiUri,
+} from '../../utils/billSplitterCalculations';
+import { UpiPaymentModal, ActiveUpiModalData } from './splitter/UpiPaymentModal';
+import { PlgBanner } from './splitter/PlgBanner';
 
 const AVATAR_GRADIENTS = [
   'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
@@ -178,14 +184,7 @@ export const QuickBillSplitter: React.FC = () => {
   const [upiId, setUpiId] = useState(initial.upiId);
   const [selectedRecipient, setSelectedRecipient] = useState<string | null>(null);
   const [settledDebts, setSettledDebts] = useState<Record<string, boolean>>({});
-  const [activeUpiModal, setActiveUpiModal] = useState<{
-    from: string;
-    to: string;
-    amount: number;
-    upiUri: string;
-    upiId: string;
-  } | null>(null);
-  const [copiedModalUpi, setCopiedModalUpi] = useState(false);
+  const [activeUpiModal, setActiveUpiModal] = useState<ActiveUpiModalData | null>(null);
   const [copiedSummary, setCopiedSummary] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -263,16 +262,9 @@ export const QuickBillSplitter: React.FC = () => {
   }, [eventName, billAmount, taxTipValue, taxTipType, members, paidBy, splitMode, customShares, upiId]);
 
   // Grand Total Calculations
-  const baseAmount = Math.max(0, parseFloat(billAmount) || 0);
-  const extraAmount = useMemo(() => {
-    const val = parseFloat(taxTipValue) || 0;
-    if (taxTipType === 'PERCENT') {
-      return (baseAmount * val) / 100;
-    }
-    return val;
-  }, [baseAmount, taxTipType, taxTipValue]);
-
-  const grandTotal = baseAmount + extraAmount;
+  const { extraAmount, grandTotal } = useMemo(() => {
+    return calculateGrandTotal(parseFloat(billAmount) || 0, parseFloat(taxTipValue) || 0, taxTipType);
+  }, [billAmount, taxTipValue, taxTipType]);
 
   // Add Member
   const handleAddMember = (e?: React.FormEvent) => {
@@ -358,53 +350,13 @@ export const QuickBillSplitter: React.FC = () => {
 
   // Split results calculation
   const splitResults = useMemo(() => {
-    if (members.length === 0 || grandTotal <= 0) return [];
-
-    if (splitMode === 'EQUAL') {
-      const share = grandTotal / members.length;
-      return members.map((name) => ({
-        name,
-        owed: share,
-        isPayer: name === paidBy,
-      }));
-    } else {
-      const customTotal = members.reduce((sum, name) => {
-        return sum + (parseFloat(customShares[name] || '0') || 0);
-      }, 0);
-
-      const multiplier = customTotal > 0 ? grandTotal / customTotal : 1;
-
-      return members.map((name) => {
-        const entered = parseFloat(customShares[name] || '0') || 0;
-        return {
-          name,
-          owed: entered * multiplier,
-          isPayer: name === paidBy,
-        };
-      });
-    }
+    return calculateSplitResults(members, grandTotal, splitMode, customShares, paidBy);
   }, [members, grandTotal, splitMode, customShares, paidBy]);
 
   // Settlements (Bilateral transfers to payer)
   const settlements = useMemo(() => {
-    return splitResults
-      .filter((r) => r.name !== paidBy && r.owed > 0.01)
-      .map((r) => ({
-        from: r.name,
-        to: paidBy,
-        amount: r.owed,
-      }));
+    return calculateSettlements(splitResults, paidBy);
   }, [splitResults, paidBy]);
-
-  // Helper to build standard 1-tap UPI URI (strictly follows NPCI standard: unencoded @)
-  const buildUpiUri = (payeeUpi: string, payeeName: string, amount: number, note: string) => {
-    const cleanUpi = payeeUpi.trim();
-    if (!cleanUpi) return '';
-    const cleanName = payeeName.trim().replace(/[^a-zA-Z0-9 ]/g, '') || 'Payee';
-    const cleanNote = note.trim().replace(/[^a-zA-Z0-9 ]/g, '').slice(0, 40) || 'Split bill';
-    // CRITICAL: Do NOT percent-encode the @ symbol in payee UPI ID (pa parameter)
-    return `upi://pay?pa=${cleanUpi}&pn=${encodeURIComponent(cleanName)}&am=${amount.toFixed(2)}&cu=INR&tn=${encodeURIComponent(cleanNote)}`;
-  };
 
   // Share URL Generator - preserves eventName, payer, route, and adds s=1 for recipients
   const generateShareUrl = (forExternalShare: boolean = false) => {
@@ -1886,305 +1838,34 @@ ${shareUrl}
       </div>
 
       {/* Product-Led Growth (PLG) Viral Multiplier Banner */}
-      <div
-        style={{
-          marginTop: '12px',
-          padding: 'clamp(20px, 3vw, 28px)',
-          borderRadius: '24px',
-          background: isDark
-            ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%)'
-            : 'linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #eef2ff 100%)',
-          border: isDark
-            ? '1px solid rgba(99, 102, 241, 0.25)'
-            : '1.5px solid rgba(99, 102, 241, 0.25)',
-          boxShadow: isDark
-            ? 'none'
-            : '0 8px 24px rgba(99, 102, 241, 0.08)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '16px',
+      <PlgBanner
+        isDark={isDark}
+        onResetToDefaults={() => {
+          setEventName('Dinner with Friends');
+          setBillAmount('2400');
+          setTaxTipValue('5');
+          setTaxTipType('PERCENT');
+          setMembers(['You', 'Aman', 'Priya', 'Rahul']);
+          setPaidBy('You');
+          setSplitMode('EQUAL');
+          setCustomShares({});
+          setUpiId('');
+          setSelectedRecipient(null);
+          setSettledDebts({});
         }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
-          <div style={{ maxWidth: '640px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.78rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '6px' }}>
-              <Sparkles size={14} /> Product-Led Growth • 100% Free
-            </div>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 6px 0' }}>
-              Split Your Own Bills Free with Pocket Advisor
-            </h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.5, margin: 0 }}>
-              Never deal with messy spreadsheets or awkward money reminders again. Pocket Advisor minimizes group transfers, generates 1-tap UPI WhatsApp receipts, and automatically detects expenses from bank SMS alerts on Android.
-            </p>
-          </div>
-
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
-            <button
-              type="button"
-              onClick={() => {
-                setEventName('Dinner with Friends');
-                setBillAmount('2400');
-                setTaxTipValue('5');
-                setTaxTipType('PERCENT');
-                setMembers(['You', 'Aman', 'Priya', 'Rahul']);
-                setPaidBy('You');
-                setSplitMode('EQUAL');
-                setCustomShares({});
-                setUpiId('');
-                setSelectedRecipient(null);
-                setSettledDebts({});
-              }}
-              style={{
-                padding: '10px 16px',
-                borderRadius: '12px',
-                backgroundColor: 'var(--bg-surface-elevated)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-primary)',
-                fontSize: '0.84rem',
-                fontWeight: 700,
-                cursor: 'pointer',
-                transition: 'all 0.15s ease',
-              }}
-            >
-              Start Fresh Split
-            </button>
-
-            <a
-              href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                padding: '10px 18px',
-                borderRadius: '12px',
-                background: 'var(--primary-gradient)',
-                color: '#ffffff',
-                fontSize: '0.84rem',
-                fontWeight: 800,
-                textDecoration: 'none',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 4px 14px rgba(99, 102, 241, 0.35)',
-                transition: 'all 0.15s ease',
-              }}
-            >
-              <Smartphone size={16} />
-              <span>Get Android App</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      />
 
       {/* UPI 1-Tap QR & Settlement Modal Dialog */}
       {activeUpiModal && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="upi-modal-title"
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 9999,
-            padding: '20px',
+        <UpiPaymentModal
+          modalData={activeUpiModal}
+          currencySymbol={currencySymbol}
+          onClose={() => setActiveUpiModal(null)}
+          onMarkSettled={(from) => {
+            setSettledDebts((prev) => ({ ...prev, [from]: true }));
+            setActiveUpiModal(null);
           }}
-          onClick={() => setActiveUpiModal(null)}
-        >
-          <div
-            style={{
-              backgroundColor: 'var(--bg-surface)',
-              borderRadius: '24px',
-              border: '1.5px solid rgba(99, 102, 241, 0.35)',
-              padding: '28px',
-              maxWidth: '380px',
-              width: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              textAlign: 'center',
-              boxShadow: '0 25px 60px -15px rgba(0, 0, 0, 0.7)',
-              position: 'relative',
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setActiveUpiModal(null)}
-              aria-label="Close modal"
-              style={{
-                position: 'absolute',
-                top: '16px',
-                right: '16px',
-                background: 'none',
-                border: 'none',
-                color: 'var(--text-muted)',
-                fontSize: '1.2rem',
-                fontWeight: 800,
-                cursor: 'pointer',
-                padding: '4px 8px',
-              }}
-            >
-              ✕
-            </button>
-
-            <div
-              style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '50%',
-                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                marginBottom: '14px',
-                boxShadow: '0 6px 18px rgba(16, 185, 129, 0.4)',
-              }}
-            >
-              <Zap size={24} />
-            </div>
-
-            <h3 id="upi-modal-title" style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 4px 0' }}>
-              Instant UPI Settle
-            </h3>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0 0 16px 0' }}>
-              {activeUpiModal.from} paying to <strong>{activeUpiModal.to}</strong>
-            </p>
-
-            {/* Amount Callout */}
-            <div
-              style={{
-                fontSize: '2rem',
-                fontWeight: 800,
-                color: '#10b981',
-                marginBottom: '16px',
-                letterSpacing: '-0.02em',
-              }}
-              className="num-tabular"
-            >
-              {formatMoney(activeUpiModal.amount, currencySymbol)}
-            </div>
-
-            {/* Scannable Dynamic QR Code */}
-            <div
-              style={{
-                width: '180px',
-                height: '180px',
-                backgroundColor: '#ffffff',
-                borderRadius: '16px',
-                padding: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 8px 24px rgba(0, 0, 0, 0.25)',
-                marginBottom: '16px',
-              }}
-            >
-              <img
-                src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(activeUpiModal.upiUri)}`}
-                alt="Scan with GPay, PhonePe, Paytm, CRED or any UPI App to pay"
-                width="160"
-                height="160"
-                style={{ width: '100%', height: '100%', borderRadius: '8px' }}
-              />
-            </div>
-
-            <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 14px 0' }}>
-              Scan with camera or any UPI app on your phone
-            </p>
-
-            {/* UPI ID Copy Field */}
-            <div
-              style={{
-                width: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '8px 12px',
-                borderRadius: '12px',
-                backgroundColor: 'var(--bg-surface-elevated)',
-                border: '1px solid var(--border-subtle)',
-                marginBottom: '14px',
-              }}
-            >
-              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '220px' }}>
-                {activeUpiModal.upiId}
-              </span>
-              <button
-                type="button"
-                onClick={async () => {
-                  const success = await copyToClipboard(activeUpiModal.upiId);
-                  if (success) {
-                    setCopiedModalUpi(true);
-                    setTimeout(() => setCopiedModalUpi(false), 2000);
-                  }
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: copiedModalUpi ? '#10b981' : 'var(--primary)',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  cursor: 'pointer',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                }}
-              >
-                {copiedModalUpi ? <Check size={14} /> : <Copy size={14} />}
-                <span>{copiedModalUpi ? 'Copied' : 'Copy'}</span>
-              </button>
-            </div>
-
-            {/* Action Buttons */}
-            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <a
-                href={activeUpiModal.upiUri}
-                style={{
-                  width: '100%',
-                  padding: '12px',
-                  borderRadius: '12px',
-                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
-                  color: '#ffffff',
-                  fontWeight: 800,
-                  fontSize: '0.92rem',
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)',
-                }}
-              >
-                <Smartphone size={16} /> Open in UPI App
-              </a>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setSettledDebts((prev) => ({ ...prev, [activeUpiModal.from]: true }));
-                  setActiveUpiModal(null);
-                }}
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  borderRadius: '12px',
-                  backgroundColor: 'transparent',
-                  border: '1px solid var(--border-subtle)',
-                  color: 'var(--text-secondary)',
-                  fontWeight: 700,
-                  fontSize: '0.84rem',
-                  cursor: 'pointer',
-                }}
-              >
-                Mark as Settled
-              </button>
-            </div>
-          </div>
-        </div>
+        />
       )}
     </div>
   );

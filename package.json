@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build && node scripts/prerender.js && node scripts/validate-sitemap.js",
     "preview": "vite preview",
+    "test": "vitest run",
     "publish:articles": "git add src/data/articles.json && git commit -m \"Publish article updates\" && git push",
     "seo:ping": "node scripts/ping-search-engines.js"
   },
@@ -14,13 +15,15 @@
     "@supabase/supabase-js": "^2.49.1",
     "lucide-react": "^1.16.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.4"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
     "typescript": "^5.7.3",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "vitest": "^5.0.5"
   }
 }

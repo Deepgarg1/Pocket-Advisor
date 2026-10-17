@@ -7,7 +7,6 @@ export const prefetchRoute = (route: string): void => {
 
   switch (route) {
     case 'home':
-      import('../components/landing/Hero');
       break;
     case 'split':
     case 'flatmates-rent-splitter':

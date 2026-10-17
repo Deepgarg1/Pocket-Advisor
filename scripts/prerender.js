@@ -1795,11 +1795,7 @@ for (const route of routes) {
 
       <main style="flex: 1;">
         <section class="shell-hero">
-          <div style="width: 84px; height: 84px; margin-bottom: 20px; position: relative; display: flex; align-items: center; justify-content: center;">
-            <img src="/logo.webp" alt="Pocket Advisor" width="84" height="84" fetchpriority="high" style="border-radius: 22px; width: 84px; height: 84px; object-fit: contain; box-shadow: 0 12px 36px rgba(0,0,0,0.4);" />
-          </div>
-
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 9999px; background: rgba(99, 102, 241, 0.14); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px;">
+          <div class="shell-eyebrow">
             <span>${escapeHtml(route.pillText)}</span>
           </div>
 
@@ -1811,9 +1807,12 @@ for (const route of routes) {
             ${escapeHtml(route.heroDesc)}
           </p>
 
-          <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px;">
-            <a href="${route.ctaHref}" class="shell-btn">
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px;">
+            <a href="${route.ctaHref}" class="shell-btn shell-btn-primary">
               <span>${escapeHtml(route.ctaText)}</span>
+            </a>
+            <a href="${PLAY_STORE_URL}" target="_blank" rel="noopener noreferrer" class="shell-btn">
+              <span>Get on Google Play</span>
             </a>
           </div>
         </section>

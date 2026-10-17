@@ -118,7 +118,7 @@ if (!fs.existsSync(budgetPlannerPath)) {
     fail('Monthly budget planner prerendered content is missing its primary topic.');
   }
 
-  const budgetSchemas = [...budgetHtml.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)]
+  const budgetSchemas = [...budgetHtml.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map(match => {
       try { return JSON.parse(match[1]); } catch { fail('Monthly budget planner contains invalid JSON-LD.'); return null; }
     }).filter(Boolean);

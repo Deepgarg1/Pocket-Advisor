@@ -812,26 +812,26 @@ export function getRouteBodyContent(slug, articles = []) {
           <div style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">Automatic UPI Expense Tracking: Stop Logging Chai, Cabs, and Groceries by Hand</h2>
             <p>
-              If you live in India, you probably make 15 to 25 UPI transactions every single day: ₹20 for morning tea, ₹120 for an auto ride, ₹350 on Blinkit or Zepto, ₹600 for lunch on Swiggy, and a couple of bill splits with friends in the evening.
+              If you use UPI for everyday purchases—such as tea, transport, groceries, food delivery, and shared bills—those transactions can be easy to forget when you record expenses manually.
             </p>
             <p style="margin-top: 12px;">
-              Manually logging each one into a spreadsheet or budgeting app sounds great on paper, but almost everyone abandons it after three days. Pocket Advisor solves this by automatically reading your transactional bank SMS alerts directly on your Android phone — with <strong>zero cloud uploads</strong>, <strong>zero bank logins</strong>, and <strong>100% offline encryption</strong>.
+              Manually recording every purchase takes time. Pocket Advisor can turn supported bank transaction SMS alerts into expense entries on your Android device, without requiring your bank login credentials for SMS parsing. Transaction coverage depends on the alert your bank sends and the message format. Local storage and any optional cloud backup are governed by your in-app settings and the <a href="/privacy" style="color:#93c5fd;text-decoration:underline;text-underline-offset:3px;font-weight:600;">Privacy Policy</a>.
             </p>
           </div>
 
           <h2 style="${headingStyle}">How On-Device SMS Tracking Works (Without Giving Away Your Passwords)</h2>
           <p>
-            Whenever you scan a QR code or pay someone via Google Pay, PhonePe, Paytm, or CRED, your bank sends you a standard SMS alert (for example: <em>"Sent Rs. 385.00 from HDFC Bank A/C **4819 to SWIGGY UPI ref 418293817291..."</em>).
+            For some payments, your bank may send an SMS transaction alert after you pay through a UPI app. Alert delivery and wording vary by bank, account, transaction type, and payment app. A message format is shown below only as an illustration: <em>"Sent Rs. 385.00 from bank account to merchant..."</em>.
           </p>
           <p style="margin-top: 12px;">
             Here is what happens the instant that text message arrives:
           </p>
           <ol style="padding-left: 20px; margin-bottom: 24px;">
-            <li><strong>Local Broadcast Receiver:</strong> Pocket Advisor's Android service intercepts the incoming SMS right on your device processor.</li>
-            <li><strong>Strict Regex Extraction:</strong> It parses only the amount (₹385), the merchant (Swiggy), the account last 4 digits (4819), and transaction type (Debit).</li>
-            <li><strong>OTP and Sensitive Data Drop:</strong> Any message containing OTPs, login verification codes, or personal chats is instantly discarded. We never touch or store verification codes.</li>
+            <li><strong>On-device processing:</strong> When an eligible transaction alert is available, the app checks it locally for a supported transaction pattern.</li>
+            <li><strong>Transaction details:</strong> The app extracts the fields recognized by that message format, which may include amount, merchant, account hint, and transaction type.</li>
+            <li><strong>Pattern-based filtering:</strong> Only messages matching supported transaction patterns can be imported. Do not assume every bank SMS, OTP, or non-transaction message will be handled identically; review the app's current permissions and privacy disclosures.</li>
             <li><strong>Automatic Categorization:</strong> The merchant name is matched locally to categories like Food &amp; Dining, Groceries, Transport, or Shopping.</li>
-            <li><strong>Encrypted SQLite Ledger:</strong> The entry is saved directly to your local phone database, encrypted using 256-bit AES SQLCipher. It never leaves your phone.</li>
+            <li><strong>Local ledger:</strong> Imported entries are stored in the app's local encrypted database. If you enable optional cloud backup, selected app data may sync according to your settings and the Privacy Policy.</li>
           </ol>
 
           <h2 style="${headingStyle}">Comparison: Pocket Advisor vs Traditional Tracking Methods</h2>
@@ -850,18 +850,18 @@ export function getRouteBodyContent(slug, articles = []) {
                   <td style="padding: 12px 14px; font-weight: 700;">Data Entry</td>
                   <td style="padding: 12px 14px;">Manual (typing 15+ times/day)</td>
                   <td style="padding: 12px 14px;">Cloud scraping / PDF uploads</td>
-                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Automatic (100% on-device SMS)</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Automatic for supported SMS formats</td>
                 </tr>
                 <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
                   <td style="padding: 12px 14px; font-weight: 700;">Financial Privacy</td>
                   <td style="padding: 12px 14px;">High (stored locally)</td>
-                  <td style="padding: 12px 14px; color: #f87171;">Low (uploaded to servers for ad targeting)</td>
-                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">100% Offline (Zero server telemetry)</td>
+                  <td style="padding: 12px 14px; color: #cbd5e1;">Depends on the app and its privacy policy</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">On-device parsing; optional cloud backup</td>
                 </tr>
                 <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
                   <td style="padding: 12px 14px; font-weight: 700;">Bank Passwords Needed</td>
                   <td style="padding: 12px 14px;">None</td>
-                  <td style="padding: 12px 14px; color: #f87171;">Often requested for scraping</td>
+                  <td style="padding: 12px 14px; color: #cbd5e1;">Varies by provider and integration</td>
                   <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Never (Zero credentials requested)</td>
                 </tr>
                 <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
@@ -873,7 +873,7 @@ export function getRouteBodyContent(slug, articles = []) {
                 <tr>
                   <td style="padding: 12px 14px; font-weight: 700;">Ads &amp; Upsells</td>
                   <td style="padding: 12px 14px;">None</td>
-                  <td style="padding: 12px 14px; color: #f87171;">Constant loan and credit card spam</td>
+                  <td style="padding: 12px 14px; color: #cbd5e1;">Varies by provider</td>
                   <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Zero advertisements</td>
                 </tr>
               </tbody>
@@ -882,18 +882,18 @@ export function getRouteBodyContent(slug, articles = []) {
 
           <h2 style="${headingStyle}">Handled Edge Cases: Refunds, Failed Payments, and RuPay Credit Cards</h2>
           <p>
-            Real-world Indian banking has plenty of weird edge cases. Here is how Pocket Advisor handles them smoothly:
+            Bank alerts can use different wording for refunds, reversals, and transfers. Pocket Advisor may recognize some of these patterns, but classification depends on the message format. Review imported entries and correct them when needed.
           </p>
           <ul style="padding-left: 20px; margin-bottom: 24px;">
-            <li><strong>UPI Refunds &amp; Reversals:</strong> If a payment fails on Swiggy or Zomato and your bank credits it back 48 hours later, the app detects the reversal and offsets your original spending instead of treating the refund as new monthly salary.</li>
-            <li><strong>Self-Transfers:</strong> Moving money between your SBI savings account and your HDFC salary account? The app identifies transfers between your own linked accounts so your total spend is not double-counted.</li>
-            <li><strong>RuPay Credit Cards on UPI:</strong> Scanned a merchant QR code using a RuPay credit card? Pocket Advisor identifies the card account and categorizes it under credit spending while updating your payment cycle.</li>
+            <li><strong>Refunds and reversals:</strong> Recognizable refund or reversal alerts may be classified accordingly. Verify the entry against your bank statement, especially when the original payment and reversal arrive as separate messages.</li>
+            <li><strong>Transfers between your accounts:</strong> Transfer classification depends on the supported message pattern and available account details. Review these entries so transfers are not mistaken for purchases.</li>
+            <li><strong>RuPay credit card on UPI:</strong> Classification depends on the transaction alert format received from the bank. Check the imported entry and account details for accuracy.</li>
           </ul>
 
-          <h2 style="${headingStyle}">Supported Indian Banks &amp; UPI Apps</h2>
+          <h2 style="${headingStyle}">Bank and UPI message compatibility</h2>
           <div style="${cardStyle}">
             <p style="margin: 0 0 12px 0;">
-              Pocket Advisor parses standard transactional SMS alerts from all major Indian scheduled commercial banks:
+              Pocket Advisor recognizes supported transaction-message patterns; it does not guarantee compatibility with every bank, account, or payment. The names below are examples of banks whose alerts may use relevant formats, not a promise that every transaction from them will be imported.
             </p>
             <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;">
               <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">State Bank of India (SBI)</span>
@@ -910,14 +910,14 @@ export function getRouteBodyContent(slug, articles = []) {
               <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; font-weight: 600;">Union Bank of India</span>
             </div>
             <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;">
-              Works seamlessly with all UPI client apps including <strong>Google Pay</strong>, <strong>PhonePe</strong>, <strong>Paytm</strong>, <strong>CRED</strong>, <strong>BHIM UPI</strong>, and <strong>Amazon Pay</strong>.
+              Transactions made through apps such as <strong>Google Pay</strong>, <strong>PhonePe</strong>, <strong>Paytm</strong>, <strong>CRED</strong>, <strong>BHIM UPI</strong>, and <strong>Amazon Pay</strong> can only be recognized when the bank sends an alert that matches a supported format.
             </p>
           </div>
 
           <div style="${cardStyle} text-align: center; margin: 40px 0;">
             <h3 style="font-size: 1.35rem; font-weight: 800; color: #f8fafc; margin-top: 0;">Try Pocket Advisor for Android</h3>
             <p style="font-size: 0.95rem; color: #94a3b8; margin: 8px 0 20px 0;">
-              Get automatic expense tracking with complete peace of mind. Zero ads, zero cloud sync, and 100% on-device encryption.
+              Get expense tracking for supported bank SMS alerts, with on-device parsing and an encrypted local ledger. Optional cloud backup is controlled through app settings.
             </p>
             <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #6366f1; color: #ffffff; padding: 13px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 0.95rem;">
               Download on Google Play &rarr;

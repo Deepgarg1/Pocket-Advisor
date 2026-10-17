@@ -93,6 +93,57 @@ for (const [articlePath, article] of articleByPath) {
 }
 
 
+const budgetPlannerPath = path.join(rootDir, 'dist', 'monthly-budget-planner', 'index.html');
+if (!fs.existsSync(budgetPlannerPath)) {
+  fail('Built prerendered HTML is missing for /monthly-budget-planner.');
+} else {
+  const budgetHtml = fs.readFileSync(budgetPlannerPath, 'utf8');
+  const budgetCanonical = canonicalOrigin + '/monthly-budget-planner';
+  const expectedTitle = 'Monthly Budget Planner India (50/30/20) | Pocket Advisor';
+  const expectedDescription = 'Plan your monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs, wants and savings, see your remaining balance, and export to CSV for free.';
+
+  if (!budgetHtml.includes('<title>' + expectedTitle + '</title>')) {
+    fail('Monthly budget planner title is missing or does not match the SEO target.');
+  }
+  if (!budgetHtml.includes('<meta name="description" content="' + escapeHtml(expectedDescription) + '" />')) {
+    fail('Monthly budget planner meta description is missing or does not match the SEO target.');
+  }
+  if (!budgetHtml.includes('<link rel="canonical" href="' + budgetCanonical + '" />')) {
+    fail('Monthly budget planner canonical URL is incorrect.');
+  }
+  if ((budgetHtml.match(/<h1\b/gi) || []).length !== 1) {
+    fail('Monthly budget planner should have exactly one H1 heading in prerendered HTML.');
+  }
+  if (!budgetHtml.includes('Monthly Budget Planner') || !budgetHtml.includes('50/30/20 rule')) {
+    fail('Monthly budget planner prerendered content is missing its primary topic.');
+  }
+
+  const budgetSchemas = [...budgetHtml.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map(match => {
+      try { return JSON.parse(match[1]); } catch { fail('Monthly budget planner contains invalid JSON-LD.'); return null; }
+    }).filter(Boolean);
+  const budgetFaq = budgetSchemas.find(schema => schema['@type'] === 'FAQPage');
+  if (!budgetFaq || !Array.isArray(budgetFaq.mainEntity) || budgetFaq.mainEntity.length < 1) {
+    fail('Monthly budget planner is missing FAQ structured data.');
+  } else {
+    for (const faq of budgetFaq.mainEntity) {
+      if (!faq.name || !faq.acceptedAnswer || !faq.acceptedAnswer.text ||
+          !budgetHtml.includes(escapeHtml(faq.name)) ||
+          !budgetHtml.includes(escapeHtml(faq.acceptedAnswer.text))) {
+        fail('Monthly budget planner visible FAQ content does not match its FAQ structured data.');
+        break;
+      }
+    }
+  }
+
+  const seoSource = fs.readFileSync(path.join(rootDir, 'src', 'utils', 'seo.ts'), 'utf8');
+  const seoBudgetBlock = seoSource.match(/'monthly-budget-planner': \{([\s\S]*?)\n  \},/);
+  if (!seoBudgetBlock || !seoBudgetBlock[1].includes("title: '" + expectedTitle + "'") ||
+      !seoBudgetBlock[1].includes("description: '" + expectedDescription + "'")) {
+    fail('Monthly budget planner route metadata in src/utils/seo.ts is out of sync with prerendered HTML.');
+  }
+}
+
 const targetSlug = 'how-to-track-spending-automatically-android';
 const targetArticle = articles.find(article => article.slug === targetSlug);
 if (targetArticle) {

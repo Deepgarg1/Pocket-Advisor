@@ -159,7 +159,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               <ShieldCheck size={16} color="#0284c7" /> SQLCipher 256-bit Encrypted
             </span>
             <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Sparkles size={16} color="#f59e0b" /> 100% Private Ledger • Ad-Free with Pro
+              <Sparkles size={16} color="#f59e0b" /> Privacy-First Ledger • Ad-Free with Pro
             </span>
           </div>
         </div>

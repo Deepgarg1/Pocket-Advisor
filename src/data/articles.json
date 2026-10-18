@@ -1943,7 +1943,7 @@
     "title": "How to Budget Monthly Expenses in India: The Practical 2026 Middle-Class Blueprint",
     "subtitle": "A realistic framework for managing take-home salary across metro rents, groceries, family commitments, and compounding investments.",
     "excerpt": "Master personal expense budgeting in India. Learn the adaptive 50/30/20 rule for ₹30K–₹1.5L salaries, calculate realistic tier-1 vs tier-2 living expenses, and eliminate invisible cash leaks with free tools.",
-    "coverImage": "/assets/news/how-to-budget-monthly-expenses-india.svg",
+    "coverImage": "/assets/news/how-to-budget-monthly-expenses-india.webp",
     "coverImageAlt": "How to Budget Monthly Expenses in India - 50/30/20 Rule Blueprint",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18",
@@ -2000,7 +2000,7 @@
       },
       {
         "type": "image",
-        "src": "/assets/news/how-to-budget-monthly-expenses-india.svg",
+        "src": "/assets/news/how-to-budget-monthly-expenses-india.webp",
         "alt": "Monthly Budget Architecture for Indian Earners",
         "caption": "Figure 1: The Adaptive 50/30/20 Allocation: Needs (50-60%), Lifestyle Wants (20-30%), and Compounding Wealth (20% minimum)."
       },
@@ -2155,7 +2155,7 @@
     "title": "How to Auto-Match UPI Debits to Recurring Bills & Subscriptions (2026 Guide)",
     "subtitle": "Automatically reconcile bank SMS alerts with electricity, Wi-Fi, rent, and credit card dues without sharing netbanking credentials.",
     "excerpt": "Learn how to automatically match UPI debit notifications against monthly recurring bills and subscriptions on Android. Reconcile utility payments, eliminate duplicate debits, and maintain an encrypted local ledger.",
-    "coverImage": "/assets/news/auto-match-upi-payments-bills.svg",
+    "coverImage": "/assets/news/auto-match-upi-payments-bills.webp",
     "coverImageAlt": "Auto-Match UPI Debits to Recurring Utility Bills and Subscriptions",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18",
@@ -2212,7 +2212,7 @@
       },
       {
         "type": "image",
-        "src": "/assets/news/auto-match-upi-payments-bills.svg",
+        "src": "/assets/news/auto-match-upi-payments-bills.webp",
         "alt": "On-Device Bill Reconciliation Pipeline",
         "caption": "Figure 1: The 3-step automatic bill matching pipeline: from bank debit SMS alert to deterministic regex extraction and cleared bill reconciliation."
       },

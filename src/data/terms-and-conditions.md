@@ -76,15 +76,15 @@ Pocket Advisor allows you to schedule reminders for bills, subscriptions, and lo
 ---
 
 ### 6. Local Storage, Data Purge, and Cloud Backup
-By default, Pocket Advisor stores your financial ledger locally on your device in an encrypted database (SQLCipher AES-256 protected by Android Keystore).
+When using Pocket Advisor in guest or unregistered mode without an account, your financial ledger is stored locally on your device in an encrypted database (SQLCipher AES-256 protected by Android Keystore).
 
-Pocket Advisor also offers a Cloud Backup and synchronization feature. Extracted transaction, reminder, shopping list, and spending data is uploaded to our server **only when you are logged in and have chosen to enable Cloud Backup** (or when you participate in collaborative Split Bills groups, which require cloud synchronization to function across group members), subject to the App's functionality and Privacy Policy.
+Pocket Advisor also provides cloud backup and synchronization powered by Supabase. When you register or sign in to a Pocket Advisor account, Cloud Sync automatically enables for your account to power connected features including collaborative Split Bills groups, continuous multi-device backup, and AI Copilot queries.
 
-When Cloud Backup is enabled, applicable data is stored using our cloud infrastructure and database service providers.
+When an account is active, applicable spending, reminder, and group data is synchronized using our secure cloud infrastructure.
 
-If Cloud Backup is not enabled, your personal transaction data remains stored locally on your device. You are responsible for understanding that:
-* Disabling or not using Cloud Backup means that locally stored data **cannot be recovered by Pocket Advisor under any circumstances** if your device is lost, damaged, factory-reset, or uninstalled; and
-* Using the in-app **"Clear All Data"** purge feature permanently deletes local database records and revokes local encryption keys, which is irreversible unless you have maintained an independent export (PDF/CSV/JSON) or active Cloud Backup.
+If you choose not to create an account, you may use Pocket Advisor in offline guest mode. You are responsible for understanding that:
+* In offline guest mode without an account, locally stored data **cannot be recovered by Pocket Advisor under any circumstances** if your device is lost, damaged, factory-reset, or uninstalled; and
+* Using the in-app **"Clear All Data"** purge feature permanently deletes local database records and revokes local encryption keys, which is irreversible unless you have maintained an independent export (PDF/CSV/JSON) or an active account with cloud backup.
 
 ---
 

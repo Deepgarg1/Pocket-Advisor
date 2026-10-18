@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "publish:articles": "git add src/data/articles.json && git commit -m \"Publish article updates\" && git push",
-    "seo:ping": "node scripts/ping-search-engines.js"
+    "seo:ping": "node scripts/ping-search-engines.js",
+    "postbuild": "node scripts/ping-search-engines.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",

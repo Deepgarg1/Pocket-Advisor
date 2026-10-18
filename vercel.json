@@ -119,6 +119,17 @@
   ],
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pocketadvisor.in"
+        }
+      ],
+      "destination": "https://www.pocketadvisor.in/:path*",
+      "permanent": true
+    },
+    {
       "source": "/docs/delete-account.html",
       "destination": "https://www.pocketadvisor.in/delete-account",
       "permanent": true

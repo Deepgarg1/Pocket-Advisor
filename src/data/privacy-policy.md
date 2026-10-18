@@ -41,7 +41,7 @@ Pocket Advisor may process information that you enter, generate, detect, or appr
 * **Shopping Lists:** Shopping list group names, item titles, estimated prices, quantities, category tags, and checked/purchased status.
 * **Shared & Group Expenses:** Group names, 6-character group codes, member display names, registered member user IDs, group invitations (`fromUserId`, `fromUserName`, `toUserId`, invitation status), shared expense descriptions and amounts, split shares, balances, and calculated debt settlements.
 
-Personal spending, reminder, and shopping list information is stored locally on your device by default and is only uploaded or processed remotely when you use Cloud Sync/Backup (Section 5), participate in shared Split Groups (Section 7), or query the AI Advisor (Section 8).
+Personal spending, reminder, and shopping list information is stored locally on your device by default when using the App in offline guest mode without an account. When you create or sign in to a Pocket Advisor account, Cloud Sync automatically activates (Section 5), synchronizing your records with Supabase so that collaborative features such as Split Groups (Section 7), multi-device backup, and AI Financial Advisor features (Section 8) work seamlessly.
 
 ### 2.3 AI Copilot Chat History
 When you use the AI Copilot (AI Financial Advisor), Pocket Advisor may store your AI conversation history, including your questions and the AI-generated responses, in your Pocket Advisor account using Supabase.
@@ -91,7 +91,7 @@ All SMS text inspection and linguistic parsing occurs strictly locally on your A
 
 * Only structured transaction fields extracted from a verified financial alert (amount, currency, transaction type, merchant name, category, and timestamp) are recorded in your local encrypted database.
 * If you have enabled Auto-Reconciliation for a scheduled bill reminder, the on-device parser may match an incoming payment alert against your pending bill reminder to mark it as paid locally.
-* Extracted transaction entries are only synced to the cloud or included in AI summaries if you are signed in with Cloud Sync/Backup enabled (Section 5) or when you query the AI Advisor (Section 8).
+* Extracted transaction entries stored in your local encrypted database are automatically synced to the cloud via Supabase whenever you create or log into a Pocket Advisor account (Section 5), or when included as context for your AI Advisor queries (Section 8). If you use Pocket Advisor without an account, extracted transactions remain strictly on your local device.
 * Pocket Advisor strictly filters and ignores personal messages, private conversations, promotional spam, and one-time passwords (OTPs). You can review, edit, or delete automatically detected transactions at any time within the App.
 
 ### 4.3 No Bank Credentials
@@ -101,10 +101,12 @@ Pocket Advisor does **NOT** require, request, or collect your bank username, log
 
 ## 5. Cloud Backup and Synchronization
 
-Pocket Advisor provides cloud synchronization and backup powered by Supabase for authenticated users so you can safeguard your records and access them across sessions or devices.
+Pocket Advisor uses cloud synchronization and backup powered by Supabase to provide continuous backup across devices and to power connected features like collaborative bill splitting and AI financial insights.
 
-* **Personal Ledger & Planning Data (`ExpenseCloudSyncManager` & `SmsCloudSyncWorker`):** When you are signed into your Pocket Advisor account and Cloud Backup/Sync is active, your structured transaction records (including SMS-extracted expenses), custom categories, budgets, bill/EMI payment reminders (`payment_reminders`), and shopping lists (`shopping_items`) are synchronized with your private Supabase cloud storage. Each record uses synchronization metadata (`isSynced`, `updatedAt`, and soft-deletion flags `isDeleted`) to resolve conflicts and replicate deletions accurately.
-* **Disabling Cloud Backup:** You can use Pocket Advisor completely offline without signing in, or you can disable Cloud Backup in the App settings. When you disable Cloud Backup, Pocket Advisor stops future cloud synchronization and deletes existing cloud-backed-up personal ledger data in accordance with the App's deletion workflow. Ensure you retain any needed local records or exports before disabling Cloud Backup.
+* **Automatic Cloud Sync Upon Account Creation:** When you register or sign in to a Pocket Advisor account, Cloud Sync is automatically enabled for your account—it is not an optional toggle after account creation. Account registration connects your device to our secure cloud database (Supabase) so that all connected features function properly, including collaborative Split Groups (bill splitting & debt simplification), multi-device backup, and AI Financial Advisor queries.
+* **Synchronized Data Fields (`ExpenseCloudSyncManager` & `SmsCloudSyncWorker`):** With an active account, your structured transaction records (including SMS-extracted expenses), custom categories, budgets, bill/EMI payment reminders (`payment_reminders`), and shopping lists (`shopping_items`) are automatically synchronized with your private Supabase cloud storage. Each record uses synchronization metadata (`isSynced`, `updatedAt`, and soft-deletion flags `isDeleted`) to resolve conflicts and maintain real-time consistency across devices.
+* **Offline / Guest Mode (No Cloud Sync):** If you prefer your financial data to never leave your physical device, you can use Pocket Advisor completely offline in guest mode without creating an account. In guest mode, all financial records remain strictly encrypted on your local Android device, though cloud-dependent capabilities (such as collaborative Split Groups and cloud-backed AI queries) will not be accessible.
+* **Account Deletion & Data Removal:** If you have created an account and wish to remove your synchronized data from the cloud, you can permanently delete your Pocket Advisor account and all associated cloud records at any time directly through the in-app settings or via our Verified Web Deletion Portal (Section 14).
 
 ---
 
@@ -217,7 +219,7 @@ We **never** sell your personal or financial information to third parties or dat
 ## 13. Data Retention
 
 * **Local On-Device Data:** Remains stored in your device's encrypted SQLCipher database until you delete individual records, trigger "Clear All Data" inside the App, clear app storage, or uninstall the App.
-* **Cloud-Synced Data & AI Chat History:** Retained in your Supabase account for as long as you maintain an active account and have Cloud Sync enabled, allowing you to restore your ledger across devices.
+* **Cloud-Synced Data & AI Chat History:** Retained in your private Supabase account for as long as your account remains active, powering collaborative Split Groups, AI Advisor insights, and cross-device restoration.
 * **Account Deletion:** When you delete your Pocket Advisor account, we permanently delete your personal profile, cloud-backed transactions, payment reminders, shopping lists, AI Copilot chat history, and referral records from our active databases. Some deletion processes across encrypted backups may take a short, reasonable window (typically up to 30 days) to complete, unless retention of specific records is legally required for fraud prevention or regulatory compliance.
 
 ---
@@ -259,7 +261,7 @@ Depending on the features you use, you have granular control over your privacy w
 * **SMS Permission (`RECEIVE_SMS`):** Optional and off by default; revocable anytime in App or Android Settings.
 * **Exact Alarms & Notifications (`POST_NOTIFICATIONS`, `SCHEDULE_EXACT_ALARM`):** Used only to deliver timely bill reminders and transaction alerts; configurable in Settings.
 * **Biometric App Lock (`USE_BIOMETRIC`):** Optional on-device security toggle with automatic 30-second background lock timeout.
-* **Cloud Backup & Sync:** Use the App offline-only, or enable/disable Cloud Sync for your account.
+* **Cloud Sync & Account Choice:** Use the App offline in guest mode without an account for 100% on-device operation. Creating or logging into an account automatically enables Cloud Sync via Supabase to power collaborative Split Groups, multi-device backup, and AI Copilot features. You can delete your account and all cloud data at any time.
 * **Advertising Consent:** Manage personalized ad consent via the in-app privacy settings or Android system settings, or upgrade to Pocket Advisor Pro for a 100% ad-free experience.
 * **AI Advisor:** Only processes data when you actively submit a prompt in the chat interface.
 

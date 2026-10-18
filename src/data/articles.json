@@ -2,13 +2,13 @@
   {
     "id": "how-to-track-spending-automatically-android",
     "slug": "how-to-track-spending-automatically-android",
-    "title": "How to Track Your Spending Automatically on Android",
+    "title": "Auto-Track Spending on Android (Bank SMS + UPI) — No Manual Entry | 2026 Guide",
     "subtitle": "Use supported bank SMS alerts to reduce manual expense entry, then review and correct your transaction history.",
     "excerpt": "Learn how automatic expense tracking works on Android, how supported bank SMS alerts can become expense records, what can be missed, and how to evaluate permissions, local storage, cloud backup, and privacy.",
     "coverImage": "/assets/news/how-to-track-spending-automatically-android-cover.webp",
     "coverImageAlt": "How to Track Your Spending Automatically on Android - Pocket Advisor",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12",
+    "updatedAt": "2026-10-18",
     "category": "Guides",
     "readTime": "8 min read",
     "tags": [
@@ -1265,13 +1265,13 @@
   {
     "id": "track-upi-expenses-automatically",
     "slug": "track-upi-expenses-automatically",
-    "title": "How to Track UPI Expenses Automatically in India (2026 Step-by-Step Guide)",
+    "title": "Track UPI Expenses Automatically (Google Pay, PhonePe, Paytm) — Free Guide 2026",
     "subtitle": "Stop typing every transaction. Master automatic on-device SMS parsing, OEM battery settings, missed alert recovery, smart categorization, and zero-telemetry privacy.",
-    "excerpt": "A complete guide to tracking Google Pay, PhonePe, Paytm, and CRED transactions automatically in India without manual entry. Learn on-device regex detection, Xiaomi/Samsung battery setup, handling missed SMS, custom category rules, and SQLCipher AES-256 privacy.",
+    "excerpt": "Auto-detect every Google Pay, PhonePe & Paytm transaction from SMS without netbanking. Step-by-step Android setup guide with OEM battery fixes for Xiaomi, Samsung & OnePlus.",
     "coverImage": "/assets/news/track-upi-expenses-automatically.svg",
-    "coverImageAlt": "How to Track UPI Expenses Automatically in India Step-by-Step Guide",
+    "coverImageAlt": "Track UPI Expenses Automatically in India Step-by-Step Guide",
     "publishedAt": "2026-10-09",
-    "updatedAt": "2026-10-10",
+    "updatedAt": "2026-10-18",
     "category": "Guides",
     "readTime": "10 min read",
     "tags": [

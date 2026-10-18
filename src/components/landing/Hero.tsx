@@ -92,6 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <a {...routeLink('calculators')}>6-in-1 calculators <ArrowRight size={13} /></a>
               <a {...routeLink('upi-expense-tracker')}>UPI tracker <ArrowRight size={13} /></a>
               <a {...routeLink('monthly-budget-planner')}>50/30/20 planner <ArrowRight size={13} /></a>
+              <a {...routeLink('news/diwali-2026-how-to-track-upi-spending')} className="pa-hero-link-festive">🪔 Diwali UPI guide <ArrowRight size={13} /></a>
             </div>
           </div>
 

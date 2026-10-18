@@ -182,8 +182,8 @@ export function getRouteBodyContent(slug, articles = []) {
       return `
         <article style="${contentStyle}">
           <section style="${cardStyle}">
-            <h2 style="${headingStyle} margin-top: 0;">How to use this monthly budget planner</h2>
-            <p>Start with your monthly take-home income—the amount available after salary deductions. Add realistic estimates for housing, groceries, utilities, transport, healthcare, subscriptions, personal spending and savings. The planner updates the totals as you edit each amount, so you can see whether your plan fits your income.</p>
+            <h2 style="${headingStyle} margin-top: 0;">How to use this personal budget planner for monthly expenses in India</h2>
+            <p>This free <strong>personal budget planner</strong> helps you organize, forecast, and control your <strong>monthly expenses in India</strong>. Start with your monthly take-home income—the amount available after PF and salary deductions. Add realistic estimates for housing rent/EMI, groceries, utilities, transport, healthcare, subscriptions, personal lifestyle spending, and savings. The planner updates totals automatically as you adjust each amount so you can see whether your living expenses fit your monthly income.</p>
             <ol style="padding-left: 22px;">
               <li>Enter your monthly take-home income in rupees.</li>
               <li>Estimate essential expenses such as rent, groceries, bills, transport and healthcare.</li>
@@ -216,7 +216,7 @@ export function getRouteBodyContent(slug, articles = []) {
           <div style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">From planning to expense tracking</h2>
             <p>A budget sets a target; tracking shows how your actual spending compares with it. Pocket Advisor for Android can organize supported bank and UPI transaction alerts, helping you review spending alongside your plan. Message support and transaction coverage can vary by bank and message format.</p>
-            <p style="margin-bottom: 0;"><a href="/upi-expense-tracker" style="color: #7dd3fc; text-decoration: underline;">Learn about UPI expense tracking</a> or <a href="/download" style="color: #7dd3fc; text-decoration: underline;">view the Pocket Advisor app</a>.</p>
+            <p style="margin-bottom: 0;">Learn how to apply the framework with our <a href="/50-30-20-budget-rule-india" style="color: #7dd3fc; text-decoration: underline;">detailed 50/30/20 guide for Indian salaries</a>, <a href="/upi-expense-tracker" style="color: #7dd3fc; text-decoration: underline;">learn about UPI expense tracking</a>, or <a href="/download" style="color: #7dd3fc; text-decoration: underline;">download the Pocket Advisor app</a>.</p>
           </div>
         </article>`;
     case 'how-to-split-rent-unequal-rooms':
@@ -291,6 +291,9 @@ export function getRouteBodyContent(slug, articles = []) {
             <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Step 5: Generate 1-Tap WhatsApp UPI Settlements</h3>
             <p>
               Avoid payment delays by using Pocket Advisor's free web rent splitter to generate WhatsApp receipts with direct UPI payment links. Roommates tap once to pay directly via Google Pay or PhonePe.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.94rem;">
+              Once your rent shares are settled, manage your total household costs with our <a href="/monthly-budget-planner" style="color: #7dd3fc; text-decoration: underline;">Monthly Budget Planner</a> or automate shared grocery and utility bills on Android using our <a href="/upi-expense-tracker" style="color: #7dd3fc; text-decoration: underline;">UPI Expense Tracker</a>.
             </p>
           </div>
 
@@ -720,6 +723,12 @@ export function getRouteBodyContent(slug, articles = []) {
               At an average annual inflation rate of 6%, a ₹1 Crore corpus in 20 years will have the purchasing power of approximately ₹31.18 Lakhs today. Pocket Advisor calculates both nominal maturity corpus and inflation-discounted real value so your financial goals remain realistic.
             </p>
           </div>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">SIP vs Debt Strategies</h3>
+            <p style="margin: 0;">
+              Comparing whether to channel excess cash into mutual funds or repay an existing home loan? Use our <a href="/home-loan-prepayment-vs-sip" style="color: #7dd3fc; text-decoration: underline;">Home Loan Prepayment vs. SIP Calculator</a> or read our <a href="/home-loan-prepayment-vs-mutual-funds" style="color: #7dd3fc; text-decoration: underline;">50:50 Prepayment vs Mutual Funds Strategy Guide</a>.
+            </p>
+          </div>
         </div>`;
 
     case 'emi-calculator':
@@ -736,6 +745,12 @@ export function getRouteBodyContent(slug, articles = []) {
           <p>
             Indian banks compute interest using the reducing balance method. Early installments consist predominantly of interest payments, with principal reduction accelerating during the latter half of the loan tenure. Pocket Advisor reveals your exact repayment schedule so you can identify the optimal time for prepayments.
           </p>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Interest Reduction Hacks</h3>
+            <p style="margin: 0;">
+              Learn 3 mathematical strategies to save lakhs in interest in our <a href="/emi-vs-total-interest-loan-guide" style="color: #7dd3fc; text-decoration: underline;">EMI vs Total Interest Loan Guide</a>, or compare prepaying your loan against investing with our <a href="/home-loan-prepayment-vs-sip" style="color: #7dd3fc; text-decoration: underline;">Prepayment vs SIP Calculator</a>.
+            </p>
+          </div>
         </div>`;
 
     case 'calculators':
@@ -915,6 +930,13 @@ export function getRouteBodyContent(slug, articles = []) {
             </div>
             <p style="margin: 0; font-size: 0.9rem; color: #94a3b8;">
               Transactions made through apps such as <strong>Google Pay</strong>, <strong>PhonePe</strong>, <strong>Paytm</strong>, <strong>CRED</strong>, <strong>BHIM UPI</strong>, and <strong>Amazon Pay</strong> can only be recognized when the bank sends an alert that matches a supported format.
+            </p>
+          </div>
+
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0;">Step-by-Step UPI Setup Guides</h3>
+            <p style="margin: 0;">
+              Follow our comprehensive setup guides on <a href="/news/track-upi-expenses-automatically" style="color: #7dd3fc; text-decoration: underline;">Auto-Tracking UPI Expenses (Google Pay, PhonePe, Paytm)</a> and <a href="/how-to-track-upi-payments-automatically" style="color: #7dd3fc; text-decoration: underline;">Private On-Device UPI Tracking Setup</a> to configure Xiaomi, Samsung, and OnePlus battery settings.
             </p>
           </div>
 

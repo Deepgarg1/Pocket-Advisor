@@ -277,6 +277,14 @@ const routes = [
               '@type': 'Answer',
               text: 'Yes. You can toggle between annuity due (SIP deposit on the 1st of the month) and ordinary annuity (SIP deposit at month-end) to accurately match your bank auto-debit dates.'
             }
+          },
+          {
+            '@type': 'Question',
+            name: 'How does compound interest work in a SIP in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'In an equity mutual fund SIP in India, compound returns work by reinvesting all monthly dividends and capital gains. Compounding accelerates exponentially after 7 to 10 years because monthly returns are earned not just on your initial capital, but on previous accumulated returns.'
+            }
           }
         ]
       }
@@ -569,15 +577,15 @@ const routes = [
   },
   {
     slug: 'monthly-budget-planner',
-    title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
-    description: 'Plan your monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs, wants and savings, see your remaining balance, and export to CSV for free.',
+    title: 'Personal Budget Planner India (Monthly Expenses & 50/30/20) | Pocket Advisor',
+    description: 'Free personal budget planner for monthly expenses in India. Apply the 50/30/20 rule to calculate salary, balance needs vs wants, and export your budget to CSV free.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     badgeCategory: 'Free Budget Tool',
-    pillText: 'Monthly Income • Expense Plan • 50/30/20 Guide',
+    pillText: 'Personal Budget Planner • Monthly Expenses India • 50/30/20 Guide',
     h1: 'Monthly Budget Planner',
-    h1Gradient: 'for India',
-    heroDesc: 'Plan your monthly income, organize expenses, and see how much you can save. Adjust the numbers to build a budget that fits your life.',
-    ctaText: 'Open Monthly Budget Planner',
+    h1Gradient: 'for India Personal Expenses',
+    heroDesc: 'Free personal budget planner for monthly expenses in India. Plan your take-home salary, organize living costs, and calculate 50/30/20 needs, wants, and savings.',
+    ctaText: 'Open Personal Budget Planner',
     ctaHref: '/monthly-budget-planner',
     schemas: [
       {
@@ -802,14 +810,14 @@ const routes = [
   },
   {
     slug: 'download',
-    title: 'Download Pocket Advisor for Android | Free Expense Tracker',
-    description: 'Install Pocket Advisor directly from Google Play. Track UPI expenses automatically, manage group splits, and plan your wealth privately.',
+    title: 'Download Pocket Advisor — Free UPI Expense Tracker for Android (2026)',
+    description: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. SQLCipher encrypted, 100% offline. No netbanking, no OTPs, no cloud uploads. Download from Google Play.',
     canonical: `${BASE_URL}/download`,
     badgeCategory: 'Android App',
     pillText: 'Google Play & Direct APK Download',
     h1: 'Download Pocket Advisor for Android',
-    h1Gradient: 'Smart Spending Tracker &amp; Bill Splitter',
-    heroDesc: 'Install Pocket Advisor directly on your Android phone. Automatically track UPI expenses, split group expenses without debt, and plan wealth privately.',
+    h1Gradient: 'Free UPI &amp; Bank SMS Expense Tracker (2026)',
+    heroDesc: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. SQLCipher encrypted, 100% offline. No netbanking, no OTPs, no cloud uploads. Download from Google Play.',
     ctaText: 'Get on Google Play',
     ctaHref: 'https://play.google.com/store/apps/details?id=com.pocketadvisor.app',
     schemas: [
@@ -911,14 +919,14 @@ const routes = [
   },
   {
     slug: 'privacy',
-    title: 'Privacy Policy & Offline Data Security | Pocket Advisor',
-    description: "Pocket Advisor's privacy policy. Learn how all spending records, UPI alerts, and accounts remain strictly encrypted on your local Android device.",
+    title: 'Privacy Policy & Data Security | Pocket Advisor',
+    description: "Pocket Advisor's privacy policy. Learn how local encrypted storage works offline and how creating an account enables secure cloud sync for split bills and AI features.",
     canonical: `${BASE_URL}/privacy`,
     badgeCategory: 'Legal & Privacy',
-    pillText: '100% Offline-First • Zero Cloud Tracking',
+    pillText: 'Local-First Storage • Secure Cloud Sync with Account',
     h1: 'Privacy Policy &amp; Security Architecture',
-    h1Gradient: 'Your Financial Data Stays 100% on Your Phone',
-    heroDesc: 'Pocket Advisor operates entirely offline. We never upload your transactions, bank SMS alerts, or spending records to external servers.',
+    h1Gradient: 'Your Financial Data, Transparent & Secure',
+    heroDesc: 'Review Pocket Advisor\'s privacy terms. Learn how local encrypted storage operates offline and how account creation securely syncs data to power group splitting and AI features.',
     ctaText: 'Read Privacy Policy',
     ctaHref: '/privacy',
     schemas: [
@@ -927,7 +935,7 @@ const routes = [
         '@type': 'WebPage',
         name: 'Privacy Policy | Pocket Advisor',
         url: `${BASE_URL}/privacy`,
-        description: 'Privacy policy explaining local on-device encryption and zero tracking in Pocket Advisor.'
+        description: 'Privacy policy explaining local on-device encryption, automatic account cloud sync, and data protection in Pocket Advisor.'
       },
       {
         '@context': 'https://schema.org',

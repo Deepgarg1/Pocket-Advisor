@@ -30,8 +30,8 @@
 ## Engineering Blog & Guides
 
 - [Best Expense Tracker Apps in India (2026)](https://www.pocketadvisor.in/best-expense-tracker-apps-india): Comprehensive architectural comparison of 4 expense tracking models in India: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual ledgers.
-- [How to Track Spending Automatically on Android](https://www.pocketadvisor.in/news/how-to-track-spending-automatically-android): Complete guide to setting up automated expense tracking on Android, managing OEM battery killers (Xiaomi, Samsung), and evaluating local encryption vs cloud sync.
-- [How to Track UPI Expenses Automatically](https://www.pocketadvisor.in/news/track-upi-expenses-automatically): Step-by-step tutorial on automating UPI expense tracking across Google Pay, PhonePe, Paytm, and CRED using deterministic regex parsing.
+- [Auto-Track Spending on Android (Bank SMS + UPI)](https://www.pocketadvisor.in/news/how-to-track-spending-automatically-android): Complete guide to setting up automated expense tracking on Android, managing OEM battery killers (Xiaomi, Samsung), and evaluating local encryption vs cloud sync.
+- [Track UPI Expenses Automatically (Google Pay, PhonePe, Paytm)](https://www.pocketadvisor.in/news/track-upi-expenses-automatically): Step-by-step tutorial on automating UPI expense tracking across Google Pay, PhonePe, Paytm, and CRED using deterministic regex parsing.
 - [Financial Insights & Guides](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.
 - [Financial Guides Knowledge Base](https://www.pocketadvisor.in/guides): Problem-solving personal finance guides.
 - [How to Split Rent Fairly with Unequal Rooms](https://www.pocketadvisor.in/how-to-split-rent-unequal-rooms): Mathematical 50/50 square-footage rent split framework.

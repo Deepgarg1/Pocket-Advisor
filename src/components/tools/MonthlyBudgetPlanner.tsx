@@ -270,13 +270,13 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
       {/* Header */}
       <header className="budget-planner-header">
         <div className="budget-planner-badge">
-          <Wallet size={14} /> FREE 50/30/20 FINANCIAL TOOL
+          <Wallet size={14} /> PERSONAL BUDGET PLANNER • MONTHLY EXPENSES INDIA
         </div>
         <h1 className="budget-planner-title">
-          Monthly Budget Planner <span className="text-gradient">for India</span>
+          Monthly Budget Planner <span className="text-gradient">for India Personal Expenses</span>
         </h1>
         <p className="budget-planner-subtitle">
-          Structure your income with the proven 50/30/20 rule. Allocate needs, lifestyle wants, and compounding savings with real-time feedback.
+          Free personal budget planner for monthly expenses in India. Structure your take-home salary with the proven 50/30/20 rule, balance needs vs wants, and export your budget to CSV.
         </p>
       </header>
 

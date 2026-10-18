@@ -53,6 +53,8 @@
 .pa-hero-links>span { margin-right:2px; }
 .pa-hero-links a { display:inline-flex; align-items:center; gap:5px; padding:7px 10px; color:#46536d; border:1px solid #dce4f0; background:rgba(255,255,255,.72); border-radius:999px; transition:all .18s ease; }
 .pa-hero-links a:hover { color:#4f46e5; border-color:#b9b8fb; background:#fff; }
+.pa-hero-links a.pa-hero-link-festive { background:rgba(254,243,199,.85); border-color:rgba(245,158,11,.45); color:#92400e; font-weight:700; }
+.pa-hero-links a.pa-hero-link-festive:hover { background:#fef3c7; border-color:#f59e0b; color:#78350f; }
 .pa-hero-visual { position:relative; min-width:0; min-height:500px; display:flex; align-items:center; justify-content:center; isolation:isolate; }
 .pa-visual-glow { position:absolute; z-index:-1; width:83%; aspect-ratio:1; border-radius:50%; background:radial-gradient(circle,rgba(96,165,250,.22),rgba(99,102,241,.10) 48%,transparent 72%); filter:blur(15px); }
 .pa-visual-label { position:absolute; top:4%; left:1%; z-index:4; display:flex; align-items:center; gap:8px; padding:9px 12px; color:#34435e; font-size:.73rem; font-weight:700; background:rgba(255,255,255,.88); border:1px solid #e0e7f1; border-radius:12px; box-shadow:0 8px 25px rgba(42,57,89,.08); }

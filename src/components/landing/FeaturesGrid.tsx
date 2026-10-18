@@ -372,7 +372,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: isDark ? '#38bdf8' : '#0284c7', fontWeight: 600 }}>
               <CheckCircle2 size={14} />
-              <span>100% On-Device • Zero Cloud Tracking</span>
+              <span>Local-First • On-Device SMS Engine</span>
             </div>
           </div>
         );
@@ -832,7 +832,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
                 lineHeight: 1.6,
               }}
             >
-              Download Pocket Advisor free on Android. No subscriptions, no mandatory account sign-up, and 100% private on-device storage.
+              Download Pocket Advisor free on Android. No mandatory account sign-up, free core tools, and local-first on-device encrypted storage.
             </p>
 
             <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -909,7 +909,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
               }}
             >
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <CheckCircle2 size={15} color="#10b981" /> 100% Free Forever
+                <CheckCircle2 size={15} color="#10b981" /> Free Core Tools Forever
               </span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <ShieldCheck size={15} color="#38bdf8" /> SQLCipher Encrypted

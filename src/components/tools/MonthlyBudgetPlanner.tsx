@@ -835,7 +835,7 @@ export const MonthlyBudgetPlanner: React.FC<{ onNavigate?: (view: string) => voi
               }}
             >
               <ShieldCheck size={16} color="var(--income)" style={{ flexShrink: 0, marginTop: 1 }} />
-              <span>100% private. All calculations happen locally on your device with zero cloud tracking.</span>
+              <span>Private and local. All calculations happen in your browser with zero server uploads of your financial data.</span>
             </div>
           </section>
 

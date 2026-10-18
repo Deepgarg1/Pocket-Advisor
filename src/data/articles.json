@@ -1055,7 +1055,7 @@
     "coverImage": "/assets/news/welcome-pocket-advisor.webp",
     "coverImageAlt": "Welcome to Pocket Advisor Product Announcement Cover",
     "publishedAt": "2026-09-12",
-    "updatedAt": "2026-10-08",
+    "updatedAt": "2026-10-18",
     "category": "Product Updates",
     "readTime": "4 min read",
     "tags": [
@@ -1074,7 +1074,7 @@
     "faqs": [
       {
         "question": "What makes Pocket Advisor different from traditional expense tracker apps?",
-        "answer": "Most expense trackers either demand tedious manual data entry for every transaction or require linking your bank credentials and passwords to third-party cloud servers. Pocket Advisor eliminates both compromises: it reads your SMS notifications completely on your Android device with zero cloud tracking, zero account logins, and zero ad profiling."
+        "answer": "Most expense trackers either demand tedious manual data entry for every transaction or require linking your bank credentials and passwords to third-party cloud servers. Pocket Advisor eliminates both compromises: it reads your SMS notifications completely on-device without netbanking logins or financial data selling, with optional cloud backup and an ad-free Pro upgrade."
       },
       {
         "question": "Is my financial data stored on your servers?",
@@ -1092,16 +1092,16 @@
       },
       {
         "type": "paragraph",
-        "text": "We created Pocket Advisor to deliver a third, better path: an intelligent, native Android companion that automates tracking while maintaining 100% cryptographic privacy on your local device."
+        "text": "We created Pocket Advisor to deliver a third, better path: an intelligent, native Android companion that automates tracking while maintaining privacy-first cryptographic security on your local device."
       },
       {
         "type": "metrics",
         "items": [
           {
             "label": "Data Storage",
-            "value": "100% Local",
-            "description": "Encrypted SQLite on your smartphone",
-            "change": "Zero Cloud Storage",
+            "value": "Local-First",
+            "description": "SQLCipher encrypted on your smartphone",
+            "change": "Optional Cloud Backup",
             "isPositive": true
           },
           {
@@ -1119,9 +1119,9 @@
             "isPositive": true
           },
           {
-            "label": "Ad Tracking",
-            "value": "Zero Ads",
-            "description": "No third-party ad SDKs or trackers",
+            "label": "Data Privacy",
+            "value": "Zero Selling",
+            "description": "No sale or monetization of financial records",
             "change": "Clean Experience",
             "isPositive": true
           }

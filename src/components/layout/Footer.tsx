@@ -343,7 +343,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             &copy; 2026 Pocket Advisor. Developed by Deepesh Garg. All rights reserved.
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', fontSize: '0.82rem' }}>
-            <Lock size={14} color="#818cf8" /> Bank-Grade Security • Offline-First • 100% Private Ledger
+            <Lock size={14} color="#818cf8" /> Bank-Grade Security • Offline-First • Privacy-First Ledger
           </div>
         </div>
       </div>

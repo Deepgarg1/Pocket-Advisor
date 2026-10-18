@@ -702,10 +702,10 @@ const routes = [
     description: 'Discover on-device auto UPI detection, mathematical debt simplification algorithms, privacy-first offline storage, and interactive home screen widgets in Pocket Advisor.',
     canonical: `${BASE_URL}/features`,
     badgeCategory: 'Product Architecture',
-    pillText: '100% On-Device Privacy • No Cloud Tracking',
+    pillText: 'Local-First Privacy • On-Device SMS Detection',
     h1: 'Features &amp; Security Architecture',
-    h1Gradient: '100% Private On-Device Spending Intelligence',
-    heroDesc: 'Discover how Pocket Advisor detects bank & UPI SMS transactions securely on-device, solves group debt with bipartite graph math, and maintains 100% offline encryption.',
+    h1Gradient: 'Local-First On-Device Spending Intelligence',
+    heroDesc: 'Discover how Pocket Advisor detects bank & UPI SMS transactions securely on-device, solves group debt with bipartite graph math, and maintains local-first offline encryption.',
     ctaText: 'Explore Features',
     ctaHref: '/features',
     schemas: [

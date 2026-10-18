@@ -300,13 +300,13 @@ export const AppConversionBanner: React.FC = () => {
 
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', borderTop: '1px solid var(--border-subtle)', paddingTop: '16px', fontSize: '0.82rem', color: 'var(--text-muted)' }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <ShieldCheck size={16} color="#10b981" /> 100% Offline & Private
+          <ShieldCheck size={16} color="#10b981" /> Offline-First & Private
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <CheckCircle2 size={16} color="#10b981" /> No OTP or Netbanking Passwords
         </span>
         <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <CheckCircle2 size={16} color="#10b981" /> Free Forever &amp; 100% Local
+          <CheckCircle2 size={16} color="#10b981" /> Free Core Tools &amp; Local-First
         </span>
       </div>
     </div>

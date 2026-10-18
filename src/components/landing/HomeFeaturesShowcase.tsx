@@ -87,7 +87,7 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
           Every Financial Workflow. Solved On-Device.
         </h2>
         <p className="pa-showcase-subtitle">
-          Built exclusively for Android with 100% offline encryption, automatic transaction logging,
+          Built exclusively for Android with local-first SQLCipher encryption, automatic transaction logging,
           optimal debt simplification, and smart financial intelligence.
         </p>
       </div>

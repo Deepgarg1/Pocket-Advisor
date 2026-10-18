@@ -92,7 +92,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               marginBottom: '28px',
             }}
           >
-            Take control of your personal spending, automate bill splitting with friends, and unlock AI spending insights. Coming soon to Google Play — stay tuned for our official launch on October 20, 2026.
+            Take control of your personal spending, automate bill splitting with friends, and unlock AI spending insights. Available now on Google Play for Android.
           </p>
 
           {/* Download buttons */}
@@ -218,7 +218,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
               color: isDark ? '#94a3b8' : '#64748b',
             }}
           >
-            Launching October 20, 2026
+            Available on Google Play
           </div>
         </div>
       </div>

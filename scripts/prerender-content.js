@@ -893,7 +893,7 @@ export function getRouteBodyContent(slug, articles = []) {
                   <td style="padding: 12px 14px; font-weight: 700;">Ads &amp; Upsells</td>
                   <td style="padding: 12px 14px;">None</td>
                   <td style="padding: 12px 14px; color: #cbd5e1;">Varies by provider</td>
-                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Zero advertisements</td>
+                  <td style="padding: 12px 14px; color: #34d399; font-weight: 700;">Ad-Supported Free / Ad-Free Pro</td>
                 </tr>
               </tbody>
             </table>

@@ -961,7 +961,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
               <strong>Encrypted Local Storage:</strong> Parsed expense amounts, merchants, and categories are saved directly to an on-device Room database protected by SQLCipher AES-256 encryption.
             </li>
             <li>
-              <strong>Zero Cloud Uploads:</strong> No raw SMS texts, transaction logs, or spending balances are ever sent to remote servers or third-party analytics services.
+              <strong>Zero Raw SMS Uploads:</strong> Raw SMS texts are never sent to external servers; on-device parsing keeps your inbox strictly private, and optional Cloud Backup is user-controlled.
             </li>
           </ol>
         </section>
@@ -1009,7 +1009,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 </tr>
                 <tr>
                   <td style={{ padding: '12px 14px', fontWeight: 700 }}>Financial Data Monetization</td>
-                  <td style={{ padding: '12px 14px', color: '#10b981', fontWeight: 700 }}>Zero Selling / Zero Ads</td>
+                  <td style={{ padding: '12px 14px', color: '#10b981', fontWeight: 700 }}>Zero Data Selling / Ad-Free Pro</td>
                   <td style={{ padding: '12px 14px', color: '#ef4444' }}>Loan &amp; Credit Card Leads</td>
                   <td style={{ padding: '12px 14px', color: '#ef4444' }}>Affiliate Lead Generation</td>
                 </tr>
@@ -1071,7 +1071,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
           }}
         >
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#38bdf8', fontWeight: 800, fontSize: '0.8rem', textTransform: 'uppercase', marginBottom: '10px' }}>
-            <Lock size={16} /> 100% Private Ledger
+            <Lock size={16} /> Privacy-First Ledger
           </div>
           <h3 style={{ fontSize: '1.55rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
             Experience 1-Tap Private UPI Expense Tracking

@@ -51,7 +51,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
             <h1 id="pa-hero-title">
               Track Expenses, Manage Budgets &amp; Split Bills
-              <span className="pa-title-line pa-gradient-text">100% Private On-Device Bank SMS Tracking</span>
+              <span className="pa-title-line pa-gradient-text">Privacy-First On-Device Bank SMS Tracking</span>
             </h1>
             <p className="pa-hero-subtitle">Automatic UPI Tracking • SQLCipher AES-256 Vault • Smart Bill Splitting</p>
 

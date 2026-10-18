@@ -186,7 +186,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   },
   download: {
     title: 'Download Pocket Advisor — Free UPI Expense Tracker for Android (2026)',
-    description: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. SQLCipher encrypted, 100% offline. No netbanking, no OTPs, no cloud uploads. Download from Google Play.',
+    description: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. Local-first SQLCipher encrypted with optional cloud backup. No netbanking, no OTP access. Download from Google Play.',
     canonical: `${BASE_URL}/download`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

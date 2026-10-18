@@ -78,7 +78,7 @@ export const DownloadSection: React.FC<DownloadSectionProps> = () => {
                     fontWeight: 700,
                   }}
                 >
-                  <Sparkles size={14} /> Google Play Verified • 100% On-Device Storage
+                  <Sparkles size={14} /> Google Play Verified • Local-First Encrypted Storage
                 </span>
               </div>
             </div>

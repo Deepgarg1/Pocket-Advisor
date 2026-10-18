@@ -76,6 +76,8 @@ export function getPrerenderFooterHtml() {
           <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Guides &amp; Engineering</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
             <li><a href="/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">Best Expense Tracker Apps (2026)</a></li>
+            <li><a href="/news/how-to-budget-monthly-expenses-india" style="color: #cbd5e1; text-decoration: none;">Indian Budgeting Blueprint (50/30/20)</a></li>
+            <li><a href="/news/auto-match-upi-payments-bills" style="color: #cbd5e1; text-decoration: none;">Auto-Match UPI Bills &amp; Dues</a></li>
             <li><a href="/guides" style="color: #cbd5e1; text-decoration: none;">Financial Guides Hub</a></li>
             <li><a href="/how-to-split-rent-unequal-rooms" style="color: #cbd5e1; text-decoration: none;">Unequal Room Rent Split</a></li>
             <li><a href="/home-loan-prepayment-vs-mutual-funds" style="color: #cbd5e1; text-decoration: none;">Prepayment vs Mutual Funds</a></li>

@@ -202,6 +202,24 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/news/how-to-budget-monthly-expenses-india"
+                  onClick={(e) => handleNavClick('news/how-to-budget-monthly-expenses-india', e)}
+                  className="footer-nav-link"
+                >
+                  Indian Budgeting Blueprint (50/30/20)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/auto-match-upi-payments-bills"
+                  onClick={(e) => handleNavClick('news/auto-match-upi-payments-bills', e)}
+                  className="footer-nav-link"
+                >
+                  Auto-Match UPI Bills &amp; Dues
+                </a>
+              </li>
+              <li>
+                <a
                   href="/news"
                   onClick={(e) => handleNavClick('news', e)}
                   className="footer-nav-link"

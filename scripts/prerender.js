@@ -1505,6 +1505,78 @@ const routes = [
     ]
   },
   {
+    slug: 'news/how-to-budget-monthly-expenses-india',
+    title: 'How to Budget Monthly Expenses in India: 2026 Middle-Class Blueprint | Pocket Advisor',
+    description: 'Master personal expense budgeting in India. Learn the adaptive 50/30/20 rule for ₹30K–₹1.5L salaries, calculate realistic tier-1 vs tier-2 living expenses, and eliminate invisible cash leaks with free tools.',
+    canonical: `${BASE_URL}/news/how-to-budget-monthly-expenses-india`,
+    badgeCategory: 'Monthly Budgeting Guide',
+    pillText: 'Personal Budgeting Blueprint • 50/30/20 Rule',
+    h1: 'How to Budget Monthly Expenses in India: The Practical Middle-Class Blueprint',
+    h1Gradient: 'From Salary Day to Month-End Surplus',
+    heroDesc: 'A realistic, zero-fluff blueprint for managing take-home salary in Indian cities. Balance high metro rents, groceries, family commitments, and compounding investments.',
+    ctaText: 'Open Free Budget Planner',
+    ctaHref: '/monthly-budget-planner',
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'How to Budget Monthly Expenses in India: The Practical 2026 Middle-Class Blueprint',
+        description: 'Master personal expense budgeting in India. Learn the adaptive 50/30/20 rule for ₹30K–₹1.5L salaries, calculate realistic tier-1 vs tier-2 living expenses, and eliminate invisible cash leaks with free tools.',
+        image: `${BASE_URL}/assets/news/how-to-budget-monthly-expenses-india.svg`,
+        datePublished: '2026-10-18T00:00:00+05:30',
+        dateModified: '2026-10-18T00:00:00+05:30',
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Systems Architecture Desk', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/news/how-to-budget-monthly-expenses-india`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: 'How to Budget Monthly Expenses in India', item: `${BASE_URL}/news/how-to-budget-monthly-expenses-india` }
+        ]
+      }
+    ]
+  },
+  {
+    slug: 'news/auto-match-upi-payments-bills',
+    title: 'How to Auto-Match UPI Debits to Recurring Bills & Subscriptions (2026 Guide) | Pocket Advisor',
+    description: 'Learn how to automatically match UPI debit notifications against monthly recurring bills and subscriptions on Android. Reconcile utility payments, eliminate duplicate debits, and maintain an encrypted local ledger.',
+    canonical: `${BASE_URL}/news/auto-match-upi-payments-bills`,
+    badgeCategory: 'UPI & Bill Automation Guide',
+    pillText: 'Automated Bill Matching • On-Device Privacy',
+    h1: 'How to Auto-Match UPI Debits to Recurring Bills &amp; Subscriptions',
+    h1Gradient: 'On-Device Regex Parsing &amp; Zero Cloud Leakage',
+    heroDesc: 'Automatically reconcile bank SMS alerts with electricity, Wi-Fi, rent, and credit card dues without sharing netbanking credentials or Gmail access.',
+    ctaText: 'Get Pocket Advisor on Google Play',
+    ctaHref: PLAY_STORE_URL,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: 'How to Auto-Match UPI Debits to Recurring Bills & Subscriptions (2026 Guide)',
+        description: 'Learn how to automatically match UPI debit notifications against monthly recurring bills and subscriptions on Android. Reconcile utility payments, eliminate duplicate debits, and maintain an encrypted local ledger.',
+        image: `${BASE_URL}/assets/news/auto-match-upi-payments-bills.svg`,
+        datePublished: '2026-10-18T00:00:00+05:30',
+        dateModified: '2026-10-18T00:00:00+05:30',
+        author: { '@type': 'Person', name: 'Deepesh Garg', jobTitle: 'Product & Systems Architecture Desk', url: BASE_URL },
+        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+        mainEntityOfPage: `${BASE_URL}/news/auto-match-upi-payments-bills`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Articles & Guides', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: 'Auto-Match UPI Debits to Bills', item: `${BASE_URL}/news/auto-match-upi-payments-bills` }
+        ]
+      }
+    ]
+  },
+  {
     slug: 'how-to-split-rent-unequal-rooms',
     title: 'How to Split Rent Fairly for Unequal Rooms (2026 Formula & Calculator) | Pocket Advisor',
     description: 'Master bedroom with ensuite bath vs compact room: the exact mathematical 50/50 formula to split flat rent fairly without conflict. Includes free interactive calculator.',

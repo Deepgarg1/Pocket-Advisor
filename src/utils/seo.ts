@@ -24,8 +24,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'monthly-budget-planner': {
-    title: 'Personal Budget Planner India (Monthly Expenses & 50/30/20) | Pocket Advisor',
-    description: 'Free personal budget planner for monthly expenses in India. Apply the 50/30/20 rule to calculate salary, balance needs vs wants, and export your budget to CSV free.',
+    title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
+    description: 'Plan a monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs and wants, track savings, check your balance, and export your plan to CSV.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

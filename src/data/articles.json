@@ -1326,6 +1326,10 @@
         "text": "Manual tracking can become tedious when transactions are frequent, although the experience varies by person. This guide explains ways to reduce repetitive entry and review your records. The sheer volume makes manual bookkeeping unsustainable. In this comprehensive guide, we demonstrate how to track your UPI spending automatically on Android—using supported SMS parsing, review of imported transactions, and the app's available local-storage and backup settings."
       },
       {
+        "type": "paragraph",
+        "text": "If you are comparing tools, explore the [Pocket Advisor UPI expense tracker for Android](/upi-expense-tracker) to see how supported bank alerts are recorded, what can be missed, and how local storage and optional cloud backup are handled."
+      },
+      {
         "type": "metrics",
         "items": [
           {

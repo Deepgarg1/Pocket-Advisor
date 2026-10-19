@@ -730,8 +730,8 @@ const routes = [
   },
   {
     slug: 'upi-expense-tracker',
-    title: 'UPI Expense Tracker for Android (India) | Pocket Advisor',
-    description: 'Track eligible UPI and bank SMS transactions on Android. Learn how supported-message parsing works, where coverage can vary, and how local storage and optional cloud backup are handled.',
+    title: 'UPI Expense Tracker for Android in India | Pocket Advisor',
+    description: 'Track eligible UPI and bank transactions from supported SMS alerts on Android. Learn coverage limits, privacy controls, and optional cloud backup in Pocket Advisor.',
     canonical: `${BASE_URL}/upi-expense-tracker`,
     badgeCategory: 'UPI Expense Tracking',
     pillText: 'On-device SMS parsing for supported transaction alerts',

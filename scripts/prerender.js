@@ -577,8 +577,8 @@ const routes = [
   },
   {
     slug: 'monthly-budget-planner',
-    title: 'Personal Budget Planner India (Monthly Expenses & 50/30/20) | Pocket Advisor',
-    description: 'Free personal budget planner for monthly expenses in India. Apply the 50/30/20 rule to calculate salary, balance needs vs wants, and export your budget to CSV free.',
+    title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
+    description: 'Plan a monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs and wants, track savings, check your balance, and export your plan to CSV.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     badgeCategory: 'Free Budget Tool',
     pillText: 'Personal Budget Planner • Monthly Expenses India • 50/30/20 Guide',

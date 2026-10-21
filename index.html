@@ -70,8 +70,9 @@
       });
     </script>
 
-    <!-- Non-render-blocking font stylesheet with display=optional to eliminate font swap layout shifts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
+    <!-- Load Google Fonts without blocking the initial render; system fonts are used until the stylesheet is ready. -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" /></noscript>
 
     <!-- Critical Inline Styles for Sub-500ms First Contentful Paint (FCP) -->
     <style>

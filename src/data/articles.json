@@ -1,5 +1,553 @@
 [
   {
+    "id": "best-expense-tracker-apps-india",
+    "slug": "best-expense-tracker-apps-india",
+    "title": "7 Best Expense Tracker Apps in India (2026 Edition)",
+    "subtitle": "Tested comparison of the top 7 expense trackers in India. Auto-detect UPI & bank SMS offline, avoid loan spam, split flatmate bills with QR, and protect bank privacy.",
+    "excerpt": "Tested comparison of India's top 7 expense trackers. On-device SMS parsing, zero loan spam, group UPI bill splits, and bank privacy compared.",
+    "coverImage": "/assets/news/best-expense-tracker-apps-india-cover.jpg",
+    "coverImageAlt": "7 Best Expense Tracker Apps in India (2026 Edition)",
+    "publishedAt": "2026-10-21",
+    "updatedAt": "2026-10-21",
+    "category": "Guides",
+    "readTime": "9 min read",
+    "tags": [
+      "best expense tracker in india",
+      "automatic sms expense tracker app india",
+      "private budget app android",
+      "split bills upi app india",
+      "best expense tracker for android india",
+      "splitwise alternative india upi qr",
+      "pocket advisor"
+    ],
+    "fontStyle": "sans",
+    "author": {
+      "name": "Deepesh Garg",
+      "role": "Product & Systems Architecture Desk"
+    },
+    "faqs": [
+      {
+        "question": "Which is the best automatic SMS expense tracker in India that won't spam me with loans?",
+        "answer": "Pocket Advisor and FinArt are your two premier choices if you want to avoid predatory loan pitches, telemarketing calls, and BNPL pop-ups. Pocket Advisor processes bank and UPI SMS alerts 100% locally on your device inside an AES-256 encrypted database and offers an ad-free experience on your primary dashboards, analytics, and group bill splits."
+      },
+      {
+        "question": "Can an automatic SMS expense tracker read my personal texts or bank OTPs?",
+        "answer": "Legitimate trackers operating under Google Play's strict Financial Money Management policy do not read personal messages. Pocket Advisor runs deterministic on-device regex grammar matching that specifically parses completed debit and credit alerts. All authentication OTPs, promotional spam, and personal SMS threads are filtered and discarded in volatile memory within 1 millisecond without being stored or transmitted."
+      },
+      {
+        "question": "Is there an Indian app that handles both personal daily budgeting and Splitwise-style group bill splits?",
+        "answer": "Yes. Pocket Advisor unifies individual 50/30/20 monthly budgeting, automatic bank SMS logging, and mathematical group bill splitting into a single application. You can split shared expenses equally, by exact rupee amount, or by custom percentages, minimize bilateral transfers through a bipartite debt algorithm, and settle dues instantly via on-screen UPI QR codes or Google Pay, PhonePe, and CRED."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "paragraph",
+        "text": "With over 15 billion monthly UPI transactions processed across India (NPCI 2026), digital payments have eliminated the physical friction of cash. An average urban smartphone user scans QR codes between 4 and 12 times a day: ₹20 for morning tea, ₹90 for an auto-rickshaw commute, ₹140 on Blinkit or Zepto for groceries, ₹280 for lunch, and ₹450 on Zomato for dinner."
+      },
+      {
+        "type": "paragraph",
+        "text": "By day three, **manual logging dies**. Nobody has the time or discipline to open an app and record 8 to 12 micro-transactions every single day."
+      },
+      {
+        "type": "callout",
+        "variant": "warning",
+        "title": "The Disguised Loan Funnel Trap",
+        "content": "Most 'free' Indian expense tracker apps on Google Play are actually disguised lending marketplaces. They request invasive SMS read permissions, upload your entire transaction feed to remote cloud servers to build an underwriting credit profile, and spam you with high-interest personal loans, credit cards, and Buy Now Pay Later (BNPL) offers."
+      },
+      {
+        "type": "metrics",
+        "items": [
+          {
+            "label": "1. Best All-in-One",
+            "value": "Pocket Advisor",
+            "description": "100% On-device SMS, AES-256 vault, UPI splits & AI Copilot",
+            "change": "Top Pick",
+            "isPositive": true
+          },
+          {
+            "label": "2. Best Paid",
+            "value": "FinArt",
+            "description": "Reads SMS, emails & push notifications (Paid trial)",
+            "change": "Subscription",
+            "isPositive": true
+          },
+          {
+            "label": "3. Best Free Legacy",
+            "value": "Axio (Walnut)",
+            "description": "Free bank SMS reader with BNPL / loan ads",
+            "change": "Ad-supported",
+            "isPositive": false
+          },
+          {
+            "label": "4. Best Bank API",
+            "value": "Fold Money",
+            "description": "Account Aggregator bank sync without SMS",
+            "change": "Bank Sync",
+            "isPositive": true
+          }
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "At a Glance: How India's Top 7 Expense Trackers Compare (2026)",
+        "id": "comparison-matrix"
+      },
+      {
+        "type": "table",
+        "caption": "Comprehensive comparison across tracking method, privacy, security, group splits, and loan spam.",
+        "headers": [
+          "Core Criteria",
+          "Pocket Advisor",
+          "FinArt",
+          "Axio (Walnut)",
+          "Fold Money",
+          "Money Manager",
+          "Splitwise"
+        ],
+        "rows": [
+          [
+            "Tracking Mode",
+            {
+              "text": "Auto SMS + Manual + Shopping List",
+              "badge": "On-Device",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "SMS, Email & Push Notifications",
+              "badge": "Multi-channel",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Auto Bank SMS & Manual",
+              "badge": "Automated",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "RBI Account Aggregator (Bank API)",
+              "badge": "Bank API",
+              "badgeColor": "purple"
+            },
+            {
+              "text": "Strict Manual Double-Entry",
+              "badge": "Manual Only",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "Group Shared Bills Only",
+              "badge": "Splits Only",
+              "badgeColor": "amber"
+            }
+          ],
+          [
+            "SMS Privacy",
+            {
+              "text": "100% On-Device (Raw SMS never uploaded)",
+              "badge": "Offline Vault",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "Configurable Private Mode available",
+              "badge": "Optional",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Cloud sync to proprietary servers",
+              "badge": "Cloud Upload",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "N/A (Direct bank connection without SMS)",
+              "badge": "Bank AA",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Never reads SMS (100% manual)",
+              "badge": "Safe",
+              "badgeColor": "green"
+            },
+            {
+              "text": "N/A (No SMS or banking integration)",
+              "badge": "N/A",
+              "badgeColor": "blue"
+            }
+          ],
+          [
+            "Device Security",
+            {
+              "text": "SQLCipher AES-256 + Android Keystore + FLAG_SECURE",
+              "badge": "Hardware Locked",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "Standard App Passcode Lock",
+              "badge": "Standard",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Standard App PIN Lock",
+              "badge": "Standard",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "RBI AA Token Security",
+              "badge": "Bank Standard",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Unencrypted Local SQLite Database",
+              "badge": "Unencrypted",
+              "badgeColor": "red"
+            },
+            {
+              "text": "Cloud Account Sync",
+              "badge": "Cloud",
+              "badgeColor": "blue"
+            }
+          ],
+          [
+            "Bill Splits & UPI QR",
+            {
+              "text": "Equal/%/Exact + Debt Graph + Dynamic UPI QR",
+              "badge": "Built-In Instant QR",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "Family Sync only (No bill splits or QR)",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "Basic Bill Split (No QR pay)",
+              "badge": "Basic",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "None (Personal accounts only)",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "None (Personal ledger only)",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "Core Feature (Capped at 3-4 bills/day on free)",
+              "badge": "Daily Paywalls",
+              "badgeColor": "amber"
+            }
+          ],
+          [
+            "AI Financial Coach",
+            {
+              "text": "On-Device Burn-Rate Alerts + Smart AI Copilot",
+              "badge": "Interactive Coach",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "Auto-categorization rules only",
+              "badge": "Rules",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Basic spend breakdown charts",
+              "badge": "Static Charts",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "Merchant Spend Analytics",
+              "badge": "Analytics",
+              "badgeColor": "blue"
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            }
+          ],
+          [
+            "Built-In Calculators",
+            {
+              "text": "6 Wealth Tools (EMI, Step-Up SIP, Prepay vs SIP, Goal, FD/RD, Inflation)",
+              "badge": "6 Full Calculators",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "Loan EMI Calculator (Loan Lead Funnel)",
+              "badge": "Loan Funnel",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            },
+            {
+              "text": "None",
+              "badge": "None",
+              "badgeColor": "red"
+            }
+          ],
+          [
+            "Spam & Cost",
+            {
+              "text": "Zero Loan Spam • Ad-Free Core Tabs • Free Refer & Earn",
+              "badge": "100% Clean & Free",
+              "badgeColor": "green",
+              "highlight": true
+            },
+            {
+              "text": "No Ads • Paid Subscription after 5-day trial",
+              "badge": "Paid Only",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "Free to use • Frequent personal loan & BNPL offers",
+              "badge": "Heavy Loan Ads",
+              "badgeColor": "red"
+            },
+            {
+              "text": "No spam • Freemium model",
+              "badge": "Freemium",
+              "badgeColor": "green"
+            },
+            {
+              "text": "Ad-supported banner ads • Paid pro unlock",
+              "badge": "Ad-Supported",
+              "badgeColor": "amber"
+            },
+            {
+              "text": "Wait-timer ads • 10-second delays • Paid Pro",
+              "badge": "Paywall Friction",
+              "badgeColor": "amber"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "heading2",
+        "text": "1. Pocket Advisor — The All-in-One Android Tracker Built for Privacy",
+        "id": "pocket-advisor-deep-dive"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most Indians end up juggling three different apps just to stay on top of their money: an SMS tracker that bombards them with loan calls, Splitwise for flatmate rent and trips, and a browser tab for SIP or EMI math. Built natively for Android with Jetpack Compose (complete with Dark, Light, and true AMOLED Black themes), **[Pocket Advisor](https://www.pocketadvisor.in)** brings all of those tools under one roof—while keeping your financial life strictly on your phone."
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/how-pocketadvisor-works.jpg",
+        "alt": "Figure 1: How Pocket Advisor Works — Instant On-Device SMS Capture, Hardware-Locked Storage, UPI Bill Splitting & AI Copilot",
+        "caption": "Figure 1: Pocket Advisor architectural pipeline — On-Device SMS Capture, SQLCipher Vault, UPI Bill Splitting & AI Copilot."
+      },
+      {
+        "type": "checklist",
+        "title": "Key Pocket Advisor Capabilities",
+        "items": [
+          {
+            "text": "Reads Bank SMS Instantly Without Uploading Them: Parses incoming alerts locally in milliseconds across 150+ currencies. Discards OTPs and automatically marks recurring bills as 'Paid'.",
+            "checked": true
+          },
+          {
+            "text": "Hardware-Locked Cryptographic Vault: SQLCipher AES-256 database encryption with keys sealed inside Android Keystore (TEE/StrongBox) + FLAG_SECURE screenshot protection.",
+            "checked": true
+          },
+          {
+            "text": "Split Flatmate & Trip Bills with Dynamic UPI QR: Share a 6-character room code to split expenses equally, by exact amount, or by %. Bipartite debt reduction with instant on-screen UPI QR payment.",
+            "checked": true
+          },
+          {
+            "text": "Reliable Bill Alarms & WhatsApp Nudges: Set one-time or recurring reminders for rent, electricity, Netflix, or EMIs that trigger in Android Doze mode, plus 1-tap WhatsApp payment reminders.",
+            "checked": true
+          },
+          {
+            "text": "Daily Burn-Rate Warnings + AI Copilot: Tracks daily spending velocity against your 50/30/20 monthly budget. Consult the built-in AI Copilot for customized debt payoff or savings plans.",
+            "checked": true
+          },
+          {
+            "text": "6 Indian Financial Calculators & Widgets: Built-in EMI, Step-Up SIP, Prepayment vs SIP, Savings Goal, FD/RD, and Inflation calculators, plus an interactive Home Screen Shopping List widget.",
+            "checked": true
+          },
+          {
+            "text": "No Annoying Ads Where You Work: Core Dashboard, Analytics, and Split Bills tabs remain 100% ad-free on the free plan, with optional Pro unlocked via Refer & Earn.",
+            "checked": true
+          }
+        ]
+      },
+      {
+        "type": "cta",
+        "title": "Experience Private, Automated Expense Tracking",
+        "description": "Auto-detect every UPI payment on-device with zero server uploads, 100% SQLCipher encryption, and instant flatmate bill splits.",
+        "buttonText": "Get Pocket Advisor on Google Play",
+        "buttonLink": "https://play.google.com/store/apps/details?id=com.pocketadvisor.app",
+        "badge": "Free & Private"
+      },
+      {
+        "type": "heading2",
+        "text": "How the Other Top Contenders Stack Up in Real Life",
+        "id": "other-apps-review"
+      },
+      {
+        "type": "heading3",
+        "text": "2. FinArt — Best Paid Multi-Channel Tracker",
+        "id": "finart-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "**What we liked:** Great if your bank sends push notifications or emails instead of SMS. FinArt reads all three channels on Android, offers a local Private Mode, and never pushes personal loans."
+      },
+      {
+        "type": "paragraph",
+        "text": "**The catch:** There is no free plan once the 5-day trial expires, and it lacks group bill splitting, on-screen UPI QR settlement, and SIP/EMI wealth calculators."
+      },
+      {
+        "type": "heading3",
+        "text": "3. Axio (Formerly Walnut) — Best Old-School Free SMS Tracker",
+        "id": "axio-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "**What we liked:** Having been around for years with 15M+ downloads, Axio recognizes almost every Indian bank SMS template out of the box and doesn't charge an upfront subscription fee."
+      },
+      {
+        "type": "paragraph",
+        "text": "**The catch:** Expense tracking now takes a back seat to Axio Pay Later (BNPL) and personal loan promotions. Moving your history across phones without account binding can be clunky."
+      },
+      {
+        "type": "heading3",
+        "text": "4. Fold Money — Best Bank-Linked (Account Aggregator)",
+        "id": "fold-money-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "**What we liked:** Gorgeous interface that pulls statement rows straight from your bank via RBI's Account Aggregator (AA) network instead of reading SMS messages."
+      },
+      {
+        "type": "paragraph",
+        "text": "**The catch:** Bank AA refreshes can lag when bank servers act up, cash spends are awkward to log, and there is no offline mode or group bill splitting."
+      },
+      {
+        "type": "heading3",
+        "text": "5. Money Manager (Realbyte) — Best Manual Bookkeeping",
+        "id": "money-manager-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "**What we liked:** If you enjoy accounting and want strict double-entry control over every rupee moving between wallets, cards, and bank accounts, it is rock-solid."
+      },
+      {
+        "type": "paragraph",
+        "text": "**The catch:** Typing 10 tiny UPI payments by hand every evening gets exhausting fast, and it has no India-specific UPI QR tools or automated SMS bill matching."
+      },
+      {
+        "type": "heading3",
+        "text": "6. ET Money & Moneyview — Best for Investors & Borrowers",
+        "id": "etmoney-moneyview-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "Both apps include free SMS spend summaries as an acquisition hook for their core products. ET Money is genuinely useful if you already buy direct mutual funds, NPS, or FDs through it, while Moneyview is primarily a personal loan marketplace. Neither gives you an offline AES-256 encrypted ledger, shopping list widgets, or flatmate bill splitting."
+      },
+      {
+        "type": "heading3",
+        "text": "7. Splitwise — Best Only When Half Your Group Uses iPhones",
+        "id": "splitwise-review"
+      },
+      {
+        "type": "paragraph",
+        "text": "Splitwise is still the default when your travel group is split between iOS and Android, but its free tier has become frustratingly restrictive—capping how many bills you can add per day and forcing you to watch 10-second wait timers. Pocket Advisor gives Android users equal, exact, and percentage splits, smart debt simplification, and instant UPI QR payments without daily paywalls."
+      },
+      {
+        "type": "heading2",
+        "text": "Architectural Deep Dive: On-Device vs. Cloud SMS Trackers",
+        "id": "architectural-deep-dive"
+      },
+      {
+        "type": "image",
+        "src": "/assets/news/privacy-security-comparison.jpg",
+        "alt": "Why On-Device Tracking Matters: Pocket Advisor vs Traditional Trackers",
+        "caption": "Why on-device tracking matters: Conventional cloud trackers vs. Pocket Advisor hardware-locked security."
+      },
+      {
+        "type": "table",
+        "caption": "Side-by-side privacy and data storage comparison.",
+        "headers": [
+          "Privacy & Security Check",
+          "Typical 'Free' Finance Apps",
+          "How Pocket Advisor Handles It"
+        ],
+        "rows": [
+          [
+            "Where SMS Are Read",
+            "Often upload parsed spend data to cloud servers to build credit profiles and pitch loans.",
+            {
+              "text": "100% On-Device Parser (SmsParser.kt); your raw SMS text never leaves your handset.",
+              "highlight": true
+            }
+          ],
+          [
+            "Database Storage",
+            "Plain SQLite files that can be read if a phone is rooted or backed up insecurely.",
+            {
+              "text": "SQLCipher AES-256 encryption with master keys inside Android's hardware Keystore.",
+              "highlight": true
+            }
+          ],
+          [
+            "Snooping & Screenshots",
+            "Recent-apps switcher previews and accidental screenshots expose your bank balance.",
+            {
+              "text": "Biometric lock (30s auto-lock), FLAG_SECURE screenshot blocker & RootBeer checks.",
+              "highlight": true
+            }
+          ],
+          [
+            "Multi-Currency Math",
+            "Standard floating-point math that causes weird decimal rounding errors across currencies.",
+            {
+              "text": "Exact integer-cent math across 150+ currencies with live exchange rate conversion.",
+              "highlight": true
+            }
+          ],
+          [
+            "Account Control",
+            "Forces you to sign up with a phone number and email before you can even test the app.",
+            {
+              "text": "Works 100% offline from day one + optional cloud sync + 1-tap 'Clear All Data' wipe.",
+              "highlight": true
+            }
+          ]
+        ]
+      },
+      {
+        "type": "callout",
+        "variant": "takeaway",
+        "title": "Quick Decision Guide",
+        "content": "Pick **[Pocket Advisor](https://play.google.com/store/apps/details?id=com.pocketadvisor.app)** if you want one private Android app that handles automatic SMS tracking, flatmate UPI splits, and AI budgeting together. Pick **Fold Money** if you prefer Account Aggregator bank sync, or stick to **Splitwise** solely for mixed iPhone/Android group trips."
+      }
+    ]
+  },
+  {
     "id": "how-to-track-spending-automatically-android",
     "slug": "how-to-track-spending-automatically-android",
     "title": "Auto-Track Spending on Android (Bank SMS + UPI) — No Manual Entry | 2026 Guide",

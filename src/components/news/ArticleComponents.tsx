@@ -116,29 +116,58 @@ export const ArticleTable: React.FC<{
   rows: (string | TableCell)[][];
 }> = ({ caption, headers, rows }) => {
   const badgeColors: Record<string, { bg: string; text: string; border: string }> = {
-    green: { bg: 'var(--income-surface)', text: 'var(--income)', border: 'rgba(16, 185, 129, 0.3)' },
-    amber: { bg: 'var(--warning-surface)', text: 'var(--warning)', border: 'rgba(245, 158, 11, 0.3)' },
-    blue: { bg: 'var(--info-surface)', text: 'var(--info)', border: 'rgba(56, 189, 248, 0.3)' },
-    purple: { bg: 'var(--primary-surface)', text: 'var(--primary)', border: 'rgba(99, 102, 241, 0.3)' },
-    red: { bg: 'var(--expense-surface)', text: 'var(--expense)', border: 'rgba(244, 63, 94, 0.3)' },
+    green: { bg: 'rgba(16, 185, 129, 0.12)', text: '#10B981', border: 'rgba(16, 185, 129, 0.3)' },
+    amber: { bg: 'rgba(245, 158, 11, 0.12)', text: '#F59E0B', border: 'rgba(245, 158, 11, 0.3)' },
+    blue: { bg: 'rgba(56, 189, 248, 0.12)', text: '#38BDF8', border: 'rgba(56, 189, 248, 0.3)' },
+    purple: { bg: 'rgba(99, 102, 241, 0.12)', text: '#6366F1', border: 'rgba(99, 102, 241, 0.3)' },
+    red: { bg: 'rgba(244, 63, 94, 0.12)', text: '#F43F5E', border: 'rgba(244, 63, 94, 0.3)' },
+  };
+
+  const isPocketAdvisorCol = (headerText: string, colIndex: number) => {
+    return colIndex === 1 || headerText.toLowerCase().includes('pocket');
   };
 
   return (
-    <div style={{ margin: '32px 0' }}>
-      {caption && (
+    <div style={{ margin: '36px 0' }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'baseline',
+          flexWrap: 'wrap',
+          gap: '8px',
+          marginBottom: '10px',
+        }}
+      >
+        {caption ? (
+          <div
+            style={{
+              fontSize: '0.88rem',
+              fontWeight: 800,
+              color: 'var(--text-primary)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.04em',
+            }}
+          >
+            {caption}
+          </div>
+        ) : (
+          <div />
+        )}
         <div
           style={{
-            fontSize: '0.88rem',
-            fontWeight: 700,
-            color: 'var(--text-secondary)',
-            marginBottom: '10px',
-            textTransform: 'uppercase',
-            letterSpacing: '0.04em',
+            fontSize: '0.78rem',
+            color: 'var(--text-muted)',
+            fontWeight: 500,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
           }}
         >
-          {caption}
+          <span>← Scroll horizontally to view all {headers.length - 1} apps →</span>
         </div>
-      )}
+      </div>
+
       <div
         style={{
           width: '100%',
@@ -147,22 +176,22 @@ export const ArticleTable: React.FC<{
           overflowY: 'hidden',
           WebkitOverflowScrolling: 'touch',
           overscrollBehaviorX: 'contain',
-          borderRadius: '16px',
+          borderRadius: '18px',
           border: '1px solid var(--border-subtle)',
           backgroundColor: 'var(--bg-surface)',
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.12)',
         }}
       >
         <table
           style={{
             width: '100%',
-            minWidth: headers.length >= 4 ? '820px' : '560px',
-            tableLayout: 'auto',
+            minWidth: Math.max(1120, headers.length * 175) + 'px',
+            tableLayout: 'fixed',
             borderCollapse: 'separate',
             borderSpacing: 0,
             textAlign: 'left',
-            fontSize: '0.92rem',
-            lineHeight: 1.55,
+            fontSize: '0.90rem',
+            lineHeight: 1.5,
           }}
         >
           <thead>
@@ -172,23 +201,49 @@ export const ArticleTable: React.FC<{
                 borderBottom: '2px solid var(--border-subtle)',
               }}
             >
-              {headers.map((h, i) => (
-                <th
-                  key={i}
-                  style={{
-                    padding: '14px 18px',
-                    fontWeight: 700,
-                    color: 'var(--text-primary)',
-                    whiteSpace: 'normal',
-                    verticalAlign: 'bottom',
-                    minWidth: i === 0 ? '140px' : i === headers.length - 1 ? '220px' : '160px',
-                    borderRight: i === headers.length - 1 ? 'none' : '1px solid var(--border-subtle)',
-                    letterSpacing: '0.01em',
-                  }}
-                >
-                  {h}
-                </th>
-              ))}
+              {headers.map((h, i) => {
+                const isWinner = isPocketAdvisorCol(h, i);
+                return (
+                  <th
+                    key={i}
+                    style={{
+                      padding: '16px 16px',
+                      fontWeight: 800,
+                      color: isWinner ? 'var(--primary)' : 'var(--text-primary)',
+                      whiteSpace: 'normal',
+                      verticalAlign: 'bottom',
+                      width: i === 0 ? '160px' : undefined,
+                      borderRight: i === headers.length - 1 ? 'none' : '1px solid var(--border-subtle)',
+                      backgroundColor: isWinner ? 'rgba(92, 243, 182, 0.08)' : undefined,
+                      position: 'relative',
+                    }}
+                  >
+                    {isWinner && (
+                      <div
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          fontSize: '0.68rem',
+                          fontWeight: 800,
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.06em',
+                          padding: '3px 8px',
+                          borderRadius: '6px',
+                          backgroundColor: 'rgba(16, 185, 129, 0.18)',
+                          color: '#10B981',
+                          marginBottom: '6px',
+                        }}
+                      >
+                        ⭐ Top Pick
+                      </div>
+                    )}
+                    <div style={{ fontSize: isWinner ? '1.02rem' : '0.92rem', fontWeight: 800 }}>
+                      {h}
+                    </div>
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
@@ -198,7 +253,7 @@ export const ArticleTable: React.FC<{
                 <tr
                   key={rIdx}
                   style={{
-                    backgroundColor: isEven ? 'transparent' : 'rgba(255, 255, 255, 0.02)',
+                    backgroundColor: isEven ? 'transparent' : 'rgba(255, 255, 255, 0.015)',
                     borderBottom:
                       rIdx === rows.length - 1 ? 'none' : '1px solid var(--border-subtle)',
                     transition: 'background-color 0.15s ease',
@@ -212,48 +267,60 @@ export const ArticleTable: React.FC<{
                     const badgeColorKey = isCellObj && cell.badgeColor ? cell.badgeColor : 'blue';
                     const align = isCellObj && cell.align ? cell.align : 'left';
                     const badgeStyle = badgeColors[badgeColorKey] || badgeColors.blue;
+                    const isWinner = isPocketAdvisorCol(headers[cIdx] || '', cIdx);
 
                     return (
                       <td
                         key={cIdx}
                         style={{
-                          padding: '16px 18px',
-                          color: highlight ? 'var(--text-primary)' : 'var(--text-secondary)',
-                          fontWeight: highlight ? 700 : 400,
+                          padding: '16px 16px',
+                          color: isWinner
+                            ? 'var(--text-primary)'
+                            : highlight
+                            ? 'var(--text-primary)'
+                            : 'var(--text-secondary)',
+                          fontWeight: cIdx === 0 ? 700 : isWinner || highlight ? 600 : 400,
                           textAlign: align,
-                          verticalAlign: 'middle',
-                          minWidth: cIdx === 0 ? '140px' : cIdx === headers.length - 1 ? '220px' : '160px',
+                          verticalAlign: 'top',
                           borderRight: cIdx === headers.length - 1 ? 'none' : '1px solid var(--border-subtle)',
-                          overflowWrap: 'break-word',
+                          backgroundColor: isWinner ? 'rgba(92, 243, 182, 0.05)' : undefined,
                         }}
                       >
                         <div
                           style={{
                             display: 'flex',
-                            alignItems: 'center',
-                            justifyContent:
+                            flexDirection: 'column',
+                            gap: '6px',
+                            alignItems:
                               align === 'center'
                                 ? 'center'
                                 : align === 'right'
                                 ? 'flex-end'
                                 : 'flex-start',
-                            gap: '8px',
-                            flexWrap: 'wrap',
-                            minWidth: 0,
                           }}
                         >
-                          <span style={{ overflowWrap: 'anywhere' }}>{cellText}</span>
+                          <span
+                            style={{
+                              lineHeight: 1.45,
+                              wordBreak: 'normal',
+                              overflowWrap: 'break-word',
+                            }}
+                          >
+                            {cellText}
+                          </span>
                           {badge && (
                             <span
                               style={{
-                                fontSize: '0.74rem',
+                                display: 'inline-block',
+                                fontSize: '0.72rem',
                                 fontWeight: 700,
-                                padding: '3px 8px',
+                                padding: '2px 8px',
                                 borderRadius: '9999px',
                                 backgroundColor: badgeStyle.bg,
                                 color: badgeStyle.text,
                                 border: `1px solid ${badgeStyle.border}`,
                                 whiteSpace: 'nowrap',
+                                letterSpacing: '0.02em',
                               }}
                             >
                               {badge}
@@ -273,8 +340,6 @@ export const ArticleTable: React.FC<{
   );
 };
 
-// -------------------------------------------------------------
-// 2. Callout Block Component
 // -------------------------------------------------------------
 export const ArticleCallout: React.FC<{
   variant: 'tip' | 'warning' | 'info' | 'takeaway';

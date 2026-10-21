@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sitemapPath = path.join(rootDir, 'public/sitemap.xml');
 const robotsPath = path.join(rootDir, 'public/robots.txt');
+const vercelConfigPath = path.join(rootDir, 'vercel.json');
 const prerenderPath = path.join(rootDir, 'scripts/prerender.js');
 const articlesPath = path.join(rootDir, 'src/data/articles.json');
 const canonicalOrigin = 'https://www.pocketadvisor.in';
@@ -20,6 +21,7 @@ function fail(message) {
 
 const sitemap = fs.readFileSync(sitemapPath, 'utf8');
 const robots = fs.readFileSync(robotsPath, 'utf8');
+const vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf8'));
 const prerenderSource = fs.readFileSync(prerenderPath, 'utf8');
 const articles = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
 
@@ -68,7 +70,8 @@ for (const entry of entries) {
 }
 
 const prerenderSlugs = [...prerenderSource.matchAll(/^    slug: '([^']+)',/gm)].map(match => match[1]);
-const prerenderPaths = ['/', ...prerenderSlugs.map(slug => `/${slug}`)];
+const redirectedPaths = new Set((vercelConfig.redirects || []).map(redirect => redirect.source).filter(source => source.startsWith('/') && !source.includes(':') && !source.includes('*')));
+const prerenderPaths = ['/', ...prerenderSlugs.map(slug => `/${slug}`).filter(pathName => !redirectedPaths.has(pathName))];
 const articleByPath = new Map(articles.map(article => [`/news/${article.slug}`, article]));
 const articlePaths = [...articleByPath.keys()];
 const expectedPaths = new Set([...prerenderPaths, ...articlePaths]);

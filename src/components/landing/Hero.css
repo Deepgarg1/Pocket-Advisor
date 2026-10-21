@@ -154,7 +154,12 @@
 /* Responsive layout adjustments */
 @media (min-width: 801px) {
   .pa-hero { padding-top: 32px; padding-bottom: 24px; }
-  .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 26px; }
+  .pa-hero-grid {
+    grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+    gap: 26px;
+    align-items: start;
+  }
+  .pa-hero-copy { padding-top: 14px; }
   .pa-hero-visual { min-width: 0; min-height: 600px; }
   .pa-home .pa-float-card-top { right: -6%; top: 22%; }
   .pa-home .pa-float-card-bottom { left: -6%; bottom: 6%; }

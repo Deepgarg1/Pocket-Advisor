@@ -71,10 +71,7 @@
     </script>
 
     <!-- Non-render-blocking font stylesheet with display=optional to eliminate font swap layout shifts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" />
-    </noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
 
     <!-- Critical Inline Styles for Sub-500ms First Contentful Paint (FCP) -->
     <style>
@@ -132,7 +129,12 @@
       }
       @media (min-width: 801px) {
         .pa-hero { padding-top: 32px; padding-bottom: 24px; }
-        .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 26px; }
+        .pa-hero-grid {
+          grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+          gap: 26px;
+          align-items: start;
+        }
+        .pa-hero-copy { padding-top: 14px; }
         .pa-hero-visual { min-width: 0; min-height: 600px; }
       }
       @media (max-width: 800px) {
@@ -141,6 +143,132 @@
         .pa-hero-copy { max-width: 700px; margin: 0 auto; text-align: center; }
         .pa-hero-actions, .pa-trust-row, .pa-hero-links { justify-content: center; }
       }
+      
+      /* Critical Hero Copy Layout & Typography (Prevents CLS 0.135) */
+      .pa-hero-copy {
+        position: relative;
+        z-index: 2;
+        max-width: 650px;
+        width: 100%;
+      }
+      .pa-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        max-width: 100%;
+        padding: 7px 12px 7px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.06);
+        color: #a5b4fc;
+        font-size: 0.73rem;
+        font-weight: 750;
+        letter-spacing: 0.015em;
+      }
+      .pa-eyebrow-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: rgba(99, 102, 241, 0.2);
+        color: #818cf8;
+      }
+      .pa-eyebrow-dot { color: #34d399; }
+      .pa-hero h1 {
+        margin: 18px 0 12px;
+        max-width: 620px;
+        color: #f8fafc;
+        font-size: clamp(1.75rem, 2.35vw, 2.35rem);
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        text-wrap: balance;
+      }
+      .pa-title-line { display: block; margin-top: 4px; }
+      .pa-gradient-text {
+        background: linear-gradient(100deg, #818cf8 0%, #38bdf8 52%, #34d399 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+      }
+      .pa-hero-subtitle {
+        margin: 0 0 14px;
+        color: #94a3b8;
+        font-size: clamp(0.92rem, 1.15vw, 1.08rem);
+        font-weight: 650;
+        letter-spacing: -0.015em;
+      }
+      .pa-hero-description {
+        max-width: 540px;
+        margin: 0 0 22px;
+        color: #94a3b8;
+        font-size: clamp(0.88rem, 0.98vw, 0.96rem);
+        line-height: 1.68;
+      }
+      .pa-hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .pa-play-button, .pa-primary-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        min-height: 56px;
+        padding: 11px 17px;
+        border-radius: 14px;
+        text-decoration: none;
+        font-weight: 750;
+        box-sizing: border-box;
+      }
+      .pa-play-button {
+        background: #05070b;
+        color: #fff;
+        border: 1px solid #202838;
+      }
+      .pa-primary-button {
+        color: #fff;
+        background: linear-gradient(115deg, #5145e5, #6252ef);
+        border: 1px solid rgba(79, 70, 229, 0.4);
+      }
+      .pa-play-label {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.12;
+      }
+      .pa-play-label small {
+        font-size: 0.58rem;
+        font-weight: 650;
+        letter-spacing: 0.06em;
+        opacity: 0.8;
+      }
+      .pa-play-label strong {
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+      }
+      .pa-trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 19px;
+        margin-top: 23px;
+        color: #94a3b8;
+        font-size: 0.77rem;
+      }
+      .pa-hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 14px;
+        margin-top: 18px;
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+
       .pa-phone-stage {
         position: relative;
         z-index: 2;

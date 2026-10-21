@@ -248,10 +248,10 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
           <div className="pa-split-demo-grid">
             <div className="pa-split-box">
               <span className="pa-split-box-title">Without Optimization</span>
-              <span className="pa-split-box-val" style={{ color: '#ef4444' }}>
+              <span className="pa-split-box-val" style={{ color: 'var(--expense)' }}>
                 12 Transfers
               </span>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
                 Everyone owes everyone else
               </span>
             </div>
@@ -260,7 +260,7 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
               <span className="pa-split-box-val" style={{ color: '#10b981' }}>
                 2 Transfers
               </span>
-              <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              <span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
                 Debts minimized &amp; cleared
               </span>
             </div>

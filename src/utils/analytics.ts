@@ -54,14 +54,10 @@ export function initializeGoogleAnalytics(): void {
   const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`);
   if (existingScript || analyticsLoadScheduled) return;
 
-  const interactionEvents: (keyof WindowEventMap)[] = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
-  let fallbackTimer: number | undefined;
+  const interactionEvents: (keyof WindowEventMap)[] = ['pointerdown', 'touchstart', 'scroll', 'keydown', 'mousemove'];
 
   const loadScript = (): void => {
     interactionEvents.forEach((ev) => window.removeEventListener(ev, loadScript));
-    if (fallbackTimer !== undefined) {
-      window.clearTimeout(fallbackTimer);
-    }
     analyticsLoadScheduled = false;
 
     if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`)) return;
@@ -74,7 +70,6 @@ export function initializeGoogleAnalytics(): void {
   };
 
   interactionEvents.forEach((ev) => window.addEventListener(ev, loadScript, { once: true, passive: true }));
-  fallbackTimer = window.setTimeout(loadScript, 7000);
 }
 
 export function trackPageView(): void {

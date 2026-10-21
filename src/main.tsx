@@ -5,7 +5,9 @@ import { SettingsProvider } from './context/SettingsContext';
 import { App } from './App';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const rootElement = document.getElementById('root') as HTMLElement;
+
+const appTree = (
   <React.StrictMode>
     <SettingsProvider>
       <BrowserRouter>
@@ -14,3 +16,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </SettingsProvider>
   </React.StrictMode>
 );
+
+// If #root contains build-time pre-rendered HTML, hydrate to preserve DOM nodes without replacement delay
+if (rootElement && rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, appTree);
+} else if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(appTree);
+}

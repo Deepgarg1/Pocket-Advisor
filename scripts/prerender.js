@@ -27,12 +27,16 @@ const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
 console.log('[Prerender] Rendering matching React component tree for homepage...');
 const homeHtml = await renderHomeComponents();
-const distIndexHtml = templateHtml.replace(
+let distIndexHtml = templateHtml.replace(
   /<!-- SHELL_ROOT_START -->[\s\S]*?<!-- SHELL_ROOT_END -->/i,
   `<!-- SHELL_ROOT_START -->\n${homeHtml}\n<!-- SHELL_ROOT_END -->`
 );
+distIndexHtml = distIndexHtml.replace(
+  '<div id="root">',
+  '<div id="root" data-hydratable="true">'
+);
 fs.writeFileSync(TEMPLATE_PATH, distIndexHtml, 'utf8');
-console.log('[Prerender] Updated dist/index.html with matching React tree for instant hydration!');
+console.log('[Prerender] Updated dist/index.html with matching React tree and data-hydratable attribute for instant hydration!');
 
 const routes = [
   {

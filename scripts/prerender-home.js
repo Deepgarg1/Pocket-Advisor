@@ -14,16 +14,45 @@ export async function renderHomeComponents() {
     const { Hero } = await server.ssrLoadModule('./src/components/landing/Hero.tsx');
     const { HomeFeaturesShowcase } = await server.ssrLoadModule('./src/components/landing/HomeFeaturesShowcase.tsx');
     const { FaqSection } = await server.ssrLoadModule('./src/components/landing/FaqSection.tsx');
+    const { MobileBottomNav } = await server.ssrLoadModule('./src/components/layout/MobileBottomNav.tsx');
     const { Footer } = await server.ssrLoadModule('./src/components/layout/Footer.tsx');
 
-    const navbarHtml = renderToString(React.createElement(SettingsProvider, null, React.createElement(Navbar, { currentView: 'home' })));
-    const heroHtml = renderToString(React.createElement(Hero, null));
-    const showcaseHtml = renderToString(React.createElement(HomeFeaturesShowcase, null));
-    const faqHtml = renderToString(React.createElement(FaqSection, { useHomeFaqs: true, headingLevel: 'h2' }));
-    const footerHtml = renderToString(React.createElement(SettingsProvider, null, React.createElement(Footer, null)));
+    // Build the exact component tree that <App /> renders on route '/'
+    const homeTree = React.createElement(
+      SettingsProvider,
+      null,
+      React.createElement(
+        'div',
+        {
+          style: {
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            backgroundColor: 'var(--bg-canvas)',
+            color: 'var(--text-primary)',
+          },
+        },
+        React.createElement(Navbar, { currentView: 'home' }),
+        React.createElement(
+          'main',
+          {
+            className: 'content-with-bottom-nav',
+            style: { flex: 1 },
+          },
+          React.createElement(
+            'div',
+            null,
+            React.createElement(Hero, null),
+            React.createElement(HomeFeaturesShowcase, null),
+            React.createElement(FaqSection, { useHomeFaqs: true, headingLevel: 'h2' })
+          )
+        ),
+        React.createElement(MobileBottomNav, { currentView: 'home' }),
+        React.createElement(Footer, null)
+      )
+    );
 
-    const homeHtml = `<div class="min-h-screen bg-[#090d16] text-slate-100 flex flex-col font-sans transition-colors duration-200">${navbarHtml}<main class="flex-1"><div>${heroHtml}${showcaseHtml}${faqHtml}</div></main>${footerHtml}</div>`;
-    return homeHtml;
+    return renderToString(homeTree);
   } finally {
     await server.close();
   }

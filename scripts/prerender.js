@@ -1,3 +1,4 @@
+import { renderHomeComponents } from './prerender-home.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -23,6 +24,15 @@ if (!fs.existsSync(TEMPLATE_PATH)) {
 }
 
 const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+
+console.log('[Prerender] Rendering matching React component tree for homepage...');
+const homeHtml = await renderHomeComponents();
+const distIndexHtml = templateHtml.replace(
+  /<!-- SHELL_ROOT_START -->[\s\S]*?<!-- SHELL_ROOT_END -->/i,
+  `<!-- SHELL_ROOT_START -->\n${homeHtml}\n<!-- SHELL_ROOT_END -->`
+);
+fs.writeFileSync(TEMPLATE_PATH, distIndexHtml, 'utf8');
+console.log('[Prerender] Updated dist/index.html with matching React tree for instant hydration!');
 
 const routes = [
   {

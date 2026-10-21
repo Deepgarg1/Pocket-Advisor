@@ -1,5 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 
+let cachedSupabase = null;
+function getSupabaseClient(url, key) {
+  if (!cachedSupabase) {
+    cachedSupabase = createClient(url, key);
+  }
+  return cachedSupabase;
+}
+
 // In-memory sliding-window IP rate limiter
 const rateLimitMap = new Map();
 const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
@@ -102,11 +110,13 @@ export default async function handler(req, res) {
   }
 
   // 2. Timing Gate: humans need at least 2.5s to read/type a form.
-  // If filled impossibly fast (< 2.5s) or token is in the future/expired (> 4 hrs), silently drop
   if (formLoadedAt) {
     const elapsedMs = Date.now() - Number(formLoadedAt);
-    if (isNaN(elapsedMs) || elapsedMs < 2500 || elapsedMs > 4 * 60 * 60 * 1000) {
+    if (isNaN(elapsedMs) || elapsedMs < 2500) {
       return res.status(200).json({ success: true, message: 'Message received.' });
+    }
+    if (elapsedMs > 4 * 60 * 60 * 1000) {
+      return res.status(400).json({ error: 'Form session expired. Please refresh the page and try again.' });
     }
   }
 
@@ -166,7 +176,7 @@ export default async function handler(req, res) {
   // ------------------------------------------------------------------
   // Insert into support DB
   // ------------------------------------------------------------------
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = getSupabaseClient(supabaseUrl, supabaseKey);
 
   try {
     // 1. Create the ticket

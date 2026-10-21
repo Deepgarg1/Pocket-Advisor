@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   Calendar,
@@ -29,6 +30,7 @@ interface NewsFeedViewProps {
 }
 
 export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, onNavigate }) => {
+  const routerNavigate = useNavigate();
   const allArticles = getAllArticles();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(initialSlug || null);
   const [searchQuery, setSearchQuery] = useState(() => {
@@ -131,20 +133,20 @@ export const NewsFeedView: React.FC<NewsFeedViewProps> = ({ slug: initialSlug, o
 
   const handleOpenArticle = (slug: string) => {
     setSelectedSlug(slug);
-    try {
-      window.history.pushState(null, '', `/news/${slug}`);
-    } catch {
-      window.location.hash = `#/news/${slug}`;
+    if (onNavigate) {
+      onNavigate(`news/${slug}`);
+    } else {
+      routerNavigate(`/news/${slug}`);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToFeed = () => {
     setSelectedSlug(null);
-    try {
-      window.history.pushState(null, '', '/news');
-    } catch {
-      window.location.hash = '#/news';
+    if (onNavigate) {
+      onNavigate('news');
+    } else {
+      routerNavigate('/news');
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

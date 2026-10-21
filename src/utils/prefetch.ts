@@ -32,7 +32,7 @@ export const prefetchRoute = (route: string): void => {
       import('../components/news/NewsFeedView');
       break;
     case 'faq':
-      import('../components/landing/FaqSection');
+      // FaqSection is already included in root bundle
       break;
     case 'download':
       import('../components/landing/DownloadSection');

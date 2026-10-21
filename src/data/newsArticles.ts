@@ -4,6 +4,10 @@ import rawArticles from './articles.json';
 // Single source of truth loaded dynamically from articles.json
 export const NEWS_ARTICLES: Article[] = rawArticles as Article[];
 
+const SORTED_ARTICLES: Article[] = [...NEWS_ARTICLES].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+);
+
 export function getArticleBySlug(slug: string): Article | undefined {
   if (!slug) return undefined;
   const cleanSlug = slug.toLowerCase().replace(/^\/+|\/+$/g, '');
@@ -13,7 +17,5 @@ export function getArticleBySlug(slug: string): Article | undefined {
 }
 
 export function getAllArticles(): Article[] {
-  return [...NEWS_ARTICLES].sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  return SORTED_ARTICLES;
 }

@@ -116,7 +116,18 @@ export const App: React.FC = () => {
     if (currentView !== 'admin' && currentView !== 'news') {
       trackPageView();
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const isCalculatorSubRoute = [
+      'emi-calculator',
+      'sip-calculator',
+      'home-loan-prepayment-vs-sip',
+      'savings-goal-calculator',
+      'fd-rd-calculator',
+      'compound-interest-calculator',
+      'inflation-calculator',
+    ].includes(currentView);
+    if (!isCalculatorSubRoute) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   }, [location.pathname, currentView]);
 
   const navigateView = (view: string, shouldScroll: boolean = true) => {

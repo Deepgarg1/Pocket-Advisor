@@ -54,20 +54,28 @@ export const PrepaymentVsSipCalculator: React.FC<PrepaymentVsSipCalculatorProps>
   const [activeStrategyView, setActiveStrategyView] = useState<'VERDICT' | 'MILESTONES' | 'HYBRID'>('VERDICT');
   const [copiedShare, setCopiedShare] = useState(false);
 
-  // Sync state changes to browser address bar without reload
+  // Sync state changes to browser address bar without reload (debounced)
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const params = new URLSearchParams();
-    if (loanPrincipal !== 4000000) params.set('loan', String(loanPrincipal));
-    if (loanInterestRate !== 8.5) params.set('rate', String(loanInterestRate));
-    if (tenureYears !== 20) params.set('tenure', String(tenureYears));
-    if (monthlySurplus !== 10000) params.set('surplus', String(monthlySurplus));
-    if (expectedSipReturn !== 12) params.set('sipRate', String(expectedSipReturn));
-    if (annualLumpsum > 0) params.set('bonus', String(annualLumpsum));
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (loanPrincipal !== 4000000) params.set('loan', String(loanPrincipal));
+      if (loanInterestRate !== 8.5) params.set('rate', String(loanInterestRate));
+      if (tenureYears !== 20) params.set('tenure', String(tenureYears));
+      if (monthlySurplus !== 10000) params.set('surplus', String(monthlySurplus));
+      if (expectedSipReturn !== 12) params.set('sipRate', String(expectedSipReturn));
+      if (annualLumpsum > 0) params.set('bonus', String(annualLumpsum));
 
-    const qs = params.toString();
-    const newPath = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
-    window.history.replaceState(null, '', newPath);
+      const qs = params.toString();
+      const newPath = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+      try {
+        window.history.replaceState(null, '', newPath);
+      } catch {
+        // Ignore rate limiting exceptions
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [loanPrincipal, loanInterestRate, tenureYears, monthlySurplus, expectedSipReturn, annualLumpsum]);
 
   // Generates permanent shareable URL for WhatsApp and clipboard copying

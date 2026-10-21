@@ -166,31 +166,47 @@ export const InteractiveDemo: React.FC<InteractiveDemoProps> = ({ initialTab, on
   const [copiedEmi, setCopiedEmi] = useState(false);
   const [copiedSip, setCopiedSip] = useState(false);
 
-  // Sync EMI parameters to URL address bar
+  // Sync EMI parameters to URL address bar (debounced)
   useEffect(() => {
-    if (typeof window === 'undefined' || activeTab !== 'EMI') return;
-    const params = new URLSearchParams();
-    if (loanAmount !== 500000) params.set('amount', String(loanAmount));
-    if (interestRate !== 8.5) params.set('rate', String(interestRate));
-    if (tenureYears !== 5) params.set('years', String(tenureYears));
-    const qs = params.toString();
-    const newPath = qs ? `/emi-calculator?${qs}` : '/emi-calculator';
-    window.history.replaceState(null, '', newPath);
+    if (typeof window === 'undefined' || activeTab !== 'EMI' || window.location.pathname === '/calculators') return;
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (loanAmount !== 500000) params.set('amount', String(loanAmount));
+      if (interestRate !== 8.5) params.set('rate', String(interestRate));
+      if (tenureYears !== 5) params.set('years', String(tenureYears));
+      const qs = params.toString();
+      const newPath = qs ? `/emi-calculator?${qs}` : '/emi-calculator';
+      try {
+        window.history.replaceState(null, '', newPath);
+      } catch {
+        // Ignore rate limiting exceptions
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [activeTab, loanAmount, interestRate, tenureYears]);
 
-  // Sync SIP parameters to URL address bar
+  // Sync SIP parameters to URL address bar (debounced)
   useEffect(() => {
-    if (typeof window === 'undefined' || activeTab !== 'SIP') return;
-    const params = new URLSearchParams();
-    if (monthlyInvestment !== 10000) params.set('monthly', String(monthlyInvestment));
-    if (expectedReturn !== 12) params.set('return', String(expectedReturn));
-    if (investmentYears !== 10) params.set('years', String(investmentYears));
-    if (annualStepUp !== 5) params.set('stepup', String(annualStepUp));
-    if (inflationRate !== 6) params.set('inflation', String(inflationRate));
-    if (sipTiming !== 'beginning') params.set('timing', sipTiming);
-    const qs = params.toString();
-    const newPath = qs ? `/sip-calculator?${qs}` : '/sip-calculator';
-    window.history.replaceState(null, '', newPath);
+    if (typeof window === 'undefined' || activeTab !== 'SIP' || window.location.pathname === '/calculators') return;
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams();
+      if (monthlyInvestment !== 10000) params.set('monthly', String(monthlyInvestment));
+      if (expectedReturn !== 12) params.set('return', String(expectedReturn));
+      if (investmentYears !== 10) params.set('years', String(investmentYears));
+      if (annualStepUp !== 5) params.set('stepup', String(annualStepUp));
+      if (inflationRate !== 6) params.set('inflation', String(inflationRate));
+      if (sipTiming !== 'beginning') params.set('timing', sipTiming);
+      const qs = params.toString();
+      const newPath = qs ? `/sip-calculator?${qs}` : '/sip-calculator';
+      try {
+        window.history.replaceState(null, '', newPath);
+      } catch {
+        // Ignore rate limiting exceptions
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
   }, [activeTab, monthlyInvestment, expectedReturn, investmentYears, annualStepUp, inflationRate, sipTiming]);
 
   // Dynamic shareable URLs

@@ -477,3 +477,16 @@ button:active:not(:disabled) {
   color: transparent !important;
   display: inline-block;
 }
+
+
+/* ==============================================================================
+   ANALYTICS CONSENT BANNER (Responsive positioning clear of MobileBottomNav)
+   ============================================================================== */
+.analytics-consent-banner {
+  bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+}
+@media (min-width: 768px) {
+  .analytics-consent-banner {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}

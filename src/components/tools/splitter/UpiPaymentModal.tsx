@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import QRCode from 'qrcode';
 import { Zap, Check, Copy, Smartphone } from 'lucide-react';
 import { formatMoney } from '../../../utils/formatters';
 
@@ -24,6 +25,28 @@ export const UpiPaymentModal: React.FC<UpiPaymentModalProps> = ({
   onMarkSettled,
 }) => {
   const [copiedModalUpi, setCopiedModalUpi] = useState(false);
+  const [qrDataUrl, setQrDataUrl] = useState<string>('');
+
+  useEffect(() => {
+    let isMounted = true;
+    QRCode.toDataURL(modalData.upiUri, {
+      margin: 1,
+      width: 200,
+      color: {
+        dark: '#000000',
+        light: '#ffffff',
+      },
+    })
+      .then((url) => {
+        if (isMounted) setQrDataUrl(url);
+      })
+      .catch((err) => {
+        console.warn('Failed to generate on-device QR:', err);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, [modalData.upiUri]);
 
   const handleCopyUpi = async () => {
     try {
@@ -142,13 +165,17 @@ export const UpiPaymentModal: React.FC<UpiPaymentModalProps> = ({
             marginBottom: '16px',
           }}
         >
-          <img
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(modalData.upiUri)}`}
-            alt="Scan with GPay, PhonePe, Paytm, CRED or any UPI App to pay"
-            width="160"
-            height="160"
-            style={{ width: '100%', height: '100%', borderRadius: '8px' }}
-          />
+          {qrDataUrl ? (
+            <img
+              src={qrDataUrl}
+              alt="Scan with GPay, PhonePe, Paytm, CRED or any UPI App to pay"
+              width="160"
+              height="160"
+              style={{ width: '100%', height: '100%', borderRadius: '8px' }}
+            />
+          ) : (
+            <div style={{ color: '#64748b', fontSize: '0.8rem' }}>Generating QR...</div>
+          )}
         </div>
 
         <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: '0 0 14px 0' }}>

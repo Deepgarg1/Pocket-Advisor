@@ -26,12 +26,13 @@ export const AnalyticsConsent: React.FC = () => {
     <>
       {choice === null ? (
         <aside
+          className="analytics-consent-banner"
           aria-label="Analytics privacy preferences"
           style={{
             position: 'fixed',
             left: '16px',
             right: '16px',
-            bottom: 'calc(16px + env(safe-area-inset-bottom, 0px))',
+            /* bottom controlled by .analytics-consent-banner */
             zIndex: 1000,
             maxWidth: '560px',
             margin: '0 auto',

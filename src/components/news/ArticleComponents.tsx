@@ -41,23 +41,28 @@ export const renderFormattedText = (text: string): React.ReactNode => {
       // Link: [text](url)
       const linkText = match[2];
       const linkUrl = match[3];
+      const isSafeProtocol = /^(https?:\/\/|\/|#|mailto:)/i.test(linkUrl);
       const isExternal = linkUrl.startsWith('http://') || linkUrl.startsWith('https://');
-      elements.push(
-        <a
-          key={match.index}
-          href={linkUrl}
-          target={isExternal ? '_blank' : undefined}
-          rel={isExternal ? 'noopener noreferrer' : undefined}
-          style={{
-            color: 'var(--primary)',
-            textDecoration: 'underline',
-            textUnderlineOffset: '3px',
-            fontWeight: 600,
-          }}
-        >
-          {linkText}
-        </a>
-      );
+      if (isSafeProtocol) {
+        elements.push(
+          <a
+            key={match.index}
+            href={linkUrl}
+            target={isExternal ? '_blank' : undefined}
+            rel={isExternal ? 'noopener noreferrer' : undefined}
+            style={{
+              color: 'var(--primary)',
+              textDecoration: 'underline',
+              textUnderlineOffset: '3px',
+              fontWeight: 600,
+            }}
+          >
+            {linkText}
+          </a>
+        );
+      } else {
+        elements.push(linkText);
+      }
     } else if (match[4]) {
       // Bold: **text**
       elements.push(

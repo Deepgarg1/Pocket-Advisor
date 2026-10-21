@@ -54,8 +54,16 @@ export function initializeGoogleAnalytics(): void {
   const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`);
   if (existingScript || analyticsLoadScheduled) return;
 
+  const interactionEvents: (keyof WindowEventMap)[] = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+  let fallbackTimer: number | undefined;
+
   const loadScript = (): void => {
+    interactionEvents.forEach((ev) => window.removeEventListener(ev, loadScript));
+    if (fallbackTimer !== undefined) {
+      window.clearTimeout(fallbackTimer);
+    }
     analyticsLoadScheduled = false;
+
     if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`)) return;
 
     const script = document.createElement('script');
@@ -65,16 +73,8 @@ export function initializeGoogleAnalytics(): void {
     document.head.appendChild(script);
   };
 
-  analyticsLoadScheduled = true;
-  const idleWindow = window as Window & {
-    requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-  };
-
-  if (idleWindow.requestIdleCallback) {
-    idleWindow.requestIdleCallback(loadScript, { timeout: 4000 });
-  } else {
-    window.setTimeout(loadScript, 1500);
-  }
+  interactionEvents.forEach((ev) => window.addEventListener(ev, loadScript, { once: true, passive: true }));
+  fallbackTimer = window.setTimeout(loadScript, 7000);
 }
 
 export function trackPageView(): void {

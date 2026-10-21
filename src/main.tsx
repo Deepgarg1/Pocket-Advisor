@@ -17,8 +17,10 @@ const appTree = (
   </React.StrictMode>
 );
 
-// If #root contains build-time pre-rendered HTML, hydrate to preserve DOM nodes without replacement delay
-if (rootElement && rootElement.hasChildNodes()) {
+// Hydrate when pre-rendered matching React tree exists (e.g. homepage); otherwise mount cleanly via createRoot
+const isHydratable = rootElement?.getAttribute('data-hydratable') === 'true';
+
+if (rootElement && isHydratable && rootElement.hasChildNodes()) {
   ReactDOM.hydrateRoot(rootElement, appTree);
 } else if (rootElement) {
   ReactDOM.createRoot(rootElement).render(appTree);

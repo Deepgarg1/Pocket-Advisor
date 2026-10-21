@@ -28,8 +28,16 @@
     <meta name="twitter:description" content="Track expenses automatically from bank SMS alerts, manage budgets, split bills, set payment reminders and explore financial calculators with Pocket Advisor." />
     <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
 
-    <!-- Preload Critical Above-The-Fold Desktop LCP Image (gated to desktop viewports to preserve mobile bandwidth) -->
-    <link rel="preload" href="/assets/mockup/phone-dashboard-640w.webp" as="image" type="image/webp" media="(min-width: 801px)" fetchpriority="high" />
+    <!-- Preload Critical Above-The-Fold Desktop LCP Image with responsive selection matching picture tag -->
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset="/assets/mockup/phone-dashboard-320w.webp 320w, /assets/mockup/phone-dashboard-576w.webp 576w"
+      imagesizes="(max-width: 800px) 310px, 310px"
+      media="(min-width: 801px)"
+      fetchpriority="high"
+    />
 
     <!-- Preconnect for Google Analytics & Fonts -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -53,7 +61,14 @@
         gtag('config', 'G-FP96084QTY', { send_page_view: false });
       })();
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FP96084QTY"></script>
+    <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FP96084QTY';
+        s.async = true;
+        document.head.appendChild(s);
+      });
+    </script>
 
     <!-- Non-render-blocking font stylesheet with display=optional to eliminate font swap layout shifts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=optional" media="print" onload="this.media='all'" />
@@ -118,7 +133,7 @@
       @media (min-width: 801px) {
         .pa-hero { padding-top: 32px; padding-bottom: 24px; }
         .pa-hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr); gap: 26px; }
-        .pa-hero-visual { min-width: 0; min-height: 420px; }
+        .pa-hero-visual { min-width: 0; min-height: 600px; }
       }
       @media (max-width: 800px) {
         .pa-hero { padding: 34px 22px 28px; }
@@ -400,7 +415,7 @@
                     <picture>
                       <source
                         type="image/webp"
-                        srcset="/assets/mockup/phone-dashboard-320w.webp 320w, /assets/mockup/phone-dashboard-640w.webp 640w"
+                        srcset="/assets/mockup/phone-dashboard-320w.webp 320w, /assets/mockup/phone-dashboard-576w.webp 576w"
                         sizes="(max-width: 800px) 310px, 310px"
                       />
                       <img
@@ -408,9 +423,10 @@
                         alt="Pocket Advisor Android Dashboard: Total Balance, Category Alerts, and Recent Transactions"
                         width="310"
                         height="551"
-                        loading="lazy"
+                        fetchpriority="high"
+                        loading="eager"
                         decoding="async"
-                        style="width: 100%; max-width: 310px; height: auto; display: block; filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18));"
+                        style="width: 100%; max-width: 310px; height: auto; aspect-ratio: 310 / 551; display: block; filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18));"
                       />
                     </picture>
                   </div>

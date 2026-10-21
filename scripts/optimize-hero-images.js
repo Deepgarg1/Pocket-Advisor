@@ -17,8 +17,8 @@ const sourceFiles = [
 ];
 
 const variants = [
-  { suffix: '320w', width: 320, quality: 80 },
-  { suffix: '640w', width: 640, quality: 82 },
+  { suffix: '320w', width: 320, quality: 76 },
+  { suffix: '576w', width: 576, quality: 76 },
 ];
 
 async function optimizeHeroImages() {

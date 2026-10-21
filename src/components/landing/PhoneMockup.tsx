@@ -73,8 +73,8 @@ export const PhoneMockup: React.FC = () => {
     preloadedScreens.current.add(key);
     const img320 = new Image();
     img320.src = `/assets/mockup/phone-${key}-320w.webp`;
-    const img640 = new Image();
-    img640.src = `/assets/mockup/phone-${key}-640w.webp`;
+    const img576 = new Image();
+    img576.src = `/assets/mockup/phone-${key}-576w.webp`;
   };
 
   const handleTabChange = (key: TabKey) => {
@@ -164,7 +164,7 @@ export const PhoneMockup: React.FC = () => {
         <picture>
           <source
             type="image/webp"
-            srcSet={`/assets/mockup/phone-${currentScreen.key}-320w.webp 320w, /assets/mockup/phone-${currentScreen.key}-640w.webp 640w`}
+            srcSet={`/assets/mockup/phone-${currentScreen.key}-320w.webp 320w, /assets/mockup/phone-${currentScreen.key}-576w.webp 576w`}
             sizes="(max-width: 800px) 310px, 310px"
           />
           <img
@@ -172,12 +172,14 @@ export const PhoneMockup: React.FC = () => {
             alt={currentScreen.alt}
             width={310}
             height={551}
-            loading="lazy"
+            loading="eager"
+            fetchPriority="high"
             decoding="async"
             style={{
               width: '100%',
               maxWidth: '310px',
               height: 'auto',
+              aspectRatio: '310 / 551',
               display: 'block',
               filter: 'drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18))',
               opacity: isTransitioning ? 0.7 : 1,

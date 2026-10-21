@@ -90,6 +90,22 @@ for (const pathName of prerenderPaths) {
 for (const articlePath of articlePaths) {
   if (!actualPaths.has(articlePath)) fail(`Published article is missing from sitemap.xml: ${articlePath}`);
 }
+
+// Every published article must have a real static HTML artifact for direct requests.
+for (const article of articles) {
+  const articlePath = `/news/${article.slug}`;
+  const articleHtmlPath = path.join(rootDir, 'dist', 'news', article.slug, 'index.html');
+  if (!fs.existsSync(articleHtmlPath)) {
+    fail(`Built prerendered HTML is missing for ${articlePath}.`);
+    continue;
+  }
+
+  const articleHtml = fs.readFileSync(articleHtmlPath, 'utf8');
+  const expectedCanonical = `${canonicalOrigin}${articlePath}`;
+  if (!articleHtml.includes(`<link rel="canonical" href="${expectedCanonical}" />`)) {
+    fail(`Built article canonical does not match ${expectedCanonical}.`);
+  }
+}
 for (const pathName of actualPaths) {
   if (!expectedPaths.has(pathName)) fail(`Sitemap URL has no matching configured prerender route or published article: ${pathName}`);
 }

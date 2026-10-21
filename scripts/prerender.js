@@ -2094,6 +2094,71 @@ console.log(`[Prerender] Starting build-time static HTML generation for ${routes
 const articlesPath = path.resolve(__dirname, '../src/data/articles.json');
 const articleData = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
 
+// Generate a static route for every published News article. Without this, an article
+// can render after client-side navigation but has no dist/news/<slug>/index.html for
+// direct requests, crawlers, and social previews.
+for (const article of articleData) {
+  const articleRouteSlug = `news/${article.slug}`;
+  if (routes.some((route) => route.slug === articleRouteSlug)) continue;
+
+  routes.push({
+    slug: articleRouteSlug,
+    title: `${article.title} | Pocket Advisor`,
+    description: article.excerpt,
+    canonical: `${BASE_URL}/${articleRouteSlug}`,
+    badgeCategory: article.category || 'Financial Guide',
+    pillText: article.readTime || 'Pocket Advisor Guide',
+    h1: escapeHtml(article.title),
+    h1Gradient: '',
+    heroDesc: article.subtitle || article.excerpt,
+    ctaText: 'Explore More Articles',
+    ctaHref: '/news',
+    ogType: 'article',
+    ogImage: `${BASE_URL}${article.coverImage || '/logo.png'}`,
+    schemas: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: article.title,
+        description: article.excerpt,
+        image: `${BASE_URL}${article.coverImage || '/logo.png'}`,
+        datePublished: `${article.publishedAt}T00:00:00+05:30`,
+        dateModified: `${article.updatedAt || article.publishedAt}T00:00:00+05:30`,
+        author: {
+          '@type': 'Person',
+          name: (article.author && article.author.name) || 'Pocket Advisor',
+          jobTitle: (article.author && article.author.role) || 'Editorial Team',
+          url: BASE_URL
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'Pocket Advisor',
+          logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE }
+        },
+        mainEntityOfPage: `${BASE_URL}/${articleRouteSlug}`
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'News', item: `${BASE_URL}/news` },
+          { '@type': 'ListItem', position: 3, name: article.title, item: `${BASE_URL}/${articleRouteSlug}` }
+        ]
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: (article.faqs || []).map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+        }))
+      }
+    ]
+  });
+}
+
 for (const route of routes) {
   const article = articleData.find((item) => route.slug === 'news/' + item.slug);
   if (!article) continue;

@@ -119,6 +119,11 @@
   ],
   "redirects": [
     {
+      "source": "/best-expense-tracker-apps-india",
+      "destination": "https://www.pocketadvisor.in/news/best-expense-tracker-apps-india",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {

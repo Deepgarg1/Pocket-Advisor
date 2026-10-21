@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const sitemapPath = path.join(rootDir, 'public/sitemap.xml');
 const robotsPath = path.join(rootDir, 'public/robots.txt');
+const vercelConfigPath = path.join(rootDir, 'vercel.json');
 const prerenderPath = path.join(rootDir, 'scripts/prerender.js');
 const articlesPath = path.join(rootDir, 'src/data/articles.json');
 const canonicalOrigin = 'https://www.pocketadvisor.in';
@@ -20,6 +21,7 @@ function fail(message) {
 
 const sitemap = fs.readFileSync(sitemapPath, 'utf8');
 const robots = fs.readFileSync(robotsPath, 'utf8');
+const vercelConfig = JSON.parse(fs.readFileSync(vercelConfigPath, 'utf8'));
 const prerenderSource = fs.readFileSync(prerenderPath, 'utf8');
 const articles = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
 
@@ -68,7 +70,8 @@ for (const entry of entries) {
 }
 
 const prerenderSlugs = [...prerenderSource.matchAll(/^    slug: '([^']+)',/gm)].map(match => match[1]);
-const prerenderPaths = ['/', ...prerenderSlugs.map(slug => `/${slug}`)];
+const redirectedPaths = new Set((vercelConfig.redirects || []).map(redirect => redirect.source).filter(source => source.startsWith('/') && !source.includes(':') && !source.includes('*')));
+const prerenderPaths = ['/', ...prerenderSlugs.map(slug => `/${slug}`).filter(pathName => !redirectedPaths.has(pathName))];
 const articleByPath = new Map(articles.map(article => [`/news/${article.slug}`, article]));
 const articlePaths = [...articleByPath.keys()];
 const expectedPaths = new Set([...prerenderPaths, ...articlePaths]);
@@ -106,6 +109,40 @@ for (const [articlePath, article] of articleByPath) {
   }
 }
 
+
+// Validate every published News article, not just one hard-coded legacy article.
+for (const article of articles) {
+  const articlePath = `/news/${article.slug}`;
+  const articleHtmlPath = path.join(rootDir, 'dist', 'news', article.slug, 'index.html');
+  if (!fs.existsSync(articleHtmlPath)) {
+    fail(`Built prerendered HTML is missing for ${articlePath}.`);
+    continue;
+  }
+
+  const html = fs.readFileSync(articleHtmlPath, 'utf8');
+  const canonical = canonicalOrigin + articlePath;
+  if (!html.includes(`<link rel="canonical" href="${canonical}" />`)) {
+    fail(`Built article canonical does not match ${canonical}.`);
+  }
+  if (!html.includes(`<title>${escapeHtml(article.title + ' | Pocket Advisor')}</title>`)) {
+    fail(`Built article title is missing or incorrect for ${articlePath}.`);
+  }
+  if ((html.match(/<h1\b/gi) || []).length !== 1) {
+    fail(`Built article should have exactly one H1 heading: ${articlePath}.`);
+  }
+
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map(match => {
+      try { return JSON.parse(match[1]); } catch { fail(`Invalid JSON-LD in ${articlePath}.`); return null; }
+    }).filter(Boolean);
+  const articleSchema = schemas.find(schema => schema['@type'] === 'Article');
+  if (!articleSchema) {
+    fail(`Built article is missing Article structured data: ${articlePath}.`);
+  } else {
+    if (articleSchema.headline !== article.title) fail(`Article schema headline mismatch: ${articlePath}.`);
+    if (articleSchema.mainEntityOfPage !== canonical) fail(`Article schema canonical mismatch: ${articlePath}.`);
+  }
+}
 
 const budgetPlannerPath = path.join(rootDir, 'dist', 'monthly-budget-planner', 'index.html');
 if (!fs.existsSync(budgetPlannerPath)) {

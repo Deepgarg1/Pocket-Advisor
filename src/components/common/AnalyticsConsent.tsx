@@ -55,7 +55,7 @@ export const AnalyticsConsent: React.FC = () => {
             <button
               type="button"
               onClick={() => choose('granted')}
-              style={{ border: 0, borderRadius: '10px', padding: '10px 14px', background: '#6366f1', color: '#fff', fontWeight: 700, cursor: 'pointer' }}
+              style={{ border: 0, borderRadius: '10px', padding: '10px 14px', background: '#4f46e5', color: '#fff', fontWeight: 700, cursor: 'pointer' }}
             >
               Accept analytics
             </button>
@@ -87,7 +87,7 @@ export const AnalyticsConsent: React.FC = () => {
                 Analytics: {choice === 'granted' ? 'accepted' : 'rejected'}
               </p>
               <div style={{ display: 'flex', gap: '8px' }}>
-                <button type="button" onClick={() => choose('granted')} style={{ border: 0, borderRadius: '8px', padding: '8px 10px', background: '#6366f1', color: '#fff', cursor: 'pointer' }}>Accept</button>
+                <button type="button" onClick={() => choose('granted')} style={{ border: 0, borderRadius: '8px', padding: '8px 10px', background: '#4f46e5', color: '#fff', cursor: 'pointer' }}>Accept</button>
                 <button type="button" onClick={() => choose('denied')} style={{ border: '1px solid #64748b', borderRadius: '8px', padding: '8px 10px', background: 'transparent', color: '#f8fafc', cursor: 'pointer' }}>Reject</button>
               </div>
             </div>

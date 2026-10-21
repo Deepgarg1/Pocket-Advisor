@@ -311,7 +311,7 @@
 .pa-parsed-amount {
   font-weight: 850;
   font-size: 1.12rem;
-  color: #ef4444;
+  color: var(--expense);
 }
 
 .pa-parsed-amount.credit {
@@ -357,7 +357,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted);
+  color: var(--text-secondary);
 }
 
 .pa-split-box-val {

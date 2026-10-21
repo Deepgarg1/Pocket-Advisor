@@ -124,11 +124,11 @@ for (const article of articles) {
   if (!html.includes(`<title>${escapeHtml(article.title + ' | Pocket Advisor')}</title>`)) {
     fail(`Built article title is missing or incorrect for ${articlePath}.`);
   }
-  if ((html.match(/<h1\\b/gi) || []).length !== 1) {
+  if ((html.match(/<h1\b/gi) || []).length !== 1) {
     fail(`Built article should have exactly one H1 heading: ${articlePath}.`);
   }
 
-  const schemas = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)]
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map(match => {
       try { return JSON.parse(match[1]); } catch { fail(`Invalid JSON-LD in ${articlePath}.`); return null; }
     }).filter(Boolean);

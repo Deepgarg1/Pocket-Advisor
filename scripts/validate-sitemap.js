@@ -107,6 +107,40 @@ for (const [articlePath, article] of articleByPath) {
 }
 
 
+// Validate every published News article, not just one hard-coded legacy article.
+for (const article of articles) {
+  const articlePath = `/news/${article.slug}`;
+  const articleHtmlPath = path.join(rootDir, 'dist', 'news', article.slug, 'index.html');
+  if (!fs.existsSync(articleHtmlPath)) {
+    fail(`Built prerendered HTML is missing for ${articlePath}.`);
+    continue;
+  }
+
+  const html = fs.readFileSync(articleHtmlPath, 'utf8');
+  const canonical = canonicalOrigin + articlePath;
+  if (!html.includes(`<link rel="canonical" href="${canonical}" />`)) {
+    fail(`Built article canonical does not match ${canonical}.`);
+  }
+  if (!html.includes(`<title>${escapeHtml(article.title + ' | Pocket Advisor')}</title>`)) {
+    fail(`Built article title is missing or incorrect for ${articlePath}.`);
+  }
+  if ((html.match(/<h1\\b/gi) || []).length !== 1) {
+    fail(`Built article should have exactly one H1 heading: ${articlePath}.`);
+  }
+
+  const schemas = [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)]
+    .map(match => {
+      try { return JSON.parse(match[1]); } catch { fail(`Invalid JSON-LD in ${articlePath}.`); return null; }
+    }).filter(Boolean);
+  const articleSchema = schemas.find(schema => schema['@type'] === 'Article');
+  if (!articleSchema) {
+    fail(`Built article is missing Article structured data: ${articlePath}.`);
+  } else {
+    if (articleSchema.headline !== article.title) fail(`Article schema headline mismatch: ${articlePath}.`);
+    if (articleSchema.mainEntityOfPage !== canonical) fail(`Article schema canonical mismatch: ${articlePath}.`);
+  }
+}
+
 const budgetPlannerPath = path.join(rootDir, 'dist', 'monthly-budget-planner', 'index.html');
 if (!fs.existsSync(budgetPlannerPath)) {
   fail('Built prerendered HTML is missing for /monthly-budget-planner.');

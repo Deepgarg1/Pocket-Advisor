@@ -2094,6 +2094,71 @@ console.log(`[Prerender] Starting build-time static HTML generation for ${routes
 const articlesPath = path.resolve(__dirname, '../src/data/articles.json');
 const articleData = JSON.parse(fs.readFileSync(articlesPath, 'utf8'));
 
+// Ensure every published News article has a matching prerender route.
+// Without this, React navigation can display an article while a direct request
+// has no article-specific HTML file to serve.
+for (const article of articleData) {
+  const articleRouteSlug = `news/${article.slug}`;
+  if (routes.some((route) => route.slug === articleRouteSlug)) continue;
+
+  const articleUrl = `${BASE_URL}/${articleRouteSlug}`;
+  const articleSchemas = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: article.title,
+      description: article.excerpt,
+      image: `${BASE_URL}${article.coverImage}`,
+      datePublished: `${article.publishedAt}T00:00:00+05:30`,
+      dateModified: `${article.updatedAt || article.publishedAt}T00:00:00+05:30`,
+      author: { '@type': 'Person', name: (article.author && article.author.name) || 'Pocket Advisor' },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Pocket Advisor',
+        logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE }
+      },
+      mainEntityOfPage: articleUrl
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'News', item: `${BASE_URL}/news` },
+        { '@type': 'ListItem', position: 3, name: article.title, item: articleUrl }
+      ]
+    }
+  ];
+
+  if (article.faqs && article.faqs.length > 0) {
+    articleSchemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: article.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer }
+      }))
+    });
+  }
+
+  routes.push({
+    slug: articleRouteSlug,
+    title: `${article.title} | Pocket Advisor`,
+    description: article.excerpt,
+    canonical: articleUrl,
+    badgeCategory: article.category || 'Financial Guide',
+    pillText: 'Pocket Advisor • News & Guides',
+    h1: escapeHtml(article.title),
+    h1Gradient: '',
+    heroDesc: article.subtitle || article.excerpt,
+    ctaText: 'Explore More Guides',
+    ctaHref: '/news',
+    ogImage: `${BASE_URL}${article.coverImage}`,
+    schemas: articleSchemas
+  });
+}
+
 for (const route of routes) {
   const article = articleData.find((item) => route.slug === 'news/' + item.slug);
   if (!article) continue;

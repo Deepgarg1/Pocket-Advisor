@@ -5,8 +5,6 @@ import { SettingsProvider } from './context/SettingsContext';
 import { App } from './App';
 import './index.css';
 
-const rootElement = document.getElementById('root') as HTMLElement;
-
 const appTree = (
   <React.StrictMode>
     <SettingsProvider>
@@ -17,11 +15,21 @@ const appTree = (
   </React.StrictMode>
 );
 
-// Hydrate when pre-rendered matching React tree exists (e.g. homepage); otherwise mount cleanly via createRoot
-const isHydratable = rootElement?.getAttribute('data-hydratable') === 'true';
+function mountApp(): void {
+  const rootElement = document.getElementById('root');
+  if (!rootElement) return;
 
-if (rootElement && isHydratable && rootElement.hasChildNodes()) {
-  ReactDOM.hydrateRoot(rootElement, appTree);
-} else if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(appTree);
+  const isHydratable = rootElement.getAttribute('data-hydratable') === 'true';
+
+  if (isHydratable && rootElement.hasChildNodes()) {
+    ReactDOM.hydrateRoot(rootElement, appTree);
+  } else {
+    ReactDOM.createRoot(rootElement).render(appTree);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', mountApp);
+} else {
+  mountApp();
 }

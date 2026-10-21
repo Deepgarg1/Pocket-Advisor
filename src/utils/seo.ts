@@ -263,7 +263,7 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
   'best-expense-tracker-apps-india': {
     title: 'Best Expense Tracker Apps in India (2026): Architectural Comparison | Pocket Advisor',
     description: 'An architectural comparison of India’s personal finance apps across 4 models: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers.',
-    canonical: `${BASE_URL}/best-expense-tracker-apps-india`,
+    canonical: `${BASE_URL}/news/best-expense-tracker-apps-india`,
     ogType: 'article',
     ogImage: DEFAULT_IMAGE,
   },

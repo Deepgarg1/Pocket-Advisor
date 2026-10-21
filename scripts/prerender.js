@@ -23,7 +23,11 @@ if (!fs.existsSync(TEMPLATE_PATH)) {
   process.exit(1);
 }
 
-const templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+let templateHtml = fs.readFileSync(TEMPLATE_PATH, 'utf8');
+templateHtml = templateHtml.replace(
+  /<script type="module" crossorigin src="([^"]+)"><\/script>/,
+  '<script type="module" async crossorigin src="$1"></script>'
+);
 
 console.log('[Prerender] Rendering matching React component tree for homepage...');
 const homeHtml = await renderHomeComponents();

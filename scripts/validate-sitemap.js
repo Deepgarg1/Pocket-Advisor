@@ -68,17 +68,31 @@ for (const entry of entries) {
 }
 
 const prerenderSlugs = [...prerenderSource.matchAll(/^    slug: '([^']+)',/gm)].map(match => match[1]);
-const expectedPaths = new Set(['/', ...prerenderSlugs.map(slug => `/${slug}`)]);
-const actualPaths = new Set(entries.map(entry => new URL(entry.loc).pathname));
+const prerenderPaths = ['/', ...prerenderSlugs.map(slug => `/${slug}`)];
+const articleByPath = new Map(articles.map(article => [`/news/${article.slug}`, article]));
+const articlePaths = [...articleByPath.keys()];
+const expectedPaths = new Set([...prerenderPaths, ...articlePaths]);
 
-for (const pathName of expectedPaths) {
+// Keep only successfully parsed URL paths so malformed sitemap URLs are reported
+// above without causing a second, unhandled URL constructor exception here.
+const actualPaths = new Set();
+for (const entry of entries) {
+  try {
+    actualPaths.add(new URL(entry.loc).pathname);
+  } catch {
+    // The invalid URL has already been reported in the validation loop.
+  }
+}
+
+for (const pathName of prerenderPaths) {
   if (!actualPaths.has(pathName)) fail(`Prerendered route is missing from sitemap.xml: ${pathName}`);
 }
-for (const pathName of actualPaths) {
-  if (!expectedPaths.has(pathName)) fail(`Sitemap URL has no matching configured prerender route: ${pathName}`);
+for (const articlePath of articlePaths) {
+  if (!actualPaths.has(articlePath)) fail(`Published article is missing from sitemap.xml: ${articlePath}`);
 }
-
-const articleByPath = new Map(articles.map(article => [`/news/${article.slug}`, article]));
+for (const pathName of actualPaths) {
+  if (!expectedPaths.has(pathName)) fail(`Sitemap URL has no matching configured prerender route or published article: ${pathName}`);
+}
 for (const [articlePath, article] of articleByPath) {
   const entry = entries.find(item => new URL(item.loc).pathname === articlePath);
   if (!entry) {

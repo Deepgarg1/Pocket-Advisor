@@ -28,8 +28,8 @@
     <meta name="twitter:description" content="Track expenses automatically from bank SMS alerts, manage budgets, split bills, set payment reminders and explore financial calculators with Pocket Advisor." />
     <meta name="twitter:image" content="https://www.pocketadvisor.in/logo.png" />
 
-    <!-- Preload Critical Above-The-Fold LCP Image for 0ms Discovery -->
-    <link rel="preload" href="/assets/mockup/phone-dashboard.webp" as="image" type="image/webp" fetchpriority="high" />
+    <!-- Preload Critical Above-The-Fold Desktop LCP Image (gated to desktop viewports to preserve mobile bandwidth) -->
+    <link rel="preload" href="/assets/mockup/phone-dashboard-640w.webp" as="image" type="image/webp" media="(min-width: 801px)" fetchpriority="high" />
 
     <!-- Preconnect for Google Analytics & Fonts -->
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
@@ -397,16 +397,22 @@
                   </div>
 
                   <div style="position: relative; width: 100%; max-width: 315px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto;">
-                    <img
-                      src="/assets/mockup/phone-dashboard.webp"
-                      alt="Pocket Advisor Android Dashboard: Total Balance, Category Alerts, and Recent Transactions"
-                      width="576"
-                      height="1024"
-                      fetchpriority="high"
-                      loading="eager"
-                      decoding="async"
-                      style="width: 100%; max-width: 310px; height: auto; display: block; filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18));"
-                    />
+                    <picture>
+                      <source
+                        type="image/webp"
+                        srcset="/assets/mockup/phone-dashboard-320w.webp 320w, /assets/mockup/phone-dashboard-640w.webp 640w"
+                        sizes="(max-width: 800px) 310px, 310px"
+                      />
+                      <img
+                        src="/assets/mockup/phone-dashboard-320w.webp"
+                        alt="Pocket Advisor Android Dashboard: Total Balance, Category Alerts, and Recent Transactions"
+                        width="310"
+                        height="551"
+                        loading="lazy"
+                        decoding="async"
+                        style="width: 100%; max-width: 310px; height: auto; display: block; filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18));"
+                      />
+                    </picture>
                   </div>
                 </div>
               </div>

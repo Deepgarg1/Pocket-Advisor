@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 type TabKey = 'dashboard' | 'history' | 'analytics' | 'splits' | 'planner' | 'tools';
 
@@ -66,27 +66,16 @@ export const PhoneMockup: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabKey>('dashboard');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
 
-  // Defer preloading secondary mockup screens until browser is completely idle
-  useEffect(() => {
-    const preloadSecondaryScreens = () => {
-      SCREENS.slice(1).forEach((screen) => {
-        const img = new Image();
-        img.src = screen.image;
-      });
-    };
-
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      const handle = (window as any).requestIdleCallback(preloadSecondaryScreens, { timeout: 3500 });
-      return () => {
-        if ('cancelIdleCallback' in window) {
-          (window as any).cancelIdleCallback(handle);
-        }
-      };
-    } else {
-      const timer = setTimeout(preloadSecondaryScreens, 3500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
+  // Preload secondary mockup screens on-demand when user hovers or focuses tabs
+  const preloadedScreens = React.useRef(new Set<string>());
+  const preloadScreen = (key: TabKey) => {
+    if (preloadedScreens.current.has(key)) return;
+    preloadedScreens.current.add(key);
+    const img320 = new Image();
+    img320.src = `/assets/mockup/phone-${key}-320w.webp`;
+    const img640 = new Image();
+    img640.src = `/assets/mockup/phone-${key}-640w.webp`;
+  };
 
   const handleTabChange = (key: TabKey) => {
     if (key === activeTab) return;
@@ -129,6 +118,9 @@ export const PhoneMockup: React.FC = () => {
               role="tab"
               aria-selected={isActive}
               onClick={() => handleTabChange(screen.key)}
+              onMouseEnter={() => preloadScreen(screen.key)}
+              onTouchStart={() => preloadScreen(screen.key)}
+              onFocus={() => preloadScreen(screen.key)}
               title={screen.label}
               style={{
                 flex: '0 0 auto',
@@ -169,27 +161,33 @@ export const PhoneMockup: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <img
-          src={currentScreen.image}
-          alt={currentScreen.alt}
-          width={576}
-          height={1024}
-          fetchPriority="high"
-          loading="eager"
-          decoding="async"
-          style={{
-            width: '100%',
-            maxWidth: '310px',
-            height: 'auto',
-            display: 'block',
-            filter: 'drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18))',
-            opacity: isTransitioning ? 0.7 : 1,
-            transform: isTransitioning ? 'scale(0.985)' : 'scale(1)',
-            transition: 'opacity 0.2s ease, transform 0.2s ease',
-            userSelect: 'none',
-            pointerEvents: 'none',
-          }}
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={`/assets/mockup/phone-${currentScreen.key}-320w.webp 320w, /assets/mockup/phone-${currentScreen.key}-640w.webp 640w`}
+            sizes="(max-width: 800px) 310px, 310px"
+          />
+          <img
+            src={`/assets/mockup/phone-${currentScreen.key}-320w.webp`}
+            alt={currentScreen.alt}
+            width={310}
+            height={551}
+            loading="lazy"
+            decoding="async"
+            style={{
+              width: '100%',
+              maxWidth: '310px',
+              height: 'auto',
+              display: 'block',
+              filter: 'drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18))',
+              opacity: isTransitioning ? 0.7 : 1,
+              transform: isTransitioning ? 'scale(0.985)' : 'scale(1)',
+              transition: 'opacity 0.2s ease, transform 0.2s ease',
+              userSelect: 'none',
+              pointerEvents: 'none',
+            }}
+          />
+        </picture>
       </div>
     </div>
   );

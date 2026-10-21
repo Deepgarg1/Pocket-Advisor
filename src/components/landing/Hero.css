@@ -61,6 +61,14 @@
 .pa-live-dot { width:7px; height:7px; background:#14b8a6; border-radius:50%; box-shadow:0 0 0 4px rgba(20,184,166,.12); }
 .pa-phone-stage { position:relative; z-index:2; width:100%; max-width:390px; display:flex; justify-content:center; }
 .pa-phone-stage>* { max-width:100%; }
+
+/* Keep the LCP phone image cheap to paint on mobile; desktop retains its decorative glow. */
+.pa-phone-mockup-image { filter:none; }
+@media (min-width:801px) {
+  .pa-phone-mockup-image {
+    filter:drop-shadow(0 25px 45px rgba(0,0,0,.65)) drop-shadow(0 0 35px rgba(56,189,248,.18));
+  }
+}
 .pa-phone-stage>div { margin-left:auto!important; margin-right:auto!important; }
 .pa-phone-loading { width:min(100%,310px); min-height:510px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:13px; color:#687790; font-size:.82rem; background:linear-gradient(155deg,#fff,#eaf3ff); border:7px solid #1b2538; border-radius:39px; box-shadow:0 26px 65px rgba(47,68,112,.18); }
 .pa-loader { width:26px; height:26px; border:2px solid #d8dcff; border-top-color:#6558ed; border-radius:50%; animation:pa-spin 1s linear infinite; }

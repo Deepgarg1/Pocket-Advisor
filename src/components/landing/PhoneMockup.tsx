@@ -168,6 +168,7 @@ export const PhoneMockup: React.FC = () => {
             sizes="(max-width: 800px) 310px, 310px"
           />
           <img
+            className="pa-phone-mockup-image"
             src={`/assets/mockup/phone-${currentScreen.key}-320w.webp`}
             alt={currentScreen.alt}
             width={310}
@@ -181,7 +182,7 @@ export const PhoneMockup: React.FC = () => {
               height: 'auto',
               aspectRatio: '310 / 551',
               display: 'block',
-              filter: 'drop-shadow(0 25px 45px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.18))',
+
               opacity: isTransitioning ? 0.7 : 1,
               transform: isTransitioning ? 'scale(0.985)' : 'scale(1)',
               transition: 'opacity 0.2s ease, transform 0.2s ease',

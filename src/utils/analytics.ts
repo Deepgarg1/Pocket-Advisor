@@ -3,6 +3,9 @@ const MEASUREMENT_ID = (import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-FP96084QTY'
 
 export type AnalyticsConsentChoice = 'granted' | 'denied' | null;
 
+// Keep analytics off the initial rendering path; queued events are sent when the script loads.
+let analyticsLoadScheduled = false;
+
 declare global {
   interface Window {
     dataLayer?: unknown[];
@@ -49,12 +52,28 @@ export function initializeGoogleAnalytics(): void {
   }
 
   const existingScript = document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`);
-  if (!existingScript) {
+  if (existingScript || analyticsLoadScheduled) return;
+
+  const loadScript = (): void => {
+    analyticsLoadScheduled = false;
+    if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}"]`)) return;
+
     const script = document.createElement('script');
     script.async = true;
     script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(MEASUREMENT_ID)}`;
     script.dataset.pocketAdvisorAnalytics = 'true';
     document.head.appendChild(script);
+  };
+
+  analyticsLoadScheduled = true;
+  const idleWindow = window as Window & {
+    requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+  };
+
+  if (idleWindow.requestIdleCallback) {
+    idleWindow.requestIdleCallback(loadScript, { timeout: 4000 });
+  } else {
+    window.setTimeout(loadScript, 1500);
   }
 }
 

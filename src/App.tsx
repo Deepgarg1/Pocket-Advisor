@@ -9,6 +9,7 @@ import { MobileBottomNav } from './components/layout/MobileBottomNav';
 import { trackPageView } from './utils/analytics';
 
 import { ErrorBoundary } from './components/common/ErrorBoundary';
+import { ContactView } from './components/support/ContactView';
 
 const FeaturesGrid = lazy(() => import('./components/landing/FeaturesGrid').then((m) => ({ default: m.FeaturesGrid })));
 const InteractiveDemo = lazy(() => import('./components/landing/InteractiveDemo').then((m) => ({ default: m.InteractiveDemo })));
@@ -22,7 +23,7 @@ const RefundPolicyView = lazy(() => import('./components/legal/RefundPolicyView'
 const NewsFeedView = lazy(() => import('./components/news/NewsFeedView').then((m) => ({ default: m.NewsFeedView })));
 const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvingGuides').then((m) => ({ default: m.ProblemSolvingGuides })));
 const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then((m) => ({ default: m.UpiTrackerLanding })));
-const ContactView = lazy(() => import('./components/support/ContactView').then((m) => ({ default: m.ContactView })));
+
 const NotFoundView = lazy(() => import('./components/common/NotFoundView').then((m) => ({ default: m.NotFoundView })));
 const DeepLinkLandingView = lazy(() => import('./components/common/DeepLinkLandingView').then((m) => ({ default: m.DeepLinkLandingView })));
 

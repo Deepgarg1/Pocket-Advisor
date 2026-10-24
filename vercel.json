@@ -247,20 +247,20 @@
   ],
   "rewrites": [
     {
-      "source": "/invite/:path*",
-      "destination": "/index.html"
+      "source": "/invite/(.*)",
+      "destination": "/api/invite?code=$1"
     },
     {
       "source": "/invite",
-      "destination": "/index.html"
+      "destination": "/api/invite"
     },
     {
-      "source": "/ref/:path*",
-      "destination": "/index.html"
+      "source": "/ref/(.*)",
+      "destination": "/api/invite?ref=$1"
     },
     {
       "source": "/ref",
-      "destination": "/index.html"
+      "destination": "/api/invite"
     },
     {
       "source": "/((?!api/).*)",

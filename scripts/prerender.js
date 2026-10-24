@@ -828,14 +828,14 @@ const routes = [
   },
   {
     slug: 'download',
-    title: 'Download Pocket Advisor — Free UPI Expense Tracker for Android (2026)',
-    description: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. Local-first SQLCipher encrypted with optional cloud backup. No netbanking, no OTP access. Download from Google Play.',
+    title: 'Download Pocket Advisor for Android | Google Play',
+    description: 'Pocket Advisor is available now on Google Play for Android. Track UPI and bank SMS expenses automatically on-device, split bills, and get AI spending insights with encrypted local-first storage.',
     canonical: `${BASE_URL}/download`,
     badgeCategory: 'Android App',
     pillText: 'Google Play & Direct APK Download',
     h1: 'Download Pocket Advisor for Android',
     h1Gradient: 'Free UPI &amp; Bank SMS Expense Tracker (2026)',
-    heroDesc: 'Free Android app to auto-track Google Pay, PhonePe & bank SMS expenses. Local-first SQLCipher encrypted with optional cloud backup. No netbanking, no OTP access. Download from Google Play.',
+    heroDesc: 'Pocket Advisor is available now on Google Play for Android. Track UPI and bank SMS expenses automatically on-device, split bills, and get AI spending insights with encrypted local-first storage.',
     ctaText: 'Get on Google Play',
     ctaHref: 'https://play.google.com/store/apps/details?id=com.pocketadvisor.app',
     schemas: [

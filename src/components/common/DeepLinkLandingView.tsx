@@ -27,6 +27,15 @@ export const DeepLinkLandingView: React.FC<DeepLinkLandingViewProps> = ({ type, 
     ? `pocketadvisor://invite?group=${encodeURIComponent(code)}`
     : `pocketadvisor://ref?code=${encodeURIComponent(code)}`;
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && code && /android/i.test(navigator.userAgent)) {
+      const timer = setTimeout(() => {
+        window.location.href = appSchemeUrl;
+      }, 400);
+      return () => clearTimeout(timer);
+    }
+  }, [code, appSchemeUrl]);
+
   return (
     <div
       style={{

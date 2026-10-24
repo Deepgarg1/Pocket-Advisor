@@ -247,6 +247,22 @@
   ],
   "rewrites": [
     {
+      "source": "/invite/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/invite",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ref/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ref",
+      "destination": "/index.html"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }

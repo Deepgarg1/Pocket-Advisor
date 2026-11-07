@@ -1030,7 +1030,7 @@ export function getRouteBodyContent(slug, articles = []) {
         <article style="${contentStyle}">
           <div style="${cardStyle}">
             <h2 style="${headingStyle} margin-top: 0;">Privacy Policy &amp; Security Architecture</h2>
-            <p>Last updated: October 2026. Pocket Advisor is committed to complete transparency and absolute data privacy.</p>
+            <p>Last updated: November 2026. Pocket Advisor is committed to complete transparency and absolute data privacy.</p>
           </div>
 
           <h2 style="${headingStyle}">1. 100% Offline-First Data Guarantee</h2>
@@ -1045,7 +1045,7 @@ export function getRouteBodyContent(slug, articles = []) {
 
           <h2 style="${headingStyle}">3. Cloud Sync &amp; Backups</h2>
           <p>
-            If you optionally choose to sign in to backup your data, your records are transmitted over TLS 1.3 encryption to your private account and can be permanently deleted at any time via our self-service deletion portal.
+            If you optionally choose to sign in to backup your data, your records are transmitted over TLS 1.3 encryption to your private account and can be permanently deleted at any time via our self-service deletion portal or directly in-app using "Delete Cloud Backup Only" without affecting local records. Optional subscriptions and digital receipts are validated securely via RevenueCat and Google Play Billing.
           </p>
 
           <h2 style="${headingStyle}">4. Contact Privacy Officer</h2>

@@ -4,7 +4,7 @@
 **Package:** `com.pocketadvisor.app`  
 **Developer/Owner:** Deepesh Garg  
 **Effective Date:** September 2026  
-**Last Updated:** October 2026  
+**Last Updated:** November 2026  
 
 ---
 
@@ -175,24 +175,29 @@ For users in the European Economic Area (EEA), the United Kingdom, and other jur
 
 ---
 
-## 10. Pocket Advisor Pro (Subscriptions)
+## 10. Pocket Advisor Pro (Subscriptions & Receipt Validation)
 
 Pocket Advisor offers paid Premium subscription plans known as **Pocket Advisor Pro** through **Google Play Billing**.
 
-Premium subscribers receive an ad-free experience and other Pro features identified within the App (such as extended AI Advisor access, PDF statement exports, real-time cloud sync, and unlimited split groups and custom categories). Pocket Advisor does not directly receive, process, or store your full credit card, debit card, or UPI payment credentials; all subscription billing transactions and entitlement validations are handled through Google Play and are subject to Google's applicable terms and policies.
+Premium subscribers receive an ad-free experience and other Pro features identified within the App (such as extended AI Advisor access, PDF statement exports, real-time cloud sync, and unlimited split groups and custom categories). Pocket Advisor does not directly receive, process, or store your full credit card, debit card, or UPI payment credentials; all monetary billing transactions are handled exclusively by Google Play.
+
+### Subscription Infrastructure & Entitlement Management (RevenueCat)
+To securely manage in-app subscriptions, track active entitlements across app sessions, and validate promotional/streak rewards, Pocket Advisor integrates RevenueCat (Purchases SDK). RevenueCat processes pseudonymous app user identifiers, Google Play purchase tokens, subscription product identifiers, and entitlement renewal statuses. RevenueCat does not receive your payment credentials. For more details on RevenueCat's data practices, visit [https://www.revenuecat.com/privacy](https://www.revenuecat.com/privacy).
 
 You may manage or cancel your subscription at any time through your Google Play account settings. Cancellation prevents future automatic renewals but does not retroactively refund the unused portion of an active billing period. Refunds are governed by applicable law, Google Play's billing policies, and our Cancellation & Refund Policy.
+
 ---
 
 ## 11. Third-Party Services & SDKs
 
 Pocket Advisor relies on carefully selected third-party infrastructure and SDKs to operate specific features of the App:
 * **Supabase** — User authentication (GoTrue), PostgreSQL cloud database with Row Level Security, Cloud Backup/Sync, Split Group synchronization, and Edge Functions.
+* **RevenueCat (Purchases SDK)** — Subscription infrastructure, Google Play receipt validation, promotional and streak reward entitlement verification, and subscription lifecycle management ([https://www.revenuecat.com/privacy](https://www.revenuecat.com/privacy)).
 * **Google Gemini API** — Cloud AI processing for the conversational AI Financial Advisor.
 * **Google Firebase Crashlytics & Firebase Analytics** — Crash reporting, diagnostic stack traces, and aggregated application usage telemetry to help us identify bugs and improve stability.
 * **Google Firebase Remote Config** — Delivery of server-side feature flags, ad frequency thresholds, and in-app service announcements (`AnnouncementSyncWorker`).
 * **Google AdMob & Google User Messaging Platform (UMP)** — Ad delivery for free-tier users and regional privacy consent management.
-* **Google Play Billing & Google Play Install Referrer API** — Subscription management and referral install attribution.
+* **Google Play Billing & Google Play Install Referrer API** — Subscription checkout processing and referral install attribution.
 * **Currency Exchange Rate API (`CurrencyExchangeService`)** — Fetches live foreign exchange rates using only currency code pairs (no personal or transaction data is sent) when you convert display currencies.
 
 Each third-party provider processes data in accordance with its own privacy policy and terms of service.
@@ -229,8 +234,9 @@ We **never** sell your personal or financial information to third parties or dat
 You have complete control over erasing your data both locally and in the cloud:
 
 1. **Instant Local Data Purge ("Clear All Data"):** Within the App settings, you can trigger a complete local wipe (`LocalDataPurgeManager`), which immediately erases all local SQLCipher database tables, clears encrypted preferences, revokes local Keystore keys, and resets the App to a factory-fresh state.
-2. **In-App Cloud Account Deletion:** You can permanently delete your Pocket Advisor account and all associated cloud records directly from the App settings.
-3. **Web Account Deletion (If Uninstalled):** If you have already uninstalled the App, you can request permanent account and cloud data deletion through our **Verified Web Deletion Portal** on `pocketadvisor.in` or by emailing **privacy@pocketadvisor.in** from your registered email address.
+2. **Delete Cloud Backup Only (Preserve Local Data):** If you discontinue your subscription or wish to stop cloud sync, you can purge all your synced records from our cloud servers while preserving 100% of your transaction ledger, accounts, and reminders on this phone to continue using the App offline (Profile > Danger Zone > Delete Cloud Backup Only or via the Cloud Backup Preserved card).
+3. **In-App Cloud Account Deletion:** You can permanently delete your Pocket Advisor account and all associated cloud records directly from the App settings.
+4. **Web Account Deletion (If Uninstalled):** If you have already uninstalled the App, you can request permanent account and cloud data deletion through our **Verified Web Deletion Portal** on `pocketadvisor.in` or by emailing **privacy@pocketadvisor.in** from your registered email address.
 
 When your account deletion is completed, we permanently delete your:
 * Account profile and authentication records

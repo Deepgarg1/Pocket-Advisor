@@ -1,6 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Hero } from './components/landing/Hero';
+import { MobileDownloadBar } from './components/landing/MobileDownloadBar';
 import { HomeFeaturesShowcase } from './components/landing/HomeFeaturesShowcase';
 import { FaqSection } from './components/landing/FaqSection';
 import { Navbar } from './components/layout/Navbar';
@@ -23,6 +24,8 @@ const RefundPolicyView = lazy(() => import('./components/legal/RefundPolicyView'
 const NewsFeedView = lazy(() => import('./components/news/NewsFeedView').then((m) => ({ default: m.NewsFeedView })));
 const ProblemSolvingGuides = lazy(() => import('./components/guides/ProblemSolvingGuides').then((m) => ({ default: m.ProblemSolvingGuides })));
 const UpiTrackerLanding = lazy(() => import('./components/landing/UpiTrackerLanding').then((m) => ({ default: m.UpiTrackerLanding })));
+const PrivacyComparisonSection = lazy(() => import('./components/landing/PrivacyComparisonSection').then((m) => ({ default: m.PrivacyComparisonSection })));
+const InteractiveQuickCalculator = lazy(() => import('./components/landing/InteractiveQuickCalculator').then((m) => ({ default: m.InteractiveQuickCalculator })));
 
 const NotFoundView = lazy(() => import('./components/common/NotFoundView').then((m) => ({ default: m.NotFoundView })));
 const DeepLinkLandingView = lazy(() => import('./components/common/DeepLinkLandingView').then((m) => ({ default: m.DeepLinkLandingView })));
@@ -174,6 +177,8 @@ export const App: React.FC = () => {
                 <div>
                   <Hero onNavigate={navigateView} />
                   <HomeFeaturesShowcase onNavigate={navigateView} />
+                  <InteractiveQuickCalculator />
+                  <PrivacyComparisonSection />
                   <FaqSection useHomeFaqs headingLevel="h2" onNavigate={navigateView} />
                 </div>
               }
@@ -458,6 +463,9 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       {currentView !== 'admin' && <Footer onNavigate={navigateView} />}
+    
+      {/* Sticky Mobile Install Banner (scroll-triggered) */}
+      <MobileDownloadBar />
     </div>
   );
 };

@@ -101,26 +101,26 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
             <MessageSquareText size={13} /> Zero-Effort Automation
           </div>
           <h3 className="pa-showcase-heading">
-            Linguistic On-Device SMS &amp; UPI Expense Parser
+            Auto-Tracks Every Bank &amp; UPI Expense. 100% On-Device.
           </h3>
           <p className="pa-showcase-desc">
-            Stop logging transactions by hand. Pocket Advisor includes an on-device linguistic engine
-            that processes incoming bank and UPI debit alerts in milliseconds across 150+ currencies.
-            Raw SMS texts never leave your phone.
+            Stop logging transactions by hand. Pocket Advisor automatically detects incoming bank debit alerts
+            (HDFC, SBI, ICICI, Axis, Kotak &amp; 50+ banks) directly on your phone. No manual typing, no bank logins,
+            and zero SMS data uploaded to any server.
           </p>
 
           <div className="pa-points-list">
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>Google Play Policy Compliant:</strong> Operates strictly under approved financial SMS guidelines with zero netbanking credentials or OTP storage.</span>
+              <span><strong>Instant Zero-Click Logging:</strong> Spends from Swiggy, Zomato, Uber, Blinkit, and local UPI QR scans are captured instantly.</span>
             </div>
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>Smart Merchant Isolation:</strong> Automatically detects Swiggy, Zomato, Uber, Amazon, Netflix, and 40+ Indian banks (HDFC, SBI, ICICI, Axis).</span>
+              <span><strong>Smart Merchant Learning:</strong> Re-categorize a merchant once (e.g. Swiggy Instamart as Groceries), and the app remembers forever.</span>
             </div>
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>Instant OTP Rejection:</strong> Security and verification codes are dropped immediately in memory and never written to disk.</span>
+              <span><strong>Strict OTP &amp; Privacy Shield:</strong> Banking OTPs, 2FA codes, and personal messages are dropped in memory within 1 millisecond.</span>
             </div>
           </div>
 
@@ -201,26 +201,25 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
             <Users size={13} /> Group Financial Harmony
           </div>
           <h3 className="pa-showcase-heading">
-            2-Stage Greedy Debt Splitter &amp; UPI QR Engine
+            Splitwise Made Simple — Settle via 1-Tap UPI QR
           </h3>
           <p className="pa-showcase-desc">
-            Splitting trip or flatmate expenses usually results in an entangled web of IOU transfers.
-            Pocket Advisor models debts as a bipartite graph and greedily resolves net dues, reducing
-            dozens of messy repayments down to the absolute minimum bilateral transfers.
+            Splitting rent with flatmates or dividing road trip expenses? Pocket Advisor simplifies net balances
+            so nobody owes multiple people. Friends can scan an on-screen dynamic UPI QR code to settle up instantly.
           </p>
 
           <div className="pa-points-list">
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>80% Transaction Reduction:</strong> Turns 12 confusing cross-payments between 4 people into just 2 clean settlements.</span>
+              <span><strong>80% Fewer Transfers:</strong> Mathematical debt reduction turns 12 tangled transfers into just 2 clean settlements.</span>
             </div>
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>Instant UPI Deep-Links:</strong> 1-tap handoff to Google Pay, PhonePe, Paytm, or CRED with pre-filled amounts and VPA addresses.</span>
+              <span><strong>Instant 1-Tap UPI Pay:</strong> Direct handoff to Google Pay, PhonePe, Paytm, or CRED with pre-filled amounts.</span>
             </div>
             <div className="pa-point-item">
               <CheckCircle2 size={16} />
-              <span><strong>On-Screen Dynamic QR:</strong> Generate offline ZXing QR codes so friends can scan and pay without typing long UPI IDs.</span>
+              <span><strong>On-Screen Dynamic QR:</strong> Friends scan right from your screen to pay without asking "What's your UPI ID?".</span>
             </div>
           </div>
 
@@ -302,14 +301,14 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
       <div>
         <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 32px' }}>
           <div className="pa-tag pa-tag-amber" style={{ margin: '0 auto 12px' }}>
-            <ShieldCheck size={13} /> Enterprise Security
+            <ShieldCheck size={13} /> The Anti-Loan Spyware Guarantee
           </div>
           <h3 className="pa-showcase-heading">
-            Your Financial Records Never Leave Your Hardware
+            Zero Loan Ads. Zero Telemarketing Calls. 100% Private.
           </h3>
           <p className="pa-showcase-desc">
             We don't ask for netbanking passwords, bank logins, or cloud access to your messages.
-            Every byte is guarded locally with cryptographic isolation.
+            We have zero lending partners and never sell your profile—so you will never receive an unsolicited loan call.
           </p>
         </div>
 

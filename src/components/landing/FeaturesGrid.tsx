@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from '../common/Card';
 import { useSettings } from '../../context/SettingsContext';
 import {
+  Cloud,
   Sparkles,
   Users,
   Smartphone,
@@ -36,7 +37,7 @@ interface FeatureItem {
   badgeColor: string;
   title: string;
   description: string;
-  previewType: 'notification' | 'split' | 'widget' | 'copilot' | 'shopping' | 'security' | 'sip' | 'export' | 'biometrics' | 'reminders';
+  previewType: 'notification' | 'split' | 'widget' | 'copilot' | 'shopping' | 'security' | 'sip' | 'export' | 'biometrics' | 'reminders' | 'cloud';
   actionLabel?: string;
   actionView?: string;
 }
@@ -347,6 +348,36 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({ onNavigate }) => {
             <div style={{ marginTop: '8px', display: 'flex', justifyContent: 'space-between', fontSize: '0.72rem', color: 'var(--text-secondary)' }}>
               <span>✓ 6 items checked</span>
               <span style={{ color: isDark ? '#10b981' : '#059669', fontWeight: 600 }}>Safe Budget</span>
+            </div>
+          </div>
+        );
+
+      case 'cloud':
+        return (
+          <div
+            style={{
+              marginTop: '18px',
+              padding: '10px 14px',
+              borderRadius: '12px',
+              backgroundColor: isDark ? 'rgba(59, 130, 246, 0.08)' : 'rgba(59, 130, 246, 0.1)',
+              border: isDark ? '1px solid rgba(59, 130, 246, 0.2)' : '1px solid rgba(59, 130, 246, 0.25)',
+              fontSize: '0.78rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '6px',
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 600, color: 'var(--text-primary)' }}>
+                <Cloud size={14} color="#60a5fa" />
+                Google Sign-In Cloud Sync
+              </span>
+              <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '9999px', backgroundColor: isDark ? 'rgba(16, 185, 129, 0.2)' : 'rgba(16, 185, 129, 0.15)', color: isDark ? '#34d399' : '#059669', fontWeight: 700 }}>
+                Auto-Synced
+              </span>
+            </div>
+            <div style={{ color: 'var(--text-secondary)', fontSize: '0.74rem' }}>
+              Encrypted cloud backup active: Ledgers, budgets, and bill reminders safely protected.
             </div>
           </div>
         );

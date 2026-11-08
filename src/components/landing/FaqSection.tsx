@@ -51,14 +51,24 @@ const FAQS: FaqItem[] = [
 
 export const HOME_FAQS: FaqItem[] = [
   {
+    question: 'Will I receive loan calls or telemarketing spam if I install Pocket Advisor?',
+    answer:
+      'Never. Most popular Indian expense trackers upload your financial SMS to remote servers, build a credit profile on you, and sell your contact info to loan brokers and telemarketers. Pocket Advisor has zero lending partners, zero credit card cross-sells, and parses all bank SMS 100% on your device. We will never sell your data or spam you.',
+  },
+  {
+    question: 'How does the Group Bill Splitter work and how is it better than Splitwise?',
+    answer:
+      'Unlike Splitwise, which imposes daily transaction limits on free users and forces you to juggle multiple UPI apps to settle, Pocket Advisor has no artificial limits. It automatically minimizes tangled group debts so fewer payments are needed, and lets flatmates or travel buddies scan a dynamic on-screen UPI QR code to pay instantly.',
+  },
+  {
+    question: 'Does Pocket Advisor support cloud backup and multi-device sync?',
+    answer:
+      'Yes! Pocket Advisor supports automatic encrypted Cloud Backup whenever you sign in with your account (Google Sign-In or Supabase Auth). Your transactions, custom categories, monthly budgets, bill reminders, and split groups are securely synced over TLS 1.3 encryption to private cloud storage, allowing seamless multi-device access and 1-tap restore on any new phone. If you prefer not to sign in, Pocket Advisor remains 100% offline-first with on-device SQLCipher AES-256 encryption.',
+  },
+  {
     question: 'How does Pocket Advisor track bank and UPI expenses automatically?',
     answer:
       "Pocket Advisor securely detects incoming banking and payment SMS alerts (HDFC, SBI, ICICI, Axis, Bandhan, and major Indian banks) directly on your Android device using deterministic regex parsing under Google Play's financial SMS policy. SMS parsing runs 100% locally on your device without transmitting raw message contents to external servers. Your financial ledger is encrypted locally with SQLCipher AES-256.",
-  },
-  {
-    question: 'How does the 2-stage greedy debt minimization bill splitter work?',
-    answer:
-      "Instead of tangled peer-to-peer transfers where everyone owes each other, Pocket Advisor's mathematical engine models all group debts as a bipartite graph and greedily resolves net balances, cutting up to 30 entangled transactions down to the absolute minimum payments.",
   },
   {
     question: 'Can I use the Quick Bill Splitter without downloading the app or creating an account?',

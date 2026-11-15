@@ -261,8 +261,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'best-expense-tracker-apps-india': {
-    title: 'Best Expense Tracker Apps in India (2026): Architectural Comparison | Pocket Advisor',
-    description: 'An architectural comparison of India’s personal finance apps across 4 models: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers.',
+    title: 'Best Expense Tracker App in India (2026): Compare Features | Pocket Advisor',
+    description: 'Compare expense tracker apps in India by automatic UPI tracking, manual entry, bank sync, budgeting, privacy, offline access, and pricing. Find the right Android or iPhone money tracker for your needs.',
     canonical: `${BASE_URL}/news/best-expense-tracker-apps-india`,
     ogType: 'article',
     ogImage: DEFAULT_IMAGE,

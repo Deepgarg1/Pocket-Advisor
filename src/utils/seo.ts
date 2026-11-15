@@ -157,8 +157,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'upi-expense-tracker': {
-    title: 'UPI Expense Tracker for Android in India | Pocket Advisor',
-    description: 'Track eligible UPI and bank transactions from supported SMS alerts on Android. Learn coverage limits, privacy controls, and optional cloud backup in Pocket Advisor.',
+    title: 'UPI Expense Tracker App for Android (India) | Pocket Advisor',
+    description: 'Automatically track eligible UPI and bank expenses from supported SMS alerts on Android. Explore setup, bank coverage, privacy, missed transactions, and free Pocket Advisor features.',
     canonical: `${BASE_URL}/upi-expense-tracker`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

@@ -1698,10 +1698,9 @@ A = P × (1 + r / n)^(n × t) + PMT × [((1 + r / n)^(n × t) - 1) / (r / n)]</p
       return `
         <article style="${contentStyle}">
           <section style="${cardStyle}">
-            <h2 style="${headingStyle} margin-top: 0;">Why Inflation Is the Silent Destroyer of Cash Savings</h2>
-            <p>Inflation is the sustained increase in general prices over time, causing each unit of currency to buy fewer goods and services. If ₹100 today buys a basket of groceries, and annual inflation averages 6%, that identical basket will cost ₹179 in 10 years and ₹321 in 20 years.</p>
-            <p>Leaving surplus funds in low-yield savings accounts (earning 2.5% to 3.0%) guarantees real wealth destruction after factoring in India's historical Consumer Price Index (CPI) trends.</p>
-          </section>
+            <h2 style="${headingStyle} margin-top: 0;">Inflation Calculator India: Estimate Future Prices and Purchasing Power</h2>
+            <p>Use the inflation calculator above to estimate how the price of an item, household budget, education cost or other expense may change over time. Enter today’s cost, an assumed annual inflation rate and the number of years. The result is a scenario based on your inputs, not a forecast of the exact inflation rate India will experience.</p>
+            <p>For example, at an assumed 6% annual rate, something that costs ₹1,00,000 today would cost about ₹1,79,085 after 10 years if prices rose at that same rate each year. The same ₹1,00,000 held as cash would then buy goods worth about ₹55,839 in today’s money.</p></section>
 
           <h2 style="${headingStyle}">Mathematical Formulas for Inflation &amp; Purchasing Power</h2>
           <div style="${cardStyle}">
@@ -1733,6 +1732,18 @@ Purchasing Power Erosion (%) = [1 - (1 / (1 + i)^t)] × 100</pre>
                 <tr><td style="padding: 12px 16px; font-weight: 700;">30 Years</td><td style="padding: 12px 16px;">₹5,74,349</td><td style="padding: 12px 16px; color: #ef4444; font-weight: 700;">₹17,411</td><td style="padding: 12px 16px; color: #ef4444; font-weight: 700;">82.6% Lost</td></tr>
               </tbody>
             </table>
+          </div>
+
+          <h2 style="${headingStyle}">How to Use This Inflation Calculator</h2>
+          <ol style="padding-left: 22px; margin-bottom: 24px;">
+            <li>Enter the current price or expense amount, such as a monthly household budget or a course fee.</li>
+            <li>Set an assumed annual inflation rate. Use a rate that suits your scenario rather than treating the preset as an official forecast.</li>
+            <li>Choose the number of years and review both the estimated future cost and the purchasing power of today’s money.</li>
+          </ol>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">What the Inflation Formula Means</h3>
+            <p>Future cost compounds because each year’s price increase applies to the previous year’s price. The calculator uses <strong>Future Cost = Current Cost × (1 + annual rate)<sup>years</sup></strong>. To express a future cash amount in today’s purchasing power, divide it by the same inflation factor.</p>
+            <p style="margin-bottom: 0;">A 6% input is an illustrative assumption only. Your actual personal expenses may rise faster or slower than headline CPI, depending on what you buy and where you live.</p>
           </div>
 
           <h2 style="${headingStyle}">Sector-Specific Inflation in India</h2>

@@ -150,8 +150,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'inflation-calculator': {
-    title: 'Inflation Calculator India (2026) — Future Living Costs & Purchasing Power | Pocket Advisor',
-    description: 'Calculate future cost of living and purchasing power erosion based on historical Indian CPI inflation. Project college fees, retirement expenses, and lifestyle costs.',
+    title: 'Inflation Calculator India: Future Value & Purchasing Power | Pocket Advisor',
+    description: 'Use this free inflation calculator for India to estimate future prices and the purchasing power of today’s money. Adjust the inflation rate and time period for your own estimate.',
     canonical: `${BASE_URL}/inflation-calculator`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

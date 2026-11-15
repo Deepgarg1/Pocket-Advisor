@@ -1642,10 +1642,20 @@ M_i = P × (1 + r / 4)^(4 × (n - i + 1) / 12)</pre>
       return `
         <article style="${contentStyle}">
           <section style="${cardStyle}">
-            <h2 style="${headingStyle} margin-top: 0;">The Power of Compounding Frequencies Explained</h2>
-            <p>Compound interest is interest calculated on the initial principal plus all accumulated interest from prior periods. Albert Einstein famously called it the <em>eighth wonder of the world</em>: he who understands it, earns it; he who doesn't, pays it.</p>
-            <p>The more frequently interest is calculated and added to the principal (daily vs annual), the higher the final maturity corpus will be due to continuous interest-on-interest accumulation.</p>
-          </section>
+            <h2 style="${headingStyle} margin-top: 0;">Compound Interest Calculator India: Estimate Your Investment Growth</h2>
+            <p>Use this compound interest calculator to estimate how an initial investment can grow when interest is reinvested. Enter a starting amount, monthly contribution, expected annual rate and time horizon. The calculator shows an estimated future balance alongside the amount you contribute and the growth earned.</p>
+            <p>Compounding is interest earned on both your original principal and previously accumulated interest. Regular contributions can also increase the amount invested over time. Results are mathematical illustrations—not guaranteed returns—and actual investment outcomes depend on the product, fees, taxes and market performance.</p></section>
+
+          <h2 style="${headingStyle}">How to Use the Compound Interest Calculator</h2>
+          <ol style="padding-left: 22px; margin-bottom: 24px;">
+            <li>Enter your initial investment and the monthly amount you plan to add.</li>
+            <li>Set an assumed annual interest or return rate and your investment duration.</li>
+            <li>Choose how often interest compounds, then compare the final balance with your total contributions.</li>
+          </ol>
+          <div style="${cardStyle}">
+            <h3 style="font-size: 1.05rem; font-weight: 700; color: #f8fafc; margin-top: 0;">What Is the Difference Between Contributions and Growth?</h3>
+            <p>Your total contributions are the initial amount plus the deposits you make during the period. The estimated growth is the calculator’s final balance minus those contributions. A longer time horizon can increase compounding’s effect, but the rate entered is an assumption and may not be achieved.</p>
+          </div>
 
           <h2 style="${headingStyle}">Compounding Math Formula with Periodic Deposits</h2>
           <div style="${cardStyle}">

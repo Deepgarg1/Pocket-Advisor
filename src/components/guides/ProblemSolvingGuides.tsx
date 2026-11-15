@@ -1204,7 +1204,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             marginBottom: '14px',
           }}
         >
-          Best Expense Tracker Apps in India (2026): An Architectural Comparison
+          Best Expense Tracker Apps in India (2026): Compare Features, Tracking & Privacy
         </h1>
 
         <p
@@ -1215,7 +1215,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             marginBottom: '28px',
           }}
         >
-          An honest, technical evaluation of India&apos;s 4 dominant personal finance architectures: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual web tools. Compare privacy, cloud sync options, and business models.
+          An independent, criteria-based guide to choosing an expense tracker app in India. Compare automatic UPI and bank tracking, manual expense entry, budgeting, bill splitting, privacy, offline access, platform support, and pricing—then choose the workflow that fits your needs.
         </p>
 
         {/* E-E-A-T Author Card */}
@@ -1239,7 +1239,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             The 30-Second Summary: Which Category Fits Your Needs?
           </h2>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: '0.96rem', marginBottom: '18px' }}>
-            Rather than looking at marketing slogans, picking an expense tracker in India comes down to which underlying technical architecture and business model matches your daily habits:
+            Choosing the best expense tracker app is less about a universal winner and more about your priorities: automation, platform, privacy, bank coverage, budgeting features, ease of use, and cost. Use the categories below as a shortlist—not a ranking.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '14px', marginBottom: '24px' }}>
@@ -1253,7 +1253,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 On-Device SMS + Optional Cloud
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
-                <em>Primary Example: Pocket Advisor</em>. Parses bank &amp; UPI SMS locally on-device with SQLCipher AES-256 encryption. Works 100% offline, offers optional encrypted cloud sync, and includes bill splitting. Ad-supported free tier with Pro ad-free upgrade; zero loan telemarketing.
+                <em>Example: Pocket Advisor</em>. Android app that reads supported bank transaction SMS alerts on-device, stores app data in an encrypted local database, and offers optional cloud backup. It also includes budgeting and group bill splitting. SMS coverage can vary by bank and message format.
               </p>
             </Card>
 
@@ -1267,7 +1267,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 RBI Account Aggregator Apps
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
-                <em>Primary Example: Fold Money</em>. Connects to banks via RBI-regulated Account Aggregators (Setu, OneMoney) with OTP consent. Clean cross-platform UI (iOS &amp; Android), zero SMS access needed. Requires an annual subscription fee (~₹1,500+/yr).
+                <em>Example: Fold Money</em>. Uses bank-data connectivity through the Account Aggregator ecosystem. This can suit users who prefer statement-based tracking or cross-platform access; availability, supported institutions, and pricing should be checked directly with the provider.
               </p>
             </Card>
 
@@ -1281,7 +1281,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 Cloud FinTech &amp; Lending Hubs
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
-                <em>Examples: Moneyview, Axio</em>. Tracks SMS and bank balances while syncing financial telemetry to corporate cloud databases to offer instant personal loans, credit lines, and free credit score updates. Expect in-app loan marketing.
+                <em>Examples: Moneyview and Axio</em>. Some finance apps combine expense tracking with credit scores, lending, or other financial services. Review each app’s privacy policy, permissions, and marketing preferences before connecting accounts or granting SMS access.
               </p>
             </Card>
 
@@ -1295,7 +1295,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 Manual Web &amp; Desktop Ledgers
               </h3>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>
-                <em>Example: Mera Kharcha</em>. Allows logging income and expenses manually on desktop browsers and mobile devices. Good for family bookkeeping; requires ongoing manual entry discipline and cloud storage.
+                <em>Example: Mera Kharcha</em>. Manual-entry tools can work well for family bookkeeping, shared records, or users who do not want automatic transaction access. The trade-off is the effort of recording purchases consistently.
               </p>
             </Card>
           </div>
@@ -1358,7 +1358,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             Architectural Category Comparison Matrix
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', marginBottom: '18px' }}>
-            Factual breakdown across core technical, privacy, and economic dimensions (October 2026).
+            High-level comparison of common approaches. Features, policies, supported banks, and prices can change; verify current details on each provider’s official page.
           </p>
 
           <div
@@ -1415,9 +1415,9 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
 
                 <tr style={{ borderBottom: '1px solid var(--border-subtle)' }}>
                   <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-primary)' }}>Loan Telemarketing Calls?</td>
-                  <td style={{ padding: '12px 16px', fontWeight: 700, color: '#10b981', background: 'rgba(99, 102, 241, 0.04)' }}>Zero Loan Sales / No NBFC Sharing</td>
+                  <td style={{ padding: '12px 16px', fontWeight: 700, color: '#10b981', background: 'rgba(99, 102, 241, 0.04)' }}>Check policy & permissions</td>
                   <td style={{ padding: '12px 16px', color: '#10b981' }}>Zero Loan Sales (Subscription model)</td>
-                  <td style={{ padding: '12px 16px', color: '#ef4444' }}>Frequent In-App Loan &amp; Card Prompts</td>
+                  <td style={{ padding: '12px 16px', color: '#ef4444' }}>May offer credit products</td>
                   <td style={{ padding: '12px 16px', color: '#10b981' }}>No Loan Sales</td>
                 </tr>
 
@@ -1467,7 +1467,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
                 </h3>
               </div>
               <span style={{ fontSize: '0.85rem', fontWeight: 800, padding: '4px 10px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.15)', color: '#10b981' }}>
-                Privacy &amp; Efficiency Leader
+                On-device processing
               </span>
             </div>
 
@@ -1503,7 +1503,7 @@ export const ProblemSolvingGuides: React.FC<GuideViewProps> = ({ slug, onNavigat
             </div>
 
             <div style={{ fontSize: '0.88rem', color: 'var(--text-muted)' }}>
-              <strong>Best suited for:</strong> Android users who want automated UPI tracking, group bill splitting, and complete freedom from loan telemarketing calls.
+              <strong>Best suited for:</strong> Android users who prefer supported transaction SMS to be processed on-device and want expense tracking plus bill splitting.
             </div>
           </div>
 

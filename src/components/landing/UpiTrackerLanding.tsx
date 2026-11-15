@@ -227,7 +227,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             margin: '0 auto 20px',
           }}
         >
-          Automatic UPI &amp; Bank SMS Expense Tracker for{' '}
+          UPI Expense Tracker App for{' '}
           <span className="text-gradient">
             Android
           </span>
@@ -242,7 +242,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             margin: '0 auto 32px',
           }}
         >
-          Stop typing every chai, cab, and grocery transaction manually. Pocket Advisor helps you record eligible transactions from bank SMS alerts for supported banks and payment apps. SMS availability and parsing can vary by bank, account, and message format. Review our Privacy Policy to understand local storage and optional cloud backup.
+          Track everyday UPI spending without manually entering every chai, cab, or grocery purchase. Pocket Advisor is an Android expense tracker that can turn supported bank transaction SMS alerts into ledger entries on your device. Coverage depends on the bank, account, and message format; check entries against your statement. Your app data stays local by default, with optional cloud backup controlled in settings.
         </p>
 
         {/* Primary Action Buttons */}
@@ -327,7 +327,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             How On-Device SMS Detection Works
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
-            Test the live regex extraction engine below. Select a bank SMS to observe how Pocket Advisor captures amounts and merchant details in real time without touching OTPs.
+            Explore illustrative SMS examples below to understand which transaction details may be extracted. These are sample messages—not a guarantee that every bank alert will parse identically.
           </p>
         </div>
 
@@ -509,17 +509,17 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
       <section style={{ marginBottom: '80px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
-            Supported Indian Banks &amp; Payment Apps
+            UPI Expense Tracking: Banks &amp; Payment Apps
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
-            Pocket Advisor is designed to recognize transaction-alert formats from selected banks. Actual coverage depends on the SMS format delivered to your phone; check sample records and reconcile with your bank statement.
+            Pocket Advisor recognizes selected transaction-alert formats from Indian banks. Google Pay, PhonePe, Paytm and other UPI apps generally rely on the linked bank’s confirmation SMS—not direct access to your UPI app history. Actual support varies by bank and message format; verify imported entries against your bank statement.
           </p>
         </div>
 
         {/* UPI Apps Grid */}
         <div style={{ marginBottom: '28px' }}>
           <div style={{ fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', marginBottom: '12px', textAlign: 'center' }}>
-            Supported UPI Payment Apps
+            UPI Apps That May Generate Bank Transaction Alerts
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center' }}>
             {UPI_APPS.map((app) => (
@@ -576,7 +576,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
       <section style={{ marginBottom: '80px' }}>
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '10px' }}>
-            Handling Real-World Edge Cases Honestly
+            Automatic Expense Tracking: Limitations & Corrections
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', maxWidth: '640px', margin: '0 auto' }}>
             We know financial tracking isn’t always linear. Here is how Pocket Advisor manages edge cases without skewing your monthly numbers.
@@ -593,7 +593,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
               Delayed or Missing SMS
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-              If your telecom provider delays delivery due to poor connectivity, Pocket Advisor processes pending alerts as soon as service returns. You can also log purchases via the Android Home Screen widget in under 2 seconds.
+              If a bank alert arrives late, it may be processed when received. If no SMS arrives or the format is unsupported, automatic tracking can miss the transaction; add it manually and reconcile with your statement.
             </p>
           </div>
 
@@ -606,7 +606,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
               Refunds &amp; Failed Payments
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-              When a failed UPI charge is reversed, Pocket Advisor offsets the initial debit instead of falsely counting the refund as new salary or income. Failed and declined alerts are flagged and excluded.
+              Refunds and failed-payment reversals may be recognized from supported message patterns. Review the debit and reversal entries to ensure they net correctly; classification can vary by bank.
             </p>
           </div>
 
@@ -619,7 +619,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
               Self-Transfers Without Double-Counting
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>
-              Moving funds between your own SBI and HDFC accounts, or paying your credit card bill from your savings balance, is classified as an internal transfer so your monthly spending totals never get doubled.
+              Transfers between your own accounts and credit-card bill payments can require review to avoid counting both sides as spending. Check how the app categorizes these entries and correct any duplicate expense.
             </p>
           </div>
         </div>
@@ -643,19 +643,19 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
             <FileCheck2 size={16} /> Google Play Financial Transaction Policy Compliant
           </div>
           <h2 style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '14px' }}>
-            Zero-Cloud Architecture &amp; Hardware-Grade Security
+            On-Device SMS Parsing &amp; Local Data Protection
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.65, marginBottom: '24px' }}>
-            Pocket Advisor operates strictly under Google Play’s &quot;Financial transaction management&quot; exception. SMS transaction parsing is 100% on-device: SMS body text is NEVER transmitted to external servers, and personal messages or OTPs are never collected or stored.
+            Transaction SMS parsing is designed to run on-device; raw SMS text is not uploaded as part of the parsing flow. Optional cloud backup is a separate feature and may sync selected app data when enabled. OTP filtering is pattern-based and cannot guarantee perfect detection across every message; review the Privacy Policy and permissions before enabling access.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '18px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
               <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Zap size={16} color="var(--primary)" /> 790+ Line On-Device SmsParser
+                <Zap size={16} color="var(--primary)" /> On-device SMS parser
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                Linguistic SMS parsing engine running via high-priority background WorkManager. Evaluates 150+ currencies with context anchoring in milliseconds.
+                The app analyzes supported transaction-alert formats locally to identify details such as amount, direction, and merchant. Parsing support depends on message patterns and can evolve with app updates.
               </div>
             </div>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '18px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
@@ -663,7 +663,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
                 <ShieldCheck size={16} color="#10b981" /> Strict Anti-OTP &amp; Spam Filters
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                Strict pattern rejection discards one-time passwords, promotional discounts, loan offers, credit card spam, and unconfirmed requests automatically.
+                Pattern filters aim to exclude OTPs, promotional messages, and non-transaction alerts. Filters are not infallible; avoid assuming every sensitive message is perfectly classified.
               </div>
             </div>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '18px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>
@@ -671,7 +671,7 @@ export const UpiTrackerLanding: React.FC<UpiTrackerLandingProps> = ({ onNavigate
                 <Lock size={16} color="#818cf8" /> SQLCipher AES-256 + Android Keystore
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                Local Room SQLite database is encrypted at rest with hardware TEE/StrongBox keys. Protected by Biometric Lock and FLAG_SECURE window masking.
+                The app uses encrypted local storage and Android security features. Exact protection depends on device capabilities and app settings; consult the current Privacy Policy and security documentation.
               </div>
             </div>
             <div style={{ background: isDark ? 'rgba(0,0,0,0.3)' : 'var(--bg-surface)', borderRadius: '14px', padding: '18px', border: isDark ? '1px solid rgba(255,255,255,0.06)' : '1px solid var(--border-subtle)' }}>

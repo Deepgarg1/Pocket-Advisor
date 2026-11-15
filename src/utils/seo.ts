@@ -136,8 +136,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'compound-interest-calculator': {
-    title: 'Compound Interest Calculator India (2026) — Daily to Annual Frequencies | Pocket Advisor',
-    description: 'Simulate compound interest with daily, monthly, quarterly, and annual compounding schedules. Model recurring monthly deposits and visualize exponential wealth growth.',
+    title: 'Compound Interest Calculator India: Monthly Investment & Growth',
+    description: 'Calculate compound interest in India with an initial amount, monthly contributions, annual rate and investment period. Compare compounding frequency and estimate total invested, interest earned and future value.',
     canonical: `${BASE_URL}/compound-interest-calculator`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

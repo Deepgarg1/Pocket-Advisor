@@ -220,6 +220,42 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
+                  href="/news/how-to-track-spending-automatically-android"
+                  onClick={(e) => handleNavClick('news/how-to-track-spending-automatically-android', e)}
+                  className="footer-nav-link"
+                >
+                  Automatic Spending Tracking on Android
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/track-upi-expenses-automatically"
+                  onClick={(e) => handleNavClick('news/track-upi-expenses-automatically', e)}
+                  className="footer-nav-link"
+                >
+                  Track UPI Expenses Automatically
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/rupay-credit-card-on-upi-rules-charges"
+                  onClick={(e) => handleNavClick('news/rupay-credit-card-on-upi-rules-charges', e)}
+                  className="footer-nav-link"
+                >
+                  RuPay Credit Card on UPI Guide
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/welcome-to-pocket-advisor"
+                  onClick={(e) => handleNavClick('news/welcome-to-pocket-advisor', e)}
+                  className="footer-nav-link"
+                >
+                  Welcome to Pocket Advisor
+                </a>
+              </li>
+              <li>
+                <a
                   href="/news"
                   onClick={(e) => handleNavClick('news', e)}
                   className="footer-nav-link"

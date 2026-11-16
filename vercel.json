@@ -119,6 +119,16 @@
   ],
   "redirects": [
     {
+      "source": "/privacy-policy",
+      "destination": "https://www.pocketadvisor.in/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "https://www.pocketadvisor.in/privacy",
+      "permanent": true
+    },
+    {
       "source": "/best-expense-tracker-apps-india",
       "destination": "https://www.pocketadvisor.in/news/best-expense-tracker-apps-india",
       "permanent": true

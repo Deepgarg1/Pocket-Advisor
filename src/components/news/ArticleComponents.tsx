@@ -260,12 +260,29 @@ export const ArticleTable: React.FC<{
                   }}
                 >
                   {row.map((cell, cIdx) => {
-                    const isCellObj = typeof cell !== 'string';
-                    const cellText = typeof cell === 'string' ? cell : cell.text;
-                    const highlight = isCellObj ? cell.highlight : false;
-                    const badge = isCellObj ? cell.badge : undefined;
-                    const badgeColorKey = isCellObj && cell.badgeColor ? cell.badgeColor : 'blue';
-                    const align = isCellObj && cell.align ? cell.align : 'left';
+                    // Article JSON can contain legacy/nested cell payloads. Normalize them
+                    // before rendering so React never coerces an object to "[object Object]".
+                    const isCellObj = cell !== null && typeof cell === 'object';
+                    const rawCellText = isCellObj ? (cell as TableCell).text : cell;
+                    const normalizeCellText = (value: unknown): string => {
+                      if (typeof value === 'string' || typeof value === 'number') return String(value);
+                      if (value === null || value === undefined) return '';
+                      if (typeof value === 'object') {
+                        const record = value as Record<string, unknown>;
+                        for (const key of ['text', 'label', 'value', 'content', 'name']) {
+                          if (record[key] !== undefined && record[key] !== value) {
+                            return normalizeCellText(record[key]);
+                          }
+                        }
+                        return Object.values(record).map(normalizeCellText).filter(Boolean).join(' · ');
+                      }
+                      return String(value);
+                    };
+                    const cellText = normalizeCellText(rawCellText);
+                    const highlight = isCellObj ? Boolean((cell as TableCell).highlight) : false;
+                    const badge = isCellObj ? (cell as TableCell).badge : undefined;
+                    const badgeColorKey = isCellObj && (cell as TableCell).badgeColor ? (cell as TableCell).badgeColor! : 'blue';
+                    const align = isCellObj && (cell as TableCell).align ? (cell as TableCell).align! : 'left';
                     const badgeStyle = badgeColors[badgeColorKey] || badgeColors.blue;
                     const isWinner = isPocketAdvisorCol(headers[cIdx] || '', cIdx);
 

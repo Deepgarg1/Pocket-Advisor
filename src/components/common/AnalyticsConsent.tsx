@@ -72,12 +72,12 @@ export const AnalyticsConsent: React.FC = () => {
           </div>
         </aside>
       ) : (
-        <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end', padding: '16px 0 0', zIndex: 2 }}>
+        <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', zIndex: 2 }}>
           <button
             type="button"
             onClick={() => setShowSettings(!showSettings)}
             aria-expanded={showSettings}
-            style={{ border: '1px solid #475569', borderRadius: '999px', padding: '8px 12px', background: '#111827', color: '#e2e8f0', fontSize: '0.78rem', cursor: 'pointer' }}
+            style={{ border: '1px solid var(--border-subtle, #475569)', borderRadius: '999px', padding: '5px 12px', background: 'var(--bg-surface-elevated, #111827)', color: 'var(--text-secondary, #cbd5e1)', fontSize: '0.78rem', cursor: 'pointer', transition: 'all 0.15s ease' }}
           >
             Privacy settings
           </button>

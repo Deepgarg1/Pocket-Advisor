@@ -76,7 +76,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <p style={{ lineHeight: 1.6, marginBottom: '18px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
               Minimal, intelligent personal expense and budget tracking, bank &amp; UPI automatic transaction detection, and mathematical 2-stage group bill splitting — natively designed for Android.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '18px' }}>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#10b981' }}>
                 <Shield size={15} />
                 <span>SQLCipher On-Device Encryption</span>
@@ -85,6 +85,30 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Lock size={15} />
                 <span>Encrypted Local Ledger • Optional Cloud Sync</span>
               </div>
+            </div>
+            <div>
+              <a
+                href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '7px 14px',
+                  borderRadius: '10px',
+                  background: 'rgba(99, 102, 241, 0.12)',
+                  border: '1px solid rgba(99, 102, 241, 0.3)',
+                  color: '#818cf8',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                  transition: 'all 0.18s ease',
+                }}
+              >
+                <span>Get on Google Play</span>
+                <ArrowRight size={13} />
+              </a>
             </div>
           </div>
 
@@ -160,9 +184,70 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Col 3: Problem-Solving Guides */}
+          {/* Col 3: Spending & UPI Guides */}
           <div>
-            <h3 className="footer-col-title">Financial Guides</h3>
+            <h3 className="footer-col-title">Spending Guides</h3>
+            <ul className="footer-nav-list">
+              <li>
+                <a
+                  href="/news/best-expense-tracker-apps-india"
+                  onClick={(e) => handleNavClick('news/best-expense-tracker-apps-india', e)}
+                  className="footer-nav-link"
+                >
+                  7 Best Expense Tracker Apps (2026)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/track-credit-card-expenses-automatically"
+                  onClick={(e) => handleNavClick('news/track-credit-card-expenses-automatically', e)}
+                  className="footer-nav-link"
+                >
+                  Track Credit Card Expenses
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/rupay-credit-card-on-upi-rules-charges"
+                  onClick={(e) => handleNavClick('news/rupay-credit-card-on-upi-rules-charges', e)}
+                  className="footer-nav-link"
+                >
+                  RuPay Credit Card on UPI Guide
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/track-upi-expenses-automatically"
+                  onClick={(e) => handleNavClick('news/track-upi-expenses-automatically', e)}
+                  className="footer-nav-link"
+                >
+                  Track UPI Expenses Automatically
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/how-to-track-spending-automatically-android"
+                  onClick={(e) => handleNavClick('news/how-to-track-spending-automatically-android', e)}
+                  className="footer-nav-link"
+                >
+                  Automatic Spending on Android
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/auto-match-upi-payments-bills"
+                  onClick={(e) => handleNavClick('news/auto-match-upi-payments-bills', e)}
+                  className="footer-nav-link"
+                >
+                  Auto-Match UPI Bills &amp; Dues
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Wealth Strategy & Budgeting */}
+          <div>
+            <h3 className="footer-col-title">Wealth &amp; Strategy</h3>
             <ul className="footer-nav-list">
               <li>
                 <a
@@ -171,6 +256,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="footer-nav-link"
                 >
                   Split Rent for Unequal Rooms (50/50)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/how-to-budget-monthly-expenses-india"
+                  onClick={(e) => handleNavClick('news/how-to-budget-monthly-expenses-india', e)}
+                  className="footer-nav-link"
+                >
+                  Indian Budgeting Blueprint (50/30/20)
                 </a>
               </li>
               <li>
@@ -189,78 +283,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="footer-nav-link"
                 >
                   Private On-Device SMS Tracking
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/best-expense-tracker-apps-india"
-                  onClick={(e) => handleNavClick('news/best-expense-tracker-apps-india', e)}
-                  className="footer-nav-link"
-                >
-                  7 Best Expense Tracker Apps (2026)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/how-to-budget-monthly-expenses-india"
-                  onClick={(e) => handleNavClick('news/how-to-budget-monthly-expenses-india', e)}
-                  className="footer-nav-link"
-                >
-                  Indian Budgeting Blueprint (50/30/20)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/auto-match-upi-payments-bills"
-                  onClick={(e) => handleNavClick('news/auto-match-upi-payments-bills', e)}
-                  className="footer-nav-link"
-                >
-                  Auto-Match UPI Bills &amp; Dues
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/how-to-track-spending-automatically-android"
-                  onClick={(e) => handleNavClick('news/how-to-track-spending-automatically-android', e)}
-                  className="footer-nav-link"
-                >
-                  Automatic Spending Tracking on Android
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/track-upi-expenses-automatically"
-                  onClick={(e) => handleNavClick('news/track-upi-expenses-automatically', e)}
-                  className="footer-nav-link"
-                >
-                  Track UPI Expenses Automatically
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/track-credit-card-expenses-automatically"
-                  onClick={(e) => handleNavClick('news/track-credit-card-expenses-automatically', e)}
-                  className="footer-nav-link"
-                >
-                  Track Credit Card Expenses (Stop Bill Shock)
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/rupay-credit-card-on-upi-rules-charges"
-                  onClick={(e) => handleNavClick('news/rupay-credit-card-on-upi-rules-charges', e)}
-                  className="footer-nav-link"
-                >
-                  RuPay Credit Card on UPI Guide
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/news/welcome-to-pocket-advisor"
-                  onClick={(e) => handleNavClick('news/welcome-to-pocket-advisor', e)}
-                  className="footer-nav-link"
-                >
-                  Welcome to Pocket Advisor
                 </a>
               </li>
               <li>
@@ -285,9 +307,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Col 4: Get the App */}
+          {/* Col 5: App & Legal */}
           <div>
-            <h3 className="footer-col-title">Get the App</h3>
+            <h3 className="footer-col-title">Get App &amp; Legal</h3>
             <ul className="footer-nav-list">
               <li>
                 <a
@@ -300,16 +322,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-nav-link"
-                >
-                  Google Play Store
-                </a>
-              </li>
-              <li>
-                <a
                   href="/faq"
                   onClick={(e) => handleNavClick('faq', e)}
                   className="footer-nav-link"
@@ -317,21 +329,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   Frequently Asked Questions (FAQ)
                 </a>
               </li>
-              <li>
-                <span
-                  className="footer-nav-link"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'default' }}
-                >
-                  <Smartphone size={13} color="var(--primary)" /> Android 8.0+ Compatible
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 5: Legal & Compliance */}
-          <div>
-            <h3 className="footer-col-title">Legal &amp; Security</h3>
-            <ul className="footer-nav-list">
               <li>
                 <a
                   href="/privacy"
@@ -378,35 +375,39 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                  Package: <code style={{ color: 'var(--text-secondary)' }}>com.pocketadvisor.app</code>
+                <span
+                  className="footer-nav-link"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', cursor: 'default', fontSize: '0.8rem', color: 'var(--text-muted)' }}
+                >
+                  <Smartphone size={13} color="var(--primary)" /> Android 8.0+ Compatible
                 </span>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Analytics privacy preferences live in the footer, not over mobile content. */}
-        <AnalyticsConsent />
-
-        {/* Bottom Bar: Copyright & Security Guarantee */}
+        {/* Bottom Bar: Copyright, Integrated Privacy Consent & Security Badges */}
         <div
           style={{
+            marginTop: '44px',
             paddingTop: '24px',
             borderTop: '1px solid var(--border-subtle)',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '12px',
+            gap: '16px',
             fontSize: '0.85rem',
           }}
         >
           <div style={{ color: 'var(--text-muted)' }}>
             &copy; 2026 Pocket Advisor. Developed by Deepesh Garg. All rights reserved.
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', fontSize: '0.82rem' }}>
-            <Lock size={14} color="#818cf8" /> Bank-Grade Security • Offline-First • Privacy-First Ledger
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <AnalyticsConsent />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-secondary)', fontSize: '0.82rem' }}>
+              <Lock size={14} color="#818cf8" /> Bank-Grade Security • Offline-First • Privacy-First Ledger
+            </div>
           </div>
         </div>
       </div>

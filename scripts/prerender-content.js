@@ -43,7 +43,7 @@ export function getPrerenderFaqHtml(faqSchema) {
 export function getPrerenderFooterHtml() {
   return `
     <footer class="footer-shell" style="border-top: 1px solid rgba(255, 255, 255, 0.08); background: #0c121e; padding: 50px 24px 36px; margin-top: auto; font-size: 0.9rem; color: #94a3b8;">
-      <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 36px;">
+      <div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
         <div>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
             <img src="/logo.webp" alt="Pocket Advisor" width="32" height="32" style="border-radius: 8px; display: block;" />
@@ -52,47 +52,53 @@ export function getPrerenderFooterHtml() {
           <p style="font-size: 0.85rem; line-height: 1.6; color: #94a3b8; margin: 0 0 16px 0;">
             Minimalist, intelligent spending &amp; budget tracking for Android. Automatic bank &amp; UPI detection with 100% offline-first SQLCipher encryption.
           </p>
-          <div style="font-size: 0.8rem; color: #10b981; font-weight: 600;">SQLCipher AES-256 On-Device Encryption</div>
+          <div style="font-size: 0.8rem; color: #10b981; font-weight: 600; margin-bottom: 12px;">SQLCipher AES-256 On-Device Encryption</div>
+          <div>
+            <a href="https://play.google.com/store/apps/details?id=com.pocketadvisor.app" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 6px 14px; border-radius: 8px; background: rgba(99, 102, 241, 0.15); color: #818cf8; text-decoration: none; font-size: 0.8rem; font-weight: 700;">Get on Google Play &rarr;</a>
+          </div>
         </div>
 
         <div>
-          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Calculators &amp; Tools</h4>
+          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Features &amp; Tools</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li><a href="/features" style="color: #cbd5e1; text-decoration: none;">App Features &amp; Security</a></li>
+            <li><a href="/upi-expense-tracker" style="color: #cbd5e1; text-decoration: none;">UPI Expense Tracker (India)</a></li>
             <li><a href="/split" style="color: #cbd5e1; text-decoration: none;">Free Quick Bill Splitter</a></li>
             <li><a href="/flatmates-rent-splitter" style="color: #cbd5e1; text-decoration: none;">Flatmates Rent Splitter</a></li>
-            <li><a href="/monthly-budget-planner" style="color: #cbd5e1; text-decoration: none;">Monthly Budget Planner (50/30/20)</a></li>
             <li><a href="/home-loan-prepayment-vs-sip" style="color: #cbd5e1; text-decoration: none;">Home Loan Prepayment vs SIP</a></li>
-            <li><a href="/sip-calculator" style="color: #cbd5e1; text-decoration: none;">Step-Up SIP Calculator</a></li>
-            <li><a href="/emi-calculator" style="color: #cbd5e1; text-decoration: none;">Loan EMI Amortization</a></li>
-            <li><a href="/savings-goal-calculator" style="color: #cbd5e1; text-decoration: none;">Savings Goal Planner</a></li>
-            <li><a href="/fd-rd-calculator" style="color: #cbd5e1; text-decoration: none;">FD &amp; RD Calculator</a></li>
-            <li><a href="/compound-interest-calculator" style="color: #cbd5e1; text-decoration: none;">Compound Interest Simulator</a></li>
-            <li><a href="/inflation-calculator" style="color: #cbd5e1; text-decoration: none;">Inflation Erosion Calculator</a></li>
-            <li><a href="/calculators" style="color: #cbd5e1; text-decoration: none;">All Financial Tools</a></li>
+            <li><a href="/calculators" style="color: #cbd5e1; text-decoration: none;">Loan EMI &amp; SIP Wealth Tools</a></li>
+            <li><a href="/monthly-budget-planner" style="color: #cbd5e1; text-decoration: none;">Monthly Budget Planner (50/30/20)</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Guides &amp; Engineering</h4>
+          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Spending Guides</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li><a href="/news/track-credit-card-expenses-automatically" style="color: #cbd5e1; text-decoration: none;">Track Credit Card Expenses (Stop Bill Shock)</a></li>
             <li><a href="/news/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">7 Best Expense Tracker Apps (2026)</a></li>
-            <li><a href="/news/how-to-budget-monthly-expenses-india" style="color: #cbd5e1; text-decoration: none;">Indian Budgeting Blueprint (50/30/20)</a></li>
+            <li><a href="/news/track-credit-card-expenses-automatically" style="color: #cbd5e1; text-decoration: none;">Track Credit Card Expenses</a></li>
+            <li><a href="/news/rupay-credit-card-on-upi-rules-charges" style="color: #cbd5e1; text-decoration: none;">RuPay Credit Card on UPI Guide</a></li>
+            <li><a href="/news/track-upi-expenses-automatically" style="color: #cbd5e1; text-decoration: none;">Track UPI Expenses Automatically</a></li>
+            <li><a href="/news/how-to-track-spending-automatically-android" style="color: #cbd5e1; text-decoration: none;">Automatic Spending on Android</a></li>
             <li><a href="/news/auto-match-upi-payments-bills" style="color: #cbd5e1; text-decoration: none;">Auto-Match UPI Bills &amp; Dues</a></li>
-            <li><a href="/guides" style="color: #cbd5e1; text-decoration: none;">Financial Guides Hub</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Wealth &amp; Strategy</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
             <li><a href="/how-to-split-rent-unequal-rooms" style="color: #cbd5e1; text-decoration: none;">Unequal Room Rent Split</a></li>
+            <li><a href="/news/how-to-budget-monthly-expenses-india" style="color: #cbd5e1; text-decoration: none;">Indian Budgeting Blueprint (50/30/20)</a></li>
             <li><a href="/home-loan-prepayment-vs-mutual-funds" style="color: #cbd5e1; text-decoration: none;">Prepayment vs Mutual Funds</a></li>
             <li><a href="/how-to-track-upi-payments-automatically" style="color: #cbd5e1; text-decoration: none;">Private UPI Auto-Tracking</a></li>
-            <li><a href="/news" style="color: #cbd5e1; text-decoration: none;">Engineering Blog</a></li>
+            <li><a href="/news" style="color: #cbd5e1; text-decoration: none;">Spending Intelligence Blog</a></li>
+            <li><a href="/guides" style="color: #818cf8; text-decoration: none; font-weight: 700;">Financial Guides Hub &rarr;</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">App &amp; Legal</h4>
+          <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Get App &amp; Legal</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li><a href="/features" style="color: #cbd5e1; text-decoration: none;">Features &amp; Security</a></li>
-            <li><a href="/upi-expense-tracker" style="color: #cbd5e1; text-decoration: none;">UPI Expense Tracker (India)</a></li>
-            <li><a href="/download" style="color: #cbd5e1; text-decoration: none;">Download Android App</a></li>
+            <li><a href="/download" style="color: #cbd5e1; text-decoration: none;">Download for Android</a></li>
             <li><a href="/faq" style="color: #cbd5e1; text-decoration: none;">Frequently Asked Questions</a></li>
             <li><a href="/privacy" style="color: #cbd5e1; text-decoration: none;">Privacy Policy</a></li>
             <li><a href="/terms" style="color: #cbd5e1; text-decoration: none;">Terms of Service</a></li>

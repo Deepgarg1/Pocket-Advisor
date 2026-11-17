@@ -103,13 +103,13 @@
     },
     {
       "identifier": "urn:air:pocketadvisor.in:guides:best-expense-tracker-apps-india",
-      "displayName": "Best Expense Tracker Apps in India (2026): Architectural Comparison",
+      "displayName": "7 Best Expense Tracker Apps in India (2026): Tested & Ranked",
       "type": "text/html",
-      "url": "https://www.pocketadvisor.in/best-expense-tracker-apps-india",
-      "description": "Comprehensive architectural comparison of Indian personal expense trackers across 4 categories: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers. Analyzes privacy, cloud backup, and monetization models.",
+      "url": "https://www.pocketadvisor.in/news/best-expense-tracker-apps-india",
+      "description": "Tested comparison and ranking of India's top 7 expense tracker apps (Pocket Advisor, FinArt, Fold Money, Axio, Money Manager, ET Money, Splitwise). Evaluates on-device UPI/SMS parsing, zero loan spam, AES-256 privacy, and flatmate bill splitting.",
       "tags": [
         "best-expense-tracker-apps-india",
-        "expense-tracker-comparison",
+        "7-best-expense-tracker-apps",
         "upi-sms-parsing",
         "account-aggregator",
         "privacy-security"
@@ -121,11 +121,39 @@
       ],
       "representativeQueries": [
         "best expense tracker app india 2026",
+        "7 best expense tracker apps in india",
         "account aggregator vs sms expense tracker",
         "offline sms expense tracker privacy"
       ],
+      "version": "1.1.0",
+      "updatedAt": "2026-11-17T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:guides:track-credit-card-expenses-automatically",
+      "displayName": "How to Track Credit Card Expenses Automatically on Android (2026)",
+      "type": "text/html",
+      "url": "https://www.pocketadvisor.in/news/track-credit-card-expenses-automatically",
+      "description": "Comprehensive guide on tracking credit card swipe alerts automatically on Android using on-device SMS parsing, billing cycle due alarms, CUR optimization for CIBIL, and zero email reading.",
+      "tags": [
+        "track-credit-card-expenses-automatically",
+        "credit-card-tracker-india",
+        "billing-cycle-tracker",
+        "cibil-utilization-ratio",
+        "stop-credit-card-bill-shock"
+      ],
+      "capabilities": [
+        "TrackCreditCardSwipes",
+        "ManageCreditCardBillingCycles",
+        "OptimizeCreditUtilizationRatio"
+      ],
+      "representativeQueries": [
+        "how to track credit card expenses automatically",
+        "track credit card spending android india",
+        "credit card expense tracker app india",
+        "avoid credit card bill shock india"
+      ],
       "version": "1.0.0",
-      "updatedAt": "2026-10-09T00:00:00Z"
+      "updatedAt": "2026-11-17T00:00:00Z"
     },
     {
       "identifier": "urn:air:pocketadvisor.in:guides:track-upi-expenses-automatically",

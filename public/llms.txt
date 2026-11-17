@@ -29,7 +29,8 @@
 
 ## Engineering Blog & Guides
 
-- [Best Expense Tracker Apps in India (2026)](https://www.pocketadvisor.in/best-expense-tracker-apps-india): Comprehensive architectural comparison of 4 expense tracking models in India: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual ledgers.
+- [7 Best Expense Tracker Apps in India (2026)](https://www.pocketadvisor.in/news/best-expense-tracker-apps-india): Comprehensive tested comparison of the top 7 expense tracker apps in India (Pocket Advisor, FinArt, Fold Money, Axio, Money Manager, ET Money, Splitwise) across on-device SMS parsing, Account Aggregators, zero loan spam, AES-256 encryption, and flatmate UPI bill splits.
+- [How to Track Credit Card Expenses Automatically on Android](https://www.pocketadvisor.in/news/track-credit-card-expenses-automatically): Comprehensive guide on tracking credit card swipe alerts automatically on Android using on-device SMS parsing, billing cycle due alarms, CUR optimization for CIBIL, and zero email reading.
 - [Auto-Track Spending on Android (Bank SMS + UPI)](https://www.pocketadvisor.in/news/how-to-track-spending-automatically-android): Complete guide to setting up automated expense tracking on Android, managing OEM battery killers (Xiaomi, Samsung), and evaluating local encryption vs cloud sync.
 - [Track UPI Expenses Automatically (Google Pay, PhonePe, Paytm)](https://www.pocketadvisor.in/news/track-upi-expenses-automatically): Step-by-step tutorial on automating UPI expense tracking across Google Pay, PhonePe, Paytm, and CRED using deterministic regex parsing.
 - [Financial Insights & Guides](https://www.pocketadvisor.in/news): Deep dives into algorithmic budgeting, debt minimization graph algorithms, and offline-first mobile architecture.

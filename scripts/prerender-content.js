@@ -75,7 +75,8 @@ export function getPrerenderFooterHtml() {
         <div>
           <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Guides &amp; Engineering</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-            <li><a href="/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">Best Expense Tracker Apps (2026)</a></li>
+            <li><a href="/news/track-credit-card-expenses-automatically" style="color: #cbd5e1; text-decoration: none;">Track Credit Card Expenses (Stop Bill Shock)</a></li>
+            <li><a href="/news/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">7 Best Expense Tracker Apps (2026)</a></li>
             <li><a href="/news/how-to-budget-monthly-expenses-india" style="color: #cbd5e1; text-decoration: none;">Indian Budgeting Blueprint (50/30/20)</a></li>
             <li><a href="/news/auto-match-upi-payments-bills" style="color: #cbd5e1; text-decoration: none;">Auto-Match UPI Bills &amp; Dues</a></li>
             <li><a href="/guides" style="color: #cbd5e1; text-decoration: none;">Financial Guides Hub</a></li>
@@ -121,14 +122,33 @@ function renderArticleInline(text) {
 }
 
 function renderArticleFromData(article) {
-  const headingStyle = 'color:#f8fafc;font-weight:800;margin:36px 0 16px;font-size:1.45rem;letter-spacing:-0.01em;';
+  const headingStyle = 'color:#f8fafc;font-weight:800;margin:40px 0 16px;font-size:1.5rem;letter-spacing:-0.02em;line-height:1.3;';
+  const heading3Style = 'color:#f8fafc;font-weight:700;margin:32px 0 12px;font-size:1.25rem;line-height:1.35;';
   const cardStyle = 'background:rgba(17,24,39,.75);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:24px;margin:24px 0;';
   const blocks = (article.blocks || []).map(function (block) {
-    if (block.type === 'paragraph') return '<p style="margin:0 0 20px;color:#cbd5e1;">' + renderArticleInline(block.text) + '</p>';
+    if (block.type === 'paragraph') return '<p style="margin:0 0 20px;color:#cbd5e1;line-height:1.8;">' + renderArticleInline(block.text) + '</p>';
     if (block.type === 'heading2') return '<h2' + (block.id ? ' id="' + escapeHtml(block.id) + '"' : '') + ' style="' + headingStyle + '">' + renderArticleInline(block.text) + '</h2>';
+    if (block.type === 'heading3') return '<h3' + (block.id ? ' id="' + escapeHtml(block.id) + '"' : '') + ' style="' + heading3Style + '">' + renderArticleInline(block.text) + '</h3>';
     if (block.type === 'callout') {
-      const accent = block.variant === 'warning' ? '#fbbf24' : '#38bdf8';
-      return '<aside style="' + cardStyle + 'border-left:4px solid ' + accent + ';"><strong style="color:' + accent + ';">' + renderArticleInline(block.title) + '</strong><p style="margin:10px 0 0;">' + renderArticleInline(block.content) + '</p></aside>';
+      const accent = block.variant === 'warning' ? '#fbbf24' : block.variant === 'takeaway' ? '#10b981' : '#38bdf8';
+      return '<aside style="' + cardStyle + 'border-left:4px solid ' + accent + ';"><strong style="color:' + accent + ';font-size:1.05rem;">' + renderArticleInline(block.title) + '</strong><p style="margin:10px 0 0;color:#cbd5e1;line-height:1.7;">' + renderArticleInline(block.content) + '</p></aside>';
+    }
+    if (block.type === 'metrics') {
+      const items = (block.items || []).map(function (item) {
+        return '<div style="background:rgba(17,24,39,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:6px;">' +
+          '<span style="font-size:0.75rem;font-weight:800;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;">' + renderArticleInline(item.label) + '</span>' +
+          '<div style="font-size:1.25rem;font-weight:800;color:#f8fafc;">' + renderArticleInline(item.value) + '</div>' +
+          '<div style="font-size:0.85rem;color:#cbd5e1;line-height:1.5;">' + renderArticleInline(item.description) + '</div>' +
+          (item.change ? '<span style="font-size:0.75rem;font-weight:700;color:' + (item.isPositive ? '#10b981' : '#f59e0b') + ';">' + renderArticleInline(item.change) + '</span>' : '') +
+        '</div>';
+      }).join('');
+      return '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:28px 0;">' + items + '</div>';
+    }
+    if (block.type === 'quote') {
+      return '<blockquote style="margin:28px 0;padding:18px 24px;border-left:4px solid #6366f1;background:rgba(17,24,39,0.7);border-radius:0 14px 14px 0;font-style:italic;color:#f8fafc;font-size:1.1rem;line-height:1.6;">' +
+        '<p style="margin:0;">&ldquo;' + renderArticleInline(block.text) + '&rdquo;</p>' +
+        (block.author ? '<cite style="display:block;margin-top:8px;font-size:0.85rem;font-style:normal;color:#94a3b8;font-weight:600;">&mdash; ' + renderArticleInline(block.author) + '</cite>' : '') +
+      '</blockquote>';
     }
     if (block.type === 'image') {
       return '<figure style="margin:28px 0;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.1);"><img src="' + escapeHtml(block.src) + '" alt="' + escapeHtml(block.alt) + '" loading="lazy" decoding="async" style="width:100%;height:auto;display:block;" />' + (block.caption ? '<figcaption style="padding:10px 14px;color:#94a3b8;font-size:.85rem;">' + renderArticleInline(block.caption) + '</figcaption>' : '') + '</figure>';
@@ -141,24 +161,27 @@ function renderArticleFromData(article) {
     }
     if (block.type === 'checklist') {
       const items = (block.items || []).map(function (item) {
-        return '<li style="margin:0 0 10px;">' + (item.checked ? '✓ ' : '○ ') + renderArticleInline(item.text) + '</li>';
+        return '<li style="margin:0 0 10px;line-height:1.6;">' + (item.checked ? '<span style="color:#10b981;font-weight:800;margin-right:6px;">✓</span>' : '<span style="color:#94a3b8;margin-right:6px;">○</span>') + renderArticleInline(item.text) + '</li>';
       }).join('');
-      return '<section style="' + cardStyle + '"><h3 style="margin:0 0 16px;color:#f8fafc;">' + renderArticleInline(block.title) + '</h3><ul style="padding-left:22px;">' + items + '</ul></section>';
+      return '<section style="' + cardStyle + '"><h3 style="margin:0 0 16px;color:#f8fafc;">' + renderArticleInline(block.title) + '</h3><ul style="padding-left:14px;list-style:none;margin:0;">' + items + '</ul></section>';
     }
     if (block.type === 'table') {
       const headers = (block.headers || []).map(function (value) {
-        return '<th scope="col" style="padding:12px;text-align:left;color:#f8fafc;border-bottom:1px solid rgba(255,255,255,.15);">' + renderArticleInline(value) + '</th>';
+        return '<th scope="col" style="padding:12px;text-align:left;color:#f8fafc;border-bottom:1px solid rgba(255,255,255,.15);white-space:nowrap;">' + renderArticleInline(value) + '</th>';
       }).join('');
       const rows = (block.rows || []).map(function (row) {
-        return '<tr>' + row.map(function (value, index) {
-          return '<td style="padding:12px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.07);' + (index === 0 ? 'font-weight:700;color:#f8fafc;' : '') + '">' + renderArticleInline(String(value)) + '</td>';
+        return '<tr>' + row.map(function (cell, index) {
+          const isObj = cell !== null && typeof cell === 'object';
+          const rawText = isObj ? cell.text : cell;
+          const badgeText = isObj && cell.badge ? ' <span style="font-size:0.72rem;padding:2px 6px;border-radius:4px;background:rgba(99,102,241,0.2);color:#818cf8;font-weight:700;">' + escapeHtml(cell.badge) + '</span>' : '';
+          return '<td style="padding:12px;vertical-align:top;border-bottom:1px solid rgba(255,255,255,.07);' + (index === 0 ? 'font-weight:700;color:#f8fafc;' : '') + '">' + renderArticleInline(String(rawText || '')) + badgeText + '</td>';
         }).join('') + '</tr>';
       }).join('');
       return '<div style="overflow-x:auto;margin:24px 0;"><table style="width:100%;border-collapse:collapse;font-size:.92rem;"><caption style="text-align:left;color:#94a3b8;padding:0 0 12px;">' + renderArticleInline(block.caption || '') + '</caption><thead><tr>' + headers + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
     }
     if (block.type === 'cta') {
       const link = block.buttonLink || 'https://play.google.com/store/apps/details?id=com.pocketadvisor.app';
-      return '<section style="' + cardStyle + 'text-align:center;"><h3 style="font-size:1.3rem;font-weight:800;color:#f8fafc;margin-top:0;">' + renderArticleInline(block.title) + '</h3><p style="color:#94a3b8;">' + renderArticleInline(block.description) + '</p><a href="' + escapeHtml(link) + '" style="display:inline-block;background:#2563eb;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;text-decoration:none;">' + renderArticleInline(block.buttonText || 'Get Pocket Advisor on Google Play') + ' &rarr;</a></section>';
+      return '<section style="' + cardStyle + 'text-align:center;"><h3 style="font-size:1.3rem;font-weight:800;color:#f8fafc;margin-top:0;">' + renderArticleInline(block.title) + '</h3><p style="color:#94a3b8;line-height:1.6;">' + renderArticleInline(block.description) + '</p><a href="' + escapeHtml(link) + '" style="display:inline-block;background:#2563eb;color:#fff;padding:12px 24px;border-radius:12px;font-weight:700;text-decoration:none;">' + renderArticleInline(block.buttonText || 'Get Pocket Advisor on Google Play') + ' &rarr;</a></section>';
     }
     return '';
   }).join('\n');

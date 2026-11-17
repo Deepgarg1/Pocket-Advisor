@@ -261,11 +261,18 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'best-expense-tracker-apps-india': {
-    title: 'Best Expense Tracker App in India (2026): Compare Features | Pocket Advisor',
-    description: 'Compare expense tracker apps in India by automatic UPI tracking, manual entry, bank sync, budgeting, privacy, offline access, and pricing. Find the right Android or iPhone money tracker for your needs.',
+    title: '7 Best Expense Tracker Apps in India (2026): Tested & Ranked | Pocket Advisor',
+    description: 'Tested ranking of the 7 best expense tracker apps in India (2026). Compare automatic UPI & bank SMS tracking, zero loan spam, AES-256 privacy, and flatmate bill splitting.',
     canonical: `${BASE_URL}/news/best-expense-tracker-apps-india`,
     ogType: 'article',
-    ogImage: DEFAULT_IMAGE,
+    ogImage: `${BASE_URL}/assets/news/best-expense-tracker-apps-india-cover.jpg`,
+  },
+  'news/best-expense-tracker-apps-india': {
+    title: '7 Best Expense Tracker Apps in India (2026): Tested & Ranked | Pocket Advisor',
+    description: 'Tested ranking of the 7 best expense tracker apps in India (2026). Compare automatic UPI & bank SMS tracking, zero loan spam, AES-256 privacy, and flatmate bill splitting.',
+    canonical: `${BASE_URL}/news/best-expense-tracker-apps-india`,
+    ogType: 'article',
+    ogImage: `${BASE_URL}/assets/news/best-expense-tracker-apps-india-cover.jpg`,
   },
   '50-30-20-budget-rule-india': {
     title: '50/30/20 Budget Rule India (2026 Guide & Salary Calculator) | Pocket Advisor',
@@ -294,6 +301,20 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     canonical: `${BASE_URL}/best-expense-tracker-apps-india`,
     ogType: 'article',
     ogImage: DEFAULT_IMAGE,
+  },
+  'news/track-credit-card-expenses-automatically': {
+    title: 'How to Track Credit Card Expenses Automatically on Android | Pocket Advisor',
+    description: 'Learn how to track credit card expenses automatically on Android. Avoid 30-day bill shock, master billing cycles, keep credit utilization below 30%, and automate payment alarms privately.',
+    canonical: `${BASE_URL}/news/track-credit-card-expenses-automatically`,
+    ogType: 'article',
+    ogImage: `${BASE_URL}/assets/news/track-credit-card-expenses-automatically.webp`,
+  },
+  'track-credit-card-expenses-automatically': {
+    title: 'How to Track Credit Card Expenses Automatically on Android | Pocket Advisor',
+    description: 'Learn how to track credit card expenses automatically on Android. Avoid 30-day bill shock, master billing cycles, keep credit utilization below 30%, and automate payment alarms privately.',
+    canonical: `${BASE_URL}/news/track-credit-card-expenses-automatically`,
+    ogType: 'article',
+    ogImage: `${BASE_URL}/assets/news/track-credit-card-expenses-automatically.webp`,
   },
   'news/track-upi-expenses-automatically': {
     title: 'Track UPI Expenses Automatically (Google Pay, PhonePe, Paytm) — Free Guide 2026 | Pocket Advisor',

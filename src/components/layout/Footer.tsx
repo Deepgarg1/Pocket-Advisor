@@ -193,11 +193,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="/best-expense-tracker-apps-india"
-                  onClick={(e) => handleNavClick('best-expense-tracker-apps-india', e)}
+                  href="/news/best-expense-tracker-apps-india"
+                  onClick={(e) => handleNavClick('news/best-expense-tracker-apps-india', e)}
                   className="footer-nav-link"
                 >
-                  Best Expense Tracker Apps (2026)
+                  7 Best Expense Tracker Apps (2026)
                 </a>
               </li>
               <li>
@@ -234,6 +234,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   className="footer-nav-link"
                 >
                   Track UPI Expenses Automatically
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/news/track-credit-card-expenses-automatically"
+                  onClick={(e) => handleNavClick('news/track-credit-card-expenses-automatically', e)}
+                  className="footer-nav-link"
+                >
+                  Track Credit Card Expenses (Stop Bill Shock)
                 </a>
               </li>
               <li>

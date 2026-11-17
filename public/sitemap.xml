@@ -212,7 +212,13 @@
   </url>
   <url>
     <loc>https://www.pocketadvisor.in/news/best-expense-tracker-apps-india</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.pocketadvisor.in/news/track-credit-card-expenses-automatically</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>

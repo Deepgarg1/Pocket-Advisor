@@ -18,10 +18,10 @@ interface HeroProps {
 }
 
 const featureCards = [
-  { icon: ReceiptText, title: 'Auto UPI & Bank SMS Tracking', description: 'Instant auto-logging from SBI, HDFC, ICICI, Axis & 50+ banks. No manual typing.', tone: 'mint', view: 'upi-expense-tracker' },
-  { icon: ShieldCheck, title: '100% Private • Zero Loan Spam', description: 'Zero cloud tracking. Zero telemarketing calls. Data stays strictly on your device.', tone: 'violet', view: 'features' },
+  { icon: ReceiptText, title: 'Auto UPI & Bank Tracking', description: 'Instant auto-logging from SBI, HDFC, ICICI, Axis & 50+ banks. No manual typing.', tone: 'mint', view: 'upi-expense-tracker' },
+  { icon: Sparkles, title: 'Small Spends Intelligence', description: 'Uncover how ₹40 chai and ₹149 Blinkit orders silently drain your monthly salary.', tone: 'amber', view: 'features' },
   { icon: UsersRound, title: 'Group Splits + 1-Tap UPI QR', description: 'Split flatmate rent & trip bills without switching apps. Settle instantly via QR code.', tone: 'cyan', view: 'split' },
-  { icon: Sparkles, title: 'AI Copilot Financial Coach', description: 'Real-time burn rate pacing, budget overrun alerts & smart monthly savings coaching.', tone: 'amber', view: 'features' },
+  { icon: ShieldCheck, title: '100% Private • Zero Loan Spam', description: 'Zero cloud tracking. Zero telemarketing calls. Data stays strictly on your device.', tone: 'violet', view: 'features' },
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
@@ -48,13 +48,13 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
 
             <h1 id="pa-hero-title">
-              Track Every UPI Rupee Automatically.
-              <span className="pa-title-line pa-gradient-text">Without The Predatory Loan Calls.</span>
+              Know Where Every Rupee Goes.
+              <span className="pa-title-line pa-gradient-text">Take Control of Where It Goes Next.</span>
             </h1>
-            <p className="pa-hero-subtitle">Automatic Bank &amp; UPI Tracking • Split Bills + 1-Tap UPI QR • AI Copilot Insights</p>
+            <p className="pa-hero-subtitle">Automatic Bank &amp; UPI Tracking • Stop Micro-Spend Leaks • 50/30/20 Smart Budgets</p>
 
             <p className="pa-hero-description">
-              Tired of manually typing every chai, auto ride, and Swiggy order? Or trackers that upload your private banking texts to spam you with personal loans? Pocket Advisor automatically logs expenses 100% locally on your phone—zero data sold, zero telemarketing. Split expenses with friends, manage budgets, and get smart AI Copilot financial coaching.
+              Your money doesn't disappear—micro-payments add up. ₹40 for morning tea, ₹120 for an auto ride, ₹149 on Blinkit, and ₹380 on Swiggy. Pocket Advisor automatically detects incoming bank &amp; UPI transaction alerts 100% locally on your phone. No manual typing, no cloud data harvesting, and zero predatory loan calls.
             </p>
 
             <div className="pa-hero-actions">

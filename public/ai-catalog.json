@@ -181,6 +181,33 @@
       ],
       "version": "1.0.0",
       "updatedAt": "2026-10-09T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:pocketadvisor.in:guides:the-99-rupee-trap-small-upi-payments-budget",
+      "displayName": "The ₹99 Trap: Why Small UPI Payments Silently Drain Your Monthly Salary",
+      "type": "text/html",
+      "url": "https://www.pocketadvisor.in/news/the-99-rupee-trap-small-upi-payments-budget",
+      "description": "Exposes why ₹49 to ₹199 micro-transactions (quick commerce, food delivery, cab surge, OTT add-ons) silently siphon ₹4,000–₹8,000 every month due to zero cash friction, and provides a 4-step actionable budget defense system.",
+      "tags": [
+        "the-99-rupee-trap",
+        "small-upi-payments-budget",
+        "micro-spending-leaks",
+        "upi-spending-habits",
+        "budget-drain"
+      ],
+      "capabilities": [
+        "AnalyzeMicroSpendingLeaks",
+        "QuantifyUpiFrictionlessCosts",
+        "ImplementMicroSpendBudgetRules"
+      ],
+      "representativeQueries": [
+        "the 99 rupee trap upi",
+        "why small upi payments drain salary",
+        "how to stop small upi transactions spending",
+        "micro payments ruining monthly budget"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-17T00:00:00Z"
     }
   ]
 }

@@ -190,6 +190,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="footer-nav-list">
               <li>
                 <a
+                  href="/news/the-99-rupee-trap-small-upi-payments-budget"
+                  onClick={(e) => handleNavClick('news/the-99-rupee-trap-small-upi-payments-budget', e)}
+                  className="footer-nav-link"
+                >
+                  The ₹99 Micro-Spend Trap
+                </a>
+              </li>
+              <li>
+                <a
                   href="/news/best-expense-tracker-apps-india"
                   onClick={(e) => handleNavClick('news/best-expense-tracker-apps-india', e)}
                   className="footer-nav-link"

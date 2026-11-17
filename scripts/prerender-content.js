@@ -74,6 +74,7 @@ export function getPrerenderFooterHtml() {
         <div>
           <h4 style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: #f8fafc; margin: 0 0 14px 0;">Spending Guides</h4>
           <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <li><a href="/news/the-99-rupee-trap-small-upi-payments-budget" style="color: #cbd5e1; text-decoration: none;">The ₹99 Micro-Spend Trap</a></li>
             <li><a href="/news/best-expense-tracker-apps-india" style="color: #cbd5e1; text-decoration: none;">7 Best Expense Tracker Apps (2026)</a></li>
             <li><a href="/news/track-credit-card-expenses-automatically" style="color: #cbd5e1; text-decoration: none;">Track Credit Card Expenses</a></li>
             <li><a href="/news/rupay-credit-card-on-upi-rules-charges" style="color: #cbd5e1; text-decoration: none;">RuPay Credit Card on UPI Guide</a></li>

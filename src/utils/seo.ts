@@ -302,6 +302,20 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogType: 'article',
     ogImage: DEFAULT_IMAGE,
   },
+  'news/the-99-rupee-trap-small-upi-payments-budget': {
+    title: 'The ₹99 Trap: Why Small UPI Payments Drain Your Salary | Pocket Advisor',
+    description: 'Discover how small, frequent UPI payments quietly drain your salary before payday. Backed by NPCI data and behavioral research, learn how to stop invisible spending on Android.',
+    canonical: `${BASE_URL}/news/the-99-rupee-trap-small-upi-payments-budget`,
+    ogType: 'article',
+    ogImage: `${BASE_URL}/assets/news/the-99-rupee-trap-small-upi-payments-budget.webp`,
+  },
+  'the-99-rupee-trap-small-upi-payments-budget': {
+    title: 'The ₹99 Trap: Why Small UPI Payments Drain Your Salary | Pocket Advisor',
+    description: 'Discover how small, frequent UPI payments quietly drain your salary before payday. Backed by NPCI data and behavioral research, learn how to stop invisible spending on Android.',
+    canonical: `${BASE_URL}/news/the-99-rupee-trap-small-upi-payments-budget`,
+    ogType: 'article',
+    ogImage: `${BASE_URL}/assets/news/the-99-rupee-trap-small-upi-payments-budget.webp`,
+  },
   'news/track-credit-card-expenses-automatically': {
     title: 'How to Track Credit Card Expenses Automatically on Android | Pocket Advisor',
     description: 'Learn how to track credit card expenses automatically on Android. Avoid 30-day bill shock, master billing cycles, keep credit utilization below 30%, and automate payment alarms privately.',

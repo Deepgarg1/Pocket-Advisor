@@ -78,6 +78,122 @@ export const HomeFeaturesShowcase: React.FC<HomeFeaturesShowcaseProps> = ({ onNa
 
   return (
     <section className="pa-showcase" aria-labelledby="pa-showcase-title">
+      {/* Section 2: The Invisible Spender Problem (From Customer Research Blueprint) */}
+      <div
+        style={{
+          background: 'linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.85) 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
+          borderRadius: '24px',
+          padding: 'clamp(28px, 4vw, 44px)',
+          marginBottom: '56px',
+        }}
+      >
+        <div style={{ maxWidth: '840px', margin: '0 auto', textAlign: 'center' }}>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '5px 14px',
+              borderRadius: '9999px',
+              backgroundColor: 'rgba(239, 68, 68, 0.12)',
+              border: '1px solid rgba(239, 68, 68, 0.25)',
+              color: '#f87171',
+              fontSize: '0.8rem',
+              fontWeight: 800,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              marginBottom: '16px',
+            }}
+          >
+            <Flame size={14} /> The Invisible Micro-Spending Trap
+          </div>
+          <h2
+            style={{
+              fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
+              fontWeight: 800,
+              color: '#f8fafc',
+              lineHeight: 1.25,
+              letterSpacing: '-0.02em',
+              marginBottom: '16px',
+            }}
+          >
+            Your Money Doesn't Disappear. <span className="text-gradient">Your Spends Add Up.</span>
+          </h2>
+          <p
+            style={{
+              color: '#cbd5e1',
+              fontSize: '1.05rem',
+              lineHeight: 1.7,
+              marginBottom: '32px',
+            }}
+          >
+            ₹40 for morning chai. ₹120 for an auto commute. ₹149 on Blinkit. ₹380 on Swiggy. When you scan UPI QR codes 8 to 12 times a day, individual purchases feel too small to track mentally. By day 20, you wonder where your salary went. Pocket Advisor makes your invisible spending visible in real time.
+          </p>
+
+          {/* Micro-Spending Metric Callout Grid */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '16px',
+              textAlign: 'left',
+            }}
+          >
+            <div
+              style={{
+                background: 'rgba(17, 24, 39, 0.75)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '20px',
+              }}
+            >
+              <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Small Spends Breakdown
+              </span>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#f87171', margin: '6px 0 4px 0' }}>₹4,850</div>
+              <div style={{ fontSize: '0.84rem', color: '#cbd5e1', lineHeight: 1.5 }}>
+                Across 37 micro-transactions under ₹200 this month.
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: 'rgba(17, 24, 39, 0.75)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '20px',
+              }}
+            >
+              <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Mental Math Failure
+              </span>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fbbf24', margin: '6px 0 4px 0' }}>65% UPI Users</div>
+              <div style={{ fontSize: '0.84rem', color: '#cbd5e1', lineHeight: 1.5 }}>
+                Make multiple spontaneous daily payments without records (Govt. 2025 Study).
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: 'rgba(17, 24, 39, 0.75)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '16px',
+                padding: '20px',
+              }}
+            >
+              <span style={{ fontSize: '0.74rem', fontWeight: 800, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                Automated Solution
+              </span>
+              <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#34d399', margin: '6px 0 4px 0' }}>Zero Manual Entry</div>
+              <div style={{ fontSize: '0.84rem', color: '#cbd5e1', lineHeight: 1.5 }}>
+                On-device regex parses every bank debit alert in sub-second offline time.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Section Header */}
       <div className="pa-showcase-header">
         <div className="pa-showcase-badge">

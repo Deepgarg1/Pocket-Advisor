@@ -2,6 +2,15 @@
    POCKET ADVISOR: MINIMAL LUXE DESIGN SYSTEM & TOKENS
    ============================================================================== */
 
+@font-face {
+  font-family: 'Plus Jakarta Sans Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('sans-serif');
+  ascent-override: 102%;
+  descent-override: 29%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+}
+
 :root {
   /* Color Palette - Dark Luxe (Default) */
   --bg-app: #090d16;
@@ -43,7 +52,7 @@
   --info-surface: rgba(56, 189, 248, 0.14);
 
   /* Typography */
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
   /* Geometry & Shadows */

@@ -13,6 +13,8 @@ export async function renderHomeComponents() {
     const { Navbar } = await server.ssrLoadModule('./src/components/layout/Navbar.tsx');
     const { Hero } = await server.ssrLoadModule('./src/components/landing/Hero.tsx');
     const { HomeFeaturesShowcase } = await server.ssrLoadModule('./src/components/landing/HomeFeaturesShowcase.tsx');
+    const { InteractiveQuickCalculator } = await server.ssrLoadModule('./src/components/landing/InteractiveQuickCalculator.tsx');
+    const { PrivacyComparisonSection } = await server.ssrLoadModule('./src/components/landing/PrivacyComparisonSection.tsx');
     const { FaqSection } = await server.ssrLoadModule('./src/components/landing/FaqSection.tsx');
     const { MobileBottomNav } = await server.ssrLoadModule('./src/components/layout/MobileBottomNav.tsx');
     const { Footer } = await server.ssrLoadModule('./src/components/layout/Footer.tsx');
@@ -44,6 +46,8 @@ export async function renderHomeComponents() {
             null,
             React.createElement(Hero, null),
             React.createElement(HomeFeaturesShowcase, null),
+            React.createElement(InteractiveQuickCalculator, null),
+            React.createElement(PrivacyComparisonSection, null),
             React.createElement(FaqSection, { useHomeFaqs: true, headingLevel: 'h2' })
           )
         ),

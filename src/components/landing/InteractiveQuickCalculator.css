@@ -120,6 +120,10 @@
   color: #cbd5e1;
 }
 
+.pa-label-row label {
+  cursor: pointer;
+}
+
 .pa-label-row strong {
   font-size: 1rem;
   color: #f8fafc;

@@ -73,10 +73,12 @@ export const InteractiveQuickCalculator: React.FC = () => {
         </div>
 
         <div className="pa-calc-card">
-          <div className="pa-calc-tab-nav" role="tablist">
+          <div className="pa-calc-tab-nav" role="tablist" aria-label="Calculator Mode Selection">
             <button
+              id="emi-calc-tab"
               type="button"
               role="tab"
+              aria-controls="emi-calc-panel"
               aria-selected={activeTab === 'emi'}
               className={`pa-calc-tab ${activeTab === 'emi' ? 'active' : ''}`}
               onClick={() => setActiveTab('emi')}
@@ -85,8 +87,10 @@ export const InteractiveQuickCalculator: React.FC = () => {
               <span>Loan EMI Calculator</span>
             </button>
             <button
+              id="sip-calc-tab"
               type="button"
               role="tab"
+              aria-controls="sip-calc-panel"
               aria-selected={activeTab === 'sip'}
               className={`pa-calc-tab ${activeTab === 'sip' ? 'active' : ''}`}
               onClick={() => setActiveTab('sip')}
@@ -98,15 +102,22 @@ export const InteractiveQuickCalculator: React.FC = () => {
 
           <div className="pa-calc-body">
             {activeTab === 'emi' ? (
-              <div className="pa-calc-grid">
+              <div id="emi-calc-panel" role="tabpanel" aria-labelledby="emi-calc-tab" className="pa-calc-grid">
                 <div className="pa-calc-inputs">
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Loan Amount</span>
+                      <label htmlFor="emi-loan-amount">Loan Amount</label>
                       <strong>{formatInr(loanAmount)}</strong>
                     </div>
                     <input
+                      id="emi-loan-amount"
+                      name="loanAmount"
                       type="range"
+                      aria-label="Loan Amount in Rupees"
+                      aria-valuemin={100000}
+                      aria-valuemax={10000000}
+                      aria-valuenow={loanAmount}
+                      aria-valuetext={formatInr(loanAmount)}
                       min={100000}
                       max={10000000}
                       step={50000}
@@ -122,11 +133,18 @@ export const InteractiveQuickCalculator: React.FC = () => {
 
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Interest Rate (p.a.)</span>
+                      <label htmlFor="emi-interest-rate">Interest Rate (p.a.)</label>
                       <strong>{interestRate}%</strong>
                     </div>
                     <input
+                      id="emi-interest-rate"
+                      name="interestRate"
                       type="range"
+                      aria-label="Interest Rate Percentage per Annum"
+                      aria-valuemin={5}
+                      aria-valuemax={24}
+                      aria-valuenow={interestRate}
+                      aria-valuetext={`${interestRate}% per annum`}
                       min={5}
                       max={24}
                       step={0.1}
@@ -142,11 +160,18 @@ export const InteractiveQuickCalculator: React.FC = () => {
 
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Tenure (Years)</span>
+                      <label htmlFor="emi-loan-tenure">Tenure (Years)</label>
                       <strong>{loanTenureYears} Years ({loanTenureYears * 12} Mos)</strong>
                     </div>
                     <input
+                      id="emi-loan-tenure"
+                      name="loanTenureYears"
                       type="range"
+                      aria-label="Loan Tenure in Years"
+                      aria-valuemin={1}
+                      aria-valuemax={30}
+                      aria-valuenow={loanTenureYears}
+                      aria-valuetext={`${loanTenureYears} Years`}
                       min={1}
                       max={30}
                       step={1}
@@ -193,15 +218,22 @@ export const InteractiveQuickCalculator: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <div className="pa-calc-grid">
+              <div id="sip-calc-panel" role="tabpanel" aria-labelledby="sip-calc-tab" className="pa-calc-grid">
                 <div className="pa-calc-inputs">
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Monthly Investment</span>
+                      <label htmlFor="sip-monthly-amount">Monthly Investment</label>
                       <strong>{formatInr(monthlySip)} / mo</strong>
                     </div>
                     <input
+                      id="sip-monthly-amount"
+                      name="monthlySip"
                       type="range"
+                      aria-label="Monthly Investment Amount in Rupees"
+                      aria-valuemin={500}
+                      aria-valuemax={100000}
+                      aria-valuenow={monthlySip}
+                      aria-valuetext={`${formatInr(monthlySip)} per month`}
                       min={500}
                       max={100000}
                       step={500}
@@ -217,11 +249,18 @@ export const InteractiveQuickCalculator: React.FC = () => {
 
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Expected Return Rate (CAGR)</span>
+                      <label htmlFor="sip-expected-rate">Expected Return Rate (CAGR)</label>
                       <strong>{sipRate}%</strong>
                     </div>
                     <input
+                      id="sip-expected-rate"
+                      name="sipRate"
                       type="range"
+                      aria-label="Expected Return Rate Percentage CAGR"
+                      aria-valuemin={6}
+                      aria-valuemax={25}
+                      aria-valuenow={sipRate}
+                      aria-valuetext={`${sipRate}% CAGR`}
                       min={6}
                       max={25}
                       step={0.5}
@@ -237,11 +276,18 @@ export const InteractiveQuickCalculator: React.FC = () => {
 
                   <div className="pa-input-group">
                     <div className="pa-label-row">
-                      <span>Time Horizon</span>
+                      <label htmlFor="sip-tenure-years">Time Horizon</label>
                       <strong>{sipTenureYears} Years</strong>
                     </div>
                     <input
+                      id="sip-tenure-years"
+                      name="sipTenureYears"
                       type="range"
+                      aria-label="SIP Time Horizon in Years"
+                      aria-valuemin={1}
+                      aria-valuemax={35}
+                      aria-valuenow={sipTenureYears}
+                      aria-valuetext={`${sipTenureYears} Years`}
                       min={1}
                       max={35}
                       step={1}

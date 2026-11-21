@@ -24,8 +24,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'monthly-budget-planner': {
-    title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
-    description: 'Plan a monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs and wants, track savings, check your balance, and export your plan to CSV.',
+    title: '50/30/20 Monthly Budget Planner India (2026) — Free Salary Calculator | Pocket Advisor',
+    description: 'Free monthly budget planner for Indian salaries using the 50/30/20 rule. Plan take-home pay, calculate needs, wants, and savings, and export your budget.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,
@@ -136,8 +136,8 @@ export const ROUTE_SEO: Record<string, PageMetadata> = {
     ogImage: DEFAULT_IMAGE,
   },
   'compound-interest-calculator': {
-    title: 'Compound Interest Calculator India: Monthly Investment & Growth',
-    description: 'Calculate compound interest in India with an initial amount, monthly contributions, annual rate and investment period. Compare compounding frequency and estimate total invested, interest earned and future value.',
+    title: 'Compound Interest Calculator India (2026) — Daily, Monthly & In ₹ | Pocket Advisor',
+    description: 'Calculate compound interest in rupees (₹) with daily, monthly, and yearly frequencies. Simulate power of compounding, SIP recurring deposits, and Rule of 72.',
     canonical: `${BASE_URL}/compound-interest-calculator`,
     ogType: 'website',
     ogImage: DEFAULT_IMAGE,

@@ -1715,6 +1715,40 @@ A = P × (1 + r / n)^(n × t) + PMT × [((1 + r / n)^(n × t) - 1) / (r / n)]</p
             </table>
           </div>
 
+          <h2 style="${headingStyle}">Simple Interest vs Compound Interest: ₹1,00,000 at 10%</h2>
+          <p>The difference between linear growth and exponential compounding becomes dramatic over 10+ years:</p>
+          <div style="overflow-x: auto; margin: 24px 0;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; background: rgba(17, 24, 39, 0.7); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 12px;">
+              <thead>
+                <tr style="background: rgba(255, 255, 255, 0.04); border-bottom: 2px solid rgba(255, 255, 255, 0.08);">
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Tenure</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Simple Interest Value</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #f8fafc;">Compound Interest (Annual)</th>
+                  <th style="padding: 12px 16px; text-align: left; color: #34d399;">Compounding Advantage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">5 Years</td><td style="padding: 12px 16px;">₹1,50,000</td><td style="padding: 12px 16px;">₹1,61,051</td><td style="padding: 12px 16px; color: #34d399;">+₹11,051 (+7.4%)</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">10 Years</td><td style="padding: 12px 16px;">₹2,00,000</td><td style="padding: 12px 16px;">₹2,59,374</td><td style="padding: 12px 16px; color: #34d399;">+₹59,374 (+29.7%)</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">15 Years</td><td style="padding: 12px 16px;">₹2,50,000</td><td style="padding: 12px 16px;">₹4,17,725</td><td style="padding: 12px 16px; color: #34d399;">+₹1,67,725 (+67.1%)</td></tr>
+                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);"><td style="padding: 12px 16px; font-weight: 700;">20 Years</td><td style="padding: 12px 16px;">₹3,00,000</td><td style="padding: 12px 16px;">₹6,72,750</td><td style="padding: 12px 16px; color: #34d399; font-weight: 700;">+₹3,72,750 (+124.3%)</td></tr>
+                <tr><td style="padding: 12px 16px; font-weight: 700;">25 Years</td><td style="padding: 12px 16px;">₹3,50,000</td><td style="padding: 12px 16px; color: #38bdf8; font-weight: 700;">₹10,83,471</td><td style="padding: 12px 16px; color: #34d399; font-weight: 800;">+₹7,33,471 (+209.6%)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 style="${headingStyle}">Top Compound Interest Investment Schemes in India (2026)</h2>
+          <div style="${cardStyle}">
+            <ul style="padding-left: 20px; margin-bottom: 0; line-height: 1.7;">
+              <li><strong>Public Provident Fund (PPF):</strong> Offers 7.1% p.a. compounded annually with complete EEE (Exempt-Exempt-Exempt) tax-free status.</li>
+              <li><strong>Equity Mutual Fund SIPs:</strong> Compounded daily through Net Asset Value (NAV) appreciation; historically yields 12–14% CAGR over 10+ year horizons.</li>
+              <li><strong>Employees' Provident Fund (EPF):</strong> Compounded monthly with annual interest crediting (currently 8.25% p.a.).</li>
+              <li><strong>Bank Fixed Deposits (FDs) &amp; RDs:</strong> Compounded quarterly according to RBI norms across SBI, HDFC, ICICI, and Axis Bank.</li>
+              <li><strong>National Pension System (NPS):</strong> Market-linked compounding across corporate bonds, government securities, and equity funds.</li>
+              <li><strong>Sukanya Samriddhi Yojana (SSY):</strong> Compounded annually for girl child savings with sovereign guarantee and 8.2% p.a. returns.</li>
+            </ul>
+          </div>
+
           <h2 style="${headingStyle}">The Rule of 72: Mental Math for Doubling Money</h2>
           <p>The Rule of 72 is an accurate mental shortcut to estimate how many years it takes for an investment to double at a given compound interest rate:</p>
           <div style="${cardStyle}">

@@ -1182,13 +1182,27 @@ export const CompoundInterestGuide: React.FC = () => {
         </div>
 
         {/* The Rule of 72 Callout */}
-        <div style={{ padding: '18px 22px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.25)' }}>
+        <div style={{ padding: '18px 22px', borderRadius: '12px', background: 'rgba(99, 102, 241, 0.08)', border: '1px solid rgba(99, 102, 241, 0.25)', marginBottom: '20px' }}>
           <h4 style={{ color: 'var(--primary)', fontWeight: 700, fontSize: '0.98rem', marginBottom: '6px' }}>
             ⚡ The Rule of 72: Doubling Your Capital
           </h4>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.55, margin: 0 }}>
             Divide 72 by your annual interest rate to find how many years it takes for your investment to double. At 12% equity return, your wealth doubles every <strong>6 years</strong> (72 / 12). Over 24 years, that means your money doubles 4 times: ₹10L becomes ₹20L, then ₹40L, then ₹80L, and finally ₹1.6 Crores!
           </p>
+        </div>
+
+        {/* Top Compounding Schemes in India */}
+        <div>
+          <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '10px' }}>
+            Top Compound Interest Investment Schemes in India (2026)
+          </h4>
+          <ul style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.7, paddingLeft: '20px', margin: 0 }}>
+            <li><strong>Public Provident Fund (PPF):</strong> 7.1% p.a. compounded annually with complete EEE tax-exempt status.</li>
+            <li><strong>Equity Mutual Fund SIPs:</strong> Compounded daily through Net Asset Value (NAV); historically yields 12–14% CAGR over 10+ years.</li>
+            <li><strong>Employees' Provident Fund (EPF):</strong> Compounded monthly with 8.25% p.a. guaranteed government-backed yield.</li>
+            <li><strong>Bank Fixed Deposits (FD) &amp; RD:</strong> Compounded quarterly under RBI guidelines across all major Indian banks.</li>
+            <li><strong>National Pension System (NPS):</strong> Market-linked pension compounding across equity and debt asset classes.</li>
+          </ul>
         </div>
       </Card>
 

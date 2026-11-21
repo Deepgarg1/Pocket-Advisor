@@ -1255,6 +1255,7 @@ ${shareUrl}
                           onChange={(e) => setEditingMember({ ...editingMember, current: e.target.value })}
                           onKeyDown={(e) => {
                             if (e.key === 'Enter') {
+                              if (e.nativeEvent.isComposing || e.keyCode === 229) return;
                               e.preventDefault();
                               handleRenameMember(editingMember.original, editingMember.current);
                             } else if (e.key === 'Escape') {

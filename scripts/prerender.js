@@ -481,8 +481,8 @@ const routes = [
   },
   {
     slug: 'compound-interest-calculator',
-    title: 'Compound Interest Calculator India (2026) — Daily to Annual Frequencies | Pocket Advisor',
-    description: 'Simulate compound interest with daily, monthly, quarterly, and annual compounding schedules. Model recurring monthly deposits and visualize exponential wealth growth.',
+    title: 'Compound Interest Calculator India (2026) — Daily, Monthly & In ₹ | Pocket Advisor',
+    description: 'Calculate compound interest in rupees (₹) with daily, monthly, and yearly frequencies. Simulate power of compounding, SIP recurring deposits, and Rule of 72.',
     canonical: `${BASE_URL}/compound-interest-calculator`,
     badgeCategory: 'Compounding Engine',
     pillText: 'Daily to Annual Frequencies • Recurring Deposits • Rule of 72',
@@ -530,6 +530,22 @@ const routes = [
             acceptedAnswer: {
               '@type': 'Answer',
               text: 'The Rule of 72 estimates how many years it will take to double an investment by dividing 72 by the annual return rate. For example, at 12% equity return, money doubles in approximately 72 / 12 = 6 years.'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'Which investment schemes offer compound interest in India?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Major compounding instruments in India include Public Provident Fund (PPF at 7.1% p.a. annual compounding), Equity Mutual Fund SIPs (daily NAV compounding), Employees Provident Fund (EPF at 8.25% p.a. monthly compounding), and Bank FDs and RDs (compounded quarterly under RBI guidelines).'
+            }
+          },
+          {
+            '@type': 'Question',
+            name: 'What is the difference between Simple Interest and Compound Interest?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Simple interest is earned strictly on the original principal throughout the investment tenure. Compound interest adds earned interest back into the principal at each interval, creating exponential snowball growth where interest earns interest.'
             }
           }
         ]
@@ -595,8 +611,8 @@ const routes = [
   },
   {
     slug: 'monthly-budget-planner',
-    title: 'Monthly Budget Planner India (50/30/20) | Pocket Advisor',
-    description: 'Plan a monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs and wants, track savings, check your balance, and export your plan to CSV.',
+    title: '50/30/20 Monthly Budget Planner India (2026) — Free Salary Calculator | Pocket Advisor',
+    description: 'Free monthly budget planner for Indian salaries using the 50/30/20 rule. Plan take-home pay, calculate needs, wants, and savings, and export your budget.',
     canonical: `${BASE_URL}/monthly-budget-planner`,
     badgeCategory: 'Free Budget Tool',
     pillText: 'Personal Budget Planner • Monthly Expenses India • 50/30/20 Guide',
@@ -1854,88 +1870,6 @@ const routes = [
             name: 'Store Encrypted in Local SQLCipher',
             text: 'Keep transaction history encrypted in local SQLite AES-256 with optional user-controlled cloud backup.',
             url: `${BASE_URL}/how-to-track-upi-payments-automatically#step-4`
-          }
-        ]
-      }
-    ]
-  },
-  {
-    slug: 'best-expense-tracker-apps-india',
-    title: 'Best Expense Tracker Apps in India (2026): Architectural Comparison | Pocket Advisor',
-    description: 'An architectural comparison of India’s personal finance apps across 4 models: on-device SMS parsers, Account Aggregators, cloud credit hubs, and manual web ledgers.',
-    canonical: `${BASE_URL}/best-expense-tracker-apps-india`,
-    badgeCategory: 'Architectural Comparison Guide',
-    pillText: 'Objective Technical Analysis • Category Framework',
-    h1: 'Best Expense Tracker Apps in India (2026): An Architectural Comparison',
-    h1Gradient: 'Offline-First SMS vs Account Aggregators vs Cloud Credit Hubs vs Web Ledgers',
-    heroDesc: 'An objective, technical evaluation of India’s 4 dominant personal finance architectures: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual web tools. Compare privacy, cloud sync options, and business models.',
-    ctaText: 'Get Pocket Advisor on Google Play',
-    ctaHref: PLAY_STORE_URL,
-    schemas: [
-      {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: 'Best Expense Tracker Apps in India (2026): An Architectural Comparison',
-        description: 'An objective, technical evaluation of India’s 4 dominant personal finance architectures: on-device SMS parsers, Account Aggregators (AA), cloud credit marketplaces, and manual web tools. Compare privacy, cloud sync options, and business models.',
-        image: DEFAULT_IMAGE,
-        datePublished: '2026-10-09T00:00:00+05:30',
-        dateModified: '2026-10-09T00:00:00+05:30',
-        author: { '@type': 'Organization', name: 'Pocket Advisor Financial Engineering Team', url: BASE_URL },
-        publisher: { '@type': 'Organization', name: 'Pocket Advisor', logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
-        mainEntityOfPage: `${BASE_URL}/best-expense-tracker-apps-india`
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${BASE_URL}/guides` },
-          { '@type': 'ListItem', position: 3, name: 'Best Expense Tracker Apps India', item: `${BASE_URL}/best-expense-tracker-apps-india` }
-        ]
-      },
-      {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: 'Can Pocket Advisor back up my expenses to the cloud?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Yes. Pocket Advisor gives you full control over your data. By default, it operates 100% offline using on-device SQLCipher AES-256 encryption. If you wish to sync across devices or prevent data loss when changing phones, you can enable optional Cloud Backup (powered by Supabase) at any time.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'How is Pocket Advisor monetized if you don\'t push personal loans?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Pocket Advisor provides a free ad-supported tier with standard, clean mobile display ads. Users who prefer a completely ad-free experience can upgrade to Pocket Advisor Pro. Crucially, we never sell user financial data, broker NBFC loans, or make telemarketing calls.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Is it safe to give SMS permissions to an expense tracker in India?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'It depends on whether parsing is done on-device or on a remote server. Pocket Advisor processes bank messages 100% locally on your Android device using deterministic regex and immediately purges OTPs and non-financial messages in memory. Apps that upload your raw SMS inbox to remote servers expose your financial history to data breaches and loan marketing.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'Why isn\'t automated SMS tracking available on iPhone?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'Apple\'s iOS operating system does not allow third-party apps to read SMS messages in the background. Android permits this under Google Play\'s Financial Exception policy. On iPhone, automated options rely on the RBI Account Aggregator framework, which requires subscription fees to maintain server infrastructure.'
-            }
-          },
-          {
-            '@type': 'Question',
-            name: 'What is the difference between Account Aggregator and SMS tracking?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'SMS tracking parses instant debit alerts sent by your bank to your device locally with zero external dependencies. Account Aggregators (AA) query your bank\'s servers directly via RBI-regulated intermediaries. AA works on iPhone and doesn\'t require SMS access, but depends on bank server uptime and requires paid subscriptions or loan cross-selling to cover API query fees.'
-            }
           }
         ]
       }

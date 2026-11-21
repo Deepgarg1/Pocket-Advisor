@@ -4,7 +4,7 @@ import rawArticles from './articles.json';
 // Single source of truth loaded dynamically from articles.json
 export const NEWS_ARTICLES: Article[] = rawArticles as Article[];
 
-const SORTED_ARTICLES: Article[] = [...NEWS_ARTICLES].sort(
+const SORTED_ARTICLES: Article[] = NEWS_ARTICLES.toSorted(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 

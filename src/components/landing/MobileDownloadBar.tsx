@@ -9,21 +9,39 @@ export const MobileDownloadBar: React.FC = () => {
   const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    const checkVisibility = () => {
-      if (window.innerWidth <= 800 && window.scrollY > 260 && !isDismissed) {
-        setIsVisible(true);
-      } else {
+    if (isDismissed) {
+      setIsVisible(false);
+      return;
+    }
+
+    const mql = window.matchMedia('(max-width: 800px)');
+    let ticking = false;
+
+    const updateVisibility = () => {
+      if (!mql.matches) {
         setIsVisible(false);
+        return;
+      }
+      setIsVisible(window.scrollY > 260);
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateVisibility();
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener('scroll', checkVisibility, { passive: true });
-    window.addEventListener('resize', checkVisibility, { passive: true });
-    checkVisibility();
+    mql.addEventListener('change', updateVisibility);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateVisibility();
 
     return () => {
-      window.removeEventListener('scroll', checkVisibility);
-      window.removeEventListener('resize', checkVisibility);
+      mql.removeEventListener('change', updateVisibility);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [isDismissed]);
 

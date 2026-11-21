@@ -150,8 +150,8 @@ if (!fs.existsSync(budgetPlannerPath)) {
 } else {
   const budgetHtml = fs.readFileSync(budgetPlannerPath, 'utf8');
   const budgetCanonical = canonicalOrigin + '/monthly-budget-planner';
-  const expectedTitle = 'Monthly Budget Planner India (50/30/20) | Pocket Advisor';
-  const expectedDescription = 'Plan a monthly budget in India with the 50/30/20 rule. Edit expenses, compare needs and wants, track savings, check your balance, and export your plan to CSV.';
+  const expectedTitle = '50/30/20 Monthly Budget Planner India (2026) — Free Salary Calculator | Pocket Advisor';
+  const expectedDescription = 'Free monthly budget planner for Indian salaries using the 50/30/20 rule. Plan take-home pay, calculate needs, wants, and savings, and export your budget.';
 
   if (!budgetHtml.includes('<title>' + escapeHtml(expectedTitle) + '</title>')) {
     fail('Monthly budget planner title is missing or does not match the SEO target.');
